@@ -1,47 +1,47 @@
 <stl>
-    <bus id="89" logo="" name="2" />
-    <bus id="" logo="" name="12" />
-    <bus id="" logo="" name="17" />
-    <bus id="5" logo="" name="20" />
-    <bus id="" logo="" name="22" />
-    <bus id="" logo="" name="24" />
-    <bus id="7" logo="" name="26" />
-    <bus id="" logo="" name="27" />
-    <bus id="" logo="" name="31" />
-    <bus id="" logo="" name="33" />
-    <bus id="" logo="" name="36" />
-    <bus id="12" logo="" name="37" />
-    <bus id="13" logo="" name="39" />
-    <bus id="" logo="" name="40" />
-    <bus id="" logo="" name="41" />
-    <bus id="16" logo="" name="42" />
-    <bus id="" logo="" name="43" />
-    <bus id="" logo="" name="45" />
-    <bus id="" logo="" name="46" />
-    <bus id="" logo="" name="48" />
-    <bus id="" logo="" name="50" />
-    <bus id="" logo="" name="52" />
-    <bus id="135" logo="" name="55" />
-    <bus id="" logo="" name="56" />
-    <bus id="137" logo="" name="58" />
-    <bus id="" logo="" name="60" />
-    <bus id="" logo="" name="61" />
-    <bus id="140" logo="" name="63" />
-    <bus id="141" logo="" name="65" />
-    <bus id="" logo="" name="66" />
-    <bus id="143" logo="" name="70" />
-    <bus id="144" logo="" name="73" />
-    <bus id="" logo="" name="74" />
-    <bus id="146" logo="" name="76" />
-    <bus id="147" logo="" name="144" />
-    <bus id="148" logo="" name="151" />
-    <bus id="" logo="" name="222" />
-    <bus id="" logo="" name="252" />
-    <bus id="" logo="" name="360" />
-    <bus id="" logo="" name="402" />
-    <bus id="" logo="" name="404" />
-    <bus id="" logo="" name="901" />
-    <bus id="" logo="" name="902" />
-    <bus id="155" logo="" name="903" />
-    <bus id="" logo="" name="925" />
+    <bus id="89" name="Métro Henri-Bourassa" />
+    <bus id="" name="Pont-Viau" />
+    <bus id="" name="Auteuil" />
+    <bus id="5" name="Métro Cartier" />
+    <bus id="" name="Saint-François" />
+    <bus id="" name="Métro Cartier" />
+    <bus id="7" name="Métro Montmorency" />
+    <bus id="" name="Gare Vimont" />
+    <bus id="" name="Auteuil" />
+    <bus id="" name="Métro Montmorency" />
+    <bus id="" name="Métro Montmorency" />
+    <bus id="12" name="Sainte-Rose" />
+    <bus id="13" name="Auteuil" />
+    <bus id="" name="Métro Montmorency" />
+    <bus id="" name="41" />
+    <bus id="16" name="Saint-François" />
+    <bus id="" name="Auteuil" />
+    <bus id="" name="Auteuil" />
+    <bus id="" name="Laval-Ouest" />
+    <bus id="" name="Gare Vimont" />
+    <bus id="" name="Saint-Vincent-De-Paul" />
+    <bus id="" name="Saint-François" />
+    <bus id="135" name="Laval-Ouest" />
+    <bus id="" name="Métro Montmorency" />
+    <bus id="137" name="Saint-Vincent-De-Paul" />
+    <bus id="" name="Métro Cartier" />
+    <bus id="" name="Fabreville" />
+    <bus id="140" name="Gare Sainte-Rose" />
+    <bus id="141" name="Gare Sainte-Rose" />
+    <bus id="" name="Terminus Le Carrefour" />
+    <bus id="143" name="Métro Cartier" />
+    <bus id="144" name="Fabreville" />
+    <bus id="" name="Saint-François" />
+    <bus id="146" name="Métro Montmorency" />
+    <bus id="147" name="Métro Côte-Vertu" />
+    <bus id="148" name="Sainte-Rose" />
+    <bus id="" name="Saint-Vincent-De-Paul" />
+    <bus id="" name="Saint-François" />
+    <bus id="" name="360" />
+    <bus id="" name="402" />
+    <bus id="" name="404" />
+    <bus id="" name="Saint-François" />
+    <bus id="" name="902" />
+    <bus id="155" name="Métro Montmorency" />
+    <bus id="" name="Saint-François" />
 </stl>
