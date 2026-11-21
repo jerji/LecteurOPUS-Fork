@@ -619,10 +619,35 @@ public class CardHistoryActivity extends AppCompatActivity {
                             Contract cB = contB.get(i);
                             String conA = contractSummary(cA);
                             String conB = contractSummary(cB);
-                            if (!conA.equals(conB)) {
+                            boolean same = conA.equals(conB)
+                                && cA.getContractGeneralBitmap() == cB.getContractGeneralBitmap()
+                                && cA.getContractProvider() == cB.getContractProvider()
+                                && cA.getContractTariff() == cB.getContractTariff()
+                                && cA.getSaleAgent() == cB.getSaleAgent()
+                                && cA.getUsedCounter() == cB.getUsedCounter()
+                                && cA.getUseLimit() == cB.getUseLimit()
+                                && cA.getScore() == cB.getScore()
+                                && (cA.getSaleDate() == null ? cB.getSaleDate() == null : cA.getSaleDate().equals(cB.getSaleDate()));
+                            if (!same) {
                                 sb.append("  Contract ").append(i + 1).append(":\n");
                                 sb.append("    A: ").append(conA).append("\n");
+                                sb.append("       Bitmap=").append(cA.getContractGeneralBitmap())
+                                  .append(" Provider=").append(cA.getContractProvider())
+                                  .append(" Tariff=0x").append(String.format("%04X", cA.getContractTariff()))
+                                  .append(" Agent=").append(cA.getSaleAgent())
+                                  .append(" Used=").append(cA.getUsedCounter())
+                                  .append(" Limit=").append(cA.getUseLimit())
+                                  .append(" Score=").append(cA.getScore())
+                                  .append(" Sale=").append(cA.getSaleDate() != null ? Utils.DateToStringShort(cA.getSaleDate()) : "?").append("\n");
                                 sb.append("    B: ").append(conB).append("\n");
+                                sb.append("       Bitmap=").append(cB.getContractGeneralBitmap())
+                                  .append(" Provider=").append(cB.getContractProvider())
+                                  .append(" Tariff=0x").append(String.format("%04X", cB.getContractTariff()))
+                                  .append(" Agent=").append(cB.getSaleAgent())
+                                  .append(" Used=").append(cB.getUsedCounter())
+                                  .append(" Limit=").append(cB.getUseLimit())
+                                  .append(" Score=").append(cB.getScore())
+                                  .append(" Sale=").append(cB.getSaleDate() != null ? Utils.DateToStringShort(cB.getSaleDate()) : "?").append("\n");
                                 hasDiff = true;
                             }
                         }
