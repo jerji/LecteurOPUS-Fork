@@ -428,8 +428,23 @@ public class CardActivity extends AppCompatActivity {
                     conn.getOutputStream().write(json.getBytes("UTF-8"));
                     int code = conn.getResponseCode();
                     conn.disconnect();
+
+                    // Write trip hash to prevent re-submitting same trip
+                    if (code == 200 && m_TimeHash != null && !m_TimeHash.isEmpty()) {
+                        try {
+                            java.io.BufferedWriter bw = new java.io.BufferedWriter(new java.io.FileWriter(m_PreviousAddTrip, true));
+                            bw.write(m_TimeHash);
+                            bw.newLine();
+                            bw.flush();
+                            bw.close();
+                        } catch (java.io.IOException e) {
+                            Log.e(TAG, "Error writing file");
+                        }
+                    }
+
+                    final int respCode = code;
                     runOnUiThread(() -> {
-                        if (code == 200) Toast.makeText(this, "Submitted", Toast.LENGTH_SHORT).show();
+                        if (respCode == 200) Toast.makeText(this, "Submitted", Toast.LENGTH_SHORT).show();
                         else Toast.makeText(this, "Server error", Toast.LENGTH_SHORT).show();
                     });
                 } else {
@@ -444,24 +459,43 @@ public class CardActivity extends AppCompatActivity {
                     conn.getOutputStream().write(json.getBytes("UTF-8"));
                     conn.getResponseCode();
                     conn.disconnect();
+
+                    // Write trip hash to prevent re-submitting same trip
+                    if (m_TimeHash != null && !m_TimeHash.isEmpty()) {
+                        try {
+                            java.io.BufferedWriter bw = new java.io.BufferedWriter(new java.io.FileWriter(m_PreviousAddTrip, true));
+                            bw.write(m_TimeHash);
+                            bw.newLine();
+                            bw.flush();
+                            bw.close();
+                        } catch (java.io.IOException e) {
+                            Log.e(TAG, "Error writing file");
+                        }
+                    }
+
                     if (!isAdd) {
                         runOnUiThread(() -> {
                             android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(this);
                             builder.setTitle("Correct this bus line");
                             builder.setMessage("Current: " + bn + " (" + on + ")\nWhat should it be?");
-                            android.widget.LinearLayout layout = new android.widget.LinearLayout(this);
-                            layout.setOrientation(android.widget.LinearLayout.VERTICAL);
-                            layout.setPadding(40, 10, 40, 10);
-                            android.widget.EditText busInput = new android.widget.EditText(this);
-                            busInput.setHint("Bus/line name");
-                            layout.addView(busInput);
-                            android.widget.EditText opInput = new android.widget.EditText(this);
-                            opInput.setHint("Operator (e.g. STM)");
-                            layout.addView(opInput);
-                            builder.setView(layout);
+
+                            android.view.LayoutInflater inflater = LayoutInflater.from(this);
+                            android.view.View promptView = inflater.inflate(R.layout.input_dialog, null);
+                            builder.setView(promptView);
+
+                            android.widget.Spinner operatorSpinner = (android.widget.Spinner) promptView.findViewById(R.id.operatorInput);
+                            android.widget.ArrayAdapter<String> adapter = new android.widget.ArrayAdapter<>(this,
+                                    android.R.layout.simple_spinner_dropdown_item, Utils.getOperatorNames(this));
+                            operatorSpinner.setAdapter(adapter);
+
+                            android.widget.Spinner busSpinner = (android.widget.Spinner) promptView.findViewById(R.id.busInput);
+                            busSpinner.setVisibility(android.view.View.VISIBLE);
+                            promptView.findViewById(R.id.busLabel).setVisibility(android.view.View.VISIBLE);
+                            promptView.findViewById(R.id.busLayout).setVisibility(android.view.View.VISIBLE);
+
                             builder.setPositiveButton("Submit correction", (dialog, which) -> {
-                                String cb = busInput.getText().toString().trim();
-                                String co = opInput.getText().toString().trim();
+                                String cb = busSpinner.getSelectedItem().toString().trim();
+                                String co = operatorSpinner.getSelectedItem().toString().trim();
                                 if (!cb.isEmpty() || !co.isEmpty()) {
                                     sendData(cb.isEmpty() ? bn : cb, co.isEmpty() ? on : co, true, true);
                                 }

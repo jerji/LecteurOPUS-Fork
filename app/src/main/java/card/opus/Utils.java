@@ -35,7 +35,7 @@ import java.util.concurrent.ExecutionException;
 
 public class Utils {
 
-    public static final String DOMAIN = "tral.gq";
+    public static final String DOMAIN = "stmcontrib.jouellet.net";
 
     public static final String TAG = "Util";
 
