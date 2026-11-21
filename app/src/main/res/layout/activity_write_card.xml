@@ -323,7 +323,7 @@
                 android:layout_height="48dp"
                 android:backgroundTint="@color/cardScanButton"
                 android:textColor="@color/cardHeaderText"
-                android:text="Encode & Write to Tag"
+                android:text="Encode &amp; Write to Tag"
                 android:textSize="15sp"
                 android:textAllCaps="false"
                 android:elevation="2dp"
