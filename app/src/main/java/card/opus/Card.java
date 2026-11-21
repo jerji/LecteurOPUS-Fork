@@ -48,6 +48,45 @@ public class Card implements Serializable {
         // do nothing
     }
 
+    public static Card fromRawSerialize(String rawXml) {
+        if (rawXml == null || rawXml.isEmpty()) return null;
+        try {
+            java.io.ByteArrayInputStream bais = new java.io.ByteArrayInputStream(rawXml.getBytes("UTF-8"));
+            javax.xml.parsers.DocumentBuilderFactory factory = javax.xml.parsers.DocumentBuilderFactory.newInstance();
+            javax.xml.parsers.DocumentBuilder builder = factory.newDocumentBuilder();
+            org.w3c.dom.Document doc = builder.parse(bais);
+
+            if (rawXml.contains("<Mifare>")) {
+                // MIFARE UL: parse pages from XML
+                org.w3c.dom.NodeList pages = doc.getElementsByTagName("List");
+                byte[][] pageData = new byte[16][4];
+                for (int i = 0; i < pages.getLength(); i++) {
+                    String idxStr = pages.item(i).getAttributes().getNamedItem("index").getNodeValue();
+                    String hex = pages.item(i).getTextContent().trim();
+                    int idx = Integer.parseInt(idxStr);
+                    if (idx >= 0 && idx < 16) {
+                        pageData[idx] = hexStringToBytes(hex);
+                    }
+                }
+                Mifare mifare = new Mifare(pageData);
+                return mifare.getCard();
+            }
+        } catch (Exception e) {
+            Log.e(TAG, "fromRawSerialize error: " + e.getMessage());
+        }
+        return null;
+    }
+
+    private static byte[] hexStringToBytes(String s) {
+        int len = s.length();
+        byte[] data = new byte[len / 2];
+        for (int i = 0; i < len; i += 2) {
+            data[i / 2] = (byte) ((Character.digit(s.charAt(i), 16) << 4)
+                    + Character.digit(s.charAt(i+1), 16));
+        }
+        return data;
+    }
+
     public Card(CardType p_Type, long p_ID, Calendar p_ExpirationDate,
                 ArrayList<Trip> p_Trip,  ArrayList<Contract> p_Contract, String serialize) {
         m_Type = p_Type;
