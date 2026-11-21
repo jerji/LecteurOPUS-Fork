@@ -1,4 +1,4 @@
-name: Build APK
+name: Build debug APK
 
 on:
   push:
@@ -22,12 +22,12 @@ jobs:
       - name: Grant gradlew permissions
         run: chmod +x gradlew
 
-      - name: Build release APK
-        run: ./gradlew assembleRelease
+      - name: Build debug APK
+        run: ./gradlew assembleDebug
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
-          name: LecteurOPUS-release
-          path: app/build/outputs/apk/release/*.apk
+          name: LecteurOPUS-debug
+          path: app/build/outputs/apk/debug/*.apk
           if-no-files-found: error
