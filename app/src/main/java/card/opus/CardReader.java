@@ -41,6 +41,16 @@ public class CardReader implements NfcAdapter.ReaderCallback {
     // "OK" status word sent in response to SELECT AID command (0x9000)
     private static final byte[] SELECT_OK_SW = {(byte) 0x90, (byte) 0x00};
 
+    // XSCP log APDU flow for Montreal OPUS cards (1TIC.ICA applet)
+    // From STM home reload tool (tlb.opusenligne.ca, 2020)
+    private static final byte[] SELECT_1TIC_ICA = {
+        (byte)0x00, (byte)0xA4, (byte)0x04, (byte)0x00,
+        (byte)0x08, 0x31, 0x54, 0x49, 0x43, 0x2E, 0x49, 0x43, 0x41
+    };
+    private static final byte[] GET_RESPONSE = {(byte)0x00, (byte)0xC0, (byte)0x00, (byte)0x00, (byte)0x00};
+    // Montreal file IDs from log: 0x3C1D, 0x441D, 0x4C1D, 0x541D, 0x5C1D, 0x641D, 0x6C1D, 0x741D, 0x7C1D, 0x841D, 0x8C1D
+    private static final int[] MTL_CONTRACT_FILES = {0x3C, 0x44, 0x4C, 0x54, 0x5C, 0x64, 0x6C, 0x74, 0x7C, 0x84, 0x8C};
+
     // Weak reference to prevent retain loop. mAccountCallback is responsible for exiting
     // foreground mode before it becomes invalid (e.g. during onPause() or onStop()).
     private WeakReference<AccountCallback> mAccountCallback;
@@ -110,8 +120,6 @@ public class CardReader implements NfcAdapter.ReaderCallback {
             IsoDep OpusCard = IsoDep.get(tag);
             if (OpusCard != null) {
                 Log.i(TAG, "Opus detected");
-                //byte[] select_apdu = Utils.HexStringToByteArray(SELECT_APDU);
-                //byte[] read_apdu = Utils.HexStringToByteArray(READRECORD_APDU);
 
                 byte[][] dataTransit = new byte[3][];
                 byte[][] dataSubscription = new byte[4][];
@@ -120,8 +128,32 @@ public class CardReader implements NfcAdapter.ReaderCallback {
                 try {
                     OpusCard.connect();
 
+                    // Try Montreal-style SELECT first (1TIC.ICA applet),
+                    // fall back to direct file selection if it fails
+                    byte[] selectResponse;
+                    try {
+                        selectResponse = OpusCard.transceive(SELECT_1TIC_ICA);
+                        if (selectResponse.length == 2 && selectResponse[0] == (byte)0x90 && selectResponse[1] == 0x00) {
+                            Log.i(TAG, "Montreal OPUS detected (1TIC.ICA)");
+                            // Get response data from SELECT
+                            OpusCard.transceive(GET_RESPONSE);
+                            // Use Montreal file IDs for contract reads
+                        } else {
+                            Log.i(TAG, "1TIC.ICA not found, trying direct file selection");
+                            selectResponse = OpusCard.transceive(Utils.HexStringToByteArray("94A4000002000219"));
+                        }
+                    } catch (Exception e) {
+                        Log.i(TAG, "1TIC.ICA SELECT failed, trying direct file selection");
+                        selectResponse = OpusCard.transceive(Utils.HexStringToByteArray("94A4000002000219"));
+                    }
+
+                    // If direct file selection failed too, try original flow
+                    if (selectResponse.length == 2 && selectResponse[1] == (byte)0x6E) {
+                        Log.i(TAG, "Direct SELECT failed, using original flow");
+                        OpusCard.transceive(Utils.HexStringToByteArray("94A4000002000219"));
+                    }
+
                     // ICC (Card ID)
-                    OpusCard.transceive(Utils.HexStringToByteArray("94A4000002000219"));
                     byte[] dataID = OpusCard.transceive(Utils.HexStringToByteArray("94B201041D"));
 
                     // Enviroment (Expiration)
