@@ -566,6 +566,76 @@ public class CardHistoryActivity extends AppCompatActivity {
                   .append(" → 0x").append(String.format("%04X", b.productCode)).append("\n");
             }
 
+            // Decoded field diff (OPUS only)
+            if (rawA.contains("<Opus>") && rawB.contains("<Opus>")) {
+                try {
+                    Card cardA = Card.fromRawSerialize(rawA);
+                    Card cardB = Card.fromRawSerialize(rawB);
+                    if (cardA != null && cardB != null) {
+                        boolean hasDiff = false;
+                        sb.append("\n--- Decoded Fields ---\n");
+
+                        // Expiration
+                        if (cardA.getExpirationDate() != null || cardB.getExpirationDate() != null) {
+                            String expA = cardA.getExpirationDate() != null ? Utils.DateToStringShort(cardA.getExpirationDate()) : "none";
+                            String expB = cardB.getExpirationDate() != null ? Utils.DateToStringShort(cardB.getExpirationDate()) : "none";
+                            if (!expA.equals(expB)) {
+                                sb.append("  Expiration: ").append(expA).append(" → ").append(expB).append("\n");
+                                hasDiff = true;
+                            }
+                        }
+
+                        // Trips
+                        java.util.ArrayList<Trip> tripsA = cardA.getTrip();
+                        java.util.ArrayList<Trip> tripsB = cardB.getTrip();
+                        if (tripsA.size() != tripsB.size()) {
+                            sb.append("  Trips: ").append(tripsA.size()).append(" → ").append(tripsB.size()).append("\n");
+                            hasDiff = true;
+                        }
+                        int tripCount = Math.min(tripsA.size(), tripsB.size());
+                        for (int i = 0; i < tripCount; i++) {
+                            Trip tA = tripsA.get(i);
+                            Trip tB = tripsB.get(i);
+                            String tripA = tripSummary(tA, i);
+                            String tripB = tripSummary(tB, i);
+                            if (!tripA.equals(tripB)) {
+                                sb.append("  Trip ").append(i + 1).append(":\n");
+                                sb.append("    A: ").append(tripA).append("\n");
+                                sb.append("    B: ").append(tripB).append("\n");
+                                hasDiff = true;
+                            }
+                        }
+
+                        // Contracts
+                        java.util.ArrayList<Contract> contA = cardA.getContract();
+                        java.util.ArrayList<Contract> contB = cardB.getContract();
+                        if (contA.size() != contB.size()) {
+                            sb.append("  Contracts: ").append(contA.size()).append(" → ").append(contB.size()).append("\n");
+                            hasDiff = true;
+                        }
+                        int contractCount = Math.min(contA.size(), contB.size());
+                        for (int i = 0; i < contractCount; i++) {
+                            Contract cA = contA.get(i);
+                            Contract cB = contB.get(i);
+                            String conA = contractSummary(cA);
+                            String conB = contractSummary(cB);
+                            if (!conA.equals(conB)) {
+                                sb.append("  Contract ").append(i + 1).append(":\n");
+                                sb.append("    A: ").append(conA).append("\n");
+                                sb.append("    B: ").append(conB).append("\n");
+                                hasDiff = true;
+                            }
+                        }
+
+                        if (!hasDiff) {
+                            sb.append("  (all decoded fields match)\n");
+                        }
+                    }
+                } catch (Exception e) {
+                    sb.append("  (decoded field comparison failed: ").append(e.getMessage()).append(")\n");
+                }
+            }
+
             final String diffText = sb.toString();
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setTitle("Card Diff");
@@ -592,6 +662,33 @@ public class CardHistoryActivity extends AppCompatActivity {
         } catch (Exception e) {
             Toast.makeText(this, "Compare error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
         }
+    }
+
+    private String tripSummary(Trip t, int index) {
+        StringBuilder s = new StringBuilder();
+        if (t.getDateTime() != null) {
+            s.append(Utils.DateToStringShort(t.getDateTime())).append(" ")
+             .append(Utils.TimeToString(t.getDateTime())).append(" · ");
+        }
+        s.append(t.getBusName().isEmpty() ? "bus?" : t.getBusName());
+        String op = t.getOperatorName();
+        if (!op.isEmpty()) s.append(" (").append(op).append(")");
+        if (t.getTransfer()) s.append(" [transfer]");
+        return s.toString();
+    }
+
+    private String contractSummary(Contract c) {
+        StringBuilder s = new StringBuilder();
+        s.append(c.getProductName());
+        if (c.isSubscription()) {
+            if (c.getValidityDate() != null) {
+                s.append(" until ").append(Utils.DateToStringShort(c.getValidityDate()));
+            }
+        } else {
+            s.append(" — ").append(c.getNbTicket()).append(" trips");
+        }
+        s.append(c.isValid() ? " [valid]" : " [expired]");
+        return s.toString();
     }
 
     private java.util.Map<Integer, String> parseMifarePages(String xml) {
