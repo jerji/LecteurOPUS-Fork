@@ -475,7 +475,6 @@ public class CardActivity extends AppCompatActivity {
         }).start();
         return true;
     }
-            t.printStackTrace();
         layoutFares.removeAllViews();
 
         for (int ci = 0; ci < m_Card.getContract().size(); ci++) {
