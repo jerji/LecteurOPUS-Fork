@@ -275,9 +275,9 @@ public class CardHistoryActivity extends AppCompatActivity implements NfcAdapter
 
             // Set icon based on card type
             if ("OPUS".equals(entry.cardType)) {
-                icon.setImageResource(android.R.drawable.ic_menu_myplaces);
+                icon.setImageResource(android.R.drawable.ic_menu_compass);
             } else {
-                icon.setImageResource(android.R.drawable.ic_menu_agenda);
+                icon.setImageResource(android.R.drawable.ic_menu_edit);
             }
 
             // Card name
