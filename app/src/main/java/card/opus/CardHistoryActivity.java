@@ -137,6 +137,7 @@ public class CardHistoryActivity extends AppCompatActivity implements NfcAdapter
 
             Card card = Card.fromRawSerialize(rawXml);
             if (card == null) {
+                Log.e(TAG, "openCard: fromRawSerialize returned null for " + rawXml.substring(0, Math.min(rawXml.length(), 80)));
                 Toast.makeText(this, "Cannot open: invalid card data", Toast.LENGTH_SHORT).show();
                 return;
             }
@@ -145,6 +146,7 @@ public class CardHistoryActivity extends AppCompatActivity implements NfcAdapter
             intent.putExtra("Card", card);
             startActivity(intent);
         } catch (Exception e) {
+            Log.e(TAG, "openCard error: " + e.getMessage(), e);
             Toast.makeText(this, "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
         }
     }

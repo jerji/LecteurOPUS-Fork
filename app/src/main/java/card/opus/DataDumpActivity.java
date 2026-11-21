@@ -179,6 +179,7 @@ public class DataDumpActivity extends AppCompatActivity {
                     sb.append(decodeFixedArea(pages5to7, card.getProductCode()));
                 }
             } catch (Exception e) {
+                android.util.Log.e("DataDump", "FixedArea decode error: " + e.getMessage(), e);
                 sb.append("\n(FixedArea decode unavailable)\n");
             }
         }
