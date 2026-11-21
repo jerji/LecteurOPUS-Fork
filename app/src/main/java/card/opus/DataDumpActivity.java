@@ -241,25 +241,59 @@ public class DataDumpActivity extends AppCompatActivity {
             }
         }
 
-        // Extra data from deep scan (additional contract files, event logs)
+        // Extra data from full OPUS enumeration
         if (card.getExtraData() != null && !card.getExtraData().isEmpty()) {
-            sb.append("\n=== Extra Data (Deep Scan) ===\n");
             java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd", java.util.Locale.US);
+
+            // Show found files list first
+            if (card.getExtraData().containsKey("_found_files")) {
+                String files = new String(card.getExtraData().get("_found_files"));
+                sb.append("\n=== Files Found on Card (").append(files.isEmpty() ? "0" : files.split(",").length).append(") ===\n");
+                if (!files.isEmpty()) {
+                    String[] parts = files.split(",");
+                    for (String f : parts) sb.append("  ").append(f).append("\n");
+                }
+            }
+
+            // Show directory info if available
+            if (card.getExtraData().containsKey("_directory")) {
+                byte[] dirData = card.getExtraData().get("_directory");
+                sb.append("\n--- Directory (file 0x0000) ---\n");
+                for (int i = 0; i < dirData.length; i += 16) {
+                    StringBuilder hex = new StringBuilder();
+                    StringBuilder ascii = new StringBuilder();
+                    for (int j = 0; j < 16 && i + j < dirData.length; j++) {
+                        int b = dirData[i + j] & 0xFF;
+                        hex.append(String.format("%02X ", b));
+                        ascii.append(b >= 32 && b < 127 ? (char)b : '.');
+                    }
+                    sb.append(String.format("  %04X: %-48s %s\n", i, hex, ascii));
+                }
+            }
+
+            // Show individual file data
+            sb.append("\n=== File Data ===\n");
             for (java.util.Map.Entry<String, byte[]> entry : card.getExtraData().entrySet()) {
                 String key = entry.getKey();
                 byte[] val = entry.getValue();
+                if (key.startsWith("_")) continue; // skip metadata keys
+
+                sb.append("  ").append(key).append(" (").append(val.length).append(" bytes): ");
                 StringBuilder hex = new StringBuilder();
-                for (byte b : val) hex.append(String.format("%02X", b));
-                sb.append("  ").append(key).append(": ").append(hex).append("\n");
-                // Try to decode as a Calypso contract if it's a contract file
-                if (key.startsWith("contract_") && val.length >= 20) {
+                for (int i = 0; i < Math.min(val.length, 32); i++) hex.append(String.format("%02X", val[i]));
+                sb.append(hex);
+                if (val.length > 32) sb.append("...");
+                sb.append("\n");
+
+                // Try to decode validity date from longer records
+                if (val.length >= 26) {
                     try {
                         int days = Utils.bytesToInt(val, 24, 14);
                         if (days > 0) {
                             Calendar cal = Calendar.getInstance();
                             cal.set(1997, Calendar.JANUARY, 1);
                             cal.add(Calendar.DAY_OF_YEAR, days);
-                            sb.append("    Validity: ").append(sdf.format(cal.getTime())).append("\n");
+                            sb.append("    Possible validity: ").append(sdf.format(cal.getTime())).append("\n");
                         }
                     } catch (Exception ignored) {}
                 }
