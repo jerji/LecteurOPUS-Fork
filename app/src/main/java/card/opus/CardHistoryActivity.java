@@ -695,9 +695,10 @@ public class CardHistoryActivity extends AppCompatActivity {
             s.append(Utils.DateToStringShort(t.getDateTime())).append(" ")
              .append(Utils.TimeToString(t.getDateTime())).append(" · ");
         }
-        s.append(t.getBusName().isEmpty() ? "bus?" : t.getBusName());
+        String bus = t.getBusName();
+        s.append(bus == null || bus.isEmpty() ? "bus?" : bus);
         String op = t.getOperatorName();
-        if (!op.isEmpty()) s.append(" (").append(op).append(")");
+        if (op != null && !op.isEmpty()) s.append(" (").append(op).append(")");
         if (t.getTransfer()) s.append(" [transfer]");
         return s.toString();
     }
