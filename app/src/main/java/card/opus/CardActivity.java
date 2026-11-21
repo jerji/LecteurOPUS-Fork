@@ -251,9 +251,9 @@ public class CardActivity extends AppCompatActivity {
         Button dumpButton = new Button(this);
         dumpButton.setText("Show All Data");
         dumpButton.setOnClickListener(v -> {
-            Intent intent = new Intent(this, DataDumpActivity.class);
-            intent.putExtra("Card", m_Card);
-            startActivity(intent);
+            Intent dumpIntent = new Intent(this, DataDumpActivity.class);
+            dumpIntent.putExtra("Card", m_Card);
+            startActivity(dumpIntent);
         });
 
         buttonRow.addView(jsonButton);
