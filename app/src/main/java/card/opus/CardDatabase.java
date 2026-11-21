@@ -118,6 +118,47 @@ public class CardDatabase extends SQLiteOpenHelper {
         return cards;
     }
 
+    public void renameCard(long id, String newName) {
+        SQLiteDatabase db = getWritableDatabase();
+        db.execSQL("UPDATE " + TABLE + " SET " + COL_PRODUCT_NAME + "=? WHERE " + COL_ID + "=?",
+                new String[]{newName, String.valueOf(id)});
+    }
+
+    public long duplicateCard(long id) {
+        SQLiteDatabase db = getWritableDatabase();
+        Cursor c = db.rawQuery("SELECT * FROM " + TABLE + " WHERE " + COL_ID + "=?",
+                new String[]{String.valueOf(id)});
+        if (!c.moveToFirst()) { c.close(); return -1; }
+        String type = c.getString(c.getColumnIndexOrThrow(COL_CARD_TYPE));
+        int code = c.getInt(c.getColumnIndexOrThrow(COL_PRODUCT_CODE));
+        String name = c.getString(c.getColumnIndexOrThrow(COL_PRODUCT_NAME));
+        String xml = c.getString(c.getColumnIndexOrThrow(COL_RAW_XML));
+        String uid = c.getString(c.getColumnIndexOrThrow(COL_UID));
+        int op = c.getInt(c.getColumnIndexOrThrow(COL_OPERATOR));
+        c.close();
+
+        SQLiteStatement stmt = db.compileStatement(
+                "INSERT INTO " + TABLE + " (" +
+                COL_SCAN_TIME + "," + COL_CARD_TYPE + "," + COL_PRODUCT_CODE + "," +
+                COL_PRODUCT_NAME + "," + COL_RAW_XML + "," + COL_UID + "," + COL_OPERATOR +
+                ") VALUES (?,?,?,?,?,?,?)");
+        stmt.bindLong(1, System.currentTimeMillis());
+        stmt.bindString(2, type);
+        stmt.bindLong(3, code);
+        stmt.bindString(4, name + " (copy)");
+        stmt.bindString(5, xml);
+        stmt.bindString(6, uid);
+        stmt.bindLong(7, op);
+        long newId = stmt.executeInsert();
+        stmt.close();
+        return newId;
+    }
+
+    public void deleteCard(long id) {
+        SQLiteDatabase db = getWritableDatabase();
+        db.execSQL("DELETE FROM " + TABLE + " WHERE " + COL_ID + "=?", new String[]{String.valueOf(id)});
+    }
+
     public long importFromJson(String json) {
         try {
             org.json.JSONObject obj = new org.json.JSONObject(json);
