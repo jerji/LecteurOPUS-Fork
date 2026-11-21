@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+    android:background="@color/surfaceLight">
+
+    <!-- Header -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@color/cardHeaderBg"
+        android:orientation="horizontal"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Write Card"
+            android:textColor="@color/cardHeaderText"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="12dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Basic Info card -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@color/surface"
+                android:elevation="2dp"
+                android:padding="16dp"
+                android:layout_marginBottom="12dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Basic Info"
+                    android:textColor="@color/textPrimary"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:paddingBottom="12dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Product Code (hex)"
+                    android:textColor="@color/textSecondary"
+                    android:textSize="12sp"
+                    android:paddingBottom="4dp" />
+                <EditText
+                    android:id="@+id/productCodeInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@drawable/input_bg"
+                    android:padding="8dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/textPrimary"
+                    android:hint="e.g. 30DF"
+                    android:singleLine="true"
+                    android:layout_marginBottom="12dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Operator ID"
+                    android:textColor="@color/textSecondary"
+                    android:textSize="12sp"
+                    android:paddingBottom="4dp" />
+                <EditText
+                    android:id="@+id/operatorInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@drawable/input_bg"
+                    android:padding="8dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/textPrimary"
+                    android:inputType="number"
+                    android:hint="0-255"
+                    android:singleLine="true"
+                    android:layout_marginBottom="12dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tickets Remaining"
+                    android:textColor="@color/textSecondary"
+                    android:textSize="12sp"
+                    android:paddingBottom="4dp" />
+                <EditText
+                    android:id="@+id/ticketsInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@drawable/input_bg"
+                    android:padding="8dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/textPrimary"
+                    android:inputType="number"
+                    android:hint="0-255"
+                    android:singleLine="true"
+                    android:layout_marginBottom="8dp" />
+
+                <CheckBox
+                    android:id="@+id/subscriptionCheck"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Subscription card"
+                    android:textColor="@color/textPrimary"
+                    android:paddingTop="4dp" />
+            </LinearLayout>
+
+            <!-- Spirtech FixedArea card -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@color/surface"
+                android:elevation="2dp"
+                android:padding="16dp"
+                android:layout_marginBottom="12dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Spirtech FixedArea (pages 5-7)"
+                    android:textColor="@color/textPrimary"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:paddingBottom="12dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:paddingRight="6dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="MasqueCodage"
+                            android:textColor="@color/textSecondary"
+                            android:textSize="12sp"
+                            android:paddingBottom="4dp" />
+                        <EditText
+                            android:id="@+id/maskInput"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:background="@drawable/input_bg"
+                            android:padding="8dp"
+                            android:textSize="14sp"
+                            android:textColor="@color/textPrimary"
+                            android:hint="0-F"
+                            android:singleLine="true"
+                            android:layout_marginBottom="12dp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:paddingLeft="6dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Réseau Transport"
+                            android:textColor="@color/textSecondary"
+                            android:textSize="12sp"
+                            android:paddingBottom="4dp" />
+                        <EditText
+                            android:id="@+id/networkInput"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:background="@drawable/input_bg"
+                            android:padding="8dp"
+                            android:textSize="14sp"
+                            android:textColor="@color/textPrimary"
+                            android:inputType="number"
+                            android:hint="0-63"
+                            android:singleLine="true"
+                            android:layout_marginBottom="12dp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:paddingRight="6dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Exploitant Vendeur"
+                            android:textColor="@color/textSecondary"
+                            android:textSize="12sp"
+                            android:paddingBottom="4dp" />
+                        <EditText
+                            android:id="@+id/exploitInput"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:background="@drawable/input_bg"
+                            android:padding="8dp"
+                            android:textSize="14sp"
+                            android:textColor="@color/textPrimary"
+                            android:inputType="number"
+                            android:hint="0-127"
+                            android:singleLine="true"
+                            android:layout_marginBottom="12dp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:paddingLeft="6dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Certificat"
+                            android:textColor="@color/textSecondary"
+                            android:textSize="12sp"
+                            android:paddingBottom="4dp" />
+                        <EditText
+                            android:id="@+id/certInput"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:background="@drawable/input_bg"
+                            android:padding="8dp"
+                            android:textSize="14sp"
+                            android:textColor="@color/textPrimary"
+                            android:inputType="number"
+                            android:hint="32-bit"
+                            android:singleLine="true"
+                            android:layout_marginBottom="12dp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="DDVContract (days since 1997-01-01)"
+                    android:textColor="@color/textSecondary"
+                    android:textSize="12sp"
+                    android:paddingBottom="4dp" />
+                <EditText
+                    android:id="@+id/ddvInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@drawable/input_bg"
+                    android:padding="8dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/textPrimary"
+                    android:inputType="number"
+                    android:hint="0"
+                    android:singleLine="true"
+                    android:layout_marginBottom="12dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="DLUContract (days since 1997-01-01)"
+                    android:textColor="@color/textSecondary"
+                    android:textSize="12sp"
+                    android:paddingBottom="4dp" />
+                <EditText
+                    android:id="@+id/dluInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@drawable/input_bg"
+                    android:padding="8dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/textPrimary"
+                    android:inputType="number"
+                    android:hint="0"
+                    android:singleLine="true" />
+            </LinearLayout>
+
+            <!-- Info text -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Values are encoded into MIFARE Ultralight pages 3-15 per the Spirtech CCM bit layout. Tap a blank tag to write."
+                android:textColor="@color/cardHintText"
+                android:textSize="12sp"
+                android:padding="4dp"
+                android:layout_marginBottom="8dp" />
+
+            <!-- Write button -->
+            <Button
+                android:id="@+id/writeBtn"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:backgroundTint="@color/cardScanButton"
+                android:textColor="@color/cardHeaderText"
+                android:text="Encode & Write to Tag"
+                android:textSize="15sp"
+                android:textAllCaps="false"
+                android:elevation="2dp"
+                android:layout_marginBottom="8dp" />
+
+            <!-- Reset button -->
+            <Button
+                android:id="@+id/resetBtn"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:backgroundTint="@color/cardImportButton"
+                android:textColor="@color/cardHeaderText"
+                android:text="Clear all fields"
+                android:textSize="15sp"
+                android:textAllCaps="false"
+                android:elevation="2dp"
+                android:layout_marginBottom="16dp" />
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

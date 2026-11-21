@@ -8,9 +8,6 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.ScrollView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
@@ -41,8 +38,63 @@ public class WriteCardActivity extends AppCompatActivity implements NfcAdapter.R
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_write_card);
+
         for (int i = 0; i < 16; i++) Arrays.fill(pages[i], (byte) 0);
-        buildUi();
+
+        // Find views
+        productCodeInput = findViewById(R.id.productCodeInput);
+        operatorInput = findViewById(R.id.operatorInput);
+        ticketsInput = findViewById(R.id.ticketsInput);
+        subscriptionCheck = findViewById(R.id.subscriptionCheck);
+        maskInput = findViewById(R.id.maskInput);
+        networkInput = findViewById(R.id.networkInput);
+        exploitInput = findViewById(R.id.exploitInput);
+        ddvInput = findViewById(R.id.ddvInput);
+        dluInput = findViewById(R.id.dluInput);
+        certInput = findViewById(R.id.certInput);
+
+        Button writeBtn = findViewById(R.id.writeBtn);
+        Button resetBtn = findViewById(R.id.resetBtn);
+
+        writeBtn.setOnClickListener(v -> {
+            if (!encodePages()) return;
+            waitingForTag = true;
+            NfcAdapter adapter = NfcAdapter.getDefaultAdapter(this);
+            if (adapter != null) {
+                adapter.enableReaderMode(this, this,
+                        NfcAdapter.FLAG_READER_NFC_A |
+                        NfcAdapter.FLAG_READER_SKIP_NDEF_CHECK, null);
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setTitle("Tap a card");
+                builder.setMessage("Hold the card you want to write to against the back of the phone.");
+                builder.setCancelable(true);
+                builder.setOnDismissListener(d -> {
+                    if (waitingForTag) {
+                        waitingForTag = false;
+                        try { adapter.disableReaderMode(this); } catch (Exception ignored) {}
+                    }
+                });
+                builder.show();
+            } else {
+                Toast.makeText(this, "NFC not available", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        resetBtn.setOnClickListener(v -> {
+            productCodeInput.setText("0000");
+            operatorInput.setText("0");
+            ticketsInput.setText("0");
+            subscriptionCheck.setChecked(false);
+            maskInput.setText("3");
+            networkInput.setText("1");
+            exploitInput.setText("0");
+            ddvInput.setText("0");
+            dluInput.setText("0");
+            certInput.setText("0");
+        });
+
         prefillFromCard();
     }
 
@@ -116,155 +168,6 @@ public class WriteCardActivity extends AppCompatActivity implements NfcAdapter.R
         certInput.setText(String.valueOf(cert));
     }
 
-    private void buildUi() {
-        ScrollView scroll = new ScrollView(this);
-        LinearLayout root = new LinearLayout(this);
-        root.setOrientation(LinearLayout.VERTICAL);
-        root.setPadding(16, 16, 16, 16);
-
-        TextView title = new TextView(this);
-        title.setText("Write MIFARE Card");
-        title.setTextSize(24);
-        title.setPadding(0, 0, 0, 20);
-        root.addView(title);
-
-        // === Basic MIFARE fields ===
-        root.addView(sectionLabel("MIFARE Page Data"));
-        addField(root, "Product Code (hex, e.g. 30DF):",
-                productCodeInput = hexField("0000"));
-
-        addField(root, "Operator ID (0-255):",
-                operatorInput = numField("0"));
-
-        addField(root, "Tickets Remaining (0-255):",
-                ticketsInput = numField("0"));
-
-        subscriptionCheck = new CheckBox(this);
-        subscriptionCheck.setText("Subscription card");
-        root.addView(subscriptionCheck);
-
-        // === Spirtech FixedArea fields ===
-        root.addView(sectionLabel("Spirtech FixedArea (pages 5-7)"));
-
-        addField(root, "MasqueCodage (hex, 0-F):",
-                maskInput = hexFieldShort("3"));
-
-        addField(root, "ReseauTransportProduit (0-63):",
-                networkInput = numField("1"));
-
-        addField(root, "NumeroExploitantVendeur (0-127):",
-                exploitInput = numField("0"));
-
-        addField(root, "DDVContract (days since 1997-01-01):",
-                ddvInput = numField("0"));
-
-        addField(root, "DLUContract (days since 1997-01-01):",
-                dluInput = numField("0"));
-
-        addField(root, "Certificat (32-bit):",
-                certInput = numField("0"));
-
-        // Info
-        TextView info = new TextView(this);
-        info.setText("\nValues are encoded into MIFARE Ultralight pages 3-15 per the Spirtech CCM bit layout.\nTap a blank tag to write.");
-        info.setPadding(0, 20, 0, 10);
-        info.setTextSize(12);
-        root.addView(info);
-
-        // Write button
-        Button writeBtn = new Button(this);
-        writeBtn.setText("Encode & Write to Tag");
-        writeBtn.setOnClickListener(v -> {
-            if (!encodePages()) return;
-            waitingForTag = true;
-            NfcAdapter adapter = NfcAdapter.getDefaultAdapter(this);
-            if (adapter != null) {
-                adapter.enableReaderMode(this, this,
-                        NfcAdapter.FLAG_READER_NFC_A |
-                        NfcAdapter.FLAG_READER_SKIP_NDEF_CHECK, null);
-
-                AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                builder.setTitle("Tap a card");
-                builder.setMessage("Hold the card you want to write to against the back of the phone.");
-                builder.setCancelable(true);
-                builder.setOnDismissListener(d -> {
-                    if (waitingForTag) {
-                        waitingForTag = false;
-                        try { adapter.disableReaderMode(this); } catch (Exception ignored) {}
-                    }
-                });
-                builder.show();
-            } else {
-                Toast.makeText(this, "NFC not available", Toast.LENGTH_SHORT).show();
-            }
-        });
-        root.addView(writeBtn);
-
-        // Reset button
-        Button resetBtn = new Button(this);
-        resetBtn.setText("Clear all fields");
-        resetBtn.setOnClickListener(v -> {
-            productCodeInput.setText("0000");
-            operatorInput.setText("0");
-            ticketsInput.setText("0");
-            subscriptionCheck.setChecked(false);
-            maskInput.setText("3");
-            networkInput.setText("1");
-            exploitInput.setText("0");
-            ddvInput.setText("0");
-            dluInput.setText("0");
-            certInput.setText("0");
-        });
-        root.addView(resetBtn);
-
-        scroll.addView(root);
-        setContentView(scroll);
-    }
-
-    // ---- Layout helpers ----
-    private void addField(LinearLayout root, String label, EditText input) {
-        root.addView(makeLabel(label));
-        root.addView(input);
-    }
-
-    private EditText hexField(String def) {
-        EditText et = new EditText(this);
-        et.setSingleLine(true);
-        et.setText(def);
-        return et;
-    }
-
-    private EditText hexFieldShort(String def) {
-        EditText et = new EditText(this);
-        et.setSingleLine(true);
-        et.setText(def);
-        return et;
-    }
-
-    private EditText numField(String def) {
-        EditText et = new EditText(this);
-        et.setSingleLine(true);
-        et.setInputType(android.text.InputType.TYPE_CLASS_NUMBER);
-        et.setText(def);
-        return et;
-    }
-
-    private TextView makeLabel(String text) {
-        TextView tv = new TextView(this);
-        tv.setText(text);
-        tv.setPadding(0, 8, 0, 4);
-        tv.setTextSize(14);
-        return tv;
-    }
-
-    private TextView sectionLabel(String text) {
-        TextView tv = new TextView(this);
-        tv.setText(text);
-        tv.setTextSize(16);
-        tv.setPadding(0, 16, 0, 8);
-        return tv;
-    }
-
     // ---- Spirtech bit encoding ----
     private boolean encodePages() {
         for (int i = 3; i < 16; i++) Arrays.fill(pages[i], (byte) 0);
@@ -276,8 +179,6 @@ public class WriteCardActivity extends AppCompatActivity implements NfcAdapter.R
                 Toast.makeText(this, "Tickets must be 0-255", Toast.LENGTH_SHORT).show();
                 return false;
             }
-            // For a new card: page 3 all zeros, ticket count in page 10
-            // For a used card: set ticket used bits
             if (subscriptionCheck.isChecked()) {
                 pages[3][0] = (byte) 0x80; // "subscription" marker
                 pages[4][1] = (byte) (pages[4][1] | 0x01);
@@ -285,7 +186,6 @@ public class WriteCardActivity extends AppCompatActivity implements NfcAdapter.R
             } else if (tickets == 0) {
                 pages[3][0] = (byte) 0xFF; // all tickets used
             } else {
-                // Set the first N bits as used, rest as available
                 for (int b = 31; b > 31 - tickets; b--) {
                     byte[] p3 = pages[3];
                     int bitPos = b;
@@ -374,7 +274,6 @@ public class WriteCardActivity extends AppCompatActivity implements NfcAdapter.R
     }
 
     private static int bytesToInt(byte[] data, int firstBit, int length) {
-        // LSB-first matching Java bytesToInt in LecteurOPUS
         int result = 0;
         int currentByte = firstBit / 8;
         int firstBitInByte = firstBit % 8;
