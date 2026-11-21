@@ -4,13 +4,13 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:fitsSystemWindows="true"
-    android:background="#F5F5F5">
+    android:background="@color/surfaceLight">
 
     <!-- Header -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="56dp"
-        android:background="#1976D2"
+        android:background="@color/cardHeaderBg"
         android:orientation="horizontal"
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
@@ -27,7 +27,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="LecteurOPUS"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/cardHeaderText"
             android:textSize="20sp"
             android:textStyle="bold"
             android:paddingLeft="12dp" />
@@ -36,7 +36,7 @@
             android:id="@+id/cardCount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="#BBDEFB"
+            android:textColor="@color/cardHeaderSubtext"
             android:textSize="14sp" />
     </LinearLayout>
 
@@ -47,8 +47,8 @@
         android:layout_height="56dp"
         android:layout_margin="12dp"
         android:layout_marginBottom="4dp"
-        android:backgroundTint="#43A047"
-        android:textColor="#FFFFFF"
+        android:backgroundTint="@color/cardScanButton"
+        android:textColor="@color/cardHeaderText"
         android:textSize="16sp"
         android:text="  Scan a Card"
         android:drawableStart="@android:drawable/ic_menu_search"
@@ -64,8 +64,8 @@
         android:layout_marginLeft="12dp"
         android:layout_marginRight="12dp"
         android:layout_marginBottom="4dp"
-        android:backgroundTint="#1976D2"
-        android:textColor="#FFFFFF"
+        android:backgroundTint="@color/cardImportButton"
+        android:textColor="@color/cardHeaderText"
         android:textSize="14sp"
         android:text="  Import Card"
         android:drawableStart="@android:drawable/ic_menu_add"
@@ -82,7 +82,7 @@
         android:layout_marginBottom="8dp"
         android:text="Long-press Scan for deep OPUS enumeration"
         android:textSize="11sp"
-        android:textColor="#9E9E9E" />
+        android:textColor="@color/cardHintText" />
 
     <!-- Card list -->
     <TextView
@@ -91,7 +91,7 @@
         android:layout_height="wrap_content"
         android:text="No cards scanned yet.\nTap the button above to scan your first card."
         android:textSize="16sp"
-        android:textColor="#9E9E9E"
+        android:textColor="@color/cardHintText"
         android:gravity="center"
         android:padding="48dp" />
 

@@ -4,4 +4,26 @@
     <color name="colorPrimaryDark">#3949AB</color>
     <color name="colorAccent">#FF80AB</color>
     <color name="background">#1E1E1E</color>
+
+    <!-- Dark theme surface/text -->
+    <color name="surface">#121212</color>
+    <color name="surfaceLight">#1E1E1E</color>
+    <color name="textPrimary">#E0E0E0</color>
+    <color name="textSecondary">#9E9E9E</color>
+    <color name="textOnPrimary">#FFFFFF</color>
+
+    <!-- Card history -->
+    <color name="cardHeaderBg">#1E3A5F</color>
+    <color name="cardHeaderSubtext">#90CAF9</color>
+    <color name="cardScanButton">#2E7D32</color>
+    <color name="cardImportButton">#1E3A5F</color>
+    <color name="cardHintText">#757575</color>
+    <color name="cardDivider">#333333</color>
+
+    <!-- Data dump -->
+    <color name="dumpBackground">#1A1A1A</color>
+    <color name="dumpText">#E0E0E0</color>
+
+    <!-- Subscription -->
+    <color name="subscriptionBorder">#757575</color>
 </resources>

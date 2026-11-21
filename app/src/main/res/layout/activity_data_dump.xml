@@ -26,7 +26,8 @@
             android:fontFamily="monospace"
             android:textSize="11sp"
             android:padding="8dp"
-            android:background="#F5F5F5" />
+            android:background="@color/dumpBackground"
+            android:textColor="@color/dumpText" />
     </ScrollView>
 
     <LinearLayout
