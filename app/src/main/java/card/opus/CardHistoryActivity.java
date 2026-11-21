@@ -103,14 +103,29 @@ public class CardHistoryActivity extends AppCompatActivity {
     }
 
     private void startScan(boolean fullEnumeration) {
-        // Use the proven MainActivity + CardReader for scanning
-        Intent intent = new Intent(this, MainActivity.class);
-        intent.putExtra("returnResult", true);
-        intent.putExtra("fullEnumeration", fullEnumeration);
         if (fullEnumeration) {
-            Toast.makeText(this, "Deep scan mode — hold card steady for ~8s", Toast.LENGTH_LONG).show();
+            // Show warning dialog before deep scan
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle("Deep Enumeration Scan");
+            builder.setMessage("This will probe ~400 file IDs on the card.\n\n"
+                    + "• Hold the card steady for ~8 seconds\n"
+                    + "• Only works on OPUS cards (temp tickets scan normally)\n"
+                    + "• Read-only commands — cannot modify the card\n\n"
+                    + "Proceed?");
+            builder.setPositiveButton("Start Scan", (dialog, which) -> {
+                Intent intent = new Intent(this, MainActivity.class);
+                intent.putExtra("returnResult", true);
+                intent.putExtra("fullEnumeration", true);
+                startActivityForResult(intent, 1002);
+            });
+            builder.setNegativeButton("Cancel", null);
+            builder.show();
+        } else {
+            // Normal quick scan
+            Intent intent = new Intent(this, MainActivity.class);
+            intent.putExtra("returnResult", true);
+            startActivityForResult(intent, 1002);
         }
-        startActivityForResult(intent, 1002);
     }
 
     private void openCard(CardDatabase.CardEntry entry) {
