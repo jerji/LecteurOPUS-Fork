@@ -6,7 +6,7 @@
     <operator id="12" name="RTL" file="rtl" logo="rtl" />
     <operator id="16" name="RTM" file="rtm" logo="rtm" />
     <operator id="64" name="STLévis" file="stlevis" logo="stlevis" />
-    <operator id="88" name="REM" file="rem" logo="stm" />
+    <operator id="88" name="REM" file="rem" logo="rem" />
     <!-- Product codes -->
     <product code="30DF" name="Standard 1-trip" />
     <product code="3129" name="Multi-trip product" />
