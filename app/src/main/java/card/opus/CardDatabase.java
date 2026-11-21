@@ -211,7 +211,8 @@ public class CardDatabase extends SQLiteOpenHelper {
                     COL_SCAN_TIME + "," + COL_CARD_TYPE + "," + COL_PRODUCT_CODE + "," +
                     COL_PRODUCT_NAME + "," + COL_RAW_XML + "," + COL_UID + "," + COL_OPERATOR +
                     ") VALUES (?,?,?,?,?,?,?)");
-            stmt.bindLong(1, System.currentTimeMillis());
+            long scanTime = obj.optLong("scanTime", System.currentTimeMillis());
+            stmt.bindLong(1, scanTime);
             stmt.bindString(2, type);
             stmt.bindLong(3, productCode);
             String name = obj.optString("name", "");

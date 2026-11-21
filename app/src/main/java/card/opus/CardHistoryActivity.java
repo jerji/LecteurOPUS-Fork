@@ -314,9 +314,10 @@ public class CardHistoryActivity extends AppCompatActivity {
                 Card card = Card.fromRawSerialize(entry.rawXml);
                 if (card != null) {
                     org.json.JSONObject obj = new org.json.JSONObject(card.rawJson());
-                    // Include the custom display name
+                    // Include the custom display name and original scan time
                     String name = entry.getDisplayName();
                     if (name != null) obj.put("name", name);
+                    obj.put("scanTime", entry.scanTime);
                     arr.put(obj);
                 }
             }
