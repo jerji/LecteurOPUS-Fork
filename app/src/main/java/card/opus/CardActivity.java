@@ -36,6 +36,7 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
 
+import android.widget.ScrollView;
 import static card.opus.Utils.DOMAIN;
 import static card.opus.Utils.isInternetAvailable;
 
@@ -224,6 +225,78 @@ public class CardActivity extends AppCompatActivity {
 
                 LayoutTransit.addView(customTransit);
             }
+        }
+
+        // ---- Export & Data Dump Buttons ----
+        LinearLayout buttonRow = new LinearLayout(this);
+        buttonRow.setOrientation(LinearLayout.HORIZONTAL);
+        buttonRow.setPadding(16, 16, 16, 16);
+
+        Button jsonButton = new Button(this);
+        jsonButton.setText("Export JSON");
+        jsonButton.setOnClickListener(v -> {
+            try {
+                String json = m_Card.rawJson();
+                File path = getFilesDir();
+                File jsonFile = new File(path, "card_export.json");
+                FileOutputStream fos = new FileOutputStream(jsonFile);
+                fos.write(json.getBytes());
+                fos.close();
+                Toast.makeText(this, "JSON saved to " + jsonFile.getAbsolutePath(), Toast.LENGTH_LONG).show();
+            } catch (Exception e) {
+                Toast.makeText(this, "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        Button dumpButton = new Button(this);
+        dumpButton.setText("Show All Data");
+        dumpButton.setOnClickListener(v -> {
+            StringBuilder sb = new StringBuilder();
+            sb.append("=== CARD DATA DUMP ===\n\n");
+            sb.append("Type: ").append(m_Card.getType()).append("\n");
+            sb.append("Product Code: 0x").append(String.format("%04X", m_Card.getProductCode())).append("\n");
+            if (m_Card.getContract() != null && m_Card.getContract().size() > 0) {
+                Contract c = m_Card.getContract().get(0);
+                sb.append("Product Name: ").append(c.getProductName()).append("\n");
+                sb.append("Operator: ").append(c.getOperatorName()).append(" (ID: ").append(c.getOperatorId()).append(")\n");
+                sb.append("Tickets: ").append(c.getNbTicket()).append("\n");
+                sb.append("Subscription: ").append(c.isSubscription()).append("\n");
+                sb.append("Valid: ").append(c.isValid()).append("\n");
+            }
+            if (m_Card.getTrip() != null && m_Card.getTrip().size() > 0) {
+                sb.append("\n--- Trips ---\n");
+                for (int i = 0; i < m_Card.getTrip().size(); i++) {
+                    card.opus.Trip t = m_Card.getTrip().get(i);
+                    if (t.getDateTime() != null) {
+                        sb.append("Trip ").append(i).append(": ")
+                            .append(Utils.DateToStringNumber(t.getDateTime())).append(" ")
+                            .append(Utils.TimeToString(t.getDateTime())).append("\n");
+                    }
+                }
+            }
+            sb.append("\n--- Raw Pages ---\n");
+            sb.append(m_Card.getRawSerialize()).append("\n");
+
+            AlertDialog dialog = new AlertDialog.Builder(this)
+                .setTitle("Card Data Dump")
+                .setMessage(sb.toString())
+                .setPositiveButton("OK", null)
+                .setNeutralButton("Copy", (d, w) -> {
+                    android.content.ClipboardManager clipboard = (android.content.ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+                    android.content.ClipData clip = android.content.ClipData.newPlainText("card_dump", sb.toString());
+                    clipboard.setPrimaryClip(clip);
+                    Toast.makeText(this, "Copied to clipboard", Toast.LENGTH_SHORT).show();
+                })
+                .create();
+            dialog.show();
+        });
+
+        buttonRow.addView(jsonButton);
+        buttonRow.addView(dumpButton);
+
+        LinearLayout mainLayout = findViewById(R.id.layoutTransit);
+        if (mainLayout != null && mainLayout.getParent() instanceof LinearLayout) {
+            ((LinearLayout) mainLayout.getParent()).addView(buttonRow);
         }
 
         if (BuildConfig.DEBUG) {
