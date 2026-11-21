@@ -32,33 +32,46 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:paddingTop="8dp">
 
-        <Button
-            android:id="@+id/copyButton"
-            android:layout_width="0dp"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginRight="4dp"
-            android:text="Copy" />
+            android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/jsonButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginLeft="4dp"
-            android:layout_marginRight="4dp"
-            android:text="Export JSON" />
+            <Button
+                android:id="@+id/copyButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginRight="4dp"
+                android:text="Copy Dump" />
+
+            <Button
+                android:id="@+id/copyJsonButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp"
+                android:text="Copy JSON" />
+
+            <Button
+                android:id="@+id/saveJsonButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginLeft="4dp"
+                android:text="Save JSON" />
+        </LinearLayout>
 
         <Button
             android:id="@+id/writeButton"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginLeft="4dp"
-            android:text="Write Card" />
+            android:layout_marginTop="8dp"
+            android:text="Write to Card" />
     </LinearLayout>
 
 </LinearLayout>

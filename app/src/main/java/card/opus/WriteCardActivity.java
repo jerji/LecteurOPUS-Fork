@@ -1,5 +1,6 @@
 package card.opus;
 
+import android.app.AlertDialog;
 import android.nfc.NfcAdapter;
 import android.nfc.Tag;
 import android.nfc.tech.MifareUltralight;
@@ -181,7 +182,18 @@ public class WriteCardActivity extends AppCompatActivity implements NfcAdapter.R
                 adapter.enableReaderMode(this, this,
                         NfcAdapter.FLAG_READER_NFC_A |
                         NfcAdapter.FLAG_READER_SKIP_NDEF_CHECK, null);
-                Toast.makeText(this, "Tap a MIFARE Ultralight tag", Toast.LENGTH_SHORT).show();
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setTitle("Tap a card");
+                builder.setMessage("Hold the card you want to write to against the back of the phone.");
+                builder.setCancelable(true);
+                builder.setOnDismissListener(d -> {
+                    if (waitingForTag) {
+                        waitingForTag = false;
+                        try { adapter.disableReaderMode(this); } catch (Exception ignored) {}
+                    }
+                });
+                builder.show();
             } else {
                 Toast.makeText(this, "NFC not available", Toast.LENGTH_SHORT).show();
             }

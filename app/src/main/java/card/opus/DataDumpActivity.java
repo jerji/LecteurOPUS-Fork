@@ -11,8 +11,11 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Locale;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -211,29 +214,36 @@ public class DataDumpActivity extends AppCompatActivity {
             Toast.makeText(this, "Copied!", Toast.LENGTH_SHORT).show();
         });
 
-        Button jsonButton = findViewById(R.id.jsonButton);
-        jsonButton.setOnClickListener(v -> {
+        Button copyJsonButton = findViewById(R.id.copyJsonButton);
+        copyJsonButton.setOnClickListener(v -> {
             try {
                 String json = card.rawJson();
-                // Build filename: type_productCode_date
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("card_json", json);
+                clipboard.setPrimaryClip(clip);
+                Toast.makeText(this, "JSON copied to clipboard", Toast.LENGTH_SHORT).show();
+            } catch (Exception e) {
+                Toast.makeText(this, "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        Button saveJsonButton = findViewById(R.id.saveJsonButton);
+        saveJsonButton.setOnClickListener(v -> {
+            try {
+                String json = card.rawJson();
                 String type = card.getType() == Card.CardType.OPUS ? "OPUS" : "MIFARE";
                 String code = String.format("%04X", card.getProductCode());
-                java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyyMMdd_HHmmss", java.util.Locale.US);
-                String dateStr = sdf.format(new java.util.Date());
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.US);
+                String dateStr = sdf.format(new Date());
                 String filename = type + "_" + code + "_" + dateStr + ".json";
 
-                java.io.File path = getFilesDir();
-                java.io.File jsonFile = new java.io.File(path, filename);
-                java.io.FileOutputStream fos = new java.io.FileOutputStream(jsonFile);
+                File path = getFilesDir();
+                File jsonFile = new File(path, filename);
+                FileOutputStream fos = new FileOutputStream(jsonFile);
                 fos.write(json.getBytes());
                 fos.close();
 
-                // Also copy to clipboard
-                android.content.ClipboardManager clipboard = (android.content.ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
-                android.content.ClipData clip = android.content.ClipData.newPlainText("card_json", json);
-                clipboard.setPrimaryClip(clip);
-
-                Toast.makeText(this, "JSON copied & saved as " + filename, Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "Saved: " + filename, Toast.LENGTH_LONG).show();
             } catch (Exception e) {
                 Toast.makeText(this, "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
             }
