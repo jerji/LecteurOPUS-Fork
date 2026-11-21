@@ -82,15 +82,15 @@ public class Contract implements Serializable {
         // 5. ContractValidityStartDate (14 bits, conditional on valid bitmap bit 0)
         if ((validBitmap & 0x01) != 0 && subscriptionData.length * 8 >= offset + 14) {
             int startDays = Utils.bytesToInt(subscriptionData, offset, 14);
-            m_ValidityDate = Utils.intToDateTime(startDays, 0);
+            if (startDays > 0) m_ValidityDate = Utils.intToDateTime(startDays, 0);
             offset += 14;
         } else { offset += 14; }
         
         // 6. ContractValidityEndDate (14 bits, conditional on valid bitmap bit 1)
         if ((validBitmap & 0x02) != 0 && subscriptionData.length * 8 >= offset + 14) {
             int endDays = Utils.bytesToInt(subscriptionData, offset, 14);
-            // Store as validity date if we don't have one yet
-            if (m_ValidityDate == null) {
+            // Store as validity date if we don't have one yet (0 = no date set)
+            if (m_ValidityDate == null && endDays > 0) {
                 m_ValidityDate = Utils.intToDateTime(endDays, 0);
             }
             offset += 14;
@@ -121,10 +121,13 @@ public class Contract implements Serializable {
             m_Subscription = false;
             m_nbTicket = Utils.bytesToInt(ticketData, 16, 8);
             m_Valid = (m_nbTicket > 0);
-            // Check ValidityEndDate for ticket expiry too
+            // Check ValidityEndDate for ticket expiry too (0 days = no expiry set)
             if (m_Valid && m_ValidityDate != null) {
                 Calendar today = Calendar.getInstance();
-                m_Valid = m_ValidityDate.compareTo(today) > 0;
+                // Skip epoch dates (1997-01-01 = day 0, means no expiry)
+                if (m_ValidityDate.get(Calendar.YEAR) > 1997) {
+                    m_Valid = m_ValidityDate.compareTo(today) > 0;
+                }
             }
         }
         else{
