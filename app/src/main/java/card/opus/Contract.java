@@ -25,11 +25,22 @@ public class Contract implements Serializable {
 
     public Contract(byte[] subscriptionData, byte[] ticketData){ // OPUS
         m_operatorId = Utils.bytesToInt(subscriptionData, 9, 8);
-        // Extract tariff code from Calypso contract schema (bits 52-67)
+        
+        // Try multiple candidate bit offsets for the tariff/product code
+        // Spirtech uses variable bitmap, so try standard Calypso positions
         this.productCode = Utils.bytesToInt(subscriptionData, 52, 16);
-        // Also try alternate offset if result seems wrong
-        if (this.productCode == 0) {
-            this.productCode = Utils.bytesToInt(subscriptionData, 0, 16);
+        if (this.productCode == 0 || this.productCode > 0xFFFF) {
+            this.productCode = Utils.bytesToInt(subscriptionData, 44, 16);
+        }
+        if (this.productCode == 0 || this.productCode > 0xFFFF) {
+            this.productCode = Utils.bytesToInt(subscriptionData, 44, 8);
+        }
+        if (this.productCode == 0 || this.productCode > 0xFFFF) {
+            this.productCode = Utils.bytesToInt(subscriptionData, 36, 16);
+        }
+        // Last resort: try fixed-area style (bytes 0-1)
+        if (this.productCode == 0 || this.productCode > 0xFFFF) {
+            this.productCode = ((subscriptionData[0] & 0xFF) << 8) | (subscriptionData[1] & 0xFF);
         }
         if(Utils.bytesToInt(subscriptionData, 40, 16) == 0){
             // Ticket
