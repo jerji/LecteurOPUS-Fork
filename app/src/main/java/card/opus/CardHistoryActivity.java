@@ -313,7 +313,11 @@ public class CardHistoryActivity extends AppCompatActivity {
             for (CardDatabase.CardEntry entry : cards) {
                 Card card = Card.fromRawSerialize(entry.rawXml);
                 if (card != null) {
-                    arr.put(new org.json.JSONObject(card.rawJson()));
+                    org.json.JSONObject obj = new org.json.JSONObject(card.rawJson());
+                    // Include the custom display name
+                    String name = entry.getDisplayName();
+                    if (name != null) obj.put("name", name);
+                    arr.put(obj);
                 }
             }
             return arr.toString(2);
