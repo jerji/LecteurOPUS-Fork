@@ -575,6 +575,7 @@ public class CardActivity extends AppCompatActivity {
                 }
             });
 
+            fareRow.addView(submitBtn);
             layoutFares.addView(fareRow);
         }
     }
