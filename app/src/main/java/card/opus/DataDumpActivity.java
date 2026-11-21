@@ -5,6 +5,7 @@ import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -239,11 +240,15 @@ public class DataDumpActivity extends AppCompatActivity {
         });
 
         Button writeButton = findViewById(R.id.writeButton);
-        writeButton.setOnClickListener(v -> {
-            Intent intent = new Intent(this, WriteCardActivity.class);
-            intent.putExtra("Card", card);
-            startActivity(intent);
-        });
+        if (card.getType() == Card.CardType.OPUS) {
+            writeButton.setVisibility(View.GONE);
+        } else {
+            writeButton.setOnClickListener(v -> {
+                Intent intent = new Intent(this, WriteCardActivity.class);
+                intent.putExtra("Card", card);
+                startActivity(intent);
+            });
+        }
     }
 
     private static byte[] hexStringToBytes(String s) {

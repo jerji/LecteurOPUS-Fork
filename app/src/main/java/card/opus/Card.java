@@ -60,6 +60,7 @@ public class Card implements Serializable {
                 // MIFARE UL: parse pages from XML
                 org.w3c.dom.NodeList pages = doc.getElementsByTagName("List");
                 byte[][] pageData = new byte[16][4];
+                for (int i = 0; i < 16; i++) pageData[i] = new byte[4];
                 for (int i = 0; i < pages.getLength(); i++) {
                     String idxStr = pages.item(i).getAttributes().getNamedItem("index").getNodeValue();
                     String hex = pages.item(i).getTextContent().trim();
