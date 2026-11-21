@@ -13,4 +13,6 @@
     <product code="30F5" name="Single ticket variant" />
     <product code="3217" name="STM Standard" />
     <product code="3216" name="STM Subscription" />
+        <product code="3294" name="STM Multi-trip" />
+        <product code="3210" name="STM Single ticket" />
 </operators>
