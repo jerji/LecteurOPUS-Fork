@@ -1,3 +1,4 @@
+import static card.opus.Utils.isInternetAvailable;
 package card.opus;
 
 import android.content.ClipData;
