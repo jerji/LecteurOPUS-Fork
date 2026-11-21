@@ -137,15 +137,16 @@ public class Contract implements Serializable {
 
         // Extract product code from page 5 bytes 0-1
         this.productCode = ((page5[0] & 0xFF) << 8) | (page5[1] & 0xFF);
-        if (Arrays.equals(page3, Utils.HexStringToByteArray("00000000"))) {
-            // Carte neuve
+        if (Arrays.equals(page3, Utils.HexStringToByteArray("00000000"))
+                && !Arrays.equals(page10, Utils.HexStringToByteArray("00000000"))) {
+            // Carte neuve (page 3 zeroed, page 10 has ticket count)
             m_nbTicket = page10[2] & 0x80 >> 7 |
                     (page10[1] & 0x0F) << 1;
             if ((Arrays.equals(page4, Utils.HexStringToByteArray("00010001")))
                     &&  m_nbTicket != 0) {
                 m_nbTicket -= 1;
             }
-            m_Valid = true;
+            m_Valid = m_nbTicket > 0;
         }
         else if (Arrays.equals(page3, Utils.HexStringToByteArray("80000000"))){
             // Subscription
@@ -154,9 +155,11 @@ public class Contract implements Serializable {
 
         }
         else{
-            // Card used
+            // Card used — count unused tickets from page 3 bitmap
+            // Bit = 0 means ticket NOT used, bit = 1 means used
+            // Count consecutive zeros from MSB (bit 31 → 0)
             m_Valid = true;
-            while(Utils.bytesToInt(page3,31 - m_nbTicket, 1) == 0){
+            while(m_nbTicket < 32 && Utils.bytesToInt(page3,31 - m_nbTicket, 1) == 0){
                 m_nbTicket += 1;
             }
         }
