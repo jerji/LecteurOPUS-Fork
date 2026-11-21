@@ -26,21 +26,46 @@ public class Contract implements Serializable {
     public Contract(byte[] subscriptionData, byte[] ticketData){ // OPUS
         m_operatorId = Utils.bytesToInt(subscriptionData, 9, 8);
         
-        // Try multiple candidate bit offsets for the tariff/product code
-        // Spirtech uses variable bitmap, so try standard Calypso positions
-        this.productCode = Utils.bytesToInt(subscriptionData, 52, 16);
-        if (this.productCode == 0 || this.productCode > 0xFFFF) {
-            this.productCode = Utils.bytesToInt(subscriptionData, 44, 16);
+        // Spirtech alias_Contract format (rp/f$c.b())
+        // Contiguous bit-packing from bit 0:
+        int offset = 0;
+        int genBitmap = Utils.bytesToInt(subscriptionData, offset, 7); offset += 7;
+        
+        // If bitmap bit 0 set: have provider info
+        if ((genBitmap & 0x01) != 0) {
+            int provider = Utils.bytesToInt(subscriptionData, offset, 8);
+            if (provider != 0) m_operatorId = provider;
+            offset += 8;
+        } else {
+            offset += 8;
         }
-        if (this.productCode == 0 || this.productCode > 0xFFFF) {
-            this.productCode = Utils.bytesToInt(subscriptionData, 44, 8);
+        
+        // If bitmap bit 1 set: have tariff/product code
+        if ((genBitmap & 0x02) != 0) {
+            this.productCode = Utils.bytesToInt(subscriptionData, offset, 16);
+            offset += 16;
+        } else {
+            offset += 16;
         }
-        if (this.productCode == 0 || this.productCode > 0xFFFF) {
-            this.productCode = Utils.bytesToInt(subscriptionData, 36, 16);
-        }
-        // Last resort: try fixed-area style (bytes 0-1)
-        if (this.productCode == 0 || this.productCode > 0xFFFF) {
-            this.productCode = ((subscriptionData[0] & 0xFF) << 8) | (subscriptionData[1] & 0xFF);
+        
+        // Validity info
+        int validBitmap = Utils.bytesToInt(subscriptionData, offset, 2); offset += 2;
+        if ((validBitmap & 0x01) != 0 && subscriptionData.length * 8 >= offset + 14) {
+            int startDays = Utils.bytesToInt(subscriptionData, offset, 14);
+            m_ValidityDate = Utils.intToDateTime(startDays, 0);
+            offset += 14;
+        } else { offset += 14; }
+        
+        if ((validBitmap & 0x02) != 0 && subscriptionData.length * 8 >= offset + 14) {
+            // End date - currently skipped, valid date already stored
+            offset += 14;
+        } else { offset += 14; }
+        
+        // Contract data section
+        int dataBitmap = Utils.bytesToInt(subscriptionData, offset, 9); offset += 9;
+        // Skip remaining data fields for now
+        if (subscriptionData.length * 8 >= offset + 107) {
+            offset += 107; // remaining ContractData fields
         }
         if(Utils.bytesToInt(subscriptionData, 40, 16) == 0){
             // Ticket
