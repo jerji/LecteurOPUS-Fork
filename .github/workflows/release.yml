@@ -37,10 +37,12 @@ jobs:
           apk_name="LecteurOPUS-${{ github.ref_name }}.apk"
           cp app/build/outputs/apk/release/app-release.apk "$apk_name"
           if gh release view "${{ github.ref_name }}" >/dev/null 2>&1; then
+            echo "Release exists, uploading APK"
             gh release upload "${{ github.ref_name }}" "$apk_name" --clobber
           else
+            echo "Creating release"
             gh release create "${{ github.ref_name }}" \
               --title "v${{ github.ref_name }}" \
               --notes "Automated release from tag ${{ github.ref_name }}." \
               "$apk_name"
-          fi || true
+          fi
