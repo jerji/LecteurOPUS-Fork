@@ -17,7 +17,8 @@
     <color name="cardHeaderBg">#1E3A5F</color>
     <color name="cardHeaderSubtext">#90CAF9</color>
     <color name="cardScanButton">#2E7D32</color>
-    <color name="cardImportButton">#1E3A5F</color>
+    <color name="cardImportButton">#1565C0</color>
+    <color name="cardExportButton">#5C6BC0</color>
     <color name="cardHintText">#757575</color>
     <color name="cardDivider">#333333</color>
 

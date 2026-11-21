@@ -77,6 +77,9 @@ public class CardHistoryActivity extends AppCompatActivity {
         });
         importButton.setOnClickListener(v -> showImportDialog());
 
+        Button exportAllButton = findViewById(R.id.exportAllButton);
+        exportAllButton.setOnClickListener(v -> exportAllCards());
+
         cardList.setOnItemClickListener((parent, view, position, id) -> {
             CardDatabase.CardEntry entry = (CardDatabase.CardEntry) adapter.getItem(position);
             openCard(entry);
@@ -177,9 +180,9 @@ public class CardHistoryActivity extends AppCompatActivity {
                 if (clipboard.hasPrimaryClip()) {
                     CharSequence pasted = clipboard.getPrimaryClip().getItemAt(0).getText();
                     if (pasted != null) {
-                        long id = db.importFromJson(pasted.toString());
-                        if (id >= 0) {
-                            Toast.makeText(this, "Card imported from clipboard!", Toast.LENGTH_SHORT).show();
+                        int imported = importAll(pasted.toString());
+                        if (imported > 0) {
+                            Toast.makeText(this, imported + " card" + (imported != 1 ? "s" : "") + " imported from clipboard!", Toast.LENGTH_SHORT).show();
                             refreshList();
                         } else {
                             Toast.makeText(this, "Clipboard doesn't contain valid card JSON", Toast.LENGTH_SHORT).show();
@@ -226,9 +229,10 @@ public class CardHistoryActivity extends AppCompatActivity {
                 while ((line = reader.readLine()) != null) sb.append(line);
                 reader.close();
 
-                long id = db.importFromJson(sb.toString());
-                if (id >= 0) {
-                    Toast.makeText(this, "Card imported!", Toast.LENGTH_SHORT).show();
+                String json = sb.toString().trim();
+                int imported = importAll(json);
+                if (imported > 0) {
+                    Toast.makeText(this, imported + " card" + (imported != 1 ? "s" : "") + " imported!", Toast.LENGTH_SHORT).show();
                     refreshList();
                 } else {
                     Toast.makeText(this, "Invalid JSON format", Toast.LENGTH_SHORT).show();
@@ -236,6 +240,58 @@ public class CardHistoryActivity extends AppCompatActivity {
             } catch (Exception e) {
                 Toast.makeText(this, "Import error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
             }
+        }
+    }
+
+    private int importAll(String json) {
+        int count = 0;
+        try {
+            json = json.trim();
+            if (json.startsWith("[")) {
+                // JSON array — import each card
+                org.json.JSONArray arr = new org.json.JSONArray(json);
+                for (int i = 0; i < arr.length(); i++) {
+                    String cardJson = arr.getJSONObject(i).toString();
+                    if (db.importFromJson(cardJson) >= 0) count++;
+                }
+            } else {
+                // Single JSON object
+                if (db.importFromJson(json) >= 0) count = 1;
+            }
+        } catch (Exception e) {
+            FileLog.e(TAG, "importAll error: " + e.getMessage());
+        }
+        return count;
+    }
+
+    private void exportAllCards() {
+        try {
+            List<CardDatabase.CardEntry> cards = db.getRecentCards(100);
+            if (cards.isEmpty()) {
+                Toast.makeText(this, "No cards to export", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            org.json.JSONArray arr = new org.json.JSONArray();
+            for (CardDatabase.CardEntry entry : cards) {
+                Card card = Card.fromRawSerialize(entry.rawXml);
+                if (card != null) {
+                    arr.put(new org.json.JSONObject(card.rawJson()));
+                }
+            }
+
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.US);
+            String filename = "LecteurOPUS_export_" + sdf.format(new Date()) + ".json";
+
+            File path = getFilesDir();
+            File jsonFile = new File(path, filename);
+            FileOutputStream fos = new FileOutputStream(jsonFile);
+            fos.write(arr.toString(2).getBytes());
+            fos.close();
+
+            Toast.makeText(this, "Exported " + cards.size() + " cards to " + filename, Toast.LENGTH_LONG).show();
+        } catch (Exception e) {
+            Toast.makeText(this, "Export error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
         }
     }
 
