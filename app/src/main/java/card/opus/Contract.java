@@ -25,6 +25,12 @@ public class Contract implements Serializable {
 
     public Contract(byte[] subscriptionData, byte[] ticketData){ // OPUS
         m_operatorId = Utils.bytesToInt(subscriptionData, 9, 8);
+        // Extract tariff code from Calypso contract schema (bits 52-67)
+        this.productCode = Utils.bytesToInt(subscriptionData, 52, 16);
+        // Also try alternate offset if result seems wrong
+        if (this.productCode == 0) {
+            this.productCode = Utils.bytesToInt(subscriptionData, 0, 16);
+        }
         if(Utils.bytesToInt(subscriptionData, 40, 16) == 0){
             // Ticket
             m_Subscription = false;

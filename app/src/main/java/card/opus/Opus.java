@@ -65,6 +65,15 @@ public class Opus {
         }
 
         m_Card = new Card(Card.CardType.OPUS, ID, ExpirationDate, tripList, contractList, this.serialize());
+
+        // Set card-level fields from first valid contract
+        for (int i = 0; i < contractList.size(); i++) {
+            Contract c = contractList.get(i);
+            if (c.getProductCode() != 0) {
+                m_Card.setProductCode(c.getProductCode());
+                break;
+            }
+        }
     }
 
     public Card getCard(){
