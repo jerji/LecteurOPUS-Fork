@@ -265,6 +265,7 @@ public class Contract implements Serializable {
             case 0x3294: return "ZoneAB 1trip";
             case 0x0A4B: return "10 trips, All modes A";
             case 0x0A6A: return "1 trip, Bus";
+            case 0x0A35: return "Monthly, All modes A";
             default: return String.format("Unknown (code %04X)", code);
         }
     }
