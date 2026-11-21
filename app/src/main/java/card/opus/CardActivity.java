@@ -42,8 +42,6 @@ import java.util.List;
 import java.util.Locale;
 
 import android.widget.ScrollView;
-import static card.opus.Utils.DOMAIN;
-import static card.opus.Utils.isInternetAvailable;
 
 public class CardActivity extends AppCompatActivity {
     public static final String TAG = "CardActivity";
@@ -410,87 +408,73 @@ public class CardActivity extends AppCompatActivity {
         if((operatorName.equals("") || busName.equals("")) && !missing){
             return false;
         }
-        String androidId = Settings.Secure.getString(this.getContentResolver(), Settings.Secure.ANDROID_ID);
-        // Send POST request
-        // "http://ec2-54-149-222-116.us-west-2.compute.amazonaws.com/"
-        String data;
-        String[] params;
-
-        if(m_OperatorId == 0 || m_BusId == 0){
-            data = "id=" + androidId + "&time=" + m_TimeHash + "&busName=" + busName
-                    + "&operatorName=" + operatorName + "&cardData="
-                    + m_Card.getRawSerialize().replaceAll("\n", "");
-            params = new String[]{"https://" + DOMAIN + "/opus/card.php", data};
-        }
-        else{
-            data = "id=" + androidId + "&time=" + m_TimeHash + "&busId=" + m_BusId + "&operatorId=" + m_OperatorId
-                    + "&busName=" + busName + "&operatorName=" + operatorName + "&add=" + Boolean.toString(add);
-            params = new String[]{"https://" + DOMAIN + "/opus/add.php", data};
-        }
-
-        if(missing)
-            params[0] = "https://" + DOMAIN + "/opus/missing.php";
-        SendHttpRequestTask t = new SendHttpRequestTask();
-        t.execute(params);
-
-        BufferedWriter bw = null;
-        try {
-            bw = new BufferedWriter(new FileWriter(m_PreviousAddTrip, true));
-            bw.write(m_TimeHash);
-            bw.newLine();
-            bw.flush();
-        }
-        catch (IOException e){
-            Log.e(TAG, "Error writing file");
-        }
-        finally {
-            if (bw != null) try {
-                bw.close();
-            } catch (IOException e) {
-                // Do nothing
+        final String bn = busName;
+        final String on = operatorName;
+        final boolean isAdd = add;
+        new Thread(() -> {
+            try {
+                String json;
+                if (missing) {
+                    json = "{\"bus_name\":\"" + bn.replace("\"", "\\\\\"") + "\",\"operator_name\":\"" + on.replace("\"", "\\\\\"") + "\"}";
+                    java.net.URL url = new java.net.URL(ServerConfig.BASE_URL + "/api/v1/bus/submit");
+                    java.net.HttpURLConnection conn = (java.net.HttpURLConnection) url.openConnection();
+                    conn.setRequestMethod("POST");
+                    conn.setRequestProperty("X-API-Key", ServerConfig.API_KEY);
+                    conn.setRequestProperty("Content-Type", "application/json");
+                    conn.setDoOutput(true);
+                    conn.setConnectTimeout(10000);
+                    conn.getOutputStream().write(json.getBytes("UTF-8"));
+                    int code = conn.getResponseCode();
+                    conn.disconnect();
+                    runOnUiThread(() -> {
+                        if (code == 200) Toast.makeText(this, "Submitted", Toast.LENGTH_SHORT).show();
+                        else Toast.makeText(this, "Server error", Toast.LENGTH_SHORT).show();
+                    });
+                } else {
+                    json = "{\"bus_name\":\"" + bn.replace("\"", "\\\\\"") + "\",\"operator_id\":0,\"bus_id\":0,\"vote\":" + (isAdd ? 1 : -1) + "}";
+                    java.net.URL url = new java.net.URL(ServerConfig.BASE_URL + "/api/v1/bus/vote");
+                    java.net.HttpURLConnection conn = (java.net.HttpURLConnection) url.openConnection();
+                    conn.setRequestMethod("POST");
+                    conn.setRequestProperty("X-API-Key", ServerConfig.API_KEY);
+                    conn.setRequestProperty("Content-Type", "application/json");
+                    conn.setDoOutput(true);
+                    conn.setConnectTimeout(10000);
+                    conn.getOutputStream().write(json.getBytes("UTF-8"));
+                    conn.getResponseCode();
+                    conn.disconnect();
+                    if (!isAdd) {
+                        runOnUiThread(() -> {
+                            android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(this);
+                            builder.setTitle("Correct this bus line");
+                            builder.setMessage("Current: " + bn + " (" + on + ")\nWhat should it be?");
+                            android.widget.LinearLayout layout = new android.widget.LinearLayout(this);
+                            layout.setOrientation(android.widget.LinearLayout.VERTICAL);
+                            layout.setPadding(40, 10, 40, 10);
+                            android.widget.EditText busInput = new android.widget.EditText(this);
+                            busInput.setHint("Bus/line name");
+                            layout.addView(busInput);
+                            android.widget.EditText opInput = new android.widget.EditText(this);
+                            opInput.setHint("Operator (e.g. STM)");
+                            layout.addView(opInput);
+                            builder.setView(layout);
+                            builder.setPositiveButton("Submit correction", (dialog, which) -> {
+                                String cb = busInput.getText().toString().trim();
+                                String co = opInput.getText().toString().trim();
+                                if (!cb.isEmpty() || !co.isEmpty()) {
+                                    sendData(cb.isEmpty() ? bn : cb, co.isEmpty() ? on : co, true, true);
+                                }
+                            });
+                            builder.setNegativeButton("Cancel", null);
+                            builder.show();
+                        });
+                    }
+                }
+            } catch (Exception e) {
+                runOnUiThread(() -> Toast.makeText(this, "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show());
             }
-        }
-        Toast.makeText(this, R.string.thank_contribution, Toast.LENGTH_SHORT).show();
+        }).start();
         return true;
     }
-
-    private class SendHttpRequestTask extends AsyncTask<String, Void, String> {
-        @Override
-        protected String doInBackground(String... params) {
-            String url = params[0];
-            String name = params[1];
-
-            String data = sendHttpRequest(url, name);
-            return data;
-        }
-
-        @Override
-        protected void onPostExecute(String result) {
-
-        }
-    }
-
-    private String sendHttpRequest(String url, String data) {
-        StringBuffer buffer = new StringBuffer();
-        try {
-            System.out.println("URL ["+url+"] - Param ["+data+"]");
-
-            HttpURLConnection con = (HttpURLConnection) ( new URL(url)).openConnection();
-            con.setRequestMethod("POST");
-            con.setDoInput(true);
-            con.setDoOutput(true);
-            con.connect();
-            con.getOutputStream().write( (data).getBytes());
-
-            InputStream is = con.getInputStream();
-            byte[] b = new byte[1024];
-
-            while ( is.read(b) != -1)
-                buffer.append(new String(b));
-
-            con.disconnect();
-        }
-        catch(Throwable t) {
             t.printStackTrace();
         }
 
