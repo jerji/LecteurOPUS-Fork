@@ -12,6 +12,7 @@ local.properties
 
 # Signing files
 .signing/
+ci_keystore.jks
 
 # User-specific configurations
 .idea/

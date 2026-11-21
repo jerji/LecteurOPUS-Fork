@@ -20,9 +20,9 @@ android {
     signingConfigs {
         ci {
             storeFile file('ci_keystore.jks')
-            storePassword 'android'
+            storePassword System.getenv('CI_KEYSTORE_PASSWORD') ?: 'android'
             keyAlias 'lecteuropus'
-            keyPassword 'android'
+            keyPassword System.getenv('CI_KEY_PASSWORD') ?: 'android'
         }
     }
     buildTypes {
