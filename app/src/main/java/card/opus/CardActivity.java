@@ -89,15 +89,28 @@ public class CardActivity extends AppCompatActivity {
                     textType.setText(getString(R.string.card_occa) + " - " + productInfo);
                 }
                 break;
-            case OPUS:
-                String ID = "" + m_Card.getID();
-                textID.setText("n° " + ID.substring(0,3) + " " + ID.substring(3,6) + " " + ID.substring(6));
-                textType.setText(R.string.card_opus);
-                imageType.setBackgroundResource(R.mipmap.opus);
-                textExpiration.setText(getString(R.string.expiration) + " "
-                        + Utils.DateToStringShort(m_Card.getExpirationDate()));
-                break;
-            default:
+                            case OPUS:
+                                String ID = "" + m_Card.getID();
+                                textID.setText("n° " + ID.substring(0,3) + " " + ID.substring(3,6) + " " + ID.substring(6));
+                                textType.setText(R.string.card_opus);
+                                imageType.setBackgroundResource(R.mipmap.opus);
+                                textExpiration.setText(getString(R.string.expiration) + " "
+                                        + Utils.DateToStringShort(m_Card.getExpirationDate()));
+
+                                // Append all contract product names
+                                boolean firstProduct = true;
+                                for (int ci = 0; ci < m_Card.getContract().size(); ci++) {
+                                    Contract c = m_Card.getContract().get(ci);
+                                    if (c.getProductCode() != 0) {
+                                        if (firstProduct) {
+                                            textType.append("\n");
+                                            firstProduct = false;
+                                        }
+                                        textType.append("\n  " + (ci + 1) + ". " + c.getProductName());
+                                    }
+                                }
+                                break;
+                            default:
                 // do nothing
                 break;
         }
