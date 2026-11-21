@@ -73,14 +73,6 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="Write to Card" />
-
-        <Button
-            android:id="@+id/submitProductButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:text="Submit product name"
-            android:visibility="gone" />
     </LinearLayout>
 
 </LinearLayout>

@@ -388,32 +388,6 @@ public class DataDumpActivity extends AppCompatActivity {
                 startActivity(intent);
             });
         }
-
-        // Submit product name button
-        Button submitButton = findViewById(R.id.submitProductButton);
-        boolean isUnknown = false;
-        if (card.getContract() != null && card.getContract().size() > 0) {
-            String pn = card.getContract().get(0).getProductName();
-            isUnknown = pn.startsWith("Unknown");
-        }
-        if (isUnknown) {
-            submitButton.setVisibility(View.VISIBLE);
-            submitButton.setOnClickListener(v -> {
-                android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(this);
-                builder.setTitle("Submit product name");
-                builder.setMessage("Product code: 0x" + String.format("%04X", card.getProductCode()));
-                final android.widget.EditText input = new android.widget.EditText(this);
-                input.setHint("e.g. 10 trips, All modes A");
-                builder.setView(input);
-                builder.setPositiveButton("Submit", (dialog, which) -> {
-                    String name = input.getText().toString().trim();
-                    if (name.isEmpty()) return;
-                    submitProductCode(card.getProductCode(), name, card);
-                });
-                builder.setNegativeButton("Cancel", null);
-                builder.show();
-            });
-        }
     }
 
     private static byte[] hexStringToBytes(String s) {
@@ -424,42 +398,5 @@ public class DataDumpActivity extends AppCompatActivity {
                     + Character.digit(s.charAt(i+1), 16));
         }
         return data;
-    }
-
-    private void submitProductCode(int code, String name, Card card) {
-        new Thread(() -> {
-            try {
-                java.net.URL url = new java.net.URL(ServerConfig.BASE_URL + "/api/v1/products/submit");
-                java.net.HttpURLConnection conn = (java.net.HttpURLConnection) url.openConnection();
-                conn.setRequestMethod("POST");
-                conn.setRequestProperty("X-API-Key", ServerConfig.API_KEY);
-                conn.setRequestProperty("Content-Type", "application/json");
-                conn.setDoOutput(true);
-                conn.setConnectTimeout(10000);
-                conn.setReadTimeout(10000);
-
-                int operatorId = 0;
-                if (card.getContract() != null && card.getContract().size() > 0) {
-                    operatorId = card.getContract().get(0).getOperatorId();
-                }
-                String json = "{\"product_code\":" + code + ",\"product_name\":\""
-                        + name.replace("\"", "\\\"") + "\",\"operator_id\":" + operatorId + "}";
-                conn.getOutputStream().write(json.getBytes("UTF-8"));
-
-                int respCode = conn.getResponseCode();
-                String resp = new String(conn.getInputStream().readAllBytes(), "UTF-8");
-                conn.disconnect();
-
-                runOnUiThread(() -> {
-                    if (respCode == 200) {
-                        Toast.makeText(this, "Submitted! Thanks for contributing.", Toast.LENGTH_LONG).show();
-                    } else {
-                        Toast.makeText(this, "Submit failed: " + resp, Toast.LENGTH_LONG).show();
-                    }
-                });
-            } catch (Exception e) {
-                runOnUiThread(() -> Toast.makeText(this, "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show());
-            }
-        }).start();
     }
 }
