@@ -9,6 +9,7 @@ import org.xmlpull.v1.XmlPullParser;
 import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Calendar;
+import java.util.HashMap;
 
 /**
  * Created by etienned on 12/28/16.
@@ -250,11 +251,42 @@ public class Contract implements Serializable {
         return productCode;
     }
 
+    private static HashMap<Integer, String> productNameCache = null;
+
+    public static void loadProductCodes(Context ctx) {
+        if (productNameCache != null) return;
+        productNameCache = new HashMap<>();
+        try {
+            XmlResourceParser xml = ctx.getResources().getXml(R.xml.product_codes);
+            int event = xml.getEventType();
+            while (event != XmlPullParser.END_DOCUMENT) {
+                if (event == XmlPullParser.START_TAG && xml.getName().equals("product")) {
+                    String codeStr = xml.getAttributeValue(null, "code");
+                    String name = xml.getAttributeValue(null, "name");
+                    if (codeStr != null && name != null) {
+                        int code = Integer.parseInt(codeStr, 16);
+                        productNameCache.put(code, name);
+                    }
+                }
+                event = xml.next();
+            }
+        } catch (Exception e) {
+            Log.e(TAG, "Error loading product codes: " + e.getMessage());
+            // Keep fallback switch
+        }
+    }
+
     public String getProductName() {
         return getProductName(productCode);
     }
 
     private static String getProductName(int code) {
+        // Try XML cache first
+        if (productNameCache != null) {
+            String name = productNameCache.get(code);
+            if (name != null) return name;
+        }
+        // Fallback to hardcoded values
         switch (code) {
             case 0x30DF: return "Standard 1-trip";
             case 0x3129: return "Multi-trip product";

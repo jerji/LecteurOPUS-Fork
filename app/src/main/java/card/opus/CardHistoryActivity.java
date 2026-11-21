@@ -57,6 +57,9 @@ public class CardHistoryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_card_history);
 
+        // Load product codes from XML
+        Contract.loadProductCodes(this);
+
         db = CardDatabase.getInstance(this);
         // Initialize file logging
         FileLog.init(this);
