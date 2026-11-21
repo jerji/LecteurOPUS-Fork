@@ -155,8 +155,6 @@ public class CardHistoryActivity extends AppCompatActivity implements NfcAdapter
 
         // Dismiss dialog immediately
         if (scanDialog != null) scanDialog.dismiss();
-        scanning = false;
-        try { NfcAdapter.getDefaultAdapter(this).disableReaderMode(this); } catch (Exception ignored) {}
 
         try {
             String techList = tag.toString();
