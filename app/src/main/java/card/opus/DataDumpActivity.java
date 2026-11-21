@@ -94,9 +94,42 @@ public class DataDumpActivity extends AppCompatActivity {
               .append(": ").append(decoded).append("\n");
             offset += FIXED_SIZES[i];
         }
-        // Auth signatures are SAM-level AES-CMAC on pages 14-15
-        // (visible in the raw card data section below)
         return sb.toString();
+    }
+
+    // Parse auth signatures from raw XML (pages 14-15 bytes 2-3)
+    private String decodeAuthSignatures(String rawXml) {
+        if (rawXml == null || !rawXml.contains("<Mifare>")) return "";
+        try {
+            java.io.ByteArrayInputStream bais = new java.io.ByteArrayInputStream(rawXml.getBytes("UTF-8"));
+            javax.xml.parsers.DocumentBuilderFactory factory = javax.xml.parsers.DocumentBuilderFactory.newInstance();
+            javax.xml.parsers.DocumentBuilder builder = factory.newDocumentBuilder();
+            org.w3c.dom.Document doc = builder.parse(bais);
+            org.w3c.dom.NodeList pages = doc.getElementsByTagName("List");
+            String sig14 = null, sig15 = null;
+            for (int i = 0; i < pages.getLength(); i++) {
+                String idxStr = pages.item(i).getAttributes().getNamedItem("index").getNodeValue();
+                int idx = Integer.parseInt(idxStr);
+                String hex = pages.item(i).getTextContent().trim();
+                if (idx == 14 && hex.length() >= 8) {
+                    sig14 = hex.substring(4, 8);
+                }
+                if (idx == 15 && hex.length() >= 8) {
+                    sig15 = hex.substring(4, 8);
+                }
+            }
+            StringBuilder sb = new StringBuilder("\n=== Auth Signatures (pages 14-15) ===\n");
+            if (sig14 != null) {
+                sb.append("  Page 14 sig: 0x").append(sig14).append("\n");
+            }
+            if (sig15 != null) {
+                sb.append("  Page 15 sig: 0x").append(sig15).append("\n");
+            }
+            sb.append("  (SAM AES-CMAC, verified by fare gate hardware)\n");
+            return sb.toString();
+        } catch (Exception e) {
+            return "";
+        }
     }
 
     @Override
@@ -183,6 +216,12 @@ public class DataDumpActivity extends AppCompatActivity {
                 FileLog.e("DataDump", "FixedArea decode error: " + e.getMessage(), e);
                 sb.append("\n(FixedArea decode unavailable)\n");
             }
+        }
+
+        // Auth signatures for MIFARE cards
+        if (card.getType() == Card.CardType.OCCASIONNELLE) {
+            String authSigs = decodeAuthSignatures(card.getRawSerialize());
+            sb.append(authSigs);
         }
 
         // All contracts
