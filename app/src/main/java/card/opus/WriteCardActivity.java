@@ -4,87 +4,44 @@ import android.nfc.NfcAdapter;
 import android.nfc.Tag;
 import android.nfc.tech.MifareUltralight;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.w3c.dom.Document;
-import org.w3c.dom.NodeList;
-
-import java.io.ByteArrayInputStream;
-
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
+import java.util.Arrays;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class WriteCardActivity extends AppCompatActivity implements NfcAdapter.ReaderCallback {
 
-    private EditText[] pageInputs = new EditText[16];
-    private boolean[] pageLocked = new boolean[16];
+    private EditText productCodeInput;
+    private EditText operatorInput;
+    private EditText ticketsInput;
+    private CheckBox subscriptionCheck;
     private boolean waitingForTag = false;
-    private String[] pageHex = new String[16];
+    private byte[][] pages = new byte[16][4];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // Initialize all pages with defaults
-        for (int i = 0; i < 16; i++) pageHex[i] = "00000000";
-
-        // Try to load page data from intent (clone from read card)
-        Card card = (Card) getIntent().getSerializableExtra("Card");
-        if (card != null && card.getRawSerialize() != null) {
-            parsePagesFromXml(card.getRawSerialize());
-        }
+        // Init all pages to zero
+        for (int i = 0; i < 16; i++) Arrays.fill(pages[i], (byte) 0);
 
         buildUi();
-    }
 
-    private void parsePagesFromXml(String xml) {
-        try {
-            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-            DocumentBuilder builder = factory.newDocumentBuilder();
-            Document doc = builder.parse(new ByteArrayInputStream(xml.getBytes("UTF-8")));
-
-            // Check for Pages format
-            NodeList pageNodes = doc.getElementsByTagName("List");
-            for (int i = 0; i < pageNodes.getLength(); i++) {
-                String indexStr = pageNodes.item(i).getAttributes().getNamedItem("index").getNodeValue();
-                String hex = pageNodes.item(i).getTextContent().trim();
-                int idx = Integer.parseInt(indexStr);
-                if (idx >= 0 && idx < 16 && hex.length() == 8) {
-                    pageHex[idx] = hex;
-                }
-            }
-
-            // Also check Opus format (ID, Expiration, Transit, Subscription, Ticket)
-            parseOpusField(doc, "ID", 0, 16);
-            parseOpusField(doc, "Expiration", 4, 12);
-        } catch (Exception e) {
-            // If XML parsing fails, just use defaults
+        // Pre-fill from card if available
+        Card card = (Card) getIntent().getSerializableExtra("Card");
+        if (card != null && card.getContract() != null && card.getContract().size() > 0) {
+            Contract c = card.getContract().get(0);
+            productCodeInput.setText(String.format("%04X", c.getProductCode()));
+            operatorInput.setText(String.valueOf(c.getOperatorId()));
+            ticketsInput.setText(String.valueOf(c.getNbTicket()));
+            subscriptionCheck.setChecked(c.isSubscription());
         }
-    }
-
-    private void parseOpusField(Document doc, String tagName, int startPage, int hexLen) {
-        try {
-            NodeList nodes = doc.getElementsByTagName(tagName);
-            if (nodes.getLength() > 0) {
-                String hex = nodes.item(0).getTextContent().trim();
-                // First 16 chars = ID, rest = serialized hex (pairs of 8 chars per page)
-                if (hex.length() >= hexLen) {
-                    String dataHex = hex.substring(0, Math.min(hexLen, hex.length()));
-                    int pages = dataHex.length() / 8;
-                    for (int p = 0; p < pages && (startPage + p) < 16; p++) {
-                        pageHex[startPage + p] = dataHex.substring(p * 8, (p + 1) * 8);
-                    }
-                }
-            }
-        } catch (Exception ignored) {}
     }
 
     private void buildUi() {
@@ -92,110 +49,130 @@ public class WriteCardActivity extends AppCompatActivity implements NfcAdapter.R
         root.setOrientation(LinearLayout.VERTICAL);
         root.setPadding(16, 16, 16, 16);
 
-        // Header
-        LinearLayout headerRow = new LinearLayout(this);
-        headerRow.setOrientation(LinearLayout.HORIZONTAL);
-        headerRow.setPadding(0, 0, 0, 16);
+        TextView title = new TextView(this);
+        title.setText("Write Card");
+        title.setTextSize(24);
+        title.setPadding(0, 0, 0, 20);
+        root.addView(title);
 
-        Button cloneBtn = new Button(this);
-        cloneBtn.setText("Clone from read");
-        cloneBtn.setGravity(Gravity.CENTER);
-        cloneBtn.setOnClickListener(v -> {
-            Card card = (Card) getIntent().getSerializableExtra("Card");
-            if (card != null && card.getRawSerialize() != null) {
-                parsePagesFromXml(card.getRawSerialize());
-                for (int i = 0; i < 16; i++) {
-                    pageInputs[i].setText(pageHex[i]);
-                }
-                Toast.makeText(this, "Loaded card data - you can edit pages below", Toast.LENGTH_SHORT).show();
-            } else {
-                Toast.makeText(this, "No card data available", Toast.LENGTH_SHORT).show();
-            }
-        });
-        headerRow.addView(cloneBtn);
+        // Product Code
+        root.addView(makeLabel("Product Code (hex, e.g. 30DF):"));
+        productCodeInput = new EditText(this);
+        productCodeInput.setSingleLine(true);
+        productCodeInput.setText("0000");
+        root.addView(productCodeInput);
 
-        Button clearBtn = new Button(this);
-        clearBtn.setText("Clear all");
-        clearBtn.setOnClickListener(v -> {
-            for (int i = 0; i < 16; i++) {
-                pageHex[i] = "00000000";
-                pageInputs[i].setText("00000000");
-            }
-        });
-        headerRow.addView(clearBtn);
+        // Operator ID
+        root.addView(makeLabel("Operator ID:"));
+        operatorInput = new EditText(this);
+        operatorInput.setSingleLine(true);
+        operatorInput.setInputType(android.text.InputType.TYPE_CLASS_NUMBER);
+        operatorInput.setText("0");
+        root.addView(operatorInput);
 
-        root.addView(headerRow);
+        // Tickets Remaining
+        root.addView(makeLabel("Tickets Remaining (0-255):"));
+        ticketsInput = new EditText(this);
+        ticketsInput.setSingleLine(true);
+        ticketsInput.setInputType(android.text.InputType.TYPE_CLASS_NUMBER);
+        ticketsInput.setText("0");
+        root.addView(ticketsInput);
 
-        // Instructions
-        TextView help = new TextView(this);
-        help.setText("Edit the hex data below, then tap a MIFARE Ultralight tag to write.\nLocked pages (0-2) are skipped.");
-        help.setPadding(0, 0, 0, 12);
-        help.setTextSize(12);
-        root.addView(help);
+        // Subscription
+        subscriptionCheck = new CheckBox(this);
+        subscriptionCheck.setText("Subscription card");
+        root.addView(subscriptionCheck);
 
-        // Lock info
-        final TextView lockInfo = new TextView(this);
-        lockInfo.setText("Lock status unknown (detected at write time)");
-        lockInfo.setPadding(0, 0, 0, 8);
-        lockInfo.setTextSize(12);
-        root.addView(lockInfo);
-
-        // Page editor
-        ScrollView scroll = new ScrollView(this);
-        LinearLayout pageLayout = new LinearLayout(this);
-        pageLayout.setOrientation(LinearLayout.VERTICAL);
-
-        for (int i = 0; i < 16; i++) {
-            final int pageIdx = i;
-            LinearLayout row = new LinearLayout(this);
-            row.setOrientation(LinearLayout.HORIZONTAL);
-            row.setPadding(0, 4, 0, 4);
-
-            TextView label = new TextView(this);
-            String suffix = "";
-            if (i == 0 || i == 1) suffix = " (UID, locked)";
-            else if (i == 2) suffix = " (OTP/Lock, locked)";
-            label.setText(String.format("Page %2d%s:", i, suffix));
-            label.setWidth(190);
-            row.addView(label);
-
-            final EditText input = new EditText(this);
-            input.setWidth(200);
-            input.setSingleLine(true);
-            input.setInputType(android.text.InputType.TYPE_CLASS_TEXT);
-            input.setText(pageHex[i]);
-            pageInputs[i] = input;
-            row.addView(input);
-
-            pageLayout.addView(row);
-        }
-
-        scroll.addView(pageLayout);
-        root.addView(scroll);
+        // Info
+        TextView info = new TextView(this);
+        info.setText("\nValues will be encoded into MIFARE Ultralight pages 3-15 and written to the tag.");
+        info.setPadding(0, 20, 0, 10);
+        info.setTextSize(12);
+        root.addView(info);
 
         // Write button
         Button writeBtn = new Button(this);
-        writeBtn.setText("Write to Tag");
+        writeBtn.setText("Encode & Write to Tag");
         writeBtn.setOnClickListener(v -> {
-            // Collect hex values from inputs
-            for (int i = 0; i < 16; i++) {
-                pageHex[i] = pageInputs[i].getText().toString().trim();
-                if (pageHex[i].length() != 8) pageHex[i] = "00000000";
-            }
+            if (!encodePages()) return;
             waitingForTag = true;
             NfcAdapter adapter = NfcAdapter.getDefaultAdapter(this);
             if (adapter != null) {
                 adapter.enableReaderMode(this, this,
                         NfcAdapter.FLAG_READER_NFC_A |
                         NfcAdapter.FLAG_READER_SKIP_NDEF_CHECK, null);
-                Toast.makeText(this, "Tap a MIFARE Ultralight tag to write", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Tap a MIFARE Ultralight tag", Toast.LENGTH_SHORT).show();
             } else {
                 Toast.makeText(this, "NFC not available", Toast.LENGTH_SHORT).show();
             }
         });
         root.addView(writeBtn);
 
+        // Reset button
+        Button resetBtn = new Button(this);
+        resetBtn.setText("Clear fields");
+        resetBtn.setOnClickListener(v -> {
+            productCodeInput.setText("0000");
+            operatorInput.setText("0");
+            ticketsInput.setText("0");
+            subscriptionCheck.setChecked(false);
+        });
+        root.addView(resetBtn);
+
         setContentView(root);
+    }
+
+    private boolean encodePages() {
+        // Reset data pages
+        for (int i = 3; i < 16; i++) Arrays.fill(pages[i], (byte) 0);
+
+        try {
+            // Product code -> page 5 bytes 0-1
+            String pcStr = productCodeInput.getText().toString().trim();
+            if (pcStr.length() != 4) {
+                Toast.makeText(this, "Product code must be 4 hex chars", Toast.LENGTH_SHORT).show();
+                return false;
+            }
+            int productCode = Integer.parseInt(pcStr, 16);
+            pages[5][0] = (byte) ((productCode >> 8) & 0xFF);
+            pages[5][1] = (byte) (productCode & 0xFF);
+
+            // Operator ID -> page 4 byte 0
+            int operatorId = Integer.parseInt(operatorInput.getText().toString().trim());
+            if (operatorId < 0 || operatorId > 255) {
+                Toast.makeText(this, "Operator ID must be 0-255", Toast.LENGTH_SHORT).show();
+                return false;
+            }
+            pages[4][0] = (byte) operatorId;
+
+            // Tickets -> page 3 byte 0
+            int tickets = Integer.parseInt(ticketsInput.getText().toString().trim());
+            if (tickets < 0 || tickets > 255) {
+                Toast.makeText(this, "Tickets must be 0-255", Toast.LENGTH_SHORT).show();
+                return false;
+            }
+            pages[3][0] = (byte) tickets;
+
+            // Subscription flag -> page 4 bit 8 + page 10 non-zero
+            if (subscriptionCheck.isChecked()) {
+                pages[4][1] = (byte) (pages[4][1] | 0x01);
+                pages[10][0] = 0x01;
+            }
+
+            return true;
+
+        } catch (NumberFormatException e) {
+            Toast.makeText(this, "Invalid number format", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+    }
+
+    private TextView makeLabel(String text) {
+        TextView tv = new TextView(this);
+        tv.setText(text);
+        tv.setPadding(0, 8, 0, 4);
+        tv.setTextSize(14);
+        return tv;
     }
 
     @Override
@@ -211,44 +188,30 @@ public class WriteCardActivity extends AppCompatActivity implements NfcAdapter.R
         try {
             mifare.connect();
 
-            // Read pages 0-2 to determine lock state
+            // Read lock bytes from page 2
             byte[] p0to3 = mifare.readPages(0);
-
-            // Page 2 byte 2 = lock byte 0 (bits 0-7)
             int lockByte0 = p0to3[10] & 0xFF;
-            // Page 2 byte 3 = lock byte 1 (additional lock bits)
-            int lockByte1 = p0to3[11] & 0xFF;
-
-            // Determine which pages are locked
-            // Lock byte 0 bits 0-7: bit N locks pages (N*2+3) and (N*2+4)
-            // Lock byte 1 bits 0-7: similar, higher page numbers
-            pageLocked[0] = true; // UID, always hardware locked
-            pageLocked[1] = true; // UID cont'd
-            pageLocked[2] = true; // OTP + lock bytes
-
+            boolean[] locked = new boolean[16];
+            locked[0] = true;
+            locked[1] = true;
+            locked[2] = true;
             for (int b = 0; b < 8; b++) {
                 if ((lockByte0 >> b & 1) == 1) {
                     int p = 3 + (b * 2);
-                    if (p < 16) pageLocked[p] = true;
-                    if (p + 1 < 16) pageLocked[p + 1] = true;
-                }
-                if ((lockByte1 >> b & 1) == 1) {
-                    int p = 3 + 16 + (b * 2);
-                    if (p < 16) pageLocked[p] = true;
-                    if (p + 1 < 16) pageLocked[p + 1] = true;
+                    if (p < 16) locked[p] = true;
+                    if (p + 1 < 16) locked[p + 1] = true;
                 }
             }
 
-            // Write unlocked pages
+            // Write data to unlocked pages
             int written = 0;
             int skipped = 0;
             for (int i = 3; i < 16; i++) {
-                if (pageLocked[i]) {
+                if (locked[i]) {
                     skipped++;
                     continue;
                 }
-                byte[] data = hexStringToBytes(pageHex[i]);
-                mifare.writePage(i, data);
+                mifare.writePage(i, pages[i]);
                 written++;
             }
 
@@ -256,14 +219,9 @@ public class WriteCardActivity extends AppCompatActivity implements NfcAdapter.R
 
             final int w = written;
             final int s = skipped;
-            final StringBuilder lockMsg = new StringBuilder();
-            for (int i = 3; i < 16; i++) {
-                if (pageLocked[i]) lockMsg.append(" p").append(i);
-            }
-
             runOnUiThread(() -> {
                 String msg = "Written " + w + " pages";
-                if (s > 0) msg += ", skipped locked:" + lockMsg;
+                if (s > 0) msg += ", " + s + " locked skipped";
                 Toast.makeText(this, msg, Toast.LENGTH_LONG).show();
             });
 
@@ -278,15 +236,5 @@ public class WriteCardActivity extends AppCompatActivity implements NfcAdapter.R
                 if (adapter != null) adapter.disableReaderMode(this);
             } catch (Exception ignored) {}
         }
-    }
-
-    private byte[] hexStringToBytes(String s) {
-        int len = s.length();
-        byte[] data = new byte[len / 2];
-        for (int i = 0; i < len; i += 2) {
-            data[i / 2] = (byte) ((Character.digit(s.charAt(i), 16) << 4)
-                    + Character.digit(s.charAt(i+1), 16));
-        }
-        return data;
     }
 }
