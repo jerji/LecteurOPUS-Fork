@@ -55,8 +55,6 @@
         android:layout_height="24dp"
         android:layout_gravity="center_vertical"
         android:src="@android:drawable/ic_menu_more"
-        android:clickable="true"
-        android:focusable="true"
         android:contentDescription="Menu" />
 
 </LinearLayout>
