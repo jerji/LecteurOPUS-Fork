@@ -119,6 +119,11 @@ public class Contract implements Serializable {
             m_Subscription = false;
             m_nbTicket = Utils.bytesToInt(ticketData, 16, 8);
             m_Valid = (m_nbTicket > 0);
+            // Check ValidityEndDate for ticket expiry too
+            if (m_Valid && m_ValidityDate != null) {
+                Calendar today = Calendar.getInstance();
+                m_Valid = m_ValidityDate.compareTo(today) > 0;
+            }
         }
         else{
             // Subscription
@@ -258,6 +263,8 @@ public class Contract implements Serializable {
             case 0x3217: return "STM Standard";
             case 0x3216: return "STM Subscription";
             case 0x3294: return "ZoneAB 1trip";
+            case 0x0A4B: return "10 trips, All modes A";
+            case 0x0A6A: return "1 trip, Bus";
             default: return String.format("Unknown (code %04X)", code);
         }
     }
