@@ -160,8 +160,6 @@ public class Contract implements Serializable {
             case 0x30F5: return "Single ticket variant";
             case 0x3217: return "STM Standard";
             case 0x3216: return "STM Subscription";
-            case 0x3294: return "STM Multi-trip";
-            case 0x3210: return "STM Single ticket";
             default: return String.format("Unknown (code %04X)", code);
         }
     }
