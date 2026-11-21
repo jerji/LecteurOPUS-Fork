@@ -483,19 +483,22 @@ public class CardActivity extends AppCompatActivity {
                             android.view.View promptView = inflater.inflate(R.layout.input_dialog, null);
                             builder.setView(promptView);
 
-                            android.widget.Spinner operatorSpinner = (android.widget.Spinner) promptView.findViewById(R.id.operatorInput);
-                            android.widget.ArrayAdapter<String> adapter = new android.widget.ArrayAdapter<>(this,
-                                    android.R.layout.simple_spinner_dropdown_item, Utils.getOperatorNames(this));
-                            operatorSpinner.setAdapter(adapter);
-
-                            android.widget.Spinner busSpinner = (android.widget.Spinner) promptView.findViewById(R.id.busInput);
-                            busSpinner.setVisibility(android.view.View.VISIBLE);
+                            // Use freeform text fields instead of spinners
+                            promptView.findViewById(R.id.operatorInput).setVisibility(android.view.View.GONE);
+                            promptView.findViewById(R.id.operatorText).setVisibility(android.view.View.VISIBLE);
                             promptView.findViewById(R.id.busLabel).setVisibility(android.view.View.VISIBLE);
                             promptView.findViewById(R.id.busLayout).setVisibility(android.view.View.VISIBLE);
+                            promptView.findViewById(R.id.busInput).setVisibility(android.view.View.GONE);
+                            promptView.findViewById(R.id.busText).setVisibility(android.view.View.VISIBLE);
+
+                            android.widget.EditText operatorText = (android.widget.EditText) promptView.findViewById(R.id.operatorText);
+                            android.widget.EditText busText = (android.widget.EditText) promptView.findViewById(R.id.busText);
+                            operatorText.setHint("Operator (e.g. STM)");
+                            busText.setHint("Bus/route name or number");
 
                             builder.setPositiveButton("Submit correction", (dialog, which) -> {
-                                String cb = busSpinner.getSelectedItem().toString().trim();
-                                String co = operatorSpinner.getSelectedItem().toString().trim();
+                                String cb = busText.getText().toString().trim();
+                                String co = operatorText.getText().toString().trim();
                                 if (!cb.isEmpty() || !co.isEmpty()) {
                                     sendData(cb.isEmpty() ? bn : cb, co.isEmpty() ? on : co, true, true);
                                 }
