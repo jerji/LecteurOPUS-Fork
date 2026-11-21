@@ -58,6 +58,9 @@ public class CardHistoryActivity extends AppCompatActivity implements NfcAdapter
         setContentView(R.layout.activity_card_history);
 
         db = CardDatabase.getInstance(this);
+        // Initialize file logging
+        FileLog.init(this);
+
         cardList = findViewById(R.id.cardList);
         emptyText = findViewById(R.id.emptyText);
         cardCount = findViewById(R.id.cardCount);
@@ -137,7 +140,7 @@ public class CardHistoryActivity extends AppCompatActivity implements NfcAdapter
 
             Card card = Card.fromRawSerialize(rawXml);
             if (card == null) {
-                Log.e(TAG, "openCard: fromRawSerialize returned null for " + rawXml.substring(0, Math.min(rawXml.length(), 80)));
+                FileLog.e(TAG, "openCard: fromRawSerialize returned null for " + rawXml.substring(0, Math.min(rawXml.length(), 80)));
                 Toast.makeText(this, "Cannot open: invalid card data", Toast.LENGTH_SHORT).show();
                 return;
             }
@@ -146,7 +149,7 @@ public class CardHistoryActivity extends AppCompatActivity implements NfcAdapter
             intent.putExtra("Card", card);
             startActivity(intent);
         } catch (Exception e) {
-            Log.e(TAG, "openCard error: " + e.getMessage(), e);
+            FileLog.e(TAG, "openCard error: " + e.getMessage(), e);
             Toast.makeText(this, "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
         }
     }
@@ -209,7 +212,7 @@ public class CardHistoryActivity extends AppCompatActivity implements NfcAdapter
             endScan();
 
         } catch (Exception e) {
-            Log.e(TAG, "Error reading card: " + e.getMessage());
+            FileLog.e(TAG, "Error reading card: " + e.getMessage());
             runOnUiThread(() -> Toast.makeText(this, "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show());
             endScan();
         }
@@ -307,7 +310,7 @@ public class CardHistoryActivity extends AppCompatActivity implements NfcAdapter
             return opus.getCard();
 
         } catch (Exception e) {
-            Log.e(TAG, "OPUS read failed: " + e.getMessage());
+            FileLog.e(TAG, "OPUS read failed: " + e.getMessage());
             return null;
         }
     }
