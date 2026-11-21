@@ -162,16 +162,24 @@ public class CardHistoryActivity extends AppCompatActivity implements NfcAdapter
         if (scanDialog != null) scanDialog.dismiss();
 
         try {
-            String techList = tag.toString();
-            if (techList.contains(MifareUltralight.class.getName()) ||
-                techList.contains(NfcA.class.getName())) {
+            String[] techs = tag.getTechList();
+            boolean hasMifare = false, hasIsoDep = false;
+            for (String t : techs) {
+                if (t.contains("MifareUltralight") || t.contains("NfcA")) hasMifare = true;
+                if (t.contains("IsoDep") || t.contains("NfcB")) hasIsoDep = true;
+            }
+
+            if (hasMifare) {
                 // MIFARE Ultralight (temp ticket)
                 MifareUltralight mifare = MifareUltralight.get(tag);
                 if (mifare != null) {
                     mifare.connect();
-                    byte[][] cardData = new byte[][]{
-                        mifare.readPages(0), mifare.readPages(4),
-                        mifare.readPages(8), mifare.readPages(12) };
+                    try { Thread.sleep(100); } catch (InterruptedException ignored) {}
+                    byte[][] cardData = new byte[4][];
+                    try { cardData[0] = mifare.readPages(0); } catch (Exception e) { cardData[0] = new byte[16]; }
+                    try { cardData[1] = mifare.readPages(4); } catch (Exception e) { cardData[1] = new byte[16]; }
+                    try { cardData[2] = mifare.readPages(8); } catch (Exception e) { cardData[2] = new byte[16]; }
+                    try { cardData[3] = mifare.readPages(12); } catch (Exception e) { cardData[3] = new byte[16]; }
                     mifare.close();
 
                     Mifare mainCard = new Mifare(cardData);
@@ -186,12 +194,12 @@ public class CardHistoryActivity extends AppCompatActivity implements NfcAdapter
                 }
             }
 
-            if (techList.contains(IsoDep.class.getName()) ||
-                techList.contains(NfcB.class.getName())) {
+            if (hasIsoDep) {
                 // OPUS (Calypso)
                 IsoDep opusCard = IsoDep.get(tag);
                 if (opusCard != null) {
                     opusCard.connect();
+                    try { Thread.sleep(100); } catch (InterruptedException ignored) {}
                     Card card = readOpusCard(opusCard);
                     opusCard.close();
                     if (card != null) {
@@ -208,11 +216,11 @@ public class CardHistoryActivity extends AppCompatActivity implements NfcAdapter
                 }
             }
 
-            runOnUiThread(() -> Toast.makeText(this, "Unknown card type", Toast.LENGTH_SHORT).show());
+            runOnUiThread(() -> Toast.makeText(this, "Unknown card type (" + techs.length + " techs)", Toast.LENGTH_SHORT).show());
             endScan();
 
         } catch (Exception e) {
-            FileLog.e(TAG, "Error reading card: " + e.getMessage());
+            FileLog.e(TAG, "Error reading card: " + e.getMessage(), e);
             runOnUiThread(() -> Toast.makeText(this, "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show());
             endScan();
         }

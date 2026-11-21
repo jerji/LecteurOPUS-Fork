@@ -61,8 +61,11 @@ public class DataDumpActivity extends AppCompatActivity {
                 return "0x" + Integer.toHexString(val).toUpperCase();
             case "bool":
                 return val != 0 ? "true" : "false";
-            case "bitmap":
-                return String.format("%06b", val) + " = " + val;
+            case "bitmap": {
+                String bin = Integer.toBinaryString(val);
+                while (bin.length() < 6) bin = "0" + bin;
+                return bin + " = " + val;
+            }
             case "date": {
                 if (val <= 0) return "none";
                 Calendar cal = Calendar.getInstance();
