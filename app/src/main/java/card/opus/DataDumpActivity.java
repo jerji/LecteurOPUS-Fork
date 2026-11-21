@@ -94,10 +94,8 @@ public class DataDumpActivity extends AppCompatActivity {
               .append(": ").append(decoded).append("\n");
             offset += FIXED_SIZES[i];
         }
-        // Also show auth signatures from pages 14-15 if available
-        sb.append("\nAuth signatures:\n");
-        sb.append("  Page 14 upper bytes: checked at write time\n");
-        sb.append("  Page 15 upper bytes: checked at write time\n");
+        // Auth signatures are SAM-level AES-CMAC on pages 14-15
+        // (visible in the raw card data section below)
         return sb.toString();
     }
 

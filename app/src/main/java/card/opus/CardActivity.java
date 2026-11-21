@@ -1,5 +1,7 @@
 package card.opus;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -10,6 +12,9 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -57,6 +62,16 @@ public class CardActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         m_Card = (Card)intent.getSerializableExtra("Card");
+
+        // Set title from card info
+        String cardName = "Unknown";
+        if (m_Card != null && m_Card.getContract() != null && m_Card.getContract().size() > 0) {
+            cardName = m_Card.getContract().get(0).getProductName();
+        }
+        if (m_Card != null && cardName.equals("Unknown (code 0000)") && m_Card.getProductCode() != 0) {
+            cardName = String.format("Unknown (code %04X)", m_Card.getProductCode());
+        }
+        setTitle(cardName);
 
         LinearLayout LayoutTransit = (LinearLayout) findViewById(R.id.layoutTransit);
         LinearLayout LayoutSubscription = (LinearLayout) findViewById(R.id.layoutSubcription);
@@ -573,5 +588,54 @@ public class CardActivity extends AppCompatActivity {
         return buffer.toString();
     }
 
+    // ---- ActionBar menu (⋮ button) ----
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        menu.add(0, 1, 0, "Copy JSON");
+        menu.add(0, 2, 0, "Save JSON");
+        menu.add(0, 3, 0, "Data Dump");
+        return true;
+    }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case 1: // Copy JSON
+                try {
+                    String json = m_Card.rawJson();
+                    ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+                    ClipData clip = ClipData.newPlainText("card_json", json);
+                    clipboard.setPrimaryClip(clip);
+                    Toast.makeText(this, "JSON copied", Toast.LENGTH_SHORT).show();
+                } catch (Exception e) {
+                    Toast.makeText(this, "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+                return true;
+            case 2: // Save JSON
+                try {
+                    String json = m_Card.rawJson();
+                    String type = m_Card.getType() == Card.CardType.OPUS ? "OPUS" : "MIFARE";
+                    String code = String.format("%04X", m_Card.getProductCode());
+                    java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyyMMdd_HHmmss", java.util.Locale.US);
+                    String filename = type + "_" + code + "_" + sdf.format(new java.util.Date()) + ".json";
+                    File path = getFilesDir();
+                    File jsonFile = new File(path, filename);
+                    FileOutputStream fos = new FileOutputStream(jsonFile);
+                    fos.write(json.getBytes());
+                    fos.close();
+                    Toast.makeText(this, "Saved: " + filename, Toast.LENGTH_LONG).show();
+                } catch (Exception e) {
+                    Toast.makeText(this, "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+                return true;
+            case 3: // Data Dump
+                Intent dumpIntent = new Intent(this, DataDumpActivity.class);
+                dumpIntent.putExtra("Card", m_Card);
+                startActivity(dumpIntent);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
 }
