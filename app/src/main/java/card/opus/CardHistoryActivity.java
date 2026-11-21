@@ -562,10 +562,17 @@ public class CardHistoryActivity extends AppCompatActivity {
                   .append(" → 0x").append(String.format("%04X", b.productCode)).append("\n");
             }
 
+            final String diffText = sb.toString();
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setTitle("Card Diff");
-            builder.setMessage(sb.toString());
+            builder.setMessage(diffText);
             builder.setPositiveButton("OK", null);
+            builder.setNegativeButton("Copy", (dialog, which) -> {
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("card_diff", diffText);
+                clipboard.setPrimaryClip(clip);
+                Toast.makeText(this, "Diff copied to clipboard", Toast.LENGTH_SHORT).show();
+            });
             builder.show();
 
         } catch (Exception e) {
