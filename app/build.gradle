@@ -10,8 +10,8 @@ android {
         // Google Play requires API 36+. Edge-to-edge (enforced from API 35) is
         // handled by Utils.applySystemBarInsets() in each activity.
         targetSdk 36
-        versionCode 17
-        versionName "1.7.9"
+        versionCode 18
+        versionName "1.8.2"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildFeatures {
