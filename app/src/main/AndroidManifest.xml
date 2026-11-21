@@ -37,6 +37,12 @@
             android:label="Card Data Dump"
             android:theme="@style/AppTheme" >
         </activity>
+        <activity
+            android:name="card.opus.WriteCardActivity"
+            android:exported="false"
+            android:label="Write Card"
+            android:theme="@style/AppTheme" >
+        </activity>
     </application>
 
 </manifest>

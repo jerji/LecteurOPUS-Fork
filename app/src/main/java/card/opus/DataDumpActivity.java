@@ -116,5 +116,12 @@ public class DataDumpActivity extends AppCompatActivity {
                 Toast.makeText(this, "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
+
+        Button writeButton = findViewById(R.id.writeButton);
+        writeButton.setOnClickListener(v -> {
+            Intent intent = new Intent(this, WriteCardActivity.class);
+            intent.putExtra("Card", card);
+            startActivity(intent);
+        });
     }
 }
