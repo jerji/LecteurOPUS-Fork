@@ -125,6 +125,12 @@ public class CardDatabase extends SQLiteOpenHelper {
             String type = "OPUS";
             String rawXml = null;
 
+            // Always extract productCode and type
+            String pcStr = obj.optString("productCode", "0000");
+            if (pcStr.startsWith("0x")) pcStr = pcStr.substring(2);
+            try { productCode = Integer.parseInt(pcStr, 16); } catch (Exception e) { productCode = 0; }
+            type = obj.optString("type", "OPUS");
+
             // Use rawXml if available (full round-trip)
             if (obj.has("rawXml")) {
                 rawXml = obj.getString("rawXml");
@@ -134,8 +140,6 @@ public class CardDatabase extends SQLiteOpenHelper {
 
             if (rawXml == null || rawXml.isEmpty()) {
                 // Build minimal XML from decoded fields
-                productCode = Integer.parseInt(obj.optString("productCode", "0000"), 16);
-                type = obj.optString("type", "OPUS");
 
                 StringBuilder xml = new StringBuilder();
                 String rootTag = type.equals("OCCASIONNELLE") ? "Mifare" : "Opus";
@@ -170,7 +174,7 @@ public class CardDatabase extends SQLiteOpenHelper {
             stmt.bindString(2, type);
             stmt.bindLong(3, productCode);
             stmt.bindString(4, "Imported (" + String.format("%04X", productCode) + ")");
-            stmt.bindString(5, xml.toString());
+            stmt.bindString(5, rawXml);
             stmt.bindString(6, obj.optString("uid", ""));
             stmt.bindLong(7, obj.optInt("operator", 0));
             long id = stmt.executeInsert();
