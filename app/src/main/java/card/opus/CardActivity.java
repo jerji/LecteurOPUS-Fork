@@ -538,20 +538,45 @@ public class CardActivity extends AppCompatActivity {
             submitBtn.setBackgroundColor(0x00000000); // transparent
             final int fCode = c.getProductCode();
             submitBtn.setOnClickListener(v -> {
-                android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(this);
-                builder.setTitle("Submit product name");
-                builder.setMessage("Product code 0x" + String.format("%04X", fCode));
-                final android.widget.EditText input = new android.widget.EditText(this);
-                input.setText(c.getProductName().startsWith("Unknown") ? "" : c.getProductName());
-                input.setHint("e.g. 10 trips, All modes A");
-                builder.setView(input);
-                builder.setPositiveButton("Submit", (dialog, which) -> {
-                    String pn = input.getText().toString().trim();
-                    if (pn.isEmpty()) return;
-                    submitProductName(fCode, pn);
-                });
-                builder.setNegativeButton("Cancel", null);
-                builder.show();
+                final int fCodeLocal = fCode;
+                final boolean isKnown = !c.getProductName().startsWith("Unknown");
+                if (isKnown) {
+                    android.app.AlertDialog.Builder voteBuilder = new android.app.AlertDialog.Builder(this);
+                    voteBuilder.setTitle("Is this correct?");
+                    voteBuilder.setMessage(c.getProductName() + "\n\nProduct code 0x" + String.format("%04X", fCodeLocal));
+                    voteBuilder.setPositiveButton("Yes", (dialog, which) -> {
+                        submitProductName(fCodeLocal, c.getProductName());
+                    });
+                    voteBuilder.setNegativeButton("No", (dialog, which) -> {
+                        android.app.AlertDialog.Builder corrBuilder = new android.app.AlertDialog.Builder(this);
+                        corrBuilder.setTitle("Correct this product name");
+                        corrBuilder.setMessage("Product code 0x" + String.format("%04X", fCodeLocal));
+                        final android.widget.EditText input = new android.widget.EditText(this);
+                        input.setHint("e.g. 10 trips, All modes A");
+                        corrBuilder.setView(input);
+                        corrBuilder.setPositiveButton("Submit", (d2, w2) -> {
+                            String pn = input.getText().toString().trim();
+                            if (!pn.isEmpty()) submitProductName(fCodeLocal, pn);
+                        });
+                        corrBuilder.setNegativeButton("Cancel", null);
+                        corrBuilder.show();
+                    });
+                    voteBuilder.show();
+                } else {
+                    android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(this);
+                    builder.setTitle("Submit product name");
+                    builder.setMessage("Product code 0x" + String.format("%04X", fCodeLocal));
+                    final android.widget.EditText input = new android.widget.EditText(this);
+                    input.setHint("e.g. 10 trips, All modes A");
+                    builder.setView(input);
+                    builder.setPositiveButton("Submit", (d2, w2) -> {
+                        String pn = input.getText().toString().trim();
+                        if (!pn.isEmpty()) submitProductName(fCodeLocal, pn);
+                    });
+                    builder.setNegativeButton("Cancel", null);
+                    builder.show();
+                }
+            });
             });
             fareRow.addView(submitBtn);
 
