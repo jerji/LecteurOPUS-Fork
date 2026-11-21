@@ -541,8 +541,71 @@ public class CardActivity extends AppCompatActivity {
 
             fareRow.addView(nameView);
             fareRow.addView(statusView);
+
+            // Small submit/correct button
+            Button submitBtn = new Button(this);
+            submitBtn.setText("✏");
+            submitBtn.setTextSize(12);
+            submitBtn.setPadding(4, 2, 4, 2);
+            submitBtn.setMinWidth(0);
+            submitBtn.setMinHeight(0);
+            submitBtn.setMinimumWidth(0);
+            submitBtn.setMinimumHeight(0);
+            submitBtn.setBackgroundColor(0x00000000); // transparent
+            final int fCode = c.getProductCode();
+            submitBtn.setOnClickListener(v -> {
+                android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(this);
+                builder.setTitle("Submit product name");
+                builder.setMessage("Product code 0x" + String.format("%04X", fCode));
+                final android.widget.EditText input = new android.widget.EditText(this);
+                input.setText(c.getProductName().startsWith("Unknown") ? "" : c.getProductName());
+                input.setHint("e.g. 10 trips, All modes A");
+                builder.setView(input);
+                builder.setPositiveButton("Submit", (dialog, which) -> {
+                    String pn = input.getText().toString().trim();
+                    if (pn.isEmpty()) return;
+                    submitProductName(fCode, pn);
+                });
+                builder.setNegativeButton("Cancel", null);
+                builder.show();
+            });
+            fareRow.addView(submitBtn);
+
             layoutFares.addView(fareRow);
         }
+    }
+
+    private void submitProductName(int code, String name) {
+        new Thread(() -> {
+            try {
+                java.net.URL url = new java.net.URL(ServerConfig.BASE_URL + "/api/v1/products/submit");
+                java.net.HttpURLConnection conn = (java.net.HttpURLConnection) url.openConnection();
+                conn.setRequestMethod("POST");
+                conn.setRequestProperty("X-API-Key", ServerConfig.API_KEY);
+                conn.setRequestProperty("Content-Type", "application/json");
+                conn.setDoOutput(true);
+                conn.setConnectTimeout(10000);
+                conn.setReadTimeout(10000);
+
+                String json = "{\"product_code\":" + code + ",\"product_name\":\""
+                        + name.replace("\"", "\\\"") + "\",\"operator_id\":0}";
+                conn.getOutputStream().write(json.getBytes("UTF-8"));
+
+                int respCode = conn.getResponseCode();
+                String resp = new String(conn.getInputStream().readAllBytes(), "UTF-8");
+                conn.disconnect();
+
+                runOnUiThread(() -> {
+                    if (respCode == 200) {
+                        Toast.makeText(this, "Submitted! Thanks.", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(this, "Failed: " + resp, Toast.LENGTH_SHORT).show();
+                    }
+                });
+            } catch (Exception e) {
+                runOnUiThread(() -> Toast.makeText(this, "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show());
+            }
+        }).start();
     }
 
     // ---- ActionBar menu (⋮ button) ----
