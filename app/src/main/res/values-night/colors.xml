@@ -13,6 +13,7 @@
     <color name="textOnPrimary">#FFFFFF</color>
 
     <!-- Card history -->
+    <color name="cardHeaderText">#FFFFFF</color>
     <color name="cardHeaderBg">#1E3A5F</color>
     <color name="cardHeaderSubtext">#90CAF9</color>
     <color name="cardScanButton">#2E7D32</color>
