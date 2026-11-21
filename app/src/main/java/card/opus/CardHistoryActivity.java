@@ -359,11 +359,11 @@ public class CardHistoryActivity extends AppCompatActivity implements NfcAdapter
             TextView name = v.findViewById(R.id.cardName);
             TextView detail = v.findViewById(R.id.cardDetail);
 
-            // Set icon based on card type — use real card icons from mipmap
+            // Set icon based on card type — use real card icons
             if ("OPUS".equals(entry.cardType)) {
                 icon.setImageResource(R.mipmap.opus);
             } else {
-                icon.setImageResource(R.mipmap.carte_occasionnelle);
+                icon.setImageResource(R.drawable.ic_occasional_card);
             }
 
             // Card name
