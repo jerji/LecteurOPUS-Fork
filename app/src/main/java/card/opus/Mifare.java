@@ -65,6 +65,11 @@ public class Mifare {
             }
         }
         m_Card = new Card(Card.CardType.OCCASIONNELLE, tripList, contractList, this.serialize());
+
+        // Extract product code from page 5 bytes 0-1
+        int productCode = ((m_pagesData[5][0] & 0xFF) << 8) | (m_pagesData[5][1] & 0xFF);
+        m_Card.setProductCode(productCode);
+        Log.i(TAG, "Product code: " + String.format("%04X", productCode));
     }
 
     public Card getCard(){

@@ -42,6 +42,7 @@ public class Card implements Serializable {
     private Calendar m_ExpirationDate;
     private long m_ID;
     private String m_serializeRawCard;
+    private int productCode;
 
     public Card(){
         // do nothing
@@ -113,6 +114,68 @@ public class Card implements Serializable {
     public String getRawSerialize(){
         // This return the raw data in xml form
         return m_serializeRawCard;
+    }
+
+    public void setProductCode(int code) {
+        this.productCode = code;
+    }
+
+    public int getProductCode() {
+        return productCode;
+    }
+
+    public String rawJson() {
+        StringBuilder json = new StringBuilder();
+        json.append("{");
+        json.append("\"type\":\"").append(m_Type.name()).append("\"");
+        json.append(",\"id\":").append(m_ID);
+        if (m_ExpirationDate != null) {
+            json.append(",\"expirationDate\":\"").append(DateToStringNumber(m_ExpirationDate)).append("\"");
+        }
+        json.append(",\"productCode\":\"").append(String.format("%04X", productCode)).append("\"");
+        // Trips
+        json.append(",\"trips\":[");
+        for (int i = 0; i < m_Trip.size(); i++) {
+            if (i > 0) json.append(",");
+            Trip trip = m_Trip.get(i);
+            json.append("{");
+            json.append("\"index\":").append(i);
+            if (trip.getDateTime() != null) {
+                json.append(",\"date\":\"").append(DateToStringNumber(trip.getDateTime())).append("\"");
+                json.append(",\"time\":\"").append(TimeToString(trip.getDateTime())).append("\"");
+            }
+            json.append(",\"transfer\":").append(trip.getTransfer());
+            json.append(",\"operatorId\":").append(trip.getOperatorId());
+            json.append(",\"busId\":").append(trip.getBusId());
+            if (trip.getOperatorName() != null)
+                json.append(",\"operatorName\":\"").append(trip.getOperatorName()).append("\"");
+            if (trip.getBusName() != null)
+                json.append(",\"busName\":\"").append(trip.getBusName()).append("\"");
+            json.append("}");
+        }
+        json.append("]");
+        // Contracts
+        json.append(",\"contracts\":[");
+        for (int i = 0; i < m_Contract.size(); i++) {
+            if (i > 0) json.append(",");
+            Contract contract = m_Contract.get(i);
+            json.append("{");
+            json.append("\"index\":").append(i);
+            json.append(",\"subscription\":").append(contract.isSubscription());
+            json.append(",\"valid\":").append(contract.isValid());
+            json.append(",\"nbTicket\":").append(contract.getNbTicket());
+            json.append(",\"operatorId\":").append(contract.getOperatorId());
+            if (contract.getOperatorName() != null)
+                json.append(",\"operatorName\":\"").append(contract.getOperatorName()).append("\"");
+            if (contract.getValidityDate() != null)
+                json.append(",\"validityDate\":\"").append(DateToStringNumber(contract.getValidityDate())).append("\"");
+            json.append(",\"productCode\":\"").append(String.format("%04X", contract.getProductCode())).append("\"");
+            json.append(",\"productName\":\"").append(contract.getProductName()).append("\"");
+            json.append("}");
+        }
+        json.append("]");
+        json.append("}");
+        return json.toString();
     }
 
     public String serialize() {

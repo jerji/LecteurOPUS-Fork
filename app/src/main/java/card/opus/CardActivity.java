@@ -82,6 +82,11 @@ public class CardActivity extends AppCompatActivity {
                 int logoId = m_Card.getContract().get(0).getLogoId();
                 if (logoId != 0) imageLogo.setImageResource(logoId);
 
+                // Display product code and name
+                if (m_Card.getProductCode() != 0) {
+                    String productInfo = m_Card.getContract().get(0).getProductName();
+                    textType.setText(getString(R.string.card_occa) + " - " + productInfo);
+                }
                 break;
             case OPUS:
                 String ID = "" + m_Card.getID();

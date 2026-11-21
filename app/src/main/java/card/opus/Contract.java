@@ -21,6 +21,7 @@ public class Contract implements Serializable {
     private String m_operatorName;
     private int m_logoId;
     private Calendar m_ValidityDate;
+    private int productCode;
 
     public Contract(byte[] subscriptionData, byte[] ticketData){ // OPUS
         m_operatorId = Utils.bytesToInt(subscriptionData, 9, 8);
@@ -44,6 +45,9 @@ public class Contract implements Serializable {
         m_nbTicket = 0;
         m_Subscription = false;
         m_operatorId = Utils.bytesToInt(page5, 18, 8);
+
+        // Extract product code from page 5 bytes 0-1
+        this.productCode = ((page5[0] & 0xFF) << 8) | (page5[1] & 0xFF);
         if (Arrays.equals(page3, Utils.HexStringToByteArray("00000000"))) {
             // Carte neuve
             m_nbTicket = page10[2] & 0x80 >> 7 |
@@ -128,5 +132,29 @@ public class Contract implements Serializable {
 
     public String getOperatorName() {
         return m_operatorName;
+    }
+
+    public void setProductCode(int code) {
+        this.productCode = code;
+    }
+
+    public int getProductCode() {
+        return productCode;
+    }
+
+    public String getProductName() {
+        return getProductName(productCode);
+    }
+
+    private static String getProductName(int code) {
+        switch (code) {
+            case 0x30DF: return "Standard 1-trip";
+            case 0x3129: return "Multi-trip product";
+            case 0x300B: return "Subscription";
+            case 0x30F5: return "Single ticket variant";
+            case 0x3217: return "STM Standard";
+            case 0x3216: return "STM Subscription";
+            default: return String.format("Unknown (code %04X)", code);
+        }
     }
 }

@@ -6,4 +6,11 @@
     <operator id="12" name="RTL" file="rtl" logo="rtl" />
     <operator id="16" name="RTM" file="rtm" logo="rtm" />
     <operator id="64" name="STLévis" file="stlevis" logo="stlevis" />
+    <!-- Product codes -->
+    <product code="30DF" name="Standard 1-trip" />
+    <product code="3129" name="Multi-trip product" />
+    <product code="300B" name="Subscription" />
+    <product code="30F5" name="Single ticket variant" />
+    <product code="3217" name="STM Standard" />
+    <product code="3216" name="STM Subscription" />
 </operators>
