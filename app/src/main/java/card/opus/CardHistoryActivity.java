@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.ClipData;
 import android.content.ClipboardManager;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.nfc.NfcAdapter;
@@ -19,14 +20,18 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.lang.ref.WeakReference;
 import java.text.SimpleDateFormat;
@@ -378,7 +383,118 @@ public class CardHistoryActivity extends AppCompatActivity implements NfcAdapter
             }
             detail.setText(sb.toString());
 
+            // Arrow → context menu
+            ImageView arrow = v.findViewById(R.id.arrowIcon);
+            arrow.setOnClickListener(v1 -> showCardMenu(entry, v1));
+
             return v;
+        }
+    }
+
+    private void showCardMenu(CardDatabase.CardEntry entry, View anchor) {
+        PopupMenu popup = new PopupMenu(this, anchor);
+        popup.getMenu().add(0, 1, 0, "Rename");
+        popup.getMenu().add(0, 2, 0, "Export JSON");
+        popup.getMenu().add(0, 3, 0, "Copy JSON");
+        popup.getMenu().add(0, 4, 0, "Duplicate");
+        popup.getMenu().add(0, 5, 0, "Delete");
+
+        popup.setOnMenuItemClickListener(item -> {
+            switch (item.getItemId()) {
+                case 1: // Rename
+                    renameCardDialog(entry);
+                    return true;
+                case 2: // Export JSON
+                    exportCardJson(entry);
+                    return true;
+                case 3: // Copy JSON
+                    copyCardJson(entry);
+                    return true;
+                case 4: // Duplicate
+                    db.duplicateCard(entry.id);
+                    refreshList();
+                    Toast.makeText(this, "Card duplicated", Toast.LENGTH_SHORT).show();
+                    return true;
+                case 5: // Delete
+                    deleteCardDialog(entry);
+                    return true;
+            }
+            return false;
+        });
+        popup.show();
+    }
+
+    private void renameCardDialog(CardDatabase.CardEntry entry) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Rename Card");
+
+        final EditText input = new EditText(this);
+        input.setText(entry.productName);
+        input.setSelectAllOnFocus(true);
+        builder.setView(input);
+
+        builder.setPositiveButton("Rename", (dialog, which) -> {
+            String newName = input.getText().toString().trim();
+            if (!newName.isEmpty()) {
+                db.renameCard(entry.id, newName);
+                refreshList();
+            }
+        });
+        builder.setNegativeButton("Cancel", null);
+        builder.show();
+    }
+
+    private void deleteCardDialog(CardDatabase.CardEntry entry) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Delete Card");
+        builder.setMessage("Delete \"" + entry.getDisplayName() + "\"?");
+        builder.setPositiveButton("Delete", (dialog, which) -> {
+            db.deleteCard(entry.id);
+            refreshList();
+        });
+        builder.setNegativeButton("Cancel", null);
+        builder.show();
+    }
+
+    private void exportCardJson(CardDatabase.CardEntry entry) {
+        try {
+            Card card = Card.fromRawSerialize(entry.rawXml);
+            if (card == null) {
+                Toast.makeText(this, "Cannot export: invalid card data", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            String json = card.rawJson();
+            String type = card.getType() == Card.CardType.OPUS ? "OPUS" : "MIFARE";
+            String code = String.format("%04X", card.getProductCode());
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.US);
+            String filename = type + "_" + code + "_" + sdf.format(new Date()) + ".json";
+
+            File path = getFilesDir();
+            File jsonFile = new File(path, filename);
+            FileOutputStream fos = new FileOutputStream(jsonFile);
+            fos.write(json.getBytes());
+            fos.close();
+
+            Toast.makeText(this, "Saved: " + filename, Toast.LENGTH_LONG).show();
+        } catch (Exception e) {
+            Toast.makeText(this, "Export error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void copyCardJson(CardDatabase.CardEntry entry) {
+        try {
+            Card card = Card.fromRawSerialize(entry.rawXml);
+            if (card == null) {
+                Toast.makeText(this, "Cannot copy: invalid card data", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            String json = card.rawJson();
+            ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+            ClipData clip = ClipData.newPlainText("card_json", json);
+            clipboard.setPrimaryClip(clip);
+            Toast.makeText(this, "JSON copied to clipboard", Toast.LENGTH_SHORT).show();
+        } catch (Exception e) {
+            Toast.makeText(this, "Copy error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
         }
     }
 }

@@ -50,10 +50,13 @@
 
     <!-- Arrow -->
     <ImageView
+        android:id="@+id/arrowIcon"
         android:layout_width="24dp"
         android:layout_height="24dp"
         android:layout_gravity="center_vertical"
         android:src="@android:drawable/ic_menu_more"
-        android:contentDescription="Open" />
+        android:clickable="true"
+        android:focusable="true"
+        android:contentDescription="Menu" />
 
 </LinearLayout>

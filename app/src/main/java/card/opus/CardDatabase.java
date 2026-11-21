@@ -118,6 +118,7 @@ public class CardDatabase extends SQLiteOpenHelper {
         return cards;
     }
 
+>>>>>>> f6f7fe7 (Card context menu: rename, export, copy, duplicate, delete)
     public long importFromJson(String json) {
         try {
             org.json.JSONObject obj = new org.json.JSONObject(json);
