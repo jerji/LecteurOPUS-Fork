@@ -554,8 +554,6 @@ public class CardHistoryActivity extends AppCompatActivity {
                     String dataB = extractXmlSection(rawB, sec);
                     if (!dataA.equals(dataB)) {
                         sb.append("  ").append(sec).append(": CHANGED\n");
-                        if (dataA.length() > 60) dataA = dataA.substring(0, 60) + "...";
-                        if (dataB.length() > 60) dataB = dataB.substring(0, 60) + "...";
                         sb.append("    A: ").append(dataA).append("\n");
                         sb.append("    B: ").append(dataB).append("\n");
                     }
