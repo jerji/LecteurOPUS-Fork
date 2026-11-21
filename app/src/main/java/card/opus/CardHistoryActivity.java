@@ -174,6 +174,7 @@ public class CardHistoryActivity extends AppCompatActivity implements NfcAdapter
                     Mifare mainCard = new Mifare(cardData);
                     Card card = mainCard.getCard();
                     db.saveCard(card);
+                    endScan();
                     runOnUiThread(() -> {
                         refreshList();
                         openCardFromCard(card);
@@ -192,21 +193,31 @@ public class CardHistoryActivity extends AppCompatActivity implements NfcAdapter
                     opusCard.close();
                     if (card != null) {
                         db.saveCard(card);
+                        endScan();
                         runOnUiThread(() -> {
                             refreshList();
                             openCardFromCard(card);
                         });
+                    } else {
+                        endScan();
                     }
                     return;
                 }
             }
 
             runOnUiThread(() -> Toast.makeText(this, "Unknown card type", Toast.LENGTH_SHORT).show());
+            endScan();
 
         } catch (Exception e) {
             Log.e(TAG, "Error reading card: " + e.getMessage());
             runOnUiThread(() -> Toast.makeText(this, "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show());
+            endScan();
         }
+    }
+
+    private void endScan() {
+        scanning = false;
+        try { NfcAdapter.getDefaultAdapter(this).disableReaderMode(this); } catch (Exception ignored) {}
     }
 
     private Card readOpusCard(IsoDep opusCard) {
