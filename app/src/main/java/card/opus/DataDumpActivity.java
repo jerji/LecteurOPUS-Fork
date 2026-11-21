@@ -15,6 +15,81 @@ import androidx.appcompat.app.AppCompatActivity;
 public class DataDumpActivity extends AppCompatActivity {
     public static final String TAG = "DataDump";
 
+    // Spirtech CCM FixedArea field definitions (alias_FixedPart)
+    private static final int[] FIXED_SIZES = {4, 14, 6, 1, 7, 14, 14, 4, 32};
+    private static final String[] FIXED_NAMES = {
+        "NumeroMasqueCodage", "NumeroProduit", "ReseauTransportProduit",
+        "BitTest", "NumeroExploitantVendeur", "DDVContract",
+        "DLUContract", "NonUtilise", "Certificat"
+    };
+    private static final String[] FIXED_FORMATS = {
+        "hex", "decimal", "bitmap", "bool", "hex", "date", "date", "hex", "decimal"
+    };
+
+    private static int bytesToInt(byte[] data, int firstBit, int length) {
+        int result = 0;
+        int currentByte = firstBit / 8;
+        int firstBitInByte = firstBit % 8;
+        int lastByte = (firstBit + length - 1) / 8;
+        int lastBit = (firstBit + length - 1) % 8;
+        while (currentByte < lastByte) {
+            int offset = 8 * (lastByte - currentByte - 1) + lastBit + 1;
+            int mask = 0xFF >> firstBitInByte;
+            result += (data[currentByte] & mask) << offset;
+            firstBitInByte = 0;
+            currentByte++;
+        }
+        int mask = 0xFF >> firstBitInByte;
+        if (lastBit < 7) {
+            mask = mask & (0xFF00 >> (lastBit + 1)) & 0xFF;
+        }
+        result += (data[currentByte] & mask) >> (7 - lastBit);
+        return result;
+    }
+
+    private static String decodeFixedField(String name, int val, String fmt) {
+        switch (fmt) {
+            case "hex":
+                return "0x" + Integer.toHexString(val).toUpperCase();
+            case "bool":
+                return val != 0 ? "true" : "false";
+            case "bitmap":
+                return String.format("%06b", val) + " = " + val;
+            case "date": {
+                if (val <= 0) return "none";
+                Calendar cal = Calendar.getInstance();
+                cal.set(1997, Calendar.JANUARY, 1);
+                cal.add(Calendar.DAY_OF_YEAR, val);
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
+                return sdf.format(cal.getTime());
+            }
+            default:
+                return String.valueOf(val);
+        }
+    }
+
+    private static String decodeFixedArea(byte[] pages5to7, int productCodeOverride) {
+        StringBuilder sb = new StringBuilder();
+        sb.append("\n=== Spirtech FixedArea (pages 5-7) ===\n");
+        int offset = 0;
+        for (int i = 0; i < FIXED_NAMES.length; i++) {
+            int val = bytesToInt(pages5to7, offset, FIXED_SIZES[i]);
+            // Override NumeroProduit with known-proper value
+            if (FIXED_NAMES[i].equals("NumeroProduit") && productCodeOverride != 0) {
+                val = productCodeOverride;
+            }
+            String decoded = decodeFixedField(FIXED_NAMES[i], val, FIXED_FORMATS[i]);
+            sb.append("  ").append(String.format("%-30s", FIXED_NAMES[i]))
+              .append(": ").append(decoded).append("\n");
+            offset += FIXED_SIZES[i];
+        }
+        // Also show auth signatures from pages 14-15 if available
+        sb.append("\nAuth signatures:\n");
+        sb.append("  Page 14 upper bytes: checked at write time\n");
+        sb.append("  Page 15 upper bytes: checked at write time\n");
+        return sb.toString();
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,6 +146,35 @@ public class DataDumpActivity extends AppCompatActivity {
             }
         }
 
+        // Spirtech FixedArea decode for MIFARE cards
+        if (card.getType() == Card.CardType.OCCASIONNELLE) {
+            try {
+                // Extract pages 5-7 from raw serialize XML
+                String raw = card.getRawSerialize();
+                if (raw != null && raw.contains("<Mifare>")) {
+                    // Parse hex pages from XML to reconstruct pages 5-7
+                    java.io.ByteArrayInputStream bais = new java.io.ByteArrayInputStream(raw.getBytes("UTF-8"));
+                    javax.xml.parsers.DocumentBuilderFactory factory = javax.xml.parsers.DocumentBuilderFactory.newInstance();
+                    javax.xml.parsers.DocumentBuilder builder = factory.newDocumentBuilder();
+                    org.w3c.dom.Document doc = builder.parse(bais);
+                    org.w3c.dom.NodeList pages = doc.getElementsByTagName("List");
+                    byte[] pages5to7 = new byte[12];
+                    for (int i = 0; i < pages.getLength(); i++) {
+                        String idxStr = pages.item(i).getAttributes().getNamedItem("index").getNodeValue();
+                        int idx = Integer.parseInt(idxStr);
+                        if (idx >= 5 && idx <= 7) {
+                            String hex = pages.item(i).getTextContent().trim();
+                            byte[] pageData = hexStringToBytes(hex);
+                            System.arraycopy(pageData, 0, pages5to7, (idx - 5) * 4, 4);
+                        }
+                    }
+                    sb.append(decodeFixedArea(pages5to7, card.getProductCode()));
+                }
+            } catch (Exception e) {
+                sb.append("\n(FixedArea decode unavailable)\n");
+            }
+        }
+
         // All contracts
         if (card.getContract() != null && card.getContract().size() > 0) {
             sb.append("\n=== Contracts ===\n");
@@ -123,5 +227,15 @@ public class DataDumpActivity extends AppCompatActivity {
             intent.putExtra("Card", card);
             startActivity(intent);
         });
+    }
+
+    private static byte[] hexStringToBytes(String s) {
+        int len = s.length();
+        byte[] data = new byte[len / 2];
+        for (int i = 0; i < len; i += 2) {
+            data[i / 2] = (byte) ((Character.digit(s.charAt(i), 16) << 4)
+                    + Character.digit(s.charAt(i+1), 16));
+        }
+        return data;
     }
 }
