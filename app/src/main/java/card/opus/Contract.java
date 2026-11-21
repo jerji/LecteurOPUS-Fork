@@ -281,24 +281,11 @@ public class Contract implements Serializable {
     }
 
     private static String getProductName(int code) {
-        // Try XML cache first
+        // Loaded from res/xml/product_codes.xml by Contract.loadProductCodes()
         if (productNameCache != null) {
             String name = productNameCache.get(code);
             if (name != null) return name;
         }
-        // Fallback to hardcoded values
-        switch (code) {
-            case 0x30DF: return "Standard 1-trip";
-            case 0x3129: return "Multi-trip product";
-            case 0x300B: return "Subscription";
-            case 0x30F5: return "Single ticket variant";
-            case 0x3217: return "STM Standard";
-            case 0x3216: return "STM Subscription";
-            case 0x3294: return "ZoneAB 1trip";
-            case 0x0A4B: return "10 trips, All modes A";
-            case 0x0A6A: return "1 trip, Bus";
-            case 0x0A35: return "Monthly, All modes A";
-            default: return String.format("Unknown (code %04X)", code);
-        }
+        return String.format("Unknown (code %04X)", code);
     }
 }
