@@ -53,22 +53,15 @@ public class Mifare {
         contractList.add(tempo);
 
         ArrayList<Trip> tripList = new ArrayList();
-        // Try pages 6-7 first (actual trip location for some cards)
-        try {
-            Trip tempoTrip = new Trip(m_pagesData[6], m_pagesData[7],
-                    m_pagesData[11], tempo.isSubscription());
-            tripList.add(tempoTrip);
-        } catch (IllegalArgumentException e) {
-            // Pages 6-7 empty, try the original loop
-            for(int i = 0; i < 2; i++){
-                try{
-                    Trip tempoTrip = new Trip(m_pagesData[8+(i*4)], m_pagesData[9+(i*4)],
-                            m_pagesData[11+(i*4)], tempo.isSubscription());
-                    tripList.add(tempoTrip);
-                }
-                catch (IllegalArgumentException e2){
-                    Log.e(TAG, "Empty transit");
-                }
+        // Try pages 8-11 for trip data (pages 6-7 are part of FixedArea)
+        for(int i = 0; i < 2; i++){
+            try{
+                Trip tempoTrip = new Trip(m_pagesData[8+(i*4)], m_pagesData[9+(i*4)],
+                        m_pagesData[11+(i*4)], tempo.isSubscription());
+                tripList.add(tempoTrip);
+            }
+            catch (IllegalArgumentException e2){
+                Log.e(TAG, "Empty transit");
             }
         }
         m_Card = new Card(Card.CardType.OCCASIONNELLE, tripList, contractList, this.serialize());
