@@ -1,5 +1,6 @@
-import static card.opus.Utils.isInternetAvailable;
 package card.opus;
+
+import static card.opus.Utils.isInternetAvailable;
 
 import android.content.ClipData;
 import android.content.ClipboardManager;
