@@ -64,16 +64,25 @@ public class CardActivity extends AppCompatActivity {
         Intent intent = getIntent();
         m_Card = (Card)intent.getSerializableExtra("Card");
 
-        // Set title from entry name (passed from CardHistoryActivity) or fall back to card data
+        // Set title from entry name or card type
         String entryName = intent.getStringExtra("entryName");
         if (entryName != null && !entryName.isEmpty()) {
             setTitle(entryName);
-        } else if (m_Card != null && m_Card.getContract() != null && m_Card.getContract().size() > 0) {
-            String cn = m_Card.getContract().get(0).getProductName();
-            if (cn.equals("Unknown (code 0000)") && m_Card.getProductCode() != 0) {
-                cn = String.format("Unknown (code %04X)", m_Card.getProductCode());
+        } else if (m_Card != null) {
+            switch (m_Card.getType()) {
+                case OPUS:
+                    setTitle("OPUS Card");
+                    break;
+                case OCCASIONNELLE:
+                    String cn = m_Card.getContract().get(0).getProductName();
+                    if (cn.equals("Unknown (code 0000)") && m_Card.getProductCode() != 0) {
+                        cn = String.format("Unknown (code %04X)", m_Card.getProductCode());
+                    }
+                    setTitle(cn);
+                    break;
+                default:
+                    setTitle("Card");
             }
-            setTitle(cn);
         } else {
             setTitle("Card");
         }
@@ -118,7 +127,7 @@ public class CardActivity extends AppCompatActivity {
                                 textExpiration.setText(getString(R.string.expiration) + " "
                                         + Utils.DateToStringShort(m_Card.getExpirationDate()));
 
-                                // Append all contract product names with details
+                                // List contract names below (no contract 0 as "main" type)
                                 boolean firstProduct = true;
                                 for (int ci = 0; ci < m_Card.getContract().size(); ci++) {
                                     Contract c = m_Card.getContract().get(ci);
