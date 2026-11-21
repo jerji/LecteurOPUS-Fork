@@ -54,6 +54,7 @@ public class CardReader implements NfcAdapter.ReaderCallback {
     // Weak reference to prevent retain loop. mAccountCallback is responsible for exiting
     // foreground mode before it becomes invalid (e.g. during onPause() or onStop()).
     private WeakReference<AccountCallback> mAccountCallback;
+    private boolean mFullEnumeration = false;
 
     public interface AccountCallback {
         void onAccountReceived(Card myCard);
@@ -61,6 +62,10 @@ public class CardReader implements NfcAdapter.ReaderCallback {
 
     public CardReader(AccountCallback accountCallback) {
         mAccountCallback = new WeakReference<AccountCallback>(accountCallback);
+    }
+
+    public void setFullEnumeration(boolean enable) {
+        mFullEnumeration = enable;
     }
 
     public static int byteArrayToInt(byte[] b)
@@ -195,82 +200,85 @@ public class CardReader implements NfcAdapter.ReaderCallback {
                     Card card = mainCard.getCard();
                     card.addExtraData("_enumerate", new byte[]{(byte)0xFF}); // marker that enumeration ran
 
-                    // === Full OPUS file enumeration ===
-                    // Probes ~400 file IDs and stores raw data from each found file.
-                    // Total ~8 seconds. The user must hold the card steady.
-
-                    java.util.List<Integer> foundFiles = new java.util.ArrayList<>();
-
-                    // 1. Standard Calypso files: 0x2000-0x207F (128 files, ~2.5s)
-                    for (int fid = 0x2000; fid <= 0x207F; fid++) {
-                        byte[] data = probeFile(OpusCard, fid);
-                        if (data != null) {
-                            foundFiles.add(fid);
-                            if (data.length > 0) card.addExtraData("f" + String.format("%04X", fid), data);
-                        }
-                    }
-
-                    // 2. System / directory files: 0x0000-0x00FF
-                    for (int fid = 0x0000; fid <= 0x00FF; fid++) {
-                        byte[] data = probeFile(OpusCard, fid);
-                        if (data != null) {
-                            foundFiles.add(fid);
-                            if (data.length > 0) card.addExtraData("f" + String.format("%04X", fid), data);
-                        }
-                    }
-
-                    // 3. Extended range: 0x1000-0x107F
-                    for (int fid = 0x1000; fid <= 0x107F; fid++) {
-                        byte[] data = probeFile(OpusCard, fid);
-                        if (data != null) {
-                            foundFiles.add(fid);
-                            if (data.length > 0) card.addExtraData("f" + String.format("%04X", fid), data);
-                        }
-                    }
-
-                    // 4. Contract files: 0x3C1D, 0x441D... 0x8C1D (step 0x0800)
+                    // ---- Quick extra probes (always runs, safe) ----
+                    // Contract files: 0x3C1D, 0x441D... 0x8C1D (step 0x0800)
                     for (int fi = 0; fi < MTL_CONTRACT_FILES.length; fi++) {
-                        int fid = MTL_CONTRACT_FILES[fi] * 256 + 0x1D;
-                        byte[] data = probeFile(OpusCard, fid);
-                        if (data != null) {
-                            foundFiles.add(fid);
-                            if (data.length > 0) card.addExtraData("f" + String.format("%04X", fid), data);
-                        }
+                        try {
+                            String fileId = String.format("%02X1D", MTL_CONTRACT_FILES[fi]);
+                            OpusCard.transceive(getSelectApdu(fileId));
+                            byte[] record = OpusCard.transceive(getReadApdu(1));
+                            if (record != null && record.length >= 2) {
+                                String key = "contract_" + String.format("%04X", MTL_CONTRACT_FILES[fi] * 256 + 0x1D);
+                                card.addExtraData(key, record);
+                            }
+                        } catch (Exception ignored) {}
                     }
 
-                    // 5. Extra contract slots between known ones (step 0x0100)
-                    for (int fi = 0; fi < MTL_CONTRACT_FILES.length - 1; fi++) {
-                        int start = MTL_CONTRACT_FILES[fi] * 256 + 0x1D;
-                        int end = MTL_CONTRACT_FILES[fi + 1] * 256 + 0x1D;
-                        for (int fid = start + 0x100; fid < end; fid += 0x100) {
+                    // ---- Full enumeration mode (opt-in, only when requested) ----
+                    if (mFullEnumeration) {
+                        java.util.List<Integer> foundFiles = new java.util.ArrayList<>();
+
+                        // 1. Standard Calypso files: 0x2000-0x207F (128 files)
+                        for (int fid = 0x2000; fid <= 0x207F; fid++) {
                             byte[] data = probeFile(OpusCard, fid);
                             if (data != null) {
                                 foundFiles.add(fid);
                                 if (data.length > 0) card.addExtraData("f" + String.format("%04X", fid), data);
                             }
                         }
-                    }
 
-                    // 6. Try reading directory info (file 0x0000 as transparent binary)
-                    if (foundFiles.contains(0x0000)) {
-                        try {
-                            OpusCard.transceive(Utils.HexStringToByteArray("00A40000020000"));
-                            byte[] dir = OpusCard.transceive(Utils.HexStringToByteArray("00B0000000"));
-                            if (dir != null && dir.length > 2 && dir[dir.length-2] == (byte)0x90) {
-                                byte[] dirData = new byte[dir.length - 2];
-                                System.arraycopy(dir, 0, dirData, 0, dirData.length);
-                                card.addExtraData("_directory", dirData);
+                        // 2. System / directory files: 0x0000-0x00FF
+                        for (int fid = 0x0000; fid <= 0x00FF; fid++) {
+                            byte[] data = probeFile(OpusCard, fid);
+                            if (data != null) {
+                                foundFiles.add(fid);
+                                if (data.length > 0) card.addExtraData("f" + String.format("%04X", fid), data);
                             }
-                        } catch (Exception ignored) {}
-                    }
+                        }
 
-                    // Store list of found files
-                    StringBuilder sb = new StringBuilder();
-                    for (int f : foundFiles) {
-                        if (sb.length() > 0) sb.append(",");
-                        sb.append(String.format("%04X", f));
+                        // 3. Extended range: 0x1000-0x107F
+                        for (int fid = 0x1000; fid <= 0x107F; fid++) {
+                            byte[] data = probeFile(OpusCard, fid);
+                            if (data != null) {
+                                foundFiles.add(fid);
+                                if (data.length > 0) card.addExtraData("f" + String.format("%04X", fid), data);
+                            }
+                        }
+
+                        // 4. Extra contract slots between known ones (step 0x0100)
+                        for (int fi = 0; fi < MTL_CONTRACT_FILES.length - 1; fi++) {
+                            int start = MTL_CONTRACT_FILES[fi] * 256 + 0x1D;
+                            int end = MTL_CONTRACT_FILES[fi + 1] * 256 + 0x1D;
+                            for (int fid = start + 0x100; fid < end; fid += 0x100) {
+                                byte[] data = probeFile(OpusCard, fid);
+                                if (data != null) {
+                                    foundFiles.add(fid);
+                                    if (data.length > 0) card.addExtraData("f" + String.format("%04X", fid), data);
+                                }
+                            }
+                        }
+
+                        // 5. Try reading directory info (file 0x0000 as transparent binary)
+                        if (foundFiles.contains(0x0000)) {
+                            try {
+                                OpusCard.transceive(Utils.HexStringToByteArray("00A40000020000"));
+                                byte[] dir = OpusCard.transceive(Utils.HexStringToByteArray("00B0000000"));
+                                if (dir != null && dir.length > 2 && dir[dir.length-2] == (byte)0x90) {
+                                    byte[] dirData = new byte[dir.length - 2];
+                                    System.arraycopy(dir, 0, dirData, 0, dirData.length);
+                                    card.addExtraData("_directory", dirData);
+                                }
+                            } catch (Exception ignored) {}
+                        }
+
+                        // Store list of found files
+                        StringBuilder sb = new StringBuilder();
+                        for (int f : foundFiles) {
+                            if (sb.length() > 0) sb.append(",");
+                            sb.append(String.format("%04X", f));
+                        }
+                        card.addExtraData("_found_files", sb.toString().getBytes());
                     }
-                    card.addExtraData("_found_files", sb.toString().getBytes());
 
                     mAccountCallback.get().onAccountReceived(card);
 

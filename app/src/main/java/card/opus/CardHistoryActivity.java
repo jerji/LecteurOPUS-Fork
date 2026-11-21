@@ -67,7 +67,11 @@ public class CardHistoryActivity extends AppCompatActivity {
         Button scanButton = findViewById(R.id.scanButton);
         Button importButton = findViewById(R.id.importButton);
 
-        scanButton.setOnClickListener(v -> startScan());
+        scanButton.setOnClickListener(v -> startScan(false));
+        scanButton.setOnLongClickListener(v -> {
+            startScan(true);
+            return true;
+        });
         importButton.setOnClickListener(v -> showImportDialog());
 
         cardList.setOnItemClickListener((parent, view, position, id) -> {
@@ -98,10 +102,14 @@ public class CardHistoryActivity extends AppCompatActivity {
         cardCount.setText(cards.size() + " card" + (cards.size() != 1 ? "s" : ""));
     }
 
-    private void startScan() {
+    private void startScan(boolean fullEnumeration) {
         // Use the proven MainActivity + CardReader for scanning
         Intent intent = new Intent(this, MainActivity.class);
         intent.putExtra("returnResult", true);
+        intent.putExtra("fullEnumeration", fullEnumeration);
+        if (fullEnumeration) {
+            Toast.makeText(this, "Deep scan mode — hold card steady for ~8s", Toast.LENGTH_LONG).show();
+        }
         startActivityForResult(intent, 1002);
     }
 

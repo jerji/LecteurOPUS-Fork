@@ -27,6 +27,10 @@ public class MainActivity extends AppCompatActivity implements CardReader.Accoun
         setContentView(R.layout.activity_main);
         Utils.applySystemBarInsets(this);
         mCardReader = new CardReader(this);
+        // Check if full enumeration mode was requested
+        if (getIntent().getBooleanExtra("fullEnumeration", false)) {
+            mCardReader.setFullEnumeration(true);
+        }
     }
 
     @Override
