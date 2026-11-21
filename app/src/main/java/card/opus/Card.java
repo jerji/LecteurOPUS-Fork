@@ -70,6 +70,58 @@ public class Card implements Serializable {
                 }
                 Mifare mifare = new Mifare(pageData);
                 return mifare.getCard();
+            } else if (rawXml.contains("<Opus>")) {
+                // OPUS card: parse sections from XML
+                org.w3c.dom.NodeList idNodes = doc.getElementsByTagName("ID");
+                org.w3c.dom.NodeList expNodes = doc.getElementsByTagName("Expiration");
+                org.w3c.dom.NodeList transitNodes = doc.getElementsByTagName("Transit");
+                org.w3c.dom.NodeList subNodes = doc.getElementsByTagName("Subscription");
+                org.w3c.dom.NodeList ticketNodes = doc.getElementsByTagName("Ticket");
+
+                byte[] dataID = hexStringToBytes(idNodes.item(0).getTextContent().trim());
+                byte[] dataExp = hexStringToBytes(expNodes.item(0).getTextContent().trim());
+
+                // Parse transit entries
+                byte[][] dataTransit = new byte[3][];
+                if (transitNodes.getLength() > 0) {
+                    org.w3c.dom.NodeList transitList = transitNodes.item(0).getChildNodes();
+                    int idx = 0;
+                    for (int i = 0; i < transitList.getLength() && idx < 3; i++) {
+                        if (transitList.item(i).getNodeName().equals("List")) {
+                            dataTransit[idx++] = hexStringToBytes(
+                                transitList.item(i).getTextContent().trim());
+                        }
+                    }
+                }
+
+                // Parse subscription entries
+                byte[][] dataSubscription = new byte[4][];
+                if (subNodes.getLength() > 0) {
+                    org.w3c.dom.NodeList subList = subNodes.item(0).getChildNodes();
+                    int idx = 0;
+                    for (int i = 0; i < subList.getLength() && idx < 4; i++) {
+                        if (subList.item(i).getNodeName().equals("List")) {
+                            dataSubscription[idx++] = hexStringToBytes(
+                                subList.item(i).getTextContent().trim());
+                        }
+                    }
+                }
+
+                // Parse ticket entries
+                byte[][] dataTicket = new byte[4][];
+                if (ticketNodes.getLength() > 0) {
+                    org.w3c.dom.NodeList ticketList = ticketNodes.item(0).getChildNodes();
+                    int idx = 0;
+                    for (int i = 0; i < ticketList.getLength() && idx < 4; i++) {
+                        if (ticketList.item(i).getNodeName().equals("List")) {
+                            dataTicket[idx++] = hexStringToBytes(
+                                ticketList.item(i).getTextContent().trim());
+                        }
+                    }
+                }
+
+                Opus opus = new Opus(dataID, dataExp, dataTransit, dataSubscription, dataTicket);
+                return opus.getCard();
             }
         } catch (Exception e) {
             Log.e(TAG, "fromRawSerialize error: " + e.getMessage());

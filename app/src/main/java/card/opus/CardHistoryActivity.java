@@ -1,6 +1,9 @@
 package card.opus;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Intent;
 import android.database.Cursor;
 import android.nfc.NfcAdapter;
@@ -53,13 +56,10 @@ public class CardHistoryActivity extends AppCompatActivity implements NfcAdapter
         emptyText = findViewById(R.id.emptyText);
         cardCount = findViewById(R.id.cardCount);
         Button scanButton = findViewById(R.id.scanButton);
+        Button importButton = findViewById(R.id.importButton);
 
-        // Long-press scan button to import JSON instead
         scanButton.setOnClickListener(v -> startScan());
-        scanButton.setOnLongClickListener(v -> {
-            importJsonFromFile();
-            return true;
-        });
+        importButton.setOnClickListener(v -> showImportDialog());
 
         cardList.setOnItemClickListener((parent, view, position, id) -> {
             CardDatabase.CardEntry entry = (CardDatabase.CardEntry) adapter.getItem(position);
@@ -105,7 +105,19 @@ public class CardHistoryActivity extends AppCompatActivity implements NfcAdapter
                 NfcAdapter.FLAG_READER_NFC_B |
                 NfcAdapter.FLAG_READER_SKIP_NDEF_CHECK |
                 NfcAdapter.FLAG_READER_NO_PLATFORM_SOUNDS, null);
-        Toast.makeText(this, "Tap a card to scan", Toast.LENGTH_SHORT).show();
+
+        // Show a dialog instead of toast
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Tap a card");
+        builder.setMessage("Hold your card against the back of the phone to scan it.");
+        builder.setCancelable(true);
+        builder.setOnDismissListener(d -> {
+            if (scanning) {
+                scanning = false;
+                try { NfcAdapter.getDefaultAdapter(this).disableReaderMode(this); } catch (Exception ignored) {}
+            }
+        });
+        builder.show();
     }
 
     private void openCard(CardDatabase.CardEntry entry) {
@@ -245,16 +257,45 @@ public class CardHistoryActivity extends AppCompatActivity implements NfcAdapter
         startActivity(intent);
     }
 
-    private void importJsonFromFile() {
-        try {
-            // Use ContentResolver to pick a .json file
-            Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
-            intent.addCategory(Intent.CATEGORY_OPENABLE);
-            intent.setType("application/json");
-            startActivityForResult(intent, 1001);
-        } catch (Exception e) {
-            Toast.makeText(this, "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
-        }
+    private void showImportDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Import Card");
+
+        String[] options = {"Paste from clipboard", "Choose a file"};
+        builder.setItems(options, (dialog, which) -> {
+            if (which == 0) {
+                // Paste from clipboard
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                if (clipboard.hasPrimaryClip()) {
+                    CharSequence pasted = clipboard.getPrimaryClip().getItemAt(0).getText();
+                    if (pasted != null) {
+                        long id = db.importFromJson(pasted.toString());
+                        if (id >= 0) {
+                            Toast.makeText(this, "Card imported from clipboard!", Toast.LENGTH_SHORT).show();
+                            refreshList();
+                        } else {
+                            Toast.makeText(this, "Clipboard doesn't contain valid card JSON", Toast.LENGTH_SHORT).show();
+                        }
+                    } else {
+                        Toast.makeText(this, "Clipboard is empty", Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    Toast.makeText(this, "Clipboard is empty", Toast.LENGTH_SHORT).show();
+                }
+            } else {
+                // Choose a file
+                try {
+                    Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+                    intent.addCategory(Intent.CATEGORY_OPENABLE);
+                    intent.setType("application/json");
+                    startActivityForResult(intent, 1001);
+                } catch (Exception e) {
+                    Toast.makeText(this, "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+        builder.setNegativeButton("Cancel", null);
+        builder.show();
     }
 
     @Override
@@ -318,11 +359,11 @@ public class CardHistoryActivity extends AppCompatActivity implements NfcAdapter
             TextView name = v.findViewById(R.id.cardName);
             TextView detail = v.findViewById(R.id.cardDetail);
 
-            // Set icon based on card type
+            // Set icon based on card type — use real card icons from mipmap
             if ("OPUS".equals(entry.cardType)) {
-                icon.setImageResource(android.R.drawable.ic_menu_compass);
+                icon.setImageResource(R.mipmap.opus);
             } else {
-                icon.setImageResource(android.R.drawable.ic_menu_edit);
+                icon.setImageResource(R.mipmap.carte_occasionnelle);
             }
 
             // Card name
