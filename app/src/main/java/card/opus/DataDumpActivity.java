@@ -214,12 +214,25 @@ public class DataDumpActivity extends AppCompatActivity {
         jsonButton.setOnClickListener(v -> {
             try {
                 String json = card.rawJson();
+                // Build filename: type_productCode_date
+                String type = card.getType() == Card.CardType.OPUS ? "OPUS" : "MIFARE";
+                String code = String.format("%04X", card.getProductCode());
+                java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyyMMdd_HHmmss", java.util.Locale.US);
+                String dateStr = sdf.format(new java.util.Date());
+                String filename = type + "_" + code + "_" + dateStr + ".json";
+
                 java.io.File path = getFilesDir();
-                java.io.File jsonFile = new java.io.File(path, "card_export.json");
+                java.io.File jsonFile = new java.io.File(path, filename);
                 java.io.FileOutputStream fos = new java.io.FileOutputStream(jsonFile);
                 fos.write(json.getBytes());
                 fos.close();
-                Toast.makeText(this, "JSON saved to " + jsonFile.getAbsolutePath(), Toast.LENGTH_LONG).show();
+
+                // Also copy to clipboard
+                android.content.ClipboardManager clipboard = (android.content.ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+                android.content.ClipData clip = android.content.ClipData.newPlainText("card_json", json);
+                clipboard.setPrimaryClip(clip);
+
+                Toast.makeText(this, "JSON copied & saved as " + filename, Toast.LENGTH_LONG).show();
             } catch (Exception e) {
                 Toast.makeText(this, "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
             }
