@@ -127,28 +127,48 @@ public class CardActivity extends AppCompatActivity {
                                 textExpiration.setText(getString(R.string.expiration) + " "
                                         + Utils.DateToStringShort(m_Card.getExpirationDate()));
 
-                                // List contract names below (no contract 0 as "main" type)
-                                boolean firstProduct = true;
+                                // Populate fare products summary into layoutFares
+                                LinearLayout layoutFares = findViewById(R.id.layoutFares);
                                 for (int ci = 0; ci < m_Card.getContract().size(); ci++) {
                                     Contract c = m_Card.getContract().get(ci);
-                                    if (c.getProductCode() != 0) {
-                                        if (firstProduct) {
-                                            textType.append("\n");
-                                            firstProduct = false;
-                                        }
-                                        String status = "";
-                                        if (!c.isValid()) {
-                                            if (c.isSubscription()) status = " (expired)";
-                                            else status = " (out)";
-                                        }
-                                        String detail = "";
-                                        if (c.isSubscription() && c.getValidityDate() != null) {
-                                            detail = " until " + Utils.DateToStringShort(c.getValidityDate());
-                                        } else if (!c.isSubscription()) {
-                                            detail = " — " + c.getNbTicket() + " trips";
-                                        }
-                                        textType.append("\n  " + (ci + 1) + ". " + c.getProductName() + detail + status);
+                                    if (c.getProductCode() == 0) continue;
+
+                                    LinearLayout fareRow = new LinearLayout(this);
+                                    fareRow.setOrientation(LinearLayout.HORIZONTAL);
+                                    fareRow.setPadding(0, 4, 0, 4);
+
+                                    TextView nameView = new TextView(this);
+                                    String name = (ci + 1) + ". " + c.getProductName();
+                                    String detail = "";
+                                    boolean expired = !c.isValid();
+
+                                    if (c.isSubscription() && c.getValidityDate() != null) {
+                                        detail = " until " + Utils.DateToStringShort(c.getValidityDate());
+                                    } else if (!c.isSubscription()) {
+                                        detail = " — " + c.getNbTicket() + " trips";
                                     }
+
+                                    nameView.setText(name + detail);
+                                    nameView.setTextSize(14);
+                                    nameView.setLayoutParams(new LinearLayout.LayoutParams(
+                                            0, LinearLayout.LayoutParams.WRAP_CONTENT, 1));
+
+                                    TextView statusView = new TextView(this);
+                                    if (expired) {
+                                        String tag = c.isSubscription() ? "expired" : "out";
+                                        statusView.setText(tag);
+                                        statusView.setTextColor(0xFFFF4444); // red
+                                        nameView.setTextColor(0xFFFF4444);
+                                    } else {
+                                        statusView.setText("valid");
+                                        statusView.setTextColor(0xFF4CAF50); // green
+                                    }
+                                    statusView.setTextSize(12);
+                                    statusView.setPadding(8, 2, 8, 2);
+
+                                    fareRow.addView(nameView);
+                                    fareRow.addView(statusView);
+                                    layoutFares.addView(fareRow);
                                 }
                                 break;
                             default:
