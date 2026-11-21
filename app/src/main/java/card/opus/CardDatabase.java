@@ -214,7 +214,11 @@ public class CardDatabase extends SQLiteOpenHelper {
             stmt.bindLong(1, System.currentTimeMillis());
             stmt.bindString(2, type);
             stmt.bindLong(3, productCode);
-            stmt.bindString(4, "Imported (" + String.format("%04X", productCode) + ")");
+            String name = obj.optString("name", "");
+            if (name.isEmpty()) {
+                name = "Imported (" + String.format("%04X", productCode) + ")";
+            }
+            stmt.bindString(4, name);
             stmt.bindString(5, rawXml);
             stmt.bindString(6, obj.optString("uid", ""));
             stmt.bindLong(7, obj.optInt("operator", 0));
