@@ -509,6 +509,12 @@ public class CardHistoryActivity extends AppCompatActivity {
             compareTarget = entry;
             Toast.makeText(this, "First card selected. Tap Compare on another card.", Toast.LENGTH_LONG).show();
         } else {
+            // Check same card type
+            if (!compareTarget.cardType.equals(entry.cardType)) {
+                Toast.makeText(this, "Cannot compare different card types (" + compareTarget.cardType + " vs " + entry.cardType + ")", Toast.LENGTH_SHORT).show();
+                compareTarget = null;
+                return;
+            }
             // Compare the two cards
             showDiff(compareTarget, entry);
             compareTarget = null;
