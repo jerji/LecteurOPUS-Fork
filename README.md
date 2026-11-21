@@ -1,30 +1,45 @@
-# LecteurOPUS
-Lecteur Opus est une application Android pour lire les informations des cartes de transport OPUS et les cartes de transport occasionnelles.
-Elle permet d'afficher les titres de transport disponibles sur la carte et les trajets effectués. 
+# LecteurOPUS Fork
 
-L'application est toujours en développement et plusieurs réseaux de transport et numéro d'autobus sont manquants.
+Android app to read Montreal-area transit cards — **OPUS** (MIFARE Desfire / Calypso) and **temp tickets** (MIFARE Ultralight).
 
-Fonctionnelle pour le :
-* RTC (Réseau de transport de la Capitale)
-* STM (Société de transport de Montréal)
+Fork of [etiennedub/LecteurOPUS](https://github.com/etiennedub/LecteurOPUS) with extended capabilities.
 
-![screen1](https://raw.githubusercontent.com/etiennedub/LecteurOPUS/master/image/screen1.png)
-![screen2](https://raw.githubusercontent.com/etiennedub/LecteurOPUS/master/image/screen2.png)
-## Utilisation
-Déposez une carte compatible à l'arrière de votre appareil et les informations s'afficheront. 
-Si le réseau de transport ou le numéro de bus est inconnu, l'utilisateur peut entrer les informations manquantes qui seront automatiquement transmises aux développeurs afin de les ajouter à une version ultérieure.
+## Features
+
+- **Deep scan** — probes ~400 file IDs on OPUS cards, decodes Spirtech contract fields, auth signatures, multi-contract display
+- **Debug output** — raw card data dump with page-by-page hex views, XML export, JSON export
+- **History** — persistent local database of all scanned cards, with rename, duplicate, compare, and delete
+- **Fare summary** — see all contracts at a glance with trip counts, expiry status, and operator names
+- **Bus line enrichment** — GTFS-based names for metro lines, REM, and bus routes
+- **Contribution system** — submit unknown product codes and bus line corrections to a community server
+- **Export / Import** — batch export all cards as JSON, reimport with full fidelity
 
 ## Installation
-#### Google Play 
-L'application est disponible sur Google Play.
 
-<a href='https://play.google.com/store/apps/details?id=card.opus'><img alt='Disponible sur Google Play' src='https://play.google.com/intl/en_us/badges/images/generic/fr-ca_badge_web_generic.png'/></a>
-#### Compiler
-Toutes les sources sont disponibles dans le dépôt. AndroidStudioProject est utilisé pour compiler l'application.
+Download the latest APK from **[Releases](https://github.com/jerji/LecteurOPUS-Fork/releases)**.
 
-## TODO
+For automatic updates, add the repo to [Obtainium](https://obtainium.imranr.dev/):
 
-* Identifier les différents réseaux de transport
-* Identifier tous les parcours
-* Ajouter un historique
+[<img src="https://img.shields.io/badge/Obtainium-Get%20app%20updates-blue?style=for-the-badge&logo=obtainium" height="40">](https://obtainium.imranr.dev/#/?url=https://github.com/jerji/LecteurOPUS-Fork)
 
+## Usage
+
+Tap a compatible card to the back of your device and the card info appears.
+
+If a bus line or product code is unknown, tap the ✏ or + button next to it to submit a correction.
+
+## Supported networks
+
+- STM (Société de transport de Montréal)
+- RTC (Réseau de transport de la Capitale)
+- RTL (Réseau de transport de Longueuil)
+- REM (Réseau express métropolitain)
+- Others via community contributions
+
+## Build
+
+```bash
+./gradlew assembleDebug
+```
+
+Requires JDK 17. CI builds are signed with a debug keystore; release builds use secrets.
