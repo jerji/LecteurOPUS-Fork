@@ -41,7 +41,7 @@ import java.util.Locale;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class CardHistoryActivity extends AppCompatActivity implements NfcAdapter.ReaderCallback {
+public class CardHistoryActivity extends AppCompatActivity {
 
     private static final String TAG = "CardHistory";
     private ListView cardList;
@@ -99,34 +99,10 @@ public class CardHistoryActivity extends AppCompatActivity implements NfcAdapter
     }
 
     private void startScan() {
-        scanning = true;
-        NfcAdapter nfc = NfcAdapter.getDefaultAdapter(this);
-        if (nfc == null) {
-            Toast.makeText(this, "NFC not available", Toast.LENGTH_SHORT).show();
-            return;
-        }
-        if (!nfc.isEnabled()) {
-            Toast.makeText(this, "Please enable NFC", Toast.LENGTH_SHORT).show();
-            return;
-        }
-        nfc.enableReaderMode(this, this,
-                NfcAdapter.FLAG_READER_NFC_A |
-                NfcAdapter.FLAG_READER_NFC_B |
-                NfcAdapter.FLAG_READER_SKIP_NDEF_CHECK |
-                NfcAdapter.FLAG_READER_NO_PLATFORM_SOUNDS, null);
-
-        // Show a dialog instead of toast
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Tap a card");
-        builder.setMessage("Hold your card against the back of the phone to scan it.");
-        builder.setCancelable(true);
-        builder.setOnDismissListener(d -> {
-            if (scanning) {
-                scanning = false;
-                try { NfcAdapter.getDefaultAdapter(this).disableReaderMode(this); } catch (Exception ignored) {}
-            }
-        });
-        scanDialog = builder.show();
+        // Use the proven MainActivity + CardReader for scanning
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.putExtra("returnResult", true);
+        startActivityForResult(intent, 1002);
     }
 
     private void openCard(CardDatabase.CardEntry entry) {
@@ -151,175 +127,6 @@ public class CardHistoryActivity extends AppCompatActivity implements NfcAdapter
         } catch (Exception e) {
             FileLog.e(TAG, "openCard error: " + e.getMessage(), e);
             Toast.makeText(this, "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
-        }
-    }
-
-    @Override
-    public void onTagDiscovered(Tag tag) {
-        if (!scanning) return;
-
-        // Dismiss dialog immediately
-        if (scanDialog != null) scanDialog.dismiss();
-
-        try {
-            String[] techs = tag.getTechList();
-            boolean hasMifare = false, hasIsoDep = false;
-            for (String t : techs) {
-                if (t.contains("MifareUltralight") || t.contains("NfcA")) hasMifare = true;
-                if (t.contains("IsoDep") || t.contains("NfcB")) hasIsoDep = true;
-            }
-
-            if (hasMifare) {
-                // MIFARE Ultralight (temp ticket)
-                MifareUltralight mifare = MifareUltralight.get(tag);
-                if (mifare != null) {
-                    mifare.connect();
-                    try { Thread.sleep(100); } catch (InterruptedException ignored) {}
-                    byte[][] cardData = new byte[4][];
-                    try { cardData[0] = mifare.readPages(0); } catch (Exception e) { cardData[0] = new byte[16]; }
-                    try { cardData[1] = mifare.readPages(4); } catch (Exception e) { cardData[1] = new byte[16]; }
-                    try { cardData[2] = mifare.readPages(8); } catch (Exception e) { cardData[2] = new byte[16]; }
-                    try { cardData[3] = mifare.readPages(12); } catch (Exception e) { cardData[3] = new byte[16]; }
-                    mifare.close();
-
-                    Mifare mainCard = new Mifare(cardData);
-                    Card card = mainCard.getCard();
-                    db.saveCard(card);
-                    endScan();
-                    runOnUiThread(() -> {
-                        refreshList();
-                        openCardFromCard(card);
-                    });
-                    return;
-                }
-            }
-
-            if (hasIsoDep) {
-                // OPUS (Calypso)
-                IsoDep opusCard = IsoDep.get(tag);
-                if (opusCard != null) {
-                    opusCard.connect();
-                    try { Thread.sleep(100); } catch (InterruptedException ignored) {}
-                    Card card = readOpusCard(opusCard);
-                    opusCard.close();
-                    if (card != null) {
-                        db.saveCard(card);
-                        endScan();
-                        runOnUiThread(() -> {
-                            refreshList();
-                            openCardFromCard(card);
-                        });
-                    } else {
-                        endScan();
-                    }
-                    return;
-                }
-            }
-
-            runOnUiThread(() -> Toast.makeText(this, "Unknown card type (" + techs.length + " techs)", Toast.LENGTH_SHORT).show());
-            endScan();
-
-        } catch (Exception e) {
-            FileLog.e(TAG, "Error reading card: " + e.getMessage(), e);
-            runOnUiThread(() -> Toast.makeText(this, "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show());
-            endScan();
-        }
-    }
-
-    private void endScan() {
-        scanning = false;
-        try { NfcAdapter.getDefaultAdapter(this).disableReaderMode(this); } catch (Exception ignored) {}
-    }
-
-    private Card readOpusCard(IsoDep opusCard) {
-        byte[][] dataTransit = new byte[3][];
-        byte[][] dataSubscription = new byte[4][];
-        byte[][] dataTicket = new byte[4][];
-        byte[] dataID = new byte[0];
-        byte[] dataExp = new byte[0];
-
-        try {
-            // Try Montreal 1TIC.ICA SELECT
-            try {
-                byte[] r = opusCard.transceive(new byte[]{
-                    (byte)0x00, (byte)0xA4, (byte)0x04, (byte)0x00,
-                    (byte)0x08, 0x31, 0x54, 0x49, 0x43, 0x2E, 0x49, 0x43, 0x41});
-                if (r.length >= 2 && r[r.length-2] == (byte)0x90 && r[r.length-1] == 0x00) {
-                    opusCard.transceive(new byte[]{0x00, (byte)0xC0, 0x00, 0x00, 0x00});
-                }
-            } catch (Exception e) {
-                // Fallback to Calypso standard SELECT
-                try {
-                    opusCard.transceive(Utils.HexStringToByteArray("00A404000200"));
-                    opusCard.transceive(Utils.HexStringToByteArray("00A4040002000219"));
-                } catch (Exception e2) {
-                    opusCard.transceive(Utils.HexStringToByteArray("94A4000002000219"));
-                }
-            }
-
-            // ICC
-            try {
-                opusCard.transceive(Utils.HexStringToByteArray("94A4000002000219"));
-                dataID = opusCard.transceive(Utils.HexStringToByteArray("94B201041D"));
-            } catch (Exception e) {
-                Log.e(TAG, "ICC read failed: " + e.getMessage());
-                dataID = Utils.HexStringToByteArray("0000000000000000000000000000000000000000000000000000000000000000");
-            }
-
-            // Environment
-            try {
-                opusCard.transceive(Utils.HexStringToByteArray("94A40800042001"));
-                dataExp = opusCard.transceive(Utils.HexStringToByteArray("94B2010400"));
-            } catch (Exception e) {
-                Log.e(TAG, "Env read failed: " + e.getMessage());
-                dataExp = Utils.HexStringToByteArray("0000000000000000000000000000000000000000000000000000000000000000");
-            }
-
-            // Transit
-            try {
-                opusCard.transceive(Utils.HexStringToByteArray("94A40800042010"));
-                for (int i = 0; i < 3; i++) {
-                    try {
-                        dataTransit[i] = opusCard.transceive(Utils.HexStringToByteArray("94B20" + (i+1) + "0400"));
-                    } catch (Exception e) {
-                        dataTransit[i] = Utils.HexStringToByteArray("000000000000000000000000000000000000");
-                    }
-                }
-            } catch (Exception e) {
-                Log.e(TAG, "Transit read failed: " + e.getMessage());
-            }
-
-            // Subscription
-            try {
-                opusCard.transceive(Utils.HexStringToByteArray("94A40800042020"));
-                for (int i = 0; i < 4; i++) {
-                    try {
-                        dataSubscription[i] = opusCard.transceive(Utils.HexStringToByteArray("94B20" + (i+1) + "0400"));
-                    } catch (Exception e) {
-                        dataSubscription[i] = Utils.HexStringToByteArray("000000000000000000000000000000000000");
-                    }
-                }
-            } catch (Exception e) {
-                Log.e(TAG, "Subscription read failed: " + e.getMessage());
-            }
-
-            // Tickets
-            String[] ticketFiles = {"202A", "202B", "202C", "202D"};
-            for (int i = 0; i < 4; i++) {
-                try {
-                    opusCard.transceive(Utils.HexStringToByteArray("94A4080004" + ticketFiles[i]));
-                    dataTicket[i] = opusCard.transceive(Utils.HexStringToByteArray("94B2010400"));
-                } catch (Exception e) {
-                    dataTicket[i] = Utils.HexStringToByteArray("000000000000000000000000000000000000");
-                }
-            }
-
-            Opus opus = new Opus(dataID, dataExp, dataTransit, dataSubscription, dataTicket);
-            return opus.getCard();
-
-        } catch (Exception e) {
-            FileLog.e(TAG, "OPUS read failed: " + e.getMessage());
-            return null;
         }
     }
 
@@ -373,7 +180,15 @@ public class CardHistoryActivity extends AppCompatActivity implements NfcAdapter
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == 1001 && resultCode == RESULT_OK && data != null) {
+        if (requestCode == 1002 && resultCode == RESULT_OK && data != null) {
+            // Card scanned via MainActivity — save and open
+            Card card = (Card) data.getSerializableExtra("Card");
+            if (card != null) {
+                db.saveCard(card);
+                refreshList();
+                openCardFromCard(card);
+            }
+        } else if (requestCode == 1001 && resultCode == RESULT_OK && data != null) {
             try {
                 BufferedReader reader = new BufferedReader(
                         new InputStreamReader(getContentResolver().openInputStream(data.getData())));

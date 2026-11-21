@@ -79,15 +79,20 @@ public class MainActivity extends AppCompatActivity implements CardReader.Accoun
     }
 
     public void onAccountReceived(final Card myCard) {
-        // This callback is run on a background thread, but updates to UI elements must be performed
-        // on the UI thread.
-
         this.runOnUiThread(new Runnable() {
             public void run() {
                 if(myCard != null) {
-                    StartNewActivity(myCard);
+                    boolean returnResult = getIntent().getBooleanExtra("returnResult", false);
+                    if (returnResult) {
+                        // Return card to caller (CardHistoryActivity)
+                        Intent data = new Intent();
+                        data.putExtra("Card", myCard);
+                        setResult(RESULT_OK, data);
+                        finish();
+                    } else {
+                        StartNewActivity(myCard);
+                    }
                 }
-
             }
         });
     }
