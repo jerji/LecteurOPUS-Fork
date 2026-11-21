@@ -78,7 +78,7 @@ public class CardHistoryActivity extends AppCompatActivity {
         importButton.setOnClickListener(v -> showImportDialog());
 
         Button exportAllButton = findViewById(R.id.exportAllButton);
-        exportAllButton.setOnClickListener(v -> exportAllCards());
+        exportAllButton.setOnClickListener(v -> showExportAllDialog());
 
         cardList.setOnItemClickListener((parent, view, position, id) -> {
             CardDatabase.CardEntry entry = (CardDatabase.CardEntry) adapter.getItem(position);
@@ -264,14 +264,52 @@ public class CardHistoryActivity extends AppCompatActivity {
         return count;
     }
 
-    private void exportAllCards() {
-        try {
-            List<CardDatabase.CardEntry> cards = db.getRecentCards(100);
-            if (cards.isEmpty()) {
-                Toast.makeText(this, "No cards to export", Toast.LENGTH_SHORT).show();
+    private void showExportAllDialog() {
+        List<CardDatabase.CardEntry> cards = db.getRecentCards(100);
+        if (cards.isEmpty()) {
+            Toast.makeText(this, "No cards to export", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Export All Cards");
+        builder.setMessage(cards.size() + " card" + (cards.size() != 1 ? "s" : "") + " will be exported.");
+
+        String[] options = {"Copy to clipboard", "Save to file"};
+        builder.setItems(options, (dialog, which) -> {
+            String json = buildExportJson(cards);
+            if (json == null) {
+                Toast.makeText(this, "Export error", Toast.LENGTH_SHORT).show();
                 return;
             }
+            if (which == 0) {
+                // Copy to clipboard
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("cards_json", json);
+                clipboard.setPrimaryClip(clip);
+                Toast.makeText(this, cards.size() + " card" + (cards.size() != 1 ? "s" : "") + " copied to clipboard", Toast.LENGTH_SHORT).show();
+            } else {
+                // Save to file
+                try {
+                    SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.US);
+                    String filename = "LecteurOPUS_export_" + sdf.format(new Date()) + ".json";
+                    File path = getFilesDir();
+                    File jsonFile = new File(path, filename);
+                    FileOutputStream fos = new FileOutputStream(jsonFile);
+                    fos.write(json.getBytes());
+                    fos.close();
+                    Toast.makeText(this, "Saved " + cards.size() + " cards to " + filename, Toast.LENGTH_LONG).show();
+                } catch (Exception e) {
+                    Toast.makeText(this, "Save error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+        builder.setNegativeButton("Cancel", null);
+        builder.show();
+    }
 
+    private String buildExportJson(List<CardDatabase.CardEntry> cards) {
+        try {
             org.json.JSONArray arr = new org.json.JSONArray();
             for (CardDatabase.CardEntry entry : cards) {
                 Card card = Card.fromRawSerialize(entry.rawXml);
@@ -279,19 +317,10 @@ public class CardHistoryActivity extends AppCompatActivity {
                     arr.put(new org.json.JSONObject(card.rawJson()));
                 }
             }
-
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.US);
-            String filename = "LecteurOPUS_export_" + sdf.format(new Date()) + ".json";
-
-            File path = getFilesDir();
-            File jsonFile = new File(path, filename);
-            FileOutputStream fos = new FileOutputStream(jsonFile);
-            fos.write(arr.toString(2).getBytes());
-            fos.close();
-
-            Toast.makeText(this, "Exported " + cards.size() + " cards to " + filename, Toast.LENGTH_LONG).show();
+            return arr.toString(2);
         } catch (Exception e) {
-            Toast.makeText(this, "Export error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+            FileLog.e(TAG, "buildExportJson error: " + e.getMessage());
+            return null;
         }
     }
 
