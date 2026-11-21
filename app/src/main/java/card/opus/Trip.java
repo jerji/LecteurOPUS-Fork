@@ -28,7 +28,8 @@ public class Trip implements Serializable {
 
     public Trip(byte[] page0, byte[] page1, byte[] page2, boolean subscription) throws IllegalArgumentException { // Constructor transit for Mifare
 
-        if (Arrays.equals(page0, Utils.HexStringToByteArray("00000000"))
+        if (page0 == null || page1 == null ||
+            Arrays.equals(page0, Utils.HexStringToByteArray("00000000"))
                 || Arrays.equals(page1, Utils.HexStringToByteArray("00000000"))) {
             throw new IllegalArgumentException("Empty Trip");
         } else {
@@ -45,7 +46,12 @@ public class Trip implements Serializable {
 
             // Bus number
             m_busId = Utils.bytesToInt(page1, 11, 9);
-            m_operatorId = Utils.bytesToInt(page2, 7, 8);
+            // Operator ID - handle null/zero page2 gracefully
+            if (page2 != null) {
+                m_operatorId = Utils.bytesToInt(page2, 7, 8);
+            } else {
+                m_operatorId = 0;
+            }
         }
     }
 
