@@ -15,6 +15,7 @@ import java.util.HashMap;
  * Created by etienned on 12/28/16.
  */
 public class Contract implements Serializable {
+    public static final String TAG = "Contract";
     private boolean m_Subscription;
     private boolean m_Valid;
     private int m_nbTicket;
