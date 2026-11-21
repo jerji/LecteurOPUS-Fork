@@ -24,6 +24,7 @@ public class Contract implements Serializable {
     private int m_logoId;
     private Calendar m_ValidityDate;
     private int productCode;
+    private int contractGeneralBitmap;
     private int contractProvider;
     private int contractTariff;
     private int saleAgent;
@@ -35,6 +36,7 @@ public class Contract implements Serializable {
     private String rawHex; // full raw hex of the contract record
 
     public int getContractProvider() { return contractProvider; }
+    public int getContractGeneralBitmap() { return contractGeneralBitmap; }
     public int getContractTariff() { return contractTariff; }
     public int getSaleAgent() { return saleAgent; }
     public int getUsedCounter() { return usedCounter; }
@@ -56,7 +58,9 @@ public class Contract implements Serializable {
         int offset = 0;
         
         // 1. ContractGeneralBitmap (7 bits)
-        int genBitmap = Utils.bytesToInt(subscriptionData, offset, 7); offset += 7;
+        int genBitmap = Utils.bytesToInt(subscriptionData, offset, 7);
+        contractGeneralBitmap = genBitmap;
+        offset += 7;
         
         // 2. ContractProvider (8 bits, conditional on bitmap bit 0)
         if ((genBitmap & 0x01) != 0) {

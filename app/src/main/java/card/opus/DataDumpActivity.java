@@ -246,13 +246,13 @@ public class DataDumpActivity extends AppCompatActivity {
                 sb.append("  Tickets: ").append(c.getNbTicket()).append("\n");
                 sb.append("  Subscription: ").append(c.isSubscription()).append("\n");
                 sb.append("  Valid: ").append(c.isValid()).append("\n");
-                if (c.getValidityDate() != null)
+                if (c.getValidityDate() != null && c.getValidityDate().get(java.util.Calendar.YEAR) > 1997)
                     sb.append("  Valid Until: ").append(Utils.DateToStringNumber(c.getValidityDate())).append("\n");
 
                 // Full Spirtech contract decode
-                if (c.getContractProvider() != 0 || c.getContractTariff() != 0 || c.getSaleAgent() != 0 || c.getScore() != 0) {
+                if (c.getContractGeneralBitmap() != 0) {
                     sb.append("  --- Spirtech Contract Fields ---\n");
-                    sb.append("  GeneralBitmap: 0x").append(Integer.toHexString(c.getProductCode() & 0x7F)).append("\n");
+                    sb.append("  GeneralBitmap: 0x").append(Integer.toHexString(c.getContractGeneralBitmap())).append("\n");
                     sb.append("  Provider: ").append(c.getContractProvider()).append("\n");
                     sb.append("  Tariff: 0x").append(String.format("%04X", c.getContractTariff())).append("\n");
                     sb.append("  SaleAgent: ").append(c.getSaleAgent()).append("\n");
