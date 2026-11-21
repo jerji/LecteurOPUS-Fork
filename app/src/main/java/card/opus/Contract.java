@@ -137,31 +137,42 @@ public class Contract implements Serializable {
 
         // Extract product code from page 5 bytes 0-1
         this.productCode = ((page5[0] & 0xFF) << 8) | (page5[1] & 0xFF);
-        if (Arrays.equals(page3, Utils.HexStringToByteArray("00000000"))
-                && !Arrays.equals(page10, Utils.HexStringToByteArray("00000000"))) {
-            // Carte neuve (page 3 zeroed, page 10 has ticket count)
-            m_nbTicket = page10[2] & 0x80 >> 7 |
-                    (page10[1] & 0x0F) << 1;
-            if ((Arrays.equals(page4, Utils.HexStringToByteArray("00010001")))
-                    &&  m_nbTicket != 0) {
-                m_nbTicket -= 1;
+
+        if (Arrays.equals(page3, Utils.HexStringToByteArray("00000000"))) {
+            if (!Arrays.equals(page10, Utils.HexStringToByteArray("00000000"))) {
+                // Carte neuve (page 3 zeroed, page 10 has ticket count)
+                m_nbTicket = page10[2] & 0x80 >> 7 |
+                        (page10[1] & 0x0F) << 1;
+                if ((Arrays.equals(page4, Utils.HexStringToByteArray("00010001")))
+                        &&  m_nbTicket != 0) {
+                    m_nbTicket -= 1;
+                }
+                m_Valid = m_nbTicket > 0;
+            } else {
+                // Page 3 zeroed, page 10 zeroed — no bitmap info
+                // Use product code to determine ticket count
+                m_Valid = true;
             }
-            m_Valid = m_nbTicket > 0;
         }
         else if (Arrays.equals(page3, Utils.HexStringToByteArray("80000000"))){
             // Subscription
-            m_Subscription = true; // TODO : Find validity Date in Mifare
+            m_Subscription = true;
             m_Valid = false;
-
         }
         else{
             // Card used — count unused tickets from page 3 bitmap
-            // Bit = 0 means ticket NOT used, bit = 1 means used
-            // Count consecutive zeros from MSB (bit 31 → 0)
             m_Valid = true;
             while(m_nbTicket < 32 && Utils.bytesToInt(page3,31 - m_nbTicket, 1) == 0){
                 m_nbTicket += 1;
             }
+        }
+
+        // For known single-trip products, cap ticket count at 1
+        // Bit 31 of page 3 = 0 means trip available, 1 means used
+        if (getProductName(this.productCode).toLowerCase().contains("1trip")) {
+            int bit31 = Utils.bytesToInt(page3, 31, 1);
+            m_nbTicket = bit31 == 0 ? 1 : 0;
+            m_Valid = m_nbTicket > 0;
         }
     }
 
@@ -246,6 +257,7 @@ public class Contract implements Serializable {
             case 0x30F5: return "Single ticket variant";
             case 0x3217: return "STM Standard";
             case 0x3216: return "STM Subscription";
+            case 0x3294: return "ZoneAB 1trip";
             default: return String.format("Unknown (code %04X)", code);
         }
     }
