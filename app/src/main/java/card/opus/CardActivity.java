@@ -118,7 +118,7 @@ public class CardActivity extends AppCompatActivity {
                                 textExpiration.setText(getString(R.string.expiration) + " "
                                         + Utils.DateToStringShort(m_Card.getExpirationDate()));
 
-                                // Append all contract product names
+                                // Append all contract product names with details
                                 boolean firstProduct = true;
                                 for (int ci = 0; ci < m_Card.getContract().size(); ci++) {
                                     Contract c = m_Card.getContract().get(ci);
@@ -127,7 +127,18 @@ public class CardActivity extends AppCompatActivity {
                                             textType.append("\n");
                                             firstProduct = false;
                                         }
-                                        textType.append("\n  " + (ci + 1) + ". " + c.getProductName());
+                                        String status = "";
+                                        if (!c.isValid()) {
+                                            if (c.isSubscription()) status = " (expired)";
+                                            else status = " (out)";
+                                        }
+                                        String detail = "";
+                                        if (c.isSubscription() && c.getValidityDate() != null) {
+                                            detail = " until " + Utils.DateToStringShort(c.getValidityDate());
+                                        } else if (!c.isSubscription()) {
+                                            detail = " — " + c.getNbTicket() + " trips";
+                                        }
+                                        textType.append("\n  " + (ci + 1) + ". " + c.getProductName() + detail + status);
                                     }
                                 }
                                 break;
@@ -136,58 +147,70 @@ public class CardActivity extends AppCompatActivity {
                 break;
         }
 
-        // Contract
+        // Contract details — show all contracts with status
         int compteurTicket = 0;
         ArrayList<Contract> contract = m_Card.getContract();
         for (int i = 0; i < contract.size(); i++) {
-            if (contract.get(i).isValid()){
-                if(contract.get(i).isSubscription()) {
-                    // Subscription
-                    contract.get(i).setLogoFromXml(this);
-                    View customSubs = inflater.inflate(R.layout.subscription, null);
-                    LinearLayout LayoutSubsTime =
-                            (LinearLayout) customSubs.findViewById(R.id.layoutSubsTime);
-                    TextView textSubsTime =
-                            (TextView) customSubs.findViewById(R.id.subscriptionTime);
-                    TextView textSubsDate =
-                            (TextView) customSubs.findViewById(R.id.subscriptionDate);
-                    ImageView logo = (ImageView) customSubs.findViewById(R.id.logoSubs);
-                    textSubsDate.setText(Utils.DateToString(contract.get(i).getValidityDate()));
-                    LayoutSubsTime.setVisibility(View.GONE);
-                    int logoId = contract.get(i).getLogoId();
-                    if (logoId != 0) logo.setImageResource(logoId);
-                    LayoutSubscription.addView(customSubs);
+            Contract c = contract.get(i);
+            boolean valid = c.isValid();
+            if (c.isSubscription()) {
+                // Subscription
+                c.setLogoFromXml(this);
+                View customSubs = inflater.inflate(R.layout.subscription, null);
+                LinearLayout LayoutSubsTime =
+                        (LinearLayout) customSubs.findViewById(R.id.layoutSubsTime);
+                TextView textSubsTime =
+                        (TextView) customSubs.findViewById(R.id.subscriptionTime);
+                TextView textSubsDate =
+                        (TextView) customSubs.findViewById(R.id.subscriptionDate);
+                ImageView logo = (ImageView) customSubs.findViewById(R.id.logoSubs);
+                TextView textSubsType = (TextView) customSubs.findViewById(R.id.textSubscriptionType);
+
+                textSubsType.setText(c.getProductName());
+                if (c.getValidityDate() != null) {
+                    textSubsDate.setText(Utils.DateToString(c.getValidityDate()));
                 }
-                else if(contract.get(i).getNbTicket() > 0){
-                    // Ticket
-                    contract.get(i).setLogoFromXml(this);
-                    View customTicket = inflater.inflate(R.layout.ticket, null);
-                    TextView textTicket = (TextView) customTicket.findViewById(R.id.NbTicket);
-                    ImageView logo = (ImageView) customTicket.findViewById(R.id.logoTicket);
-                    int nbTicket = contract.get(i).getNbTicket();
-                    String ticket = "";
+                if (!valid) {
+                    textSubsType.append(" (expired)");
+                    textSubsType.setTextColor(0xFFFF4444); // red
+                }
+                LayoutSubsTime.setVisibility(View.GONE);
+                int logoId = c.getLogoId();
+                if (logoId != 0) logo.setImageResource(logoId);
+                LayoutSubscription.addView(customSubs);
+                compteurTicket++;
+            }
+            else {
+                // Ticket
+                c.setLogoFromXml(this);
+                View customTicket = inflater.inflate(R.layout.ticket, null);
+                TextView textTicket = (TextView) customTicket.findViewById(R.id.NbTicket);
+                ImageView logo = (ImageView) customTicket.findViewById(R.id.logoTicket);
+                int nbTicket = c.getNbTicket();
 
-
-                    if (Locale.getDefault().getLanguage().equalsIgnoreCase("ru")) {
-                        if (nbTicket <= 0) {
-                            ticket = nbTicket + " " + getString(R.string.ticket_remaining5);
-                        } else {
-                            ticket = nbTicket + " " + pluralForm(nbTicket);
-                        }
+                String ticket;
+                if (!valid) {
+                    ticket = c.getProductName() + " — 0 trips (out)";
+                } else if (Locale.getDefault().getLanguage().equalsIgnoreCase("ru")) {
+                    if (nbTicket <= 0) {
+                        ticket = c.getProductName() + " — " + nbTicket + " " + getString(R.string.ticket_remaining5);
                     } else {
-                        if (nbTicket == 1) {
-                            ticket = nbTicket + " " + getString(R.string.ticket_remaining1);
-                        } else {
-                            ticket = nbTicket + " " + getString(R.string.ticket_remaining2);
-                        }
+                        ticket = c.getProductName() + " — " + nbTicket + " " + pluralForm(nbTicket);
                     }
-
-                    textTicket.setText(ticket);
-                    int logoId = contract.get(i).getLogoId();
-                    if (logoId != 0 && m_Card.getType() == Card.CardType.OPUS) logo.setImageResource(logoId);
-                    LayoutTicket.addView(customTicket);
-                    compteurTicket += 1;
+                } else {
+                    if (nbTicket == 1) {
+                        ticket = c.getProductName() + " — " + nbTicket + " " + getString(R.string.ticket_remaining1);
+                    } else {
+                        ticket = c.getProductName() + " — " + nbTicket + " " + getString(R.string.ticket_remaining2);
+                    }
                 }
+
+                textTicket.setText(ticket);
+                if (!valid) textTicket.setTextColor(0xFFFF4444); // red
+                int logoId = c.getLogoId();
+                if (logoId != 0 && m_Card.getType() == Card.CardType.OPUS) logo.setImageResource(logoId);
+                LayoutTicket.addView(customTicket);
+                compteurTicket++;
             }
         }
 
