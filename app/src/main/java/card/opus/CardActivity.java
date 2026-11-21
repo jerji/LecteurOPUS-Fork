@@ -261,45 +261,10 @@ public class CardActivity extends AppCompatActivity {
             }
         }
 
-        // ---- Export & Data Dump Buttons ----
+        // ---- Data Dump Button (JSON actions are in the ⋮ menu) ----
         LinearLayout buttonRow = new LinearLayout(this);
         buttonRow.setOrientation(LinearLayout.HORIZONTAL);
         buttonRow.setPadding(16, 16, 16, 16);
-
-        Button copyJsonButton = new Button(this);
-        copyJsonButton.setText("Copy JSON");
-        copyJsonButton.setOnClickListener(v -> {
-            try {
-                String json = m_Card.rawJson();
-                android.content.ClipboardManager clipboard = (android.content.ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
-                android.content.ClipData clip = android.content.ClipData.newPlainText("card_json", json);
-                clipboard.setPrimaryClip(clip);
-                Toast.makeText(this, "JSON copied to clipboard", Toast.LENGTH_SHORT).show();
-            } catch (Exception e) {
-                Toast.makeText(this, "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        Button saveJsonButton = new Button(this);
-        saveJsonButton.setText("Save JSON");
-        saveJsonButton.setOnClickListener(v -> {
-            try {
-                String json = m_Card.rawJson();
-                String type = m_Card.getType() == Card.CardType.OPUS ? "OPUS" : "MIFARE";
-                String code = String.format("%04X", m_Card.getProductCode());
-                java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyyMMdd_HHmmss", java.util.Locale.US);
-                String dateStr = sdf.format(new java.util.Date());
-                String filename = type + "_" + code + "_" + dateStr + ".json";
-                File path = getFilesDir();
-                File jsonFile = new File(path, filename);
-                FileOutputStream fos = new FileOutputStream(jsonFile);
-                fos.write(json.getBytes());
-                fos.close();
-                Toast.makeText(this, "Saved: " + filename, Toast.LENGTH_LONG).show();
-            } catch (Exception e) {
-                Toast.makeText(this, "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
-            }
-        });
 
         Button dumpButton = new Button(this);
         dumpButton.setText("Show All Data");
@@ -309,8 +274,6 @@ public class CardActivity extends AppCompatActivity {
             startActivity(dumpIntent);
         });
 
-        buttonRow.addView(copyJsonButton);
-        buttonRow.addView(saveJsonButton);
         buttonRow.addView(dumpButton);
 
         LinearLayout mainLayout = findViewById(R.id.layoutTransit);
