@@ -475,6 +475,10 @@ public class CardActivity extends AppCompatActivity {
         }).start();
         return true;
     }
+
+    private void populateFareSummary() {
+        LinearLayout layoutFares = findViewById(R.id.layoutFares);
+        if (layoutFares == null) return;
         layoutFares.removeAllViews();
 
         for (int ci = 0; ci < m_Card.getContract().size(); ci++) {
@@ -567,7 +571,6 @@ public class CardActivity extends AppCompatActivity {
                     builder.setNegativeButton("Cancel", null);
                     builder.show();
                 }
-            });
             });
 
             layoutFares.addView(fareRow);
