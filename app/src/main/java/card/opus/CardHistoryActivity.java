@@ -571,7 +571,17 @@ public class CardHistoryActivity extends AppCompatActivity {
             final String diffText = sb.toString();
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setTitle("Card Diff");
-            builder.setMessage(diffText);
+
+            // Scrollable text view so full diff is visible
+            android.widget.ScrollView scroll = new android.widget.ScrollView(this);
+            TextView textView = new TextView(this);
+            textView.setText(diffText);
+            textView.setTextSize(11);
+            textView.setTypeface(android.graphics.Typeface.MONOSPACE);
+            textView.setPadding(24, 16, 24, 16);
+            scroll.addView(textView);
+            builder.setView(scroll);
+
             builder.setPositiveButton("OK", null);
             builder.setNegativeButton("Copy", (dialog, which) -> {
                 ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
