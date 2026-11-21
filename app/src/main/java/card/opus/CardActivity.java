@@ -476,8 +476,6 @@ public class CardActivity extends AppCompatActivity {
         return true;
     }
             t.printStackTrace();
-        }
-        LinearLayout layoutFares = findViewById(R.id.layoutFares);
         if (layoutFares == null) return;
         layoutFares.removeAllViews();
 
