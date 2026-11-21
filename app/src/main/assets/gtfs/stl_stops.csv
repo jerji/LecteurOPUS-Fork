@@ -1,0 +1,2794 @@
+stop_id,stop_code,stop_name,stop_lat,stop_lon,type
+47012,47012,Terminus Cartier Quai: 10,45.5599499,-73.6824,bus
+41241,41241,Saint-Hubert / Cartier,45.5611099,-73.6801099,bus
+46417,46417,Saint-Hubert / Saint-Eusèbe,45.55947,-73.67853,bus
+49012,49012,Juge-Desnoyers / face au 520,45.5651399,-73.67166,bus
+45054,45054,Juge-Desnoyers / face au 520,45.5651499,-73.67166,bus
+45053,45053,Juge-Desnoyers / face au 400,45.56389,-73.6724899,bus
+45052,45052,Juge-Desnoyers / face au 300,45.563,-73.6731999,bus
+45051,45051,Juge-Desnoyers / face au 180,45.56217,-73.6740599,bus
+45050,45050,Juge-Desnoyers / face au 160,45.56135,-73.6749199,bus
+41537,41537,Juge-Desnoyers / face au 100,45.55982,-73.6762999,bus
+41539,41539,Saint-Hubert / Juge-Desnoyers,45.5583799,-73.6773199,bus
+46418,46418,Saint-Hubert / Saint-Eusèbe,45.5599199,-73.6786,bus
+42794,42794,Saint-Hubert / de Quimper,45.5609599,-73.6796799,bus
+47112,47112,Terminus Cartier,45.5600599,-73.68238,bus
+46238,46238,Saint-Martin / Carole,45.5328299,-73.82433,bus
+41218,41218,Carole / des Tulipes,45.53236,-73.82371,bus
+41216,41216,Carole / Muguet,45.53094,-73.8221699,bus
+41694,41694,Gravel / de la Place-Publique,45.52804,-73.82085,bus
+41698,41698,Gravel / des Orchidées,45.5266499,-73.8194299,bus
+41700,41700,Gravel / Samson,45.5244299,-73.81717,bus
+41702,41702,Gravel / Mandel,45.5226,-73.81532,bus
+41704,41704,Gravel / du Bord-de-l'Eau,45.52057,-73.8132999,bus
+46272,46272,du Bord-de-l'Eau / Maisonneuve,45.5203,-73.81106,bus
+46273,46273,du Bord-de-l'Eau / Janson,45.51957,-73.80738,bus
+41165,41165,du Bord-de-l'Eau / de la Capricieuse,45.51889,-73.8035399,bus
+41162,41162,du Bord-de-l'Eau / Zéphyr,45.51866,-73.8009199,bus
+41160,41160,du Bord-de-l'Eau / Fabert,45.51846,-73.7983999,bus
+41158,41158,du Bord-de-l'Eau / Larivière,45.51772,-73.7943299,bus
+43264,43264,du Bord-de-l'Eau / Marineau,45.51785,-73.7916999,bus
+41156,41156,du Bord-de-l'Eau / face au 300,45.51818,-73.78952,bus
+41204,41204,du Bord-de-l'Eau / Montreuil,45.51863,-73.7873999,bus
+41202,41202,du Bord-de-l'Eau / de la Seigneurie,45.5192199,-73.78437,bus
+41192,41192,du Bord-de-l'Eau / face au 125,45.52023,-73.7817899,bus
+41200,41200,Cléophas-Charbonneau / Samson,45.5215399,-73.78069,bus
+43039,43039,Samson / de Cherbourg,45.5254199,-73.77342,bus
+43041,43041,Samson / Carleton,45.52617,-73.7697399,bus
+43044,43044,Samson / Clémenceau,45.5264399,-73.76663,bus
+43046,43046,Samson / Côté,45.52673,-73.76466,bus
+43049,43049,Samson / des Îles,45.5273799,-73.76278,bus
+43052,43052,Samson / 100e Avenue,45.5280599,-73.75999,bus
+43054,43054,Samson / 1ère rue,45.5290799,-73.75672,bus
+42076,42076,Lévesque / de l'Aubade,45.52935,-73.7541399,bus
+42097,42097,Lévesque / des Îles,45.5293499,-73.75164,bus
+42119,42119,Lévesque / 92e Avenue,45.5302399,-73.74935,bus
+42006,42006,Lévesque / 90e Avenue,45.53141,-73.74709,bus
+45046,45046,Lévesque / de la Seine,45.5322999,-73.74543,bus
+42028,42028,Lévesque / 85e Avenue,45.5329499,-73.7438,bus
+42050,42050,Lévesque / 83e Avenue,45.5339799,-73.74093,bus
+42053,42053,Lévesque / 80e Avenue,45.5350199,-73.73714,bus
+42056,42056,Lévesque / 76e Avenue,45.53589,-73.7345899,bus
+42058,42058,Lévesque / 73e Avenue,45.5365999,-73.73308,bus
+41419,41419,Curé-Labelle / face au 41 (avant pont Lachapelle),45.5343399,-73.7300199,bus
+41894,41894,Laurentien / Gouin ouest,45.52946,-73.7230999,bus
+46745,46745,Station du REM Bois-Franc Ouest Quai: 2,45.5219099,-73.71108,bus
+46750,46750,Marcel-Laurin / Henri-Bourassa,45.5215199,-73.7067699,bus
+41898,41898,Marcel-Laurin / Poirier,45.5178699,-73.7008199,bus
+40144,40144,Terminus Côte-Vertu Quai: 20,45.5132299,-73.68271,bus
+41899,41899,Marcel-Laurin / Poirier,45.5173899,-73.6994999,bus
+46747,46747,Station du REM Bois-Franc Est Quai: 8,45.5233199,-73.70837,bus
+41895,41895,Lachapelle / Gouin ouest,45.53122,-73.72154,bus
+42057,42057,Lévesque / 73e Avenue,45.5368599,-73.73281,bus
+42054,42054,Lévesque / 76e Avenue,45.5359499,-73.7348,bus
+46354,46354,Lévesque / 77e Avenue,45.5352199,-73.7369999,bus
+42052,42052,Lévesque / 80e Avenue,45.5347499,-73.7385199,bus
+42039,42039,Lévesque / 83e Avenue,45.53417,-73.7408199,bus
+42017,42017,Lévesque / 85e Avenue,45.5332099,-73.74345,bus
+41997,41997,Lévesque / 86e Avenue,45.5326499,-73.74499,bus
+42130,42130,Lévesque / 90e Avenue,45.53133,-73.7475199,bus
+42108,42108,Lévesque / 92e Avenue,45.5304499,-73.74921,bus
+42087,42087,Lévesque / des Îles,45.5295199,-73.7514999,bus
+42064,42064,Lévesque / de l'Aubade,45.5294499,-73.7539199,bus
+43053,43053,Samson / 1ère rue,45.52907,-73.7575099,bus
+43051,43051,Samson / 100e Avenue,45.5284399,-73.75943,bus
+43047,43047,Samson / des Îles,45.5276799,-73.76256,bus
+43045,43045,Samson / Côté,45.52699,-73.7645799,bus
+43042,43042,Samson / face au 5034,45.5266199,-73.767,bus
+43040,43040,Samson / 4e Rue,45.5264099,-73.76948,bus
+43038,43038,Samson / de Cherbourg,45.5258499,-73.77318,bus
+41155,41155,Cléophas-Charbonneau / Samson,45.5222099,-73.78169,bus
+45044,45044,Cléophas-Charbonneau / Bord-de-l'Eau,45.52112,-73.7805699,bus
+41180,41180,du Bord-de-l'Eau / face au 125,45.5202999,-73.78186,bus
+41199,41199,du Bord-de-l'Eau / de la Seigneurie,45.51946,-73.7840999,bus
+41203,41203,du Bord-de-l'Eau / Montreuil,45.5188499,-73.78692,bus
+41205,41205,du Bord-de-l'Eau / Rosario,45.5183199,-73.78942,bus
+43257,43257,du Bord-de-l'Eau / Marineau,45.5179899,-73.79155,bus
+41157,41157,du Bord-de-l'Eau / Larivière,45.5178299,-73.7939799,bus
+41159,41159,du Bord-de-l'Eau / Fabert,45.5184999,-73.7980499,bus
+41161,41161,du Bord-de-l'Eau / Zéphyr,45.5187699,-73.80093,bus
+41163,41163,du Bord-de-l'Eau / de la Capricieuse,45.51896,-73.80347,bus
+41164,41164,du Bord-de-l'Eau / des Jardins-Ste-Dorothée,45.51952,-73.80693,bus
+46274,46274,du Bord-de-l'Eau / Maisonneuve,45.5204099,-73.81125,bus
+41695,41695,Gravel / Gervais,45.52084,-73.81336,bus
+41703,41703,Gravel / Mandel,45.52249,-73.81501,bus
+41701,41701,Gravel / Samson,45.5241699,-73.81669,bus
+41697,41697,Gravel / Samson,45.52496,-73.81748,bus
+41699,41699,Gravel / des Orchidées,45.52662,-73.81919,bus
+41696,41696,Gravel / des Pétunias,45.52772,-73.82032,bus
+42650,42650,Place Publique,45.5289999,-73.82104,bus
+41215,41215,Carole / Muguet,45.53086,-73.82183,bus
+43265,43265,Carole / des Tulipes,45.5322899,-73.82333,bus
+40151,40151,Terminus Côte-Vertu Quai: 19,45.5133699,-73.68253,bus
+41897,41897,Station du REM Bois-Franc Est Quai: 7,45.5233999,-73.70813,bus
+41431,41431,Curé-Labelle / Lévesque,45.5360199,-73.73091,bus
+41263,41263,Curé-Labelle / 73e Avenue,45.53897,-73.7347099,bus
+41461,41461,Curé-Labelle / 77e Avenue,45.538,-73.7384799,bus
+41463,41463,Curé-Labelle / 80e Avenue,45.5372099,-73.74149,bus
+41410,41410,Curé-Labelle / Samson,45.5372999,-73.7434999,bus
+41412,41412,Curé-Labelle / Perron,45.53845,-73.74561,bus
+41414,41414,Curé-Labelle / Notre-Dame,45.5408199,-73.74805,bus
+41416,41416,Curé-Labelle / face au Pharmaprix,45.5430699,-73.7504799,bus
+41417,41417,Curé-Labelle / face au Club entrepôt,45.5449099,-73.7525,bus
+41421,41421,Curé-Labelle / Marie-Antoinette,45.54631,-73.75404,bus
+41424,41424,Curé-Labelle / du Souvenir,45.5488299,-73.75679,bus
+41426,41426,Curé-Labelle / Saint-Martin,45.55112,-73.75889,bus
+41428,41428,Curé-Labelle / Saint-Martin,45.5528099,-73.7606499,bus
+41430,41430,Curé-Labelle / Albert,45.5545899,-73.76359,bus
+41433,41433,Curé-Labelle / Acadia,45.55576,-73.76514,bus
+41435,41435,Curé-Labelle / Le Carrefour,45.55737,-73.76693,bus
+41437,41437,Curé-Labelle / Face au Marché Adonis,45.5587,-73.76838,bus
+46728,46728,Curé-Labelle / Face au 2455,45.55997,-73.76978,bus
+41439,41439,Curé-Labelle / Jaguin,45.5611199,-73.7717699,bus
+41441,41441,Curé-Labelle / face au 2539,45.5618999,-73.77385,bus
+43266,43266,Curé-Labelle / face au 2914,45.56696,-73.77949,bus
+41444,41444,Curé-Labelle / Saint-Elzéar,45.5692,-73.78195,bus
+46424,46424,Curé-Labelle / Simone-De-Beauvoir,45.57081,-73.78368,bus
+41446,41446,Curé-Labelle / Édith,45.57427,-73.78676,bus
+41448,41448,Curé-Labelle / Éricka,45.5765099,-73.7873799,bus
+41450,41450,Curé-Labelle / Dagenais,45.5799899,-73.78851,bus
+43390,43390,Curé-Labelle / face au Canadian Tire,45.58135,-73.78895,bus
+41452,41452,Curé-Labelle / Gabriel,45.5832399,-73.78927,bus
+46308,46308,Curé-Labelle / face au 707,45.58964,-73.78599,bus
+41454,41454,Curé-Labelle / face au 480,45.5922599,-73.78671,bus
+46620,46620,Curé-Labelle / Face au 338,45.59446,-73.78731,bus
+41456,41456,Curé-Labelle / de la Canardière,45.59571,-73.78766,bus
+41458,41458,Curé-Labelle / face au 289,45.5980499,-73.7882899,bus
+46317,46317,Curé-Labelle / de la Renaissance,45.60224,-73.78946,bus
+46277,46277,Curé-Labelle / face au 200,45.60531,-73.79032,bus
+46278,46278,Curé-Labelle / Roi-du-Nord,45.60744,-73.79098,bus
+46319,46319,Curé-Labelle / Sainte-Rose,45.6108899,-73.79207,bus
+42999,42999,Sainte-Rose / face à la résidence M.-A.-Fortin,45.61182,-73.79062,bus
+43002,43002,Sainte-Rose / Filion,45.61251,-73.78851,bus
+43004,43004,Sainte-Rose / Hotte,45.61448,-73.7857,bus
+43008,43008,Sainte-Rose / des Patriotes,45.6164499,-73.78287,bus
+42886,42886,Sainte-Rose / face au 104,45.6183599,-73.78108,bus
+42888,42888,Sainte-Rose / Dufferin,45.6194499,-73.77989,bus
+41548,41548,Dufferin / Napoléon,45.62131,-73.78068,bus
+41550,41550,Dufferin / Giguère,45.6221999,-73.7809299,bus
+41552,41552,Dufferin / Sicotte,45.6234699,-73.78127,bus
+41554,41554,Dufferin / du Ruisseau,45.6251299,-73.78172,bus
+41544,41544,Dufferin / du Lac,45.6270499,-73.7822599,bus
+46593,46593,Dufferin / Jacques-Cartier,45.62776,-73.78246,bus
+49151,49151,Dufferin / chemin de fer C.P.,45.6286599,-73.78282,bus
+41546,41546,Dufferin / chemin de fer C.P.,45.6285899,-73.78283,bus
+41545,41545,Dufferin / du Lac,45.62717,-73.78248,bus
+41543,41543,Dufferin / du Ruisseau,45.6253499,-73.7819799,bus
+41553,41553,Dufferin / Sicotte,45.62369,-73.78153,bus
+41551,41551,Dufferin / Giguère,45.62226,-73.78113,bus
+41549,41549,Dufferin / Napoléon,45.621,-73.7807799,bus
+41547,41547,Dufferin / Sainte-Rose,45.6197999,-73.7801999,bus
+43009,43009,Sainte-Rose / face au 99,45.6184899,-73.78114,bus
+43007,43007,Sainte-Rose / des Patriotes,45.6167799,-73.7826799,bus
+43003,43003,Sainte-Rose / Hotte,45.6146299,-73.78574,bus
+43001,43001,Sainte-Rose / Cantin,45.6127999,-73.78819,bus
+43000,43000,Sainte-Rose / face au 271,45.6119799,-73.7906,bus
+42996,42996,Sainte-Rose / Curé-Labelle,45.6114199,-73.79164,bus
+46318,46318,Curé-Labelle / Sainte-Rose,45.6104499,-73.79218,bus
+46275,46275,Curé-Labelle / Cloutier,45.60838,-73.79157,bus
+46276,46276,Curé-Labelle / Marc-Aurèle-Fortin,45.60505,-73.79067,bus
+46316,46316,Curé-Labelle / de la Renaissance,45.6015599,-73.7896999,bus
+41459,41459,Curé-Labelle / face au 285,45.59822,-73.78876,bus
+41457,41457,Curé-Labelle / Drapeau,45.59543,-73.78799,bus
+46619,46619,Curé-Labelle / Face au 357,45.59359,-73.7875,bus
+41455,41455,Curé-Labelle / Corbin,45.5912599,-73.78686,bus
+46309,46309,Curé-Labelle / face au 707,45.58889,-73.7862199,bus
+41453,41453,Curé-Labelle / Gabriel,45.58337,-73.7896499,bus
+43389,43389,Curé-Labelle / Face au 511,45.58043,-73.78905,bus
+41451,41451,Curé-Labelle / Dagenais,45.5789199,-73.78858,bus
+41449,41449,Curé-Labelle / face au 405,45.5771099,-73.7879899,bus
+41447,41447,Curé-Labelle / face au 289,45.57399,-73.7870799,bus
+46505,46505,Curé-Labelle / Simone-De-Beauvoir,45.57043,-73.78376,bus
+41445,41445,Curé-Labelle / Saint-Elzéar,45.56933,-73.7825599,bus
+46592,46592,Curé-Labelle / Face au 3200,45.5680099,-73.7811699,bus
+41443,41443,Curé-Labelle / face au 2914,45.56665,-73.77968,bus
+41440,41440,Curé-Labelle / Cléroux,45.56126,-73.7731399,bus
+41438,41438,Curé-Labelle / Face au 2454,45.55919,-73.76946,bus
+41436,41436,Curé-Labelle / Louis-Payette,45.55718,-73.76725,bus
+41434,41434,Curé-Labelle / Acadia,45.55579,-73.7657099,bus
+41432,41432,Curé-Labelle / Mayo,45.55427,-73.76368,bus
+41429,41429,Curé-Labelle / face au 1830,45.5532299,-73.7616799,bus
+41427,41427,Curé-Labelle / Saint-Martin,45.55244,-73.76072,bus
+41423,41423,Curé-Labelle / Loranger,45.5505599,-73.7587899,bus
+41425,41425,Curé-Labelle / du Souvenir,45.5490899,-73.75742,bus
+41422,41422,Curé-Labelle / Marie-Antoinette,45.5463999,-73.7544499,bus
+41420,41420,Curé-Labelle / face au 1200,45.54516,-73.75308,bus
+41418,41418,Curé-Labelle / face au 986,45.5432199,-73.7509399,bus
+41415,41415,Curé-Labelle / Notre-Dame,45.5415299,-73.74921,bus
+41413,41413,Curé-Labelle / Perron,45.5385799,-73.7460299,bus
+41411,41411,Curé-Labelle / Samson,45.53762,-73.7448599,bus
+46653,46653,Curé-Labelle / 81e Avenue,45.53699,-73.7421899,bus
+41409,41409,Curé-Labelle / 80e Avenue,45.5373199,-73.74034,bus
+41462,41462,Curé-Labelle / 75e Avenue,45.5382299,-73.73696,bus
+41460,41460,Curé-Labelle / 73e Avenue,45.53827,-73.73406,bus
+41442,41442,Curé-Labelle / Lévesque,45.5372099,-73.7326,bus
+41896,41896,Station du REM Bois-Franc Ouest Quai: 3,45.5220799,-73.7112,bus
+46685,46685,Margaret-Newton / Armand-Frappier,45.5549099,-73.73525,bus
+46686,46686,Armand-Frappier / Face au 440,45.5536499,-73.7337199,bus
+46687,46687,Armand-Frappier / Notre-Dame,45.5505499,-73.7293,bus
+46688,46688,Armand-Frappier / Face au 275,45.54969,-73.72673,bus
+46689,46689,Armand-Frappier / face au 235,45.54848,-73.72562,bus
+46690,46690,Armand-Frappier / Bernard-Belleau,45.5469999,-73.7241999,bus
+46691,46691,Armand-Frappier / Avant la barriere,45.5457299,-73.72301,bus
+46692,46692,Armand-Frappier / Bernard-Belleau,45.54694,-73.72386,bus
+46693,46693,Armand-Frappier / face au 235,45.5483999,-73.7252799,bus
+46694,46694,Armand-Frappier / face au 275,45.5496299,-73.7264699,bus
+46699,46699,Armand-Frappier / Notre-Dame,45.5503699,-73.72858,bus
+46695,46695,Armand-Frappier / face au 445,45.5533199,-73.7330899,bus
+46696,46696,Armand-Frappier / Louis-R.-Renaud,45.5544099,-73.7342799,bus
+46697,46697,Armand-Frappier / du Souvenir,45.5557699,-73.73575,bus
+46655,46655,du Souvenir / Aut.15,45.55688,-73.7338299,bus
+43144,43144,du Souvenir / Centre Laval,45.55951,-73.7288299,bus
+43147,43147,du Souvenir / Lucien-Paiement,45.56093,-73.7252899,bus
+43148,43148,du Souvenir / de l'Avenir,45.56164,-73.72297,bus
+48102,48102,Terminus Montmorency,45.5582899,-73.72103,bus
+48002,48002,Terminus Montmorency Quai: 6,45.5579499,-73.72083,bus
+43343,43343,du Souvenir / de l'Avenir,45.56174,-73.7236999,bus
+43146,43146,du Souvenir / Le Corbusier,45.5609599,-73.72619,bus
+43145,43145,du Souvenir / Centre Laval,45.5593199,-73.72985,bus
+46671,46671,Armand-Frappier / face au 600,45.5552899,-73.73554,bus
+46673,46673,Armand-Frappier / face au 440,45.5536499,-73.7337199,bus
+46674,46674,Armand-Frappier / Notre-Dame,45.5505499,-73.7293,bus
+46675,46675,Armand-Frappier / Face au 275,45.5496899,-73.7267399,bus
+46676,46676,Armand-Frappier / Face au 235,45.54848,-73.72561,bus
+46677,46677,Armand-Frappier / Bernard-Belleau,45.5469999,-73.7241999,bus
+46678,46678,Armand-Frappier / Avant la barrière,45.5457299,-73.72301,bus
+46679,46679,Armand-Frappier / Bernard-Belleau,45.5469499,-73.7238699,bus
+46680,46680,Armand-Frappier / Face au 235,45.5484099,-73.7252899,bus
+46681,46681,Armand-Frappier / Face au 275,45.5496299,-73.7264699,bus
+46698,46698,Armand-Frappier / Notre-Dame,45.5503699,-73.72859,bus
+46682,46682,Armand-Frappier / Face au 445,45.55332,-73.73309,bus
+46683,46683,Armand-Frappier / Louis-R.-Renaud,45.5544099,-73.73428,bus
+47002,47002,Terminus Cartier Quai: 2,45.5599299,-73.6825,bus
+41842,41842,des Laurentides / Lévesque,45.56157,-73.68204,bus
+41865,41865,des Laurentides / Grenon,45.5634999,-73.6842499,bus
+41887,41887,des Laurentides / Tourangeau,45.5647899,-73.6856899,bus
+41796,41796,des Laurentides / Meunier,45.56735,-73.68856,bus
+41798,41798,des Laurentides / Proulx,45.5686499,-73.6899799,bus
+41800,41800,des Laurentides / de la Concorde,45.5702099,-73.69172,bus
+41802,41802,des Laurentides / Saint-Florent,45.5726,-73.69434,bus
+41804,41804,des Laurentides / du Souvenir,45.57438,-73.6964,bus
+41807,41807,des Laurentides / Gianchetti,45.57556,-73.69781,bus
+41809,41809,des Laurentides / Normont,45.5779499,-73.7005899,bus
+41811,41811,des Laurentides / Saint-Michel,45.5789299,-73.70173,bus
+41813,41813,des Laurentides / Saint-Martin,45.5817399,-73.70498,bus
+41817,41817,des Laurentides / Renaud,45.5838099,-73.70736,bus
+41820,41820,des Laurentides / de Dakar,45.58561,-73.7093,bus
+41822,41822,des Laurentides / Richard,45.58659,-73.71039,bus
+41824,41824,des Laurentides / Saulnier,45.5891399,-73.7132699,bus
+41826,41826,des Laurentides / Morane,45.5905699,-73.7145099,bus
+41828,41828,des Laurentides / Lavoie,45.59528,-73.72004,bus
+41831,41831,des Laurentides / de la Bernina,45.5965699,-73.72143,bus
+41839,41839,des Laurentides / de Rotterdam,45.5984,-73.72343,bus
+41834,41834,des Laurentides / de Genève,45.5995199,-73.7246299,bus
+41837,41837,des Laurentides / d'Anvers,45.60101,-73.72617,bus
+41833,41833,des Laurentides / Saint-Elzéar,45.6034999,-73.72878,bus
+41841,41841,des Laurentides / de Pise,45.6047,-73.73015,bus
+41844,41844,des Laurentides / Dagenais,45.6061899,-73.73176,bus
+41846,41846,des Laurentides / face au 2121,45.6085099,-73.7341199,bus
+41848,41848,des Laurentides / Bellerose,45.6116399,-73.73648,bus
+41849,41849,des Laurentides / Face au 2215,45.6132999,-73.7376099,bus
+41852,41852,des Laurentides / de Belgrade,45.61593,-73.74043,bus
+41854,41854,des Laurentides / Poupart,45.61767,-73.74225,bus
+41856,41856,des Laurentides / des Lacasse,45.6200999,-73.7448299,bus
+41858,41858,des Laurentides / Provence,45.62165,-73.74651,bus
+41860,41860,des Laurentides / Thibault,45.6237199,-73.7486699,bus
+41862,41862,des Laurentides / Prud'Homme,45.62604,-73.75109,bus
+41864,41864,des Laurentides / Piron,45.62844,-73.75184,bus
+41867,41867,des Laurentides / des Perron,45.6299499,-73.75223,bus
+41869,41869,des Laurentides / Savard,45.63169,-73.75277,bus
+41871,41871,des Laurentides / Sand,45.63442,-73.75356,bus
+41873,41873,des Laurentides / Face au 6235,45.6362099,-73.75409,bus
+41875,41875,des Laurentides / Saint-Saëns,45.63717,-73.75436,bus
+41878,41878,des Laurentides / Sabourin,45.6391699,-73.75495,bus
+41880,41880,des Laurentides / Réaumur,45.6407799,-73.7554199,bus
+41882,41882,des Laurentides / Bellehumeur,45.64458,-73.7544099,bus
+41884,41884,des Laurentides / Prince-Rupert,45.6456699,-73.75262,bus
+46438,46438,des Laurentides / Rémillard,45.64713,-73.7502299,bus
+41886,41886,des Laurentides / Riopelle,45.6488899,-73.74906,bus
+41889,41889,des Laurentides / Beaudet,45.6497799,-73.74855,bus
+41070,41070,des Laurentides / Jean-Coutu,45.6515299,-73.74822,bus
+41892,41892,des Laurentides / Bergeron,45.6532699,-73.74852,bus
+49017,49017,terminus Bienville,45.6578499,-73.74969,bus
+41068,41068,terminus Bienville,45.6578599,-73.75014,bus
+41893,41893,Bienville / Bergeron,45.65318,-73.7487399,bus
+41891,41891,des Laurentides / Jean-Coutu,45.65153,-73.7484399,bus
+41890,41890,des Laurentides / Beaudet,45.6494099,-73.74897,bus
+41888,41888,des Laurentides / Riopelle,45.6482699,-73.74967,bus
+46437,46437,des Laurentides / Rémillard,45.6469199,-73.7506999,bus
+41885,41885,des Laurentides / Prince-Rupert,45.64599,-73.7524099,bus
+41883,41883,des Laurentides / face au 7010,45.64434,-73.7549799,bus
+41881,41881,des Laurentides / Sellier,45.6409499,-73.7557399,bus
+41879,41879,des Laurentides / Sabourin,45.63897,-73.7551299,bus
+41877,41877,des Laurentides / Saint-Saëns,45.6374899,-73.7547199,bus
+41874,41874,des Laurentides / face au 6200,45.6361,-73.75429,bus
+41872,41872,des Laurentides / Sand,45.6344099,-73.7538199,bus
+41870,41870,des Laurentides / Savard,45.6319399,-73.7530899,bus
+41868,41868,des Laurentides / Sainte-Rose,45.6309999,-73.75282,bus
+41866,41866,des Laurentides / Piron,45.6285999,-73.7521999,bus
+41863,41863,des Laurentides / Prud'Homme,45.62628,-73.7515199,bus
+41861,41861,des Laurentides / Thibault,45.62335,-73.7486099,bus
+41859,41859,des Laurentides / Provence,45.6217699,-73.7469299,bus
+41857,41857,des Laurentides / des Lacasse,45.61988,-73.74494,bus
+41855,41855,des Laurentides / Poupart,45.61773,-73.7427,bus
+41853,41853,des Laurentides / de Belgrade,45.6156,-73.74038,bus
+41851,41851,des Laurentides  / face au 2220,45.6131199,-73.7377499,bus
+41850,41850,des Laurentides / Bellerose,45.61101,-73.7365599,bus
+41847,41847,des Laurentides / face au 2100,45.6077999,-73.7337299,bus
+41845,41845,des Laurentides / Dagenais,45.60664,-73.7325199,bus
+41843,41843,des Laurentides / de Pise,45.60461,-73.7303799,bus
+41835,41835,des Laurentides / Saint-Elzéar,45.6031399,-73.72872,bus
+41838,41838,des Laurentides / d'Anvers,45.6005999,-73.7260499,bus
+41836,41836,des Laurentides / de Genève,45.59921,-73.72461,bus
+41840,41840,des Laurentides / de Rotterdam,45.59811,-73.72341,bus
+41832,41832,des Laurentides / face au 1676,45.5959799,-73.7211399,bus
+41830,41830,des Laurentides / d'Edimbourg,45.59515,-73.72024,bus
+41827,41827,des Laurentides / Lamer,45.59069,-73.71507,bus
+41825,41825,des Laurentides / Gélinas,45.58888,-73.71332,bus
+41823,41823,des Laurentides / Richard,45.58707,-73.71128,bus
+41821,41821,des Laurentides / de Dakar,45.5855399,-73.7095599,bus
+41819,41819,des Laurentides / Renaud,45.5838299,-73.7080399,bus
+41815,41815,des Laurentides / Saint-Martin,45.5821699,-73.70617,bus
+41816,41816,des Laurentides / Face au 5 Place Laval,45.5804199,-73.7041699,bus
+41812,41812,des Laurentides / Saint-Michel,45.57885,-73.70209,bus
+41810,41810,des Laurentides / Normont,45.5773399,-73.7002099,bus
+41808,41808,des Laurentides / Gianchetti,45.57524,-73.6978,bus
+41806,41806,des Laurentides / du Souvenir,45.57421,-73.69654,bus
+41803,41803,des Laurentides / 19e Rue,45.57224,-73.6943,bus
+41801,41801,des Laurentides / de la Concorde,45.5706399,-73.69253,bus
+41799,41799,des Laurentides / Proulx,45.56892,-73.69062,bus
+41797,41797,des Laurentides / Meunier,45.56698,-73.6884799,bus
+41795,41795,des Laurentides / Tourangeau,45.5652999,-73.6866099,bus
+41876,41876,des Laurentides / Grenon,45.5633,-73.68437,bus
+46423,46423,des Laurentides / Derome,45.5616899,-73.6825799,bus
+45003,45003,Station du REM Sainte-Dorothée Quai: 4,45.5232699,-73.8625,bus
+41197,41197,du Bord-de-l'Eau / face au 1368,45.52276,-73.8583799,bus
+43260,43260,du Bord-de-l'Eau / du Relais,45.5228299,-73.85541,bus
+41190,41190,du Bord-de-l'Eau / Dupont,45.52316,-73.8539499,bus
+46280,46280,Jolibourg / du Bord-de-l'Eau,45.52387,-73.85284,bus
+41784,41784,Jolibourg / de Val-d'Espoir,45.52489,-73.85386,bus
+41785,41785,Jolibourg / de Val-d'Espoir,45.5263699,-73.8552799,bus
+41787,41787,Jolibourg / de Val-Brillant,45.52788,-73.85762,bus
+46281,46281,Jolibourg / Matane,45.52894,-73.85925,bus
+46282,46282,Jolibourg / Matane,45.5304699,-73.86123,bus
+46283,46283,Saint-Antoine / Arthur-Sauvé,45.5403999,-73.85761,bus
+46284,46284,Saint-Antoine / Fernando-Pessoa,45.5390499,-73.8607999,bus
+46285,46285,Saint-Antoine / Fernando-Pessoa,45.5386699,-73.86277,bus
+46286,46286,Saint-Antoine / face au parc Laval-Ouest,45.53779,-73.8670299,bus
+46287,46287,Saint-Antoine / 17e Avenue,45.53705,-73.8690499,bus
+46288,46288,Saint-Antoine / Marie-Le Franc,45.5360399,-73.87134,bus
+46289,46289,Saint-Antoine / 3e Avenue,45.5350199,-73.8754199,bus
+46640,46640,Saint-Antoine / Les Érables,45.5357799,-73.87801,bus
+42920,42920,Sainte-Rose / 3e Avenue,45.5365999,-73.87778,bus
+42940,42940,Sainte-Rose / 7e Avenue,45.5382699,-73.87706,bus
+42964,42964,Sainte-Rose / 13e Avenue,45.5410099,-73.87581,bus
+42987,42987,Sainte-Rose / 17e Avenue,45.5423599,-73.87518,bus
+42885,42885,Sainte-Rose / 21e Avenue,45.5439899,-73.87438,bus
+42908,42908,Sainte-Rose / 27e Avenue,45.54623,-73.87333,bus
+42914,42914,Sainte-Rose / 31e Avenue,45.5481199,-73.87259,bus
+42916,42916,Sainte-Rose / 24e Rue,45.55082,-73.87154,bus
+42918,42918,Sainte-Rose / 41e Avenue,45.55254,-73.8703899,bus
+42921,42921,Sainte-Rose / Arthur-Sauvé,45.5533199,-73.86941,bus
+42923,42923,Sainte-Rose / 51e Avenue,45.5546399,-73.86766,bus
+42925,42925,Sainte-Rose / 55e Avenue,45.5557099,-73.86663,bus
+42927,42927,Sainte-Rose / 2e Avenue,45.5567,-73.86559,bus
+42929,42929,Sainte-Rose / 4e Avenue,45.55777,-73.8643099,bus
+42932,42932,Sainte-Rose / 8e Avenue,45.55951,-73.8624899,bus
+42934,42934,Sainte-Rose / 10e Avenue,45.5601899,-73.86149,bus
+42936,42936,Sainte-Rose / 14e Avenue,45.5618799,-73.85964,bus
+46605,46605,Sainte-Rose / 15e Avenue,45.56254,-73.8588799,bus
+42938,42938,Sainte-Rose / 18e Avenue,45.56411,-73.8571599,bus
+42941,42941,Sainte-Rose / 22e Avenue,45.56543,-73.85551,bus
+42943,42943,Sainte-Rose / Éluard,45.56579,-73.85328,bus
+42945,42945,Sainte-Rose / Bellemare,45.56568,-73.85103,bus
+42947,42947,Sainte-Rose / 30e Avenue,45.56582,-73.8469,bus
+45036,45036,Sainte-Rose / Stéphanie,45.5669,-73.8440299,bus
+42950,42950,Sainte-Rose / Rosaire,45.56739,-73.8422799,bus
+42951,42951,Sainte-Rose / face au 4200,45.56805,-73.83987,bus
+42954,42954,Sainte-Rose / 40e Avenue,45.56849,-73.83665,bus
+42956,42956,Sainte-Rose / Montée Sauriol,45.5691299,-73.83484,bus
+43075,43075,Montée Sauriol / Sylvio,45.56807,-73.8336599,bus
+43073,43073,Montée Sauriol / Stéphanie,45.5662399,-73.8318399,bus
+43071,43071,Montée Sauriol / Sylvestre,45.5648899,-73.8304499,bus
+43069,43069,Montée Sauriol / Dagenais,45.5638199,-73.8293999,bus
+43074,43074,Montée Sauriol / Sylvio,45.5679999,-73.8333299,bus
+43076,43076,Montée Sauriol / Sainte-Rose,45.5689799,-73.83429,bus
+42952,42952,Sainte-Rose / 40e Avenue,45.5686799,-73.8365499,bus
+42949,42949,Sainte-Rose / face au 4199,45.5681399,-73.8402299,bus
+42948,42948,Sainte-Rose / Cousteau,45.5677099,-73.84181,bus
+46325,46325,Sainte-Rose / Stéphanie,45.5671499,-73.84374,bus
+42946,42946,Sainte-Rose / 30e Avenue,45.5660099,-73.8467699,bus
+42944,42944,Sainte-Rose / Bellemare,45.5658399,-73.85077,bus
+42942,42942,Sainte-Rose / Laberge,45.5658999,-73.8527299,bus
+42939,42939,Sainte-Rose / 22e Avenue,45.5655699,-73.8555399,bus
+42937,42937,Sainte-Rose / 18e Avenue,45.5643199,-73.85711,bus
+46604,46604,Sainte-Rose / 15e Avenue,45.5627399,-73.85878,bus
+42935,42935,Sainte-Rose / 14e Avenue,45.56208,-73.8596399,bus
+42933,42933,Sainte-Rose / 10e Avenue,45.5603899,-73.8614199,bus
+42930,42930,Sainte-Rose / 8e Avenue,45.5596499,-73.86248,bus
+42928,42928,Sainte-Rose / 4e Avenue,45.55796,-73.8642999,bus
+42926,42926,Sainte-Rose / 2e Avenue,45.5569099,-73.86555,bus
+42924,42924,Sainte-Rose / 55e Avenue,45.55594,-73.8666599,bus
+42922,42922,Sainte-Rose / 51e Avenue,45.5548099,-73.8677399,bus
+42919,42919,Sainte-Rose / Arthur-Sauvé,45.5534299,-73.86954,bus
+42917,42917,Sainte-Rose / 41e Avenue,45.5516299,-73.87122,bus
+42915,42915,Sainte-Rose / 37e Avenue,45.5502699,-73.87199,bus
+42913,42913,Sainte-Rose / 28e Rue,45.54856,-73.8726599,bus
+42896,42896,Sainte-Rose / 27e Avenue,45.54659,-73.8734099,bus
+42997,42997,Sainte-Rose / 21e Avenue,45.5442999,-73.8744499,bus
+42975,42975,Sainte-Rose / 17e Avenue,45.5427599,-73.8751899,bus
+42953,42953,Sainte-Rose / 13e Avenue,45.5412,-73.8759199,bus
+42931,42931,Sainte-Rose / 7e Avenue,45.5385399,-73.8771499,bus
+42884,42884,Sainte-Rose / 3e Avenue,45.5366799,-73.87796,bus
+46641,46641,Saint-Antoine / Les Érables,45.53559,-73.8777399,bus
+46290,46290,Saint-Antoine / 3e Avenue,45.53482,-73.87547,bus
+46291,46291,Saint-Antoine / Marie-Le Franc,45.5358399,-73.87142,bus
+46292,46292,Saint-Antoine / André-Maurois,45.53688,-73.8691999,bus
+46293,46293,Saint-Antoine / parc Laval-Ouest,45.53768,-73.86699,bus
+46294,46294,Saint-Antoine / FACE AU 3155,45.53853,-73.8628599,bus
+46295,46295,Saint-Antoine / Fernando-Pessoa,45.53895,-73.8607599,bus
+46296,46296,Saint-Antoine / Arthur-Sauvé,45.5404399,-73.85716,bus
+46297,46297,Jolibourg / Matane,45.5304799,-73.86165,bus
+46298,46298,Jolibourg / Matane,45.5290099,-73.8596199,bus
+46299,46299,Jolibourg / de Val-Brillant,45.52788,-73.85795,bus
+41788,41788,Jolibourg / du Relais,45.5266199,-73.8558199,bus
+41783,41783,Jolibourg / Saint-Denis,45.52498,-73.85422,bus
+41786,41786,Jolibourg / du Bord-de-l'Eau,45.52357,-73.85285,bus
+41201,41201,du Bord-de-l'Eau / Dupont,45.52331,-73.8537999,bus
+43263,43263,du Bord-de-l'Eau / du Relais,45.52299,-73.8552399,bus
+41195,41195,du Bord-de-l'Eau / face au 1368,45.5228999,-73.8583,bus
+46383,46383,Boucle Montgolfier,45.5328199,-73.78065,bus
+46648,46648,Notre-Dame / Montgolfier,45.5318499,-73.77997,bus
+42509,42509,Notre-Dame / Clarendon,45.5320999,-73.77855,bus
+42507,42507,Notre-Dame / face au 5090,45.53261,-73.7756799,bus
+42505,42505,Notre-Dame / Châtelaine,45.5330599,-73.77321,bus
+42503,42503,Notre-Dame / Melville,45.5344099,-73.76972,bus
+42500,42500,Notre-Dame / 101e Avenue,45.5353599,-73.76728,bus
+41057,41057,100e Avenue / Notre-Dame,45.5359799,-73.7650099,bus
+41064,41064,100e Avenue / Montcalm,45.5345,-73.7644099,bus
+41062,41062,100e Avenue / 9e Rue,45.5319199,-73.7632199,bus
+41060,41060,100e Avenue / 4e Rue,45.53026,-73.76156,bus
+41058,41058,100e Avenue / Samson,45.5285099,-73.7598,bus
+42055,42055,Lévesque / Samson,45.52774,-73.7601899,bus
+41730,41730,des Îles / Lévesque,45.5256599,-73.7612799,bus
+41732,41732,des Îles / Duclos,45.52446,-73.7600899,bus
+41734,41734,des Îles / du Tremblay,45.52333,-73.7581799,bus
+41736,41736,des îles / du Havre des  îles,45.52313,-73.7560199,bus
+41723,41723,des Îles / Paton,45.52389,-73.75262,bus
+41725,41725,des Îles / des Cageux,45.52652,-73.75021,bus
+41727,41727,des Îles / Lévesque,45.5292099,-73.75029,bus
+46347,46347,Lévesque / 70e Avenue,45.53678,-73.73073,bus
+42060,42060,Lévesque / 67e Avenue,45.53821,-73.7290599,bus
+42062,42062,Lévesque / 64e Avenue,45.5391,-73.72769,bus
+42065,42065,Lévesque / 62e Avenue,45.53978,-73.7245699,bus
+42618,42618,Lévesque / Daniel-Johnson,45.53974,-73.7219099,bus
+42615,42615,des Prairies / Armand-Frappier,45.5406599,-73.71823,bus
+42613,42613,des Prairies / Micro,45.5412899,-73.71594,bus
+42611,42611,des Prairies / Clermont,45.5427999,-73.7133,bus
+42609,42609,des Prairies / Aubry,45.54395,-73.7119899,bus
+42607,42607,des Prairies / Giroux,45.5447699,-73.71075,bus
+42604,42604,des Prairies / Dussault,45.5456999,-73.70915,bus
+42558,42558,des Prairies / Brien,45.54688,-73.7073599,bus
+42601,42601,des Prairies / du Bon-Pasteur,45.54759,-73.7058199,bus
+42599,42599,des Prairies / Laval,45.5488199,-73.70298,bus
+42597,42597,des Prairies / du Pacifique,45.54944,-73.7013899,bus
+42594,42594,des Prairies / du Crochet,45.55054,-73.6994499,bus
+42592,42592,des Prairies / face au 228,45.55165,-73.6957999,bus
+42590,42590,des Prairies / face au 157,45.55178,-73.69096,bus
+42588,42588,des Prairies / de l'Anse-Bleue,45.5521,-73.68841,bus
+42586,42586,des Prairies / Mont-de-la Salle,45.5528199,-73.68678,bus
+42623,42623,des Prairies / Conrad,45.55363,-73.6849999,bus
+42621,42621,des Prairies / Émile,45.55453,-73.6830699,bus
+42617,42617,des Prairies / Talbot,45.55555,-73.6805399,bus
+42619,42619,des Prairies / Juge-Desnoyers,45.55808,-73.6773699,bus
+47020,47020,Terminus Cartier Quai: 8,45.5597499,-73.68279,bus
+42795,42795,Saint-Hubert / des Prairies,45.55829,-73.6776099,bus
+42585,42585,des Prairies / face au 23,45.55699,-73.6784499,bus
+42606,42606,des Prairies / Talbot,45.5556699,-73.68064,bus
+42620,42620,des Prairies / Émile,45.5546899,-73.68295,bus
+42622,42622,des Prairies / Conrad,45.5538999,-73.68467,bus
+42624,42624,des Prairies / Mont-de-la Salle,45.5529999,-73.68661,bus
+42587,42587,des Prairies / de l'Anse-Bleue,45.5524099,-73.68787,bus
+42589,42589,des Prairies / face au 151,45.5518999,-73.6905,bus
+42591,42591,des Prairies / face au 227,45.5517399,-73.6958,bus
+42593,42593,des Prairies / du Crochet,45.55071,-73.6992999,bus
+42595,42595,des Prairies / du Pacifique,45.54992,-73.7007099,bus
+42598,42598,des Prairies / Laval,45.54901,-73.7028499,bus
+42600,42600,des Prairies / du Bon-Pasteur,45.5477699,-73.7056599,bus
+42602,42602,des Prairies / Brien,45.5470799,-73.70729,bus
+42603,42603,des Prairies / Dussault,45.5459199,-73.70904,bus
+42605,42605,des Prairies / Giroux,45.5449799,-73.71062,bus
+42608,42608,des Prairies / Verdi,45.5441999,-73.71185,bus
+42610,42610,des Prairies / Clermont,45.5431,-73.7131599,bus
+42612,42612,des Prairies / Micro,45.54147,-73.7156799,bus
+42614,42614,des Prairies / Armand-Frappier,45.5409199,-73.71763,bus
+42616,42616,des Prairies / Daniel-Johnson,45.5398899,-73.7215699,bus
+42063,42063,Lévesque / 62e Avenue,45.5399199,-73.72446,bus
+42061,42061,Lévesque / 65e Avenue,45.5394799,-73.7273399,bus
+42059,42059,Lévesque / 67e Avenue,45.5385799,-73.72882,bus
+46349,46349,Lévesque / Curé-Labelle,45.5368899,-73.7314499,bus
+46324,46324,des Îles / Lévesque,45.5292699,-73.75073,bus
+41724,41724,des Îles / des Cageux,45.5269799,-73.7506799,bus
+41737,41737,des îles / Paton,45.5241499,-73.7522099,bus
+41735,41735,des îles / du Havre des  îles,45.52349,-73.7560799,bus
+41733,41733,des îles /du Tremblay,45.52338,-73.75771,bus
+41731,41731,des Îles / Duclos,45.52437,-73.7596,bus
+41722,41722,des Îles / Lévesque,45.52608,-73.76141,bus
+41986,41986,Lévesque / Samson,45.52784,-73.7598499,bus
+41056,41056,100e Avenue / Samson,45.5285799,-73.75967,bus
+41059,41059,100e Avenue / 4e Rue,45.53019,-73.76128,bus
+41061,41061,100e Avenue / 9e Rue,45.5316999,-73.7627799,bus
+41063,41063,100e Avenue / Montcalm,45.5343699,-73.76422,bus
+42497,42497,Notre-Dame / 100e Avenue,45.5362599,-73.76563,bus
+42499,42499,Notre-Dame / 101e Avenue,45.53566,-73.7671699,bus
+42501,42501,Notre-Dame / Melville,45.53471,-73.7696399,bus
+42504,42504,Notre-Dame / Châtelaine,45.5333299,-73.7729799,bus
+42506,42506,Notre-Dame / Face au 5085,45.53278,-73.7760799,bus
+42508,42508,Notre-Dame / Clarendon,45.5323999,-73.7782199,bus
+43420,43420,Montgolfier / Notre-Dame,45.5322399,-73.7807,bus
+47022,47022,Terminus Cartier Quai: 9,45.5598499,-73.6826,bus
+43196,43196,Tourangeau / Saint-Hubert,45.5658,-73.68531,bus
+43198,43198,Tourangeau / Lahaie,45.5664199,-73.68417,bus
+43200,43200,Tourangeau / Cousineau,45.5674099,-73.68237,bus
+43202,43202,Tourangeau / Goineau,45.56839,-73.68055,bus
+43192,43192,Tourangeau / Léger,45.57012,-73.6774499,bus
+46715,46715,Léger / de Boischatel,45.56913,-73.67619,bus
+46717,46717,Léger / Lévesque,45.56749,-73.67436,bus
+46719,46719,Lévesque / Terrasse Allaire,45.5686699,-73.67296,bus
+42066,42066,Lévesque / Cartier,45.5705,-73.6716,bus
+41230,41230,Cartier / J.-J.-Joubert,45.57278,-73.67071,bus
+42068,42068,Lévesque / J.-J.-Joubert,45.57446,-73.67205,bus
+42069,42069,Lévesque / Hauterive,45.57625,-73.67079,bus
+42071,42071,Lévesque / autoroute 19,45.5775999,-73.66991,bus
+42073,42073,Lévesque / autoroute 19,45.5796699,-73.66872,bus
+42075,42075,Lévesque / Curé-Cloutier,45.58098,-73.6677399,bus
+42078,42078,Lévesque / des Forges,45.58274,-73.6663,bus
+42080,42080,Lévesque / Jeanne-Leber,45.58405,-73.66505,bus
+42082,42082,Lévesque / de Fontainebleau,45.58534,-73.6638699,bus
+42083,42083,Lévesque / Montrose,45.58749,-73.6618599,bus
+46327,46327,Lévesque / D'Auteuil,45.58933,-73.66051,bus
+42086,42086,Lévesque / du Barrage,45.59077,-73.65925,bus
+42089,42089,Lévesque / face au cimetière,45.59248,-73.6576199,bus
+42090,42090,Lévesque / Lesage,45.5935999,-73.65663,bus
+42092,42092,Lévesque / Jacques-Brodeur,45.5964899,-73.65469,bus
+42094,42094,Lévesque / Mondor,45.59758,-73.6534499,bus
+42096,42096,Lévesque / Rose-de-Lima,45.59991,-73.6507999,bus
+42099,42099,Lévesque / de la Concorde,45.6016699,-73.64815,bus
+42101,42101,Lévesque / Suzanne,45.60372,-73.64645,bus
+45065,45065,Belleville / Boissy,45.6061599,-73.6458299,bus
+41105,41105,Belleville / Louis-Abel,45.6073399,-73.64712,bus
+41107,41107,Belleville / Beausoleil,45.6091599,-73.6491299,bus
+41109,41109,Belleville / Saint-Joseph,45.6102299,-73.6503299,bus
+41614,41614,de la Fabrique / Champagnat,45.61231,-73.6511999,bus
+41612,41612,de la Fabrique / Desnoyers,45.6133999,-73.64917,bus
+41609,41609,de la Fabrique / du Collège,45.61456,-73.6470299,bus
+41610,41610,de la Fabrique / J.-Eudes-Blanchard,45.61517,-73.6459399,bus
+42798,42798,Montée Saint-François / Lévesque,45.61664,-73.64448,bus
+46399,46399,Montée Saint-François / face au pénitencier,45.6184199,-73.64649,bus
+46306,46306,Montée Saint-François / face au 161,45.6196499,-73.6478299,bus
+45071,45071,Montée Saint-François / face à l'établissement Leclerc,45.62074,-73.64903,bus
+45074,45074,Montée Saint-François / Maurice-Cullen,45.6237199,-73.6522999,bus
+46329,46329,Montée Saint-François / Ernest-Cormier,45.62662,-73.6555,bus
+45076,45076,Ernest-Cormier / face au 5540,45.6281499,-73.65332,bus
+46395,46395,Maurice-Cullen / Ernest-Cormier,45.6287499,-73.6514799,bus
+45069,45069,Maurice-Cullen / face au 5555,45.6267899,-73.6492999,bus
+46339,46339,Place Maurice-Cullen / face au 5700,45.62511,-73.64739,bus
+46032,46032,Place Maurice-Cullen / face au 5750,45.6265499,-73.6486999,bus
+46350,46350,Maurice-Cullen / Ernest-Cormier,45.6292899,-73.6517799,bus
+46033,46033,Ernest-Cormier / Paul-Kane,45.6313399,-73.64893,bus
+46483,46483,Ernest-Cormier / Face au 6810,45.63306,-73.6457899,bus
+46484,46484,Bernard-Lefebvre / Face au 2555,45.6342,-73.64493,bus
+46485,46485,Bernard-Lefebvre / Face au 4000,45.63643,-73.6465599,bus
+46486,46486,Bernard-Lefebvre / Montée Masson,45.63686,-73.6419399,bus
+46494,46494,Montée Masson / Place Verner,45.63457,-73.6415199,bus
+46495,46495,Montée Masson / Bernard-Lefebvre,45.63218,-73.6411699,bus
+46487,46487,Bernard-Lefebvre / Face au 1855,45.6330099,-73.6435699,bus
+46488,46488,Ernest-Cormier / Face au 6810,45.6330899,-73.64611,bus
+46489,46489,Ernest-Cormier / Paul-Kane,45.6317199,-73.64861,bus
+46024,46024,Paul-Kane / Face au 800,45.6330199,-73.6501899,bus
+46634,46634,Terminus Paul-Kane,45.6344499,-73.65144,bus
+45067,45067,Place Paul-Kane,45.63318,-73.65061,bus
+46025,46025,Paul-Kane / Ernest-Cormier,45.63163,-73.64904,bus
+46490,46490,Ernest-Cormier / Face au 6810,45.63306,-73.6458099,bus
+46491,46491,Bernard-Lefebvre / Face au 2555,45.63419,-73.64492,bus
+46492,46492,Bernard-Lefebvre / Face au 4000,45.63638,-73.6466799,bus
+46493,46493,Bernard-Lefebvre / Montée Masson,45.63686,-73.6419899,bus
+42187,42187,Montée Masson / Place Verner,45.63454,-73.6415199,bus
+42229,42229,Montée Masson / Bernard-Lefebvre,45.6321999,-73.6411799,bus
+46496,46496,Bernard-Lefebvre / Face au 1855,45.63303,-73.6436,bus
+46497,46497,Ernest-Cormier / Face au 6810,45.63312,-73.6460699,bus
+46498,46498,Ernest-Cormier / Paul-Kane,45.6317399,-73.64857,bus
+45068,45068,Maurice-Cullen / Ernest-Cormier,45.62882,-73.65154,bus
+46333,46333,Maurice-Cullen / face au 5555,45.62686,-73.64938,bus
+46334,46334,Place Maurice-Cullen / face au 5570,45.6251099,-73.6473899,bus
+46335,46335,Place Maurice-Cullen / face au 5750,45.6265399,-73.6486899,bus
+45072,45072,Maurice-Cullen / Ernest-Cormier,45.6292199,-73.65171,bus
+46336,46336,Ernest-Cormier / face au 5540,45.6281899,-73.65358,bus
+46028,46028,Ernest-Cormier / Montée Saint-François,45.62745,-73.6547499,bus
+46029,46029,Montée Saint-François / Maurice-Cullen,45.62399,-73.65284,bus
+46030,46030,Montée Saint-François / face au 535,45.62065,-73.6492,bus
+46337,46337,Montée Saint-François / face au 200,45.6194499,-73.64784,bus
+42797,42797,Montée Saint-François / Lévesque,45.61628,-73.64433,bus
+41616,41616,de la Fabrique / J.-Eudes-Blanchard,45.6152099,-73.64608,bus
+41611,41611,de la Fabrique / du Collège,45.61443,-73.6475199,bus
+41613,41613,de la Fabrique / Desnoyers,45.61326,-73.6496799,bus
+41615,41615,de la Fabrique / Belleville,45.6119299,-73.65218,bus
+41101,41101,Belleville / Saint-Germain,45.61115,-73.65161,bus
+41110,41110,Belleville / Saint-Joseph,45.61028,-73.65062,bus
+41108,41108,Belleville / Beausoleil,45.6092499,-73.6494899,bus
+41106,41106,Belleville / Louis-Abel,45.60731,-73.6473399,bus
+42104,42104,Lévesque / face au 4600,45.60529,-73.6458899,bus
+42102,42102,Lévesque / Suzanne,45.60398,-73.6464799,bus
+42100,42100,Lévesque / de la Concorde,45.6017499,-73.64824,bus
+42098,42098,Lévesque / Rose-de-Lima,45.6000699,-73.65076,bus
+42095,42095,Lévesque / Mondor,45.59778,-73.6534199,bus
+42093,42093,Lévesque / Jacques-Brodeur,45.5966799,-73.65465,bus
+42091,42091,Lévesque / Lesage,45.5938799,-73.6566499,bus
+45010,45010,Lévesque / face au cimetière,45.5925899,-73.65774,bus
+42088,42088,Lévesque / Joly,45.59101,-73.6592299,bus
+42085,42085,Lévesque / D'Auteuil,45.5896399,-73.6604599,bus
+46031,46031,Lévesque / Montrose,45.5877799,-73.66179,bus
+42084,42084,Lévesque / de Fontainebleau,45.5856599,-73.66377,bus
+42081,42081,Lévesque / Jeanne-Leber,45.58433,-73.6649699,bus
+42079,42079,Lévesque / des Forges,45.5830599,-73.66616,bus
+42077,42077,Lévesque / Curé-Cloutier,45.5814199,-73.66757,bus
+42074,42074,Lévesque / autoroute 19,45.5798499,-73.66875,bus
+46621,46621,Lévesque / De Sabrevois,45.57708,-73.6704399,bus
+42072,42072,Lévesque / Hauterive,45.5764099,-73.6708699,bus
+42070,42070,Lévesque / J.-J.-Joubert,45.57485,-73.6719999,bus
+41219,41219,Cartier / J.-J.-Joubert,45.5729499,-73.6708999,bus
+42067,42067,Cartier / Lévesque,45.5707399,-73.6717099,bus
+46720,46720,Lévesque / Terrasse Allaire,45.56886,-73.6729499,bus
+46718,46718,Lévesque / Léger,45.56763,-73.6741499,bus
+46716,46716,Léger / de Boischatel,45.5691,-73.67589,bus
+46714,46714,Léger / Tourangeau,45.5700299,-73.67694,bus
+43191,43191,Tourangeau / Goineau,45.5686399,-73.68043,bus
+43201,43201,Tourangeau / Cousineau,45.5676399,-73.68227,bus
+43199,43199,Tourangeau / Lahaie,45.5666299,-73.68412,bus
+43197,43197,Tourangeau / Saint-Hubert,45.5659999,-73.68525,bus
+45011,45011,Tourangeau / des Laurentides,45.56543,-73.6862699,bus
+46562,46562,Ernest-Cormier / Maurice-Cullen,45.6295999,-73.65155,bus
+42188,42188,Montée Masson / face au 1325,45.63786,-73.64172,bus
+42189,42189,Montée Masson / face au 1368,45.6391799,-73.64187,bus
+42191,42191,Montée Masson / face au 1490,45.6421899,-73.64223,bus
+42193,42193,Montée Masson / face au 1540,45.6435499,-73.64247,bus
+42194,42194,Montée Masson / face au 1601,45.6452699,-73.64289,bus
+42197,42197,Montée Masson / autoroute 25,45.6468399,-73.64325,bus
+46401,46401,Montée Masson / Marcel-Villeneuve,45.65268,-73.64351,bus
+42201,42201,Montée Masson / face au 2155,45.6593799,-73.64005,bus
+46386,46386,Montée Masson / Boisclerc,45.6613699,-73.63808,bus
+42203,42203,Montée Masson / face au 2315,45.6627299,-73.63661,bus
+42204,42204,Montée Masson / face au 2505,45.6641999,-73.63508,bus
+42208,42208,Montée Masson / face au 2765,45.66833,-73.63087,bus
+42210,42210,Montée Masson / face au 3150,45.6728099,-73.62808,bus
+42211,42211,Montée Masson / face au 3370,45.6756499,-73.62713,bus
+42214,42214,Montée Masson / de Soissons,45.6783599,-73.62704,bus
+46615,46615,Masson / Guénard,45.6797299,-73.62697,bus
+42217,42217,Montée Masson / Duranleau,45.6811999,-73.6269,bus
+42219,42219,Montée Masson / Beaumont,45.6835199,-73.62682,bus
+42221,42221,Montée Masson / Berloin,45.68571,-73.62683,bus
+42223,42223,Montée Masson / des Mille-Îles,45.68754,-73.62803,bus
+42376,42376,des Mille-Îles / face au 6410,45.68781,-73.6327999,bus
+49022,49022,Terminus Contant,45.6875099,-73.63606,bus
+42379,42379,terminus Contant,45.6875099,-73.63605,bus
+42378,42378,des Mille-Îles / face au 6410,45.6877199,-73.63275,bus
+42224,42224,Montée Masson / des Mille-Îles,45.6877,-73.62841,bus
+42222,42222,Montée Masson / Berloin,45.68586,-73.6270399,bus
+42220,42220,Montée Masson / Beaumont,45.6834299,-73.6270299,bus
+42218,42218,Montée Masson / Duranleau,45.68142,-73.6271199,bus
+46614,46614,Masson / Guénard,45.67988,-73.6271999,bus
+42216,42216,Montée Masson / de Soissons,45.6785799,-73.62722,bus
+42213,42213,Montée Masson / face au 3395,45.6759399,-73.62737,bus
+42212,42212,Montée Masson / face au 3135,45.6725,-73.6285099,bus
+42209,42209,Montée Masson / face au 2765,45.6685099,-73.6309699,bus
+42206,42206,Montée Masson / face au 2505,45.66441,-73.6351499,bus
+42205,42205,Montée Masson / face au 2315,45.6627499,-73.63681,bus
+46387,46387,Montée Masson / Boisclerc,45.66164,-73.6379499,bus
+42202,42202,Montée Masson / face au 2185,45.6595,-73.6401999,bus
+46400,46400,Montée Masson / Marcel-Villeneuve,45.6524799,-73.64386,bus
+42199,42199,Montée Masson / Autoroute 25,45.6470899,-73.64365,bus
+42196,42196,Montée Masson / face au 1601,45.6453099,-73.64308,bus
+43308,43308,Montée Masson / face au 1535,45.64339,-73.64264,bus
+42192,42192,Montée Masson / face au 1495,45.6423199,-73.6424299,bus
+42190,42190,Montée Masson / face au 1355,45.6391699,-73.6421299,bus
+46558,46558,Masson / Bernard-Lefebvre,45.6371,-73.64186,bus
+46559,46559,Bernard-Lefebvre / Face au 4000,45.63664,-73.6465999,bus
+46560,46560,Bernard-Lefebvre / Ernest-Cormier,45.6339199,-73.6448999,bus
+46561,46561,Ernest-Cormier / Maurice-Cullen,45.62956,-73.6518599,bus
+43428,43428,Sylvie / Dandurant,45.5261499,-73.80277,bus
+43429,43429,Samson / Sylvie,45.525,-73.8041799,bus
+43021,43021,Samson / Huberdeau,45.52367,-73.8031599,bus
+43024,43024,Samson / Notre-Dame,45.52254,-73.80129,bus
+43026,43026,Samson / face au 239,45.52148,-73.79917,bus
+43029,43029,Samson / Fouquet,45.52141,-73.79456,bus
+43031,43031,Samson / Brais,45.52165,-73.7912299,bus
+43032,43032,Samson / Josaphat-Demers,45.52185,-73.7877299,bus
+45045,45045,Samson / face au 9,45.5220599,-73.7845,bus
+43036,43036,Samson / Cléophas-Charbonneau,45.5223699,-73.78197,bus
+46007,46007,Samson / Lévesque,45.52953,-73.7555499,bus
+46008,46008,Samson / 2e Rue,45.53065,-73.7539699,bus
+43057,43057,Samson / 92e Avenue,45.5327799,-73.75125,bus
+43059,43059,Samson / 89e Avenue,45.5342699,-73.74897,bus
+43061,43061,Samson / 85e Avenue,45.5356,-73.7465199,bus
+43063,43063,Samson / Curé-Labelle,45.5368599,-73.74429,bus
+41262,41262,Curé-Labelle / Chomedey,45.5388199,-73.73443,bus
+41259,41259,Cartier / 70e Avenue,45.5392899,-73.73304,bus
+41258,41258,Cartier / 67e Avenue,45.5402699,-73.73103,bus
+41256,41256,Cartier / 66e Avenue,45.5407599,-73.73002,bus
+41254,41254,Cartier / 63e Avenue,45.5421799,-73.72707,bus
+41252,41252,Cartier / Daniel-Johnson,45.5431499,-73.72518,bus
+41250,41250,Cartier / 58e Avenue,45.54401,-73.72341,bus
+43416,43416,Cartier / Armand-Frappier,45.54492,-73.72158,bus
+41248,41248,Cartier / Micro,45.5455699,-73.7202,bus
+41246,41246,Cartier / Clermont,45.54694,-73.71739,bus
+41244,41244,Cartier / Verdi,45.54781,-73.7156899,bus
+41242,41242,Cartier / Giroux,45.5485399,-73.71444,bus
+41239,41239,Cartier / Dussault,45.5494199,-73.71282,bus
+41237,41237,Cartier / Mariale,45.5500999,-73.71142,bus
+41235,41235,Cartier / du Bon-Pasteur,45.5512899,-73.70893,bus
+41233,41233,Cartier / Laval,45.55248,-73.7064599,bus
+41231,41231,Cartier / Ampère,45.5546699,-73.70205,bus
+41228,41228,Cartier / Perrin,45.5564099,-73.69933,bus
+41226,41226,Cartier / 15e Rue,45.5577,-73.6959799,bus
+41224,41224,Cartier / 8e Avenue,45.55863,-73.69301,bus
+41222,41222,Cartier / Conrad,45.55874,-73.6897399,bus
+41220,41220,Cartier / Émile,45.55917,-73.68751,bus
+41267,41267,Cartier / de Bayeux,45.5591399,-73.6885399,bus
+41221,41221,Cartier / Conrad,45.5589799,-73.6900499,bus
+41223,41223,Cartier / 8e Avenue,45.5589499,-73.6924299,bus
+41225,41225,Cartier / 15e Rue,45.55756,-73.6971299,bus
+41227,41227,Cartier / Perrin,45.5568899,-73.69887,bus
+41229,41229,Cartier / Ampère,45.55486,-73.7022699,bus
+41232,41232,Cartier / Laval,45.55242,-73.7068799,bus
+41234,41234,Cartier / du Bon-Pasteur,45.55149,-73.7088799,bus
+41236,41236,Cartier / Mariale,45.5503,-73.7113899,bus
+41238,41238,Cartier / Dussault,45.54967,-73.7126799,bus
+41240,41240,Cartier / Giroux,45.5489099,-73.71427,bus
+41243,41243,Cartier / Verdi,45.54803,-73.7155499,bus
+41245,41245,Cartier / Clermont,45.54718,-73.7172799,bus
+45043,45043,Cartier / Micro,45.54564,-73.7204599,bus
+41247,41247,Cartier / Armand-Frappier,45.54515,-73.7214799,bus
+41249,41249,Cartier / 58e Avenue,45.54424,-73.7233399,bus
+41251,41251,Cartier / Daniel-Johnson,45.5434199,-73.72497,bus
+41253,41253,Cartier / 64e Avenue,45.5419099,-73.72818,bus
+41255,41255,Cartier / 66e Avenue,45.54107,-73.7299399,bus
+41257,41257,Cartier / 68e Avenue,45.54036,-73.7314099,bus
+41260,41260,Cartier / Chomedey,45.5393199,-73.7336,bus
+43062,43062,Samson / Curé-Labelle,45.5369599,-73.74445,bus
+43060,43060,Samson / 85e Avenue,45.53589,-73.7464699,bus
+43058,43058,Samson / 89e Avenue,45.53446,-73.7492399,bus
+43055,43055,Samson / 92e Avenue,45.53285,-73.7516699,bus
+46009,46009,Samson / 95e Avenue,45.53106,-73.7539499,bus
+46010,46010,Samson / Lévesque,45.52989,-73.7555199,bus
+43033,43033,Samson / Cléophas-Charbonneau,45.5229599,-73.7812,bus
+45008,45008,Samson / face au 7,45.5223299,-73.7843099,bus
+43034,43034,Samson / Josaphat-Demers,45.5221299,-73.78738,bus
+43030,43030,Samson / Brais,45.52196,-73.7902499,bus
+43027,43027,Samson / Fouquet,45.5217,-73.7942899,bus
+43025,43025,Samson / face au 239,45.5216799,-73.7988199,bus
+43023,43023,Samson / Notre-Dame,45.5229299,-73.8013699,bus
+43019,43019,Samson / Huberdeau,45.5236899,-73.8026099,bus
+43426,43426,Sylvie / Samson,45.52497,-73.8039699,bus
+43427,43427,Sylvie / Dandurant,45.5261699,-73.80249,bus
+46654,46654,Terminus Henri-Bourassa,45.5570199,-73.66755,bus
+41706,41706,Henri-Bourassa / du Fort-Lorette,45.56727,-73.6597399,bus
+46631,46631,Henri-Bourassa / des Prairies,45.5744799,-73.65595,bus
+46384,46384,Monselet / Saint-Michel,45.58349,-73.6488499,bus
+43302,43302,Monselet / Saint-Vital,45.5867199,-73.64309,bus
+42584,42584,Pie-IX / de Castille,45.5912899,-73.6377,bus
+46629,46629,Pie-IX / d'Amos,45.59425,-73.64083,bus
+41393,41393,de la Concorde / Lévesque,45.60332,-73.6486,bus
+42103,42103,Lévesque / Belleville,45.60557,-73.64552,bus
+42105,42105,Lévesque / face au 4760,45.60728,-73.64482,bus
+42107,42107,Lévesque / Desnoyers,45.60956,-73.64484,bus
+42110,42110,Lévesque / de Saint-Césaire,45.6124399,-73.6449699,bus
+42112,42112,Lévesque / Bellevue,45.6147799,-73.64502,bus
+42114,42114,Lévesque / Montée Saint-François,45.61636,-73.6438599,bus
+42116,42116,Lévesque / face au 5682,45.61841,-73.6426199,bus
+42118,42118,Lévesque / face au 6099,45.62234,-73.6404499,bus
+42121,42121,Lévesque / Montée Masson,45.6253999,-73.63927,bus
+42123,42123,Lévesque / de Limoges,45.6271399,-73.63827,bus
+42125,42125,Lévesque / face au 6325,45.62993,-73.6364499,bus
+42127,42127,Lévesque / Legris,45.6321899,-73.63389,bus
+42129,42129,Lévesque / Malépart,45.6336,-73.6321199,bus
+42132,42132,Lévesque / face au 6644,45.6368699,-73.6278,bus
+42134,42134,Lévesque / Roger-Lortie,45.64142,-73.6210699,bus
+42136,42136,Lévesque / Saint-Jean,45.6449199,-73.61654,bus
+42138,42138,Lévesque / des Cépages,45.6465099,-73.61416,bus
+42140,42140,Lévesque / des Pinsons,45.6480699,-73.61054,bus
+41988,41988,Lévesque / face au 7312,45.6489499,-73.6081,bus
+41990,41990,Lévesque / des Pelicans,45.6503099,-73.60495,bus
+41992,41992,Lévesque / des Hêtres,45.65127,-73.6031599,bus
+41994,41994,Lévesque / des Hirondelles,45.65334,-73.5996699,bus
+41996,41996,Lévesque / des Sapins,45.6556799,-73.59597,bus
+41999,41999,Lévesque / du Cresson,45.65701,-73.59394,bus
+42001,42001,Lévesque / Roger,45.6579399,-73.59254,bus
+42003,42003,Lévesque / des Noisetiers,45.6593899,-73.59045,bus
+46743,46743,Lévesque / Huguette-Gaulin,45.66052,-73.5889199,bus
+42005,42005,Lévesque / de la Rosée,45.6622599,-73.58652,bus
+42008,42008,Lévesque / de l'Harmonie,45.66318,-73.5847499,bus
+42010,42010,Lévesque / Léa,45.66326,-73.58199,bus
+42409,42409,Mirelle / Béatrice,45.6637399,-73.5797199,bus
+42414,42414,Mirelle / Chartrand,45.6648399,-73.5809,bus
+42416,42416,Mirelle / Adrien,45.66647,-73.5827,bus
+42418,42418,Mirelle / Romain,45.66756,-73.58391,bus
+42420,42420,Mirelle / Tristan,45.66919,-73.58571,bus
+42411,42411,Mirelle / Chimène,45.67082,-73.5875,bus
+42412,42412,Mirelle / Marius-Barbeau,45.67193,-73.5886799,bus
+42178,42178,Marius-Barbeau / Lambert,45.6727599,-73.58715,bus
+42179,42179,Marius-Barbeau / Roxane,45.67316,-73.5858599,bus
+42180,42180,Marius-Barbeau / Mélisande,45.67304,-73.5839099,bus
+42184,42184,Marius-Barbeau / Montée du Moulin,45.67345,-73.5797299,bus
+42447,42447,Montée du Moulin / De Léry,45.67259,-73.57875,bus
+42455,42455,Montée du Moulin / Romain,45.6713599,-73.5773799,bus
+42457,42457,Montée du Moulin / de L'Église,45.66937,-73.57521,bus
+42459,42459,Montée du Moulin / Chartrand,45.66857,-73.5743199,bus
+46632,46632,Chartrand / Face au Maxi,45.6679599,-73.57549,bus
+41272,41272,Chartrand / Déry,45.6674799,-73.57647,bus
+41273,41273,Chartrand / Monty,45.6665,-73.5781599,bus
+42445,42445,Monty / Gravel,45.66547,-73.57731,bus
+42446,42446,Monty / Lévesque,45.66452,-73.5762099,bus
+42013,42013,Lévesque / Stella,45.66494,-73.5747599,bus
+42448,42448,Montée du Moulin / Lessard,45.6673899,-73.5727499,bus
+42460,42460,Montée du Moulin / Chartrand,45.6684099,-73.57384,bus
+42458,42458,Montée du Moulin / de L'Église,45.6699299,-73.5755199,bus
+42456,42456,Montée du Moulin / Romain,45.6712999,-73.5770599,bus
+42453,42453,Montée du Moulin / De Léry,45.6724899,-73.5783199,bus
+42181,42181,Marius-Barbeau / de Versailles,45.6733499,-73.5803899,bus
+42182,42182,Marius-Barbeau / Mélisande,45.6731299,-73.5831,bus
+42183,42183,Marius-Barbeau / Roxane,45.6732599,-73.5856,bus
+42185,42185,Marius-Barbeau / Lambert,45.67294,-73.5870399,bus
+42177,42177,Marius-Barbeau / Mirelle,45.67203,-73.5887399,bus
+42175,42175,Mirelle / Chimène,45.67084,-73.5877399,bus
+42410,42410,Mirelle / Tristan,45.6692099,-73.5859299,bus
+42419,42419,Mirelle / Romain,45.6676099,-73.5841699,bus
+42417,42417,Mirelle / Adrien,45.6665,-73.58295,bus
+42415,42415,Mirelle / Chartrand,45.6648999,-73.58116,bus
+42413,42413,Mirelle / Lévesque,45.6632999,-73.5794399,bus
+42011,42011,Lévesque / Aline,45.6632799,-73.5816299,bus
+42009,42009,Lévesque / de l'Harmonie,45.6633699,-73.5845199,bus
+42007,42007,Lévesque / Angèle,45.66252,-73.5864399,bus
+46742,46742,Lévesque / Huguette-Gaulin,45.66064,-73.5889899,bus
+42004,42004,Lévesque / des Noisetiers,45.6596099,-73.5903999,bus
+42002,42002,Lévesque / Roger,45.65803,-73.5927099,bus
+42000,42000,Lévesque / du Cresson,45.6572199,-73.59393,bus
+41998,41998,Lévesque / des Sapins,45.65592,-73.5958499,bus
+41995,41995,Lévesque / des Hirondelles,45.6532899,-73.6000599,bus
+41993,41993,Lévesque / des Hêtres,45.65158,-73.6029799,bus
+41991,41991,Lévesque / des Pelicans,45.6505599,-73.6048099,bus
+41989,41989,Lévesque / face au 7327,45.64914,-73.6079999,bus
+41987,41987,Lévesque / des Pinsons,45.64825,-73.6104899,bus
+42139,42139,Lévesque / des Cépages,45.6468299,-73.61404,bus
+42137,42137,Lévesque / Saint-Jean,45.6450799,-73.61658,bus
+42135,42135,Lévesque / Roger-Lortie,45.6417499,-73.6209799,bus
+42133,42133,Lévesque / face au 6647,45.6369499,-73.62795,bus
+42131,42131,Lévesque / Malépart,45.6339099,-73.63202,bus
+42128,42128,Lévesque / Legris,45.63239,-73.6338899,bus
+42126,42126,Lévesque / face au 6321,45.6300299,-73.6365499,bus
+42124,42124,Lévesque / de Limoges,45.62743,-73.6383199,bus
+42122,42122,Lévesque / Montée Masson,45.62487,-73.6397499,bus
+42120,42120,Lévesque / face au 6099,45.6224499,-73.64069,bus
+42117,42117,Lévesque / face au 5682,45.6183199,-73.64282,bus
+42115,42115,Lévesque / Montée Saint-François,45.6165,-73.6440899,bus
+42113,42113,Lévesque / Place J.-E.-Blanchard,45.6141999,-73.6452,bus
+42111,42111,Lévesque / de Saint-Césaire,45.61253,-73.6451499,bus
+42109,42109,Lévesque / Desnoyers,45.61002,-73.6450399,bus
+42106,42106,Lévesque / Champagnat,45.6070399,-73.6450199,bus
+41394,41394,de la Concorde / Lévesque,45.60364,-73.64845,bus
+41392,41392,de la Concorde / Vanier,45.6040399,-73.65059,bus
+46628,46628,Pie-IX / d'Amos,45.59473,-73.64144,bus
+42170,42170,Monselet / Pie-IX,45.5900199,-73.63706,bus
+43303,43303,Monselet / Saint-Vital,45.58714,-73.6426499,bus
+46385,46385,Monselet / Saint-Michel,45.58361,-73.6489099,bus
+46630,46630,Henri-Bourassa / De Martigny,45.5756399,-73.6556399,bus
+41707,41707,Henri-Bourassa / du Fort-Lorette,45.5674999,-73.6601299,bus
+40131,40131,Terminus Henri-Bourassa,45.5570299,-73.66755,bus
+41669,41669,Grenet / Dudemaine,45.5244299,-73.70777,bus
+41666,41666,Grenet / De Salaberry,45.528,-73.71341,bus
+41667,41667,Grenet / De Serres,45.53167,-73.71913,bus
+41283,41283,Chomedey / Cartier,45.5386,-73.73322,bus
+46591,46591,Chomedey / face au 421,45.53949,-73.73418,bus
+41297,41297,Chomedey /7e Rue,45.5415899,-73.7362699,bus
+41299,41299,Chomedey / 70e Avenue,45.54273,-73.7374,bus
+41301,41301,Chomedey / Notre-Dame,45.5446999,-73.73936,bus
+41303,41303,Chomedey / Monod,45.5471599,-73.74116,bus
+41285,41285,Chomedey / face au 1085,45.54843,-73.7424,bus
+41291,41291,Chomedey / Cardinal,45.54951,-73.74351,bus
+46603,46603,Chomedey / Face au 1515,45.5520499,-73.74638,bus
+41289,41289,Chomedey / des Châteaux,45.55346,-73.74823,bus
+42820,42820,Saint-Martin / Lacroix,45.55516,-73.7524999,bus
+42817,42817,Saint-Martin / Albert-Murphy,45.5541999,-73.75462,bus
+42812,42812,Saint-Martin / Mayfield,45.5528099,-73.75775,bus
+46390,46390,Louis-Payette / Curé-Labelle,45.5566799,-73.76729,bus
+42148,42148,Louis-Payette / Barbe,45.5561399,-73.7682,bus
+42146,42146,Louis-Payette / Favreau,45.5538799,-73.77047,bus
+42150,42150,Louis-Payette / Goyer,45.5533799,-73.7711499,bus
+42141,42141,Louis-Payette / Ferrier,45.5518699,-73.77364,bus
+42143,42143,Louis-Payette / Fafard,45.5510099,-73.7750499,bus
+41617,41617,Fafard / Légaré,45.5529699,-73.77723,bus
+41967,41967,Légaré / Hurtubise,45.5542499,-73.77913,bus
+41969,41969,Légaré / Hurteau,45.5553399,-73.7804799,bus
+41971,41971,Légaré / Letondal,45.5569299,-73.7823499,bus
+41973,41973,Légaré / Cléroux,45.5575699,-73.78304,bus
+41314,41314,Cléroux /  Favreau,45.55886,-73.7792299,bus
+41316,41316,Cléroux / Genest,45.5595199,-73.77698,bus
+41318,41318,Cléroux / Gingras,45.56021,-73.77468,bus
+41320,41320,Cléroux / Curé-Labelle,45.56071,-73.7728199,bus
+41573,41573,Édith / Curé-Labelle,45.5743399,-73.78766,bus
+41576,41576,Édith / Eugène,45.5734399,-73.78915,bus
+41577,41577,Édith / Edgar,45.5710999,-73.79305,bus
+41570,41570,Edgar / Élie,45.5719299,-73.7947499,bus
+41572,41572,Edgar / François,45.5726899,-73.7964399,bus
+41560,41560,Edgar / Flore,45.5734399,-73.79812,bus
+41562,41562,Edgar / Félicien,45.5740799,-73.79981,bus
+41564,41564,Edgar / Foster,45.5740699,-73.8024199,bus
+41566,41566,Edgar / Hugues,45.5733299,-73.8058,bus
+41568,41568,Edgar / Isabelle,45.5716999,-73.8079399,bus
+41747,41747,Ingrid / Hyacinthe,45.57211,-73.80977,bus
+41749,41749,Ingrid / Ines,45.57318,-73.81029,bus
+41751,41751,Ingrid / Dagenais,45.5750699,-73.81343,bus
+41474,41474,Dagenais / Lisane,45.57442,-73.8155899,bus
+41476,41476,Dagenais / Jacques,45.57341,-73.8176399,bus
+41479,41479,Dagenais / Marcellin,45.5718299,-73.82072,bus
+41481,41481,Dagenais / Ovide,45.56602,-73.8267799,bus
+46130,46130,Dagenais / Montée Sauriol,45.56382,-73.8288899,bus
+46131,46131,Dagenais / Russell,45.56098,-73.8333099,bus
+46132,46132,Dagenais / Urgel,45.5589999,-73.83869,bus
+46651,46651,Dagenais / Face au 4356,45.5578799,-73.84169,bus
+46133,46133,Dagenais / Face au 4463,45.55632,-73.8457699,bus
+46134,46134,Dagenais / face au 4499,45.5554799,-73.84806,bus
+46135,46135,Dagenais / Maheux,45.55457,-73.8504599,bus
+46341,46341,Dagenais / face au 4690,45.5532099,-73.85411,bus
+46136,46136,Dagenais / Panneton,45.5521899,-73.85685,bus
+46137,46137,Dagenais / 1e Avenue,45.5509199,-73.86021,bus
+46138,46138,Dagenais / Arthur-Sauvé,45.5490999,-73.86492,bus
+43081,43081,Arthur-Sauvé / 52e Rue,45.5507699,-73.8674099,bus
+43083,43083,Arthur-Sauvé / Sainte-Rose,45.553,-73.86988,bus
+43085,43085,Arthur-Sauvé / 45e Avenue,45.5546199,-73.87201,bus
+43086,43086,Arthur-Sauvé / Prévert,45.5544999,-73.87248,bus
+43084,43084,Arthur-Sauvé / Sainte-Rose,45.5524799,-73.8697399,bus
+43082,43082,Arthur-Sauvé / 52e Rue,45.5507099,-73.8678499,bus
+46121,46121,Dagenais / 47e Avenue,45.5490399,-73.8644,bus
+46122,46122,Dagenais / 59e Avenue,45.5507699,-73.8603,bus
+46123,46123,Dagenais / Panneton,45.5519799,-73.857,bus
+46340,46340,Dagenais / face au 4690,45.55306,-73.85413,bus
+46124,46124,Dagenais / Maheux,45.5543899,-73.8505,bus
+46125,46125,Dagenais / face au 4496,45.5552199,-73.8484,bus
+46126,46126,Dagenais / face au 4476,45.5561799,-73.84578,bus
+46650,46650,Dagenais / Face au 4356,45.5577999,-73.84141,bus
+46127,46127,Dagenais / Urgel,45.5588499,-73.83861,bus
+46128,46128,Dagenais / Russell,45.56077,-73.8334599,bus
+46129,46129,Dagenais / Montée Sauriol,45.5634299,-73.82901,bus
+41483,41483,Dagenais / Ovide,45.5656599,-73.82665,bus
+41480,41480,Dagenais / Justin,45.5713699,-73.82076,bus
+41478,41478,Dagenais / Jacques,45.5730199,-73.81774,bus
+41475,41475,Dagenais / Lisane,45.5740799,-73.8156,bus
+41752,41752,Ingrid / Dagenais,45.5747999,-73.81344,bus
+41750,41750,Ingrid / Ines,45.57324,-73.81058,bus
+41748,41748,Ingrid / Isabelle,45.57178,-73.80986,bus
+41753,41753,Isabelle / Edgar,45.57158,-73.8080599,bus
+41567,41567,Edgar / Hugues,45.57312,-73.8058899,bus
+41565,41565,Edgar / Foster,45.5738999,-73.80262,bus
+41563,41563,Edgar / Félicien,45.57399,-73.80011,bus
+41561,41561,Edgar / Flore,45.5734499,-73.7984599,bus
+41559,41559,Edgar / François,45.57268,-73.7967399,bus
+41571,41571,Edgar / Élie,45.57194,-73.79507,bus
+41569,41569,Edgar / Édith,45.5710199,-73.7933099,bus
+41575,41575,Édith / Eugène,45.5732299,-73.78923,bus
+41315,41315,Cléroux / Gingras,45.56039,-73.7745499,bus
+41317,41317,Cléroux / Genest,45.5597,-73.7768899,bus
+41319,41319,Cléroux /  Favreau,45.55906,-73.7790799,bus
+41968,41968,Légaré / Letondal,45.55701,-73.78269,bus
+41970,41970,Légaré / Hurteau,45.55543,-73.78085,bus
+41972,41972,Légaré / Hurtubise,45.5542799,-73.7794199,bus
+41974,41974,Légaré / Fafard,45.55304,-73.7775099,bus
+41618,41618,Fafard / Louis-Payette,45.5511099,-73.7755299,bus
+42145,42145,Louis-Payette / Ferrier,45.5516,-73.7737099,bus
+42144,42144,Louis-Payette / Goyer,45.5530899,-73.77126,bus
+42142,42142,Louis-Payette / Favreau,45.55355,-73.77056,bus
+42147,42147,Louis-Payette / Barbe,45.55588,-73.7682399,bus
+42149,42149,Louis-Payette / Curé-Labelle,45.5565199,-73.7672,bus
+42815,42815,Saint-Martin / Hébert,45.55269,-73.7574099,bus
+42816,42816,Saint-Martin / Lapalme,45.55412,-73.7542399,bus
+42818,42818,Saint-Martin / Lacroix,45.55476,-73.7528099,bus
+46633,46633,Chomedey / Face au Maxi,45.55487,-73.75027,bus
+41290,41290,Chomedey / des Châteaux,45.55366,-73.74895,bus
+41288,41288,Chomedey / du Souvenir,45.5508999,-73.74557,bus
+41286,41286,Chomedey / Cardinal,45.54917,-73.7436599,bus
+41284,41284,Chomedey / Monod,45.54718,-73.74167,bus
+41302,41302,Chomedey / Notre-Dame,45.5446599,-73.73981,bus
+41300,41300,Chomedey / Perron,45.54308,-73.7382499,bus
+41298,41298,Chomedey / face au 573,45.5418899,-73.7370499,bus
+41293,41293,Chomedey / Cartier,45.53915,-73.73434,bus
+41534,41534,de Salaberry / Grenet,45.52703,-73.7134699,bus
+41668,41668,Grenet / Ranger,45.5248999,-73.70876,bus
+41196,41196,Station du REM Sainte-Dorothée Quai: 2,45.5232799,-73.86196,bus
+42703,42703,du Relais / du Bord-de-l'Eau,45.5232299,-73.8555099,bus
+43224,43224,de Val-Brillant / de Fontenelle,45.5241099,-73.85794,bus
+43222,43222,de Val-Brillant / face au parc Jolibourg,45.5252399,-73.85933,bus
+43220,43220,de Val-Brillant / de l'Anse-au-Griffon,45.52677,-73.8594299,bus
+43218,43218,de Val-Brillant / Jolibourg,45.52769,-73.85782,bus
+41193,41193,du Bord-de-l'Eau / Lafontaine,45.5235799,-73.8496199,bus
+41189,41189,du Bord-de-l'Eau / Jardin Islemère,45.52333,-73.84815,bus
+41187,41187,du Bord-de-l'Eau / Marois,45.5229799,-73.8454399,bus
+41185,41185,du Bord-de-l'Eau / Bibeau,45.522,-73.84091,bus
+41183,41183,du Bord-de-l'Eau / Dion,45.52155,-73.8389499,bus
+46533,46533,du Bord-de-l'Eau / des Géraniums,45.52129,-73.8380599,bus
+41181,41181,du Bord-de-l'Eau / Fauvel,45.52094,-73.83569,bus
+43259,43259,du Bord-de-l'Eau / Nénuphars,45.52086,-73.83453,bus
+41178,41178,du Bord-de-l'Eau / Guizot,45.52061,-73.8309099,bus
+41176,41176,du Bord-de-l'Eau / des Rapides,45.52065,-73.8265199,bus
+41174,41174,du Bord-de-l'Eau / Samson,45.52087,-73.82487,bus
+43022,43022,Samson / Pesant,45.52148,-73.8232599,bus
+43037,43037,Samson / Noël,45.52218,-73.8214099,bus
+43050,43050,Samson / face au 714,45.52312,-73.8188999,bus
+46011,46011,Samson / Gravel,45.5241299,-73.81691,bus
+43043,43043,Samson / Maurice,45.5248699,-73.81546,bus
+43064,43064,Samson / de l'Hôtel-de-Ville,45.52612,-73.8126899,bus
+43066,43066,Samson / face au 500,45.52645,-73.80967,bus
+43068,43068,Samson / Maisonneuve,45.52571,-73.80666,bus
+43018,43018,Samson / Sylvie,45.52466,-73.80482,bus
+43430,43430,Notre-Dame / Samson,45.52274,-73.8004099,bus
+43431,43431,Notre-Dame / Dupré,45.52438,-73.79763,bus
+43432,43432,Notre-Dame / Toussaint,45.52544,-73.7954399,bus
+43433,43433,Notre-Dame / Josaphat-Demers,45.52714,-73.7917299,bus
+43434,43434,Notre-Dame / Lavatère,45.52946,-73.7867999,bus
+42498,42498,Notre-Dame / 100e Avenue,45.53635,-73.7645,bus
+42496,42496,Notre-Dame / face au 4540,45.5367299,-73.76256,bus
+42494,42494,Notre-Dame / Élisabeth,45.5374299,-73.75925,bus
+42492,42492,Notre-Dame / 92e Avenue,45.5378799,-73.75703,bus
+42489,42489,Notre-Dame / Dover,45.5380699,-73.75607,bus
+42487,42487,Notre-Dame / Haifa,45.5387999,-73.7526,bus
+42485,42485,Notre-Dame / 85e Avenue,45.53943,-73.7509999,bus
+42483,42483,Notre-Dame / Jarry,45.54039,-73.74956,bus
+42481,42481,Notre-Dame / face au 3870,45.5411499,-73.74785,bus
+42514,42514,Notre-Dame / 80e Avenue,45.54176,-73.7458299,bus
+42512,42512,Notre-Dame / Wilfrid-Laurier,45.5425699,-73.74341,bus
+42510,42510,Notre-Dame / 75e Avenue,45.54307,-73.74191,bus
+42491,42491,Notre-Dame / Chomedey,45.5439299,-73.73928,bus
+46012,46012,Notre-Dame / Charles-Best,45.54478,-73.7369099,bus
+46013,46013,Notre-Dame / Face au 3050,45.5462399,-73.73488,bus
+46014,46014,Notre-Dame / face au 2999,45.5488499,-73.73224,bus
+46015,46015,Notre-Dame / Armand-Frappier,45.5501399,-73.72912,bus
+46016,46016,de la Concorde / Le Corbusier,45.5547799,-73.72146,bus
+46018,46018,de la Concorde / Lucien-Paiement,45.55603,-73.7198699,bus
+46625,46625,de la Concorde / Le Corbusier,45.55438,-73.7226599,bus
+46109,46109,Notre-Dame / Armand-Frappier,45.5502699,-73.72946,bus
+46019,46019,Notre-Dame / face au 2999,45.5484699,-73.7335999,bus
+46020,46020,Notre-Dame / face au 3055,45.5458099,-73.73563,bus
+46021,46021,Notre-Dame / Alton-Goldbloom,45.5446299,-73.73804,bus
+42515,42515,Notre-Dame / Chomedey,45.5440499,-73.73964,bus
+42480,42480,Notre-Dame / Saint-Charles,45.5435599,-73.74103,bus
+42511,42511,Notre-Dame / Wilfrid-Laurier,45.5425499,-73.7439299,bus
+42513,42513,Notre-Dame / Thomas-Chapais,45.5420999,-73.7452799,bus
+42516,42516,Notre-Dame / Curé-Labelle,45.5412199,-73.74836,bus
+42482,42482,Notre-Dame / Jarry,45.5407299,-73.74934,bus
+42484,42484,Notre-Dame / 85e Avenue,45.5397399,-73.75103,bus
+42486,42486,Notre-Dame / Haifa,45.53891,-73.7531699,bus
+42488,42488,Notre-Dame / Dover,45.53838,-73.7557199,bus
+42490,42490,Notre-Dame / 92e Avenue,45.5381499,-73.75687,bus
+42493,42493,Notre-Dame / Élisabeth,45.53771,-73.7590299,bus
+42495,42495,Notre-Dame / face au 4557,45.5369399,-73.76274,bus
+46606,46606,Notre-Dame / Montgolfier,45.5318599,-73.78126,bus
+43421,43421,Notre-Dame / Lavatère,45.5292799,-73.78784,bus
+43422,43422,Notre-Dame / Josaphat-Demers,45.5271999,-73.79218,bus
+43423,43423,Notre-Dame / Pierre,45.52575,-73.7953499,bus
+43424,43424,Notre-Dame / Dupré,45.52468,-73.7975999,bus
+43425,43425,Notre-Dame / Samson,45.52282,-73.8007399,bus
+43017,43017,Samson / Sylvie,45.52467,-73.80428,bus
+43016,43016,Samson / Maisonneuve,45.52575,-73.80603,bus
+43067,43067,Samson / Gouin,45.5266899,-73.80924,bus
+43065,43065,Samson / de l'Hôtel-de-Ville,45.52649,-73.8123199,bus
+43056,43056,Samson / Maurice,45.5251799,-73.8154699,bus
+43028,43028,Samson / Gravel,45.5244799,-73.81689,bus
+43048,43048,Samson / face au 709,45.52337,-73.8190399,bus
+43035,43035,Samson / Noël,45.5225199,-73.82134,bus
+43020,43020,Samson / Pesant,45.52175,-73.8232599,bus
+43015,43015,Samson / du Bord-de-l'Eau,45.5210999,-73.82474,bus
+41175,41175,du Bord-de-l'Eau / face au 896,45.5207299,-73.8274799,bus
+41177,41177,du Bord-de-l'Eau / Guizot,45.5207399,-73.8306499,bus
+43258,43258,du Bord-de-l'Eau / des Nénuphars,45.5209599,-73.83403,bus
+41179,41179,du Bord-de-l'Eau / Lynne,45.5210699,-73.8358299,bus
+46532,46532,du Bord-de-l'Eau / des Géraniums,45.5212699,-73.83744,bus
+41182,41182,du Bord-de-l'Eau / Patrick,45.5216499,-73.8389899,bus
+41184,41184,du Bord-de-l'Eau / Bibeau,45.5220799,-73.8409299,bus
+41186,41186,du Bord-de-l'Eau / Marois,45.5228999,-73.8447899,bus
+41188,41188,du Bord-de-l'Eau / Jardin Islemère,45.5234799,-73.8484899,bus
+41191,41191,du Bord-de-l'Eau / Lafontaine,45.52373,-73.84997,bus
+41194,41194,du Bord-de-l'Eau / Jolibourg,45.5235899,-73.85255,bus
+43219,43219,de Val-Brillant / de l'Anse-au-Griffon,45.52697,-73.8593399,bus
+43221,43221,de Val-Brillant / face au parc Jolibourg,45.52527,-73.8599699,bus
+43223,43223,de Val-Brillant / de Fontenelle,45.52409,-73.85814,bus
+42702,42702,du Relais / du Bord-de-l'Eau,45.52307,-73.8556,bus
+47027,47027,Terminus Cartier Quai: 4,45.5597399,-73.68289,bus
+41130,41130,de la Bernina / Bédard,45.59736,-73.7205099,bus
+41133,41133,de la Bernina / Boisvert,45.59787,-73.7195499,bus
+41134,41134,de la Bernina / de Lucerne,45.5986899,-73.71853,bus
+42155,42155,de Lucerne / Toulouse,45.59998,-73.72017,bus
+42156,42156,de Lucerne / de Genève,45.6007499,-73.7210199,bus
+42158,42158,de Lucerne / Beaucourt,45.60288,-73.72062,bus
+42160,42160,de Lucerne / de Lunebourg,45.6043099,-73.71799,bus
+42718,42718,René-Laennec / Ivan-Pavlov,45.6061799,-73.7162399,bus
+42715,42715,René-Laennec / Saint-Elzéar,45.6086599,-73.71891,bus
+42717,42717,René-Laennec / Dagenais,45.6099299,-73.72015,bus
+45014,45014,René-Laennec / de Mijas,45.6113699,-73.7212599,bus
+42712,42712,René-Laennec / de Clèves,45.61256,-73.72216,bus
+42713,42713,René-Laennec / des Grisons,45.6138299,-73.7230199,bus
+42709,42709,René-Laennec / de Lausanne (Sud),45.61575,-73.72308,bus
+41902,41902,de Lausanne / Montée Monette,45.61657,-73.72021,bus
+41911,41911,de Lausanne / de la Louvière,45.61899,-73.71761,bus
+41909,41909,de Lausanne / de Roubaix,45.62113,-73.71908,bus
+41907,41907,de Lausanne / Prudentiel,45.6224999,-73.7207699,bus
+43983,43983,Prudentiel / de la Gironde,45.6233499,-73.7211499,bus
+41016,41016,Prudentiel / de Montévideo,45.62467,-73.72166,bus
+41017,41017,Prudentiel / De La Gironde,45.62619,-73.72268,bus
+43986,43986,Prudentiel / de Fribourg,45.6276499,-73.72527,bus
+43987,43987,Prudentiel / de Troyes,45.6262699,-73.7280999,bus
+43988,43988,Prudentiel / René-Laennec,45.6251599,-73.72931,bus
+42693,42693,Prudentiel / des Abeilles,45.6246299,-73.73027,bus
+42701,42701,Prudentiel / des Nymphes,45.6232,-73.7329599,bus
+42699,42699,Prudentiel / Casault,45.62023,-73.7347699,bus
+42697,42697,Prudentiel / Trevet,45.6189299,-73.7356099,bus
+42695,42695,Prudentiel / de Belgrade,45.6179,-73.7357699,bus
+41072,41072,de Belgrade / de Gruyères,45.61684,-73.7378599,bus
+41071,41071,de Belgrade / des Laurentides,45.6152899,-73.74058,bus
+46305,46305,de Belgrade / Cyrille-Delage,45.6146699,-73.7417599,bus
+46396,46396,de Belgrade / Rio,45.6132599,-73.74607,bus
+46303,46303,Rio / Place Rio,45.61209,-73.74533,bus
+42727,42727,Rio / Olivier-Chauveau,45.61095,-73.7441,bus
+42729,42729,Rio / Bellerose,45.6085499,-73.7415299,bus
+46345,46345,Bellerose / de Castellane,45.60704,-73.7418899,bus
+49027,49027,Gare Vimont,45.6040399,-73.74266,bus
+46022,46022,Gare Vimont,45.6040299,-73.74265,bus
+46344,46344,Bellerose / de Castellane,45.6068099,-73.74184,bus
+46023,46023,Rio / Cyrille-Delage,45.60863,-73.74135,bus
+42730,42730,Rio / Olivier-Chauveau,45.6108299,-73.7436899,bus
+43419,43419,Rio / Rio,45.6119099,-73.7448499,bus
+42726,42726,Rio / de Belgrade,45.6130399,-73.7460499,bus
+41067,41067,de Belgrade / Cyrille-Delage,45.6144,-73.74198,bus
+45015,45015,de Belgrade / des Laurentides,45.6153299,-73.74011,bus
+41074,41074,de Belgrade / de Gruyères,45.6166199,-73.73792,bus
+41073,41073,de Belgrade / Prudentiel,45.6176899,-73.73571,bus
+42696,42696,Prudentiel / Trevet,45.6186699,-73.73558,bus
+42698,42698,Prudentiel / Casault,45.62008,-73.73463,bus
+42700,42700,Prudentiel / des Nymphes,45.62298,-73.7330999,bus
+42694,42694,Prudentiel / des Abeilles,45.62439,-73.7304099,bus
+43989,43989,Prudentiel / René-Laennec,45.6248099,-73.72961,bus
+43990,43990,Prudentiel / de Troyes,45.6259799,-73.72811,bus
+43991,43991,Prudentiel / de Prague,45.6273899,-73.7266,bus
+43992,43992,Prudentiel / de la Gironde,45.62621,-73.72296,bus
+43993,43993,Prudentiel / de Montevideo,45.62481,-73.7219099,bus
+43994,43994,Prudentiel / de la Gironde,45.6235399,-73.7214299,bus
+41906,41906,de Lausanne / de Ronchamp,45.62229,-73.7204099,bus
+41908,41908,de Lausanne / de Roubaix,45.6212,-73.7193999,bus
+41910,41910,de Lausanne / de la Louvière,45.6192299,-73.7176899,bus
+41901,41901,de Lausanne / Montée Monette,45.6168399,-73.7202399,bus
+41903,41903,de Lausanne / René-Laennec,45.6159299,-73.7229399,bus
+42706,42706,René-Laennec / des Grisons,45.61414,-73.7234899,bus
+42708,42708,René-Laennec / de Clèves,45.61261,-73.72259,bus
+42711,42711,René-Laennec / Dagenais,45.61033,-73.72096,bus
+42714,42714,René-Laennec / Saint-Elzéar,45.6087399,-73.71941,bus
+42723,42723,René-Laennec / Ivan-Pavlov,45.60585,-73.71631,bus
+42162,42162,de Lucerne / de Lunebourg,45.60454,-73.7178999,bus
+42161,42161,de Lucerne / Beaucourt,45.60309,-73.7205799,bus
+42159,42159,de Lucerne / de Genève,45.6009,-73.7213199,bus
+42157,42157,de Lucerne / de la Bernina,45.59874,-73.71873,bus
+41132,41132,de la Bernina / Boisvert,45.59808,-73.7194499,bus
+41131,41131,de la Bernina / Bédard,45.5975699,-73.72045,bus
+41342,41342,de la Concorde / de l'Avenir,45.55719,-73.7169299,bus
+41360,41360,de la Concorde / Deauville,45.55816,-73.7151599,bus
+41380,41380,de la Concorde / Laval,45.5597,-73.7122499,bus
+41395,41395,de la Concorde / Ampère,45.5614599,-73.70876,bus
+41323,41323,de la Concorde / de Roanne,45.56274,-73.7062299,bus
+41325,41325,de la Concorde / de Cluny,45.5637699,-73.70417,bus
+41327,41327,de la Concorde / 12e Avenue,45.56513,-73.7014499,bus
+41331,41331,de la Concorde / 15e Rue,45.56674,-73.6984599,bus
+41334,41334,de la Concorde / 6e Avenue,45.56769,-73.6967799,bus
+41336,41336,de la Concorde / Bazin,45.5684899,-73.69534,bus
+41338,41338,de la Concorde / Quintal,45.5693199,-73.69379,bus
+41339,41339,de la Concorde / des Laurentides,45.5702199,-73.69215,bus
+40102,40102,Terminus Henri-Bourassa,45.5560999,-73.66729,bus
+40002,40002,Terminus Henri-Bourassa Quai: 4,45.5558299,-73.66721,bus
+41340,41340,de la Concorde / des Laurentides,45.5701599,-73.69287,bus
+41337,41337,de la Concorde / de l'Étoile,45.56894,-73.6951299,bus
+41335,41335,de la Concorde / 6e Avenue,45.56798,-73.6968599,bus
+41333,41333,de la Concorde / 16e Rue,45.5664899,-73.69951,bus
+41328,41328,de la Concorde / 12e Avenue,45.5655,-73.7013599,bus
+41326,41326,de la Concorde / de Cluny,45.56394,-73.7044699,bus
+41324,41324,de la Concorde / de Roanne,45.5629,-73.7065499,bus
+41322,41322,de la Concorde / Ampère,45.5618799,-73.70857,bus
+41391,41391,de la Concorde / Laval,45.55981,-73.7126599,bus
+41370,41370,de la Concorde / Deauville,45.5587099,-73.71476,bus
+41351,41351,de la Concorde / face à la Maison des Arts,45.55788,-73.7163199,bus
+40802,40802,Terminus Côte-Vertu Quai: 18,45.5136199,-73.68225,bus
+46643,46643,Montgolfier / Saint-Martin,45.54151,-73.78865,bus
+46645,46645,Chomedey (A-13) / Structube,45.5457599,-73.80313,bus
+46646,46646,Chomedey (A-13) / Structube,45.5455999,-73.80313,bus
+42430,42430,Montgolfier / Saint-Martin,45.5416199,-73.78911,bus
+46702,46702,Notre-Dame/Montgolfier,45.5325899,-73.78099,bus
+41080,41080,Bellehumeur / des Laurentides,45.6452199,-73.7544799,bus
+41081,41081,Bellehumeur / face au 7340,45.6474,-73.75515,bus
+41083,41083,Bellehumeur / Brochu,45.64958,-73.75582,bus
+41208,41208,Brochu / Bérard,45.6493899,-73.7580599,bus
+41112,41112,Bérard / face au 58,45.6471099,-73.7575799,bus
+41114,41114,Bérard / Brindamour,45.6457299,-73.7571199,bus
+41116,41116,Bérard / des Terrasses,45.64326,-73.7563999,bus
+43166,43166,des Terrasses / du Val-des-Bois,45.6416199,-73.75801,bus
+43168,43168,des Terrasses / Sellier,45.6406499,-73.75879,bus
+43170,43170,des Terrasses / Sanscartier,45.63738,-73.7620199,bus
+43172,43172,des Terrasses / Beaujon,45.6361,-73.7637199,bus
+46397,46397,des Terrasses / Saillant,45.6348099,-73.76495,bus
+43164,43164,des Terrasses / du Parc-des-Érables,45.6338,-73.7667399,bus
+46506,46506,du Parc-des-Érables / Face au 58,45.6359599,-73.76741,bus
+46622,46622,du Parc-des-Érables / Face au 88,45.6373799,-73.7677,bus
+42571,42571,du Parc-des-Érables / Amyot,45.6392799,-73.76908,bus
+41030,41030,5e Avenue / 12e Avenue,45.6403599,-73.7702999,bus
+41031,41031,5e Avenue / 8e Avenue,45.64136,-73.77056,bus
+41029,41029,4e Avenue / 5e Avenue,45.64256,-73.77089,bus
+41032,41032,4e Avenue / 7e Avenue,45.6427499,-73.76979,bus
+46540,46540,Terminus 9e Avenue,45.6426399,-73.76849,bus
+46541,46541,Terminus 9e Avenue,45.6419499,-73.76834,bus
+41033,41033,12e Avenue / Parc-des-Érables,45.6401999,-73.7694499,bus
+42572,42572,du Parc-des-Érables / Amyot,45.6392,-73.7692299,bus
+46623,46623,du Parc-des-Érables / Face au 229,45.63752,-73.7679199,bus
+46507,46507,du Parc-des-Érables / Émile-Joly,45.6356799,-73.7675399,bus
+42570,42570,du Parc-des-Érables / des Terrasses,45.6336899,-73.7669899,bus
+46398,46398,des Terrasses / Saillant,45.63456,-73.7650099,bus
+43163,43163,des Terrasses / Beaujon,45.63601,-73.7636699,bus
+43171,43171,des Terrasses / Sanscartier,45.63713,-73.76211,bus
+43169,43169,des Terrasses / Sellier,45.64047,-73.7588,bus
+43167,43167,des Terrasses / du Val-des-Bois,45.6413199,-73.75808,bus
+43165,43165,des Terrasses / Brossard,45.64274,-73.75666,bus
+41117,41117,Bérard / Brindamour,45.64565,-73.75702,bus
+41115,41115,Bérard / face au 57,45.6469499,-73.7573799,bus
+41113,41113,Bérard / Brochu,45.64925,-73.75805,bus
+41209,41209,Brochu / Bellehumeur,45.64958,-73.7560299,bus
+41082,41082,Bellehumeur / face au 7365,45.64744,-73.7552799,bus
+47131,47131,Terminus Cartier Quai: 5,45.5596499,-73.68308,bus
+40322,40322,Terminus Henri-Bourassa Quai: 5,45.5557199,-73.66732,bus
+46734,46734,Maurice-Cullen / En face du 5510,45.62482,-73.6516999,bus
+46735,46735,Maurice-Cullen / En face du 5550,45.62609,-73.6494299,bus
+46751,46751,Saulnier / Intelcom,45.5986199,-73.70062,bus
+47033,47033,Terminus Cartier Quai: 7,45.5596599,-73.68298,bus
+46611,46611,7e / 8e (Centre des femmes de Laval),45.5616699,-73.69319,bus
+46612,46612,7e / Robin,45.5616899,-73.69445,bus
+46627,46627,Robin / 12e,45.5610299,-73.69622,bus
+42753,42753,15e Rue / Robin,45.55976,-73.6984799,bus
+42755,42755,15e Rue / de Cluny,45.56067,-73.69913,bus
+42757,42757,15e Rue / 12e Avenue,45.56304,-73.69838,bus
+42759,42759,15e Rue / 8e Avenue,45.5655099,-73.69758,bus
+42751,42751,15e Rue / de la Concorde,45.5665899,-73.69752,bus
+41039,41039,12e Avenue / 19e Rue,45.56684,-73.70308,bus
+41041,41041,12e Avenue / du Souvenir,45.5692,-73.7056,bus
+41147,41147,de-Bois-de-Boulogne / du Souvenir,45.5703799,-73.70285,bus
+41149,41149,de-Bois-de-Boulogne / Compétences-2000,45.5717699,-73.7041899,bus
+41153,41153,de-Bois-de-Boulogne / de Touraine,45.5735899,-73.70609,bus
+43185,43185,de Touraine / de Bois-de-Boulogne,45.5738399,-73.70726,bus
+43187,43187,de Touraine / de Chablis,45.5755899,-73.70971,bus
+41794,41794,de Langeais / de Gascogne,45.5766799,-73.70996,bus
+41154,41154,de-Bois-de-Boulogne / Saint-Martin,45.5781399,-73.7101699,bus
+43228,43228,Vallières / de Verviers,45.5786799,-73.71084,bus
+43227,43227,Vallières / de Sillery,45.5801199,-73.7126,bus
+43226,43226,Vallières / Renaud,45.58211,-73.71272,bus
+43232,43232,Vallières / Richard,45.5846399,-73.7142699,bus
+43231,43231,Vallières / de Valognes,45.5859099,-73.71635,bus
+43230,43230,Vallières / Voltaire,45.5863699,-73.7182999,bus
+43229,43229,Vallières / de Villars,45.5879099,-73.7200699,bus
+43246,43246,de Villars / de Mexico,45.5871599,-73.72178,bus
+42245,42245,de Mexico / face au 2272,45.5859,-73.72072,bus
+42244,42244,de Mexico / Valois,45.5847299,-73.7193999,bus
+46058,46058,Valois / Saint-Rémi,45.5840099,-73.72062,bus
+46059,46059,de Tripoli / Saurel,45.58118,-73.71902,bus
+46060,46060,de Tripoli / de Sillery,45.57911,-73.71671,bus
+43160,43160,de Sillery / de Bastogne,45.57798,-73.7171,bus
+43161,43161,voie de service Saint-Martin / de Sillery,45.5754099,-73.71489,bus
+46440,46440,voie de service Saint-Martin / face au 666,45.57386,-73.7155999,bus
+42846,42846,voie de service Saint-Martin / Fleetwood,45.57501,-73.7141099,bus
+46062,46062,Fleetwood / face au 1685,45.57416,-73.71308,bus
+46063,46063,Fleetwood / de Chevillon,45.5722699,-73.7109799,bus
+46064,46064,De Chevillon / Ampère,45.5710299,-73.7128,bus
+46065,46065,Ampère / de Chevillon,45.56934,-73.71121,bus
+46320,46320,Ampère / du Souvenir,45.568,-73.70983,bus
+46066,46066,Ampère / de Chamonix,45.5668499,-73.7099599,bus
+46067,46067,Ampère / de Saumur,45.56507,-73.71083,bus
+46068,46068,Ampère / de Royan,45.5619799,-73.70908,bus
+48033,48033,Terminus Montmorency Quai: 8,45.5581599,-73.72014,bus
+46035,46035,Ampère / de Royan,45.5622699,-73.70906,bus
+46036,46036,Ampère / de Saumur,45.5649199,-73.71054,bus
+46037,46037,Ampère / de Chamonix,45.5665899,-73.70999,bus
+46038,46038,Ampère / du Souvenir,45.5679799,-73.7095199,bus
+46039,46039,Ampère / de Perigueux,45.56922,-73.71084,bus
+46040,46040,Ampère / de Chevillon,45.57088,-73.71265,bus
+46744,46744,De Chevillon / Fleetwood,45.57167,-73.71123,bus
+46041,46041,Fleetwood / face au 1655,45.5724999,-73.7109299,bus
+46321,46321,Fleetwood / face au 1685,45.57428,-73.7129,bus
+46042,46042,voie de service Saint-Martin / Fleetwood,45.57497,-73.7143699,bus
+46043,46043,voie de service Saint-Martin / de Sillery,45.57539,-73.7146099,bus
+46044,46044,de Sillery / de Bastogne,45.57798,-73.71686,bus
+46045,46045,de Tripoli / de Sillery,45.57936,-73.71672,bus
+46046,46046,de Tripoli / Saurel,45.5810499,-73.7185899,bus
+46047,46047,de Tripoli / Valois,45.58335,-73.72112,bus
+46048,46048,Valois / de Mexico,45.5844999,-73.71932,bus
+46049,46049,de Mexico / face au 2271,45.5860999,-73.7206899,bus
+46050,46050,de Mexico / face au 2329,45.5868499,-73.72152,bus
+46051,46051,de Villars / Vallières,45.58777,-73.7203999,bus
+46052,46052,Vallières / Voltaire,45.58641,-73.71865,bus
+46053,46053,Vallières / de Valognes,45.58582,-73.71666,bus
+46054,46054,Vallières / Richard,45.5847,-73.71458,bus
+46055,46055,Vallières / Renaud,45.5823099,-73.7129399,bus
+46056,46056,Vallières / de Sillery,45.58018,-73.7129099,bus
+46057,46057,Vallières / Saint-Martin,45.5782699,-73.7107199,bus
+41004,41004,de Langeais / de Gascogne,45.5768099,-73.71004,bus
+43188,43188,de Touraine / de Chablis,45.5756099,-73.7099899,bus
+43190,43190,de Touraine / de Bois-de-Boulogne,45.57392,-73.7067199,bus
+41152,41152,de-Bois-de-Boulogne / face au 830,45.57212,-73.70496,bus
+41150,41150,de-Bois-de-Boulogne / face au 794,45.57121,-73.70396,bus
+41148,41148,de-Bois-de-Boulogne / du Souvenir,45.5700799,-73.70303,bus
+43155,43155,du Souvenir / 11e Avenue,45.5697399,-73.7045,bus
+41042,41042,12e Avenue / de Côte d'Azur,45.5686999,-73.7054999,bus
+41040,41040,12e Avenue / 19e Rue,45.56687,-73.70342,bus
+41043,41043,12e Avenue / de Bourges,45.56567,-73.70207,bus
+42750,42750,15e Rue / 8e Avenue,45.5655799,-73.69793,bus
+42758,42758,15e Rue / 12e Avenue,45.56327,-73.6986799,bus
+42756,42756,15e Rue / de Cluny,45.5609599,-73.6994199,bus
+42754,42754,15e Rue / Robin,45.5596799,-73.69806,bus
+46626,46626,Robin / 6e,45.5611299,-73.69546,bus
+46713,46713,6e / 8e,45.56085,-73.69289,bus
+46610,46610,8e / Cartier,45.55927,-73.6928599,bus
+48040,48040,Terminus Montmorency Quai: 9,45.5582499,-73.71992,bus
+43249,43249,de l'Avenir / du Souvenir,45.5625,-73.72313,bus
+43374,43374,de l'Avenir / du Trait-Carré,45.56415,-73.72409,bus
+43439,43439,de l'Avenir / face au 1647,45.56611,-73.72663,bus
+45028,45028,de l'Avenir / face au 1695,45.5668899,-73.72814,bus
+45030,45030,Saint-Martin / Tessier,45.5676199,-73.72791,bus
+42836,42836,Saint-Martin / face au 1454,45.56945,-73.72461,bus
+41738,41738,Industriel / Saint-Martin,45.5726599,-73.72185,bus
+41742,41742,Industriel / Salaberry,45.57507,-73.7243,bus
+41744,41744,Industriel / Lippmann,45.5776299,-73.72727,bus
+41746,41746,Industriel / Munck,45.5796599,-73.72962,bus
+46099,46099,Industriel / Cunard,45.5819799,-73.7322899,bus
+46100,46100,Industriel / Berlier,45.5879299,-73.73925,bus
+46101,46101,Industriel / Saint-Elzéar,45.58966,-73.74127,bus
+46102,46102,Industriel / Michelin,45.5919099,-73.7437799,bus
+46103,46103,Industriel / Bergar,45.5939499,-73.7460199,bus
+46104,46104,Industriel / face au 3885,45.5953999,-73.7476299,bus
+46105,46105,Industriel / face au 4001,45.5973799,-73.7498199,bus
+46388,46388,Dagenais / Industriel,45.5984199,-73.75024,bus
+46426,46426,Dagenais / face au 1240,45.5998499,-73.748,bus
+46511,46511,Bellerose / Face au 190,45.6027299,-73.7455,bus
+46635,46635,Gare Vimont,45.6040199,-73.74231,bus
+46382,46382,Gare Vimont,45.6040499,-73.74228,bus
+46512,46512,Bellerose / Face au 225,45.6029099,-73.74541,bus
+46425,46425,Bellerose / Dagenais,45.6010799,-73.7467099,bus
+46389,46389,Dagenais / Industriel,45.5991799,-73.7496099,bus
+46094,46094,Industriel / face au 4000,45.59726,-73.7502499,bus
+45021,45021,Industriel / face au 3600,45.5953699,-73.7481399,bus
+45020,45020,Industriel / Bergar,45.59334,-73.7458899,bus
+41740,41740,Industriel / Michelin,45.5919699,-73.7443899,bus
+41739,41739,Industriel / Saint-Elzéar,45.58986,-73.7420199,bus
+46095,46095,Industriel / Berlier,45.5879499,-73.73984,bus
+46096,46096,Industriel / Cunard,45.5819599,-73.7329599,bus
+46097,46097,Industriel / Munck,45.57928,-73.72982,bus
+41745,41745,Industriel / Lippmann,45.5772699,-73.7274999,bus
+41743,41743,Industriel / Salaberry,45.5746499,-73.7244599,bus
+41741,41741,Industriel / Saint-Martin,45.5721499,-73.72199,bus
+42840,42840,Saint-Martin / McNamara,45.5709299,-73.72272,bus
+42841,42841,Saint-Martin / face au 1459,45.56994,-73.7245099,bus
+45042,45042,Saint-Martin / Face au 1535,45.56932,-73.7256399,bus
+43248,43248,de l'Avenir / Saint-Martin,45.5666,-73.7283099,bus
+43900,43900,de l'Avenir / face à Omer de Serres,45.5658,-73.7266899,bus
+43372,43372,de l'Avenir / du Trait-Carré,45.5637399,-73.7242499,bus
+46304,46304,de l'Avenir / du Souvenir,45.56203,-73.72316,bus
+46443,46443,de l'Avenir / Jacques-Tétreault,45.5595999,-73.7208099,bus
+46563,46563,Terminus Cléroux,45.5507199,-73.80039,bus
+46736,46736,Cherrier / de Celles,45.55247,-73.79614,bus
+46738,46738,Cherrier / J.-B.-Vilenne,45.55089,-73.7913399,bus
+46740,46740,Cherrier / Lamontagne,45.5527,-73.7878899,bus
+46741,46741,Lamontagne / de Celles,45.5550299,-73.79002,bus
+46568,46568,Cléroux / Guénette,45.55646,-73.7870999,bus
+46569,46569,Cléroux / Légaré,45.5575499,-73.78331,bus
+46570,46570,Louis-Payette / 100e Avenue,45.5486899,-73.77885,bus
+46571,46571,100e Avenue / Saint-Martin,45.5468499,-73.7777,bus
+46572,46572,100e Avenue / Dutrisac,45.54536,-73.7757699,bus
+46573,46573,100e Avenue / Esther-Pariseau,45.54426,-73.7720799,bus
+46574,46574,100e Avenue / Eliot,45.5427999,-73.7702299,bus
+46575,46575,100e Avenue / du Souvenir,45.54027,-73.76776,bus
+46576,46576,100e Avenue / de Normandie,45.5387099,-73.7659099,bus
+48036,48036,Terminus Montmorency Quai: 3,45.5584799,-73.72062,bus
+46607,46607,Notre-Dame / 100e,45.5365099,-73.76487,bus
+46577,46577,100e Avenue / de Normandie,45.5385999,-73.76547,bus
+46578,46578,100e Avenue / du Souvenir,45.5403,-73.76741,bus
+46579,46579,100e Avenue / Eliot,45.5427599,-73.7697899,bus
+46580,46580,100e Avenue / Henri-Duplessis,45.5442899,-73.7716499,bus
+46581,46581,100e Avenue / Dutrisac,45.5454399,-73.7753999,bus
+46582,46582,100e Avenue / Saint-Martin,45.5471299,-73.7776,bus
+46583,46583,100e Avenue / Louis-Payette,45.5483199,-73.7790699,bus
+46584,46584,Louis-Payette / Fafard,45.55066,-73.7752599,bus
+46585,46585,Cléroux / Guénette,45.5566799,-73.78689,bus
+46586,46586,Cléroux / Lamontagne,45.5556,-73.7905499,bus
+46739,46739,Lamontagne / Cherrier,45.5528999,-73.7879899,bus
+46737,46737,Cherrier / J.-B.-Vilenne,45.5511499,-73.79118,bus
+46589,46589,Cherrier / Cléroux,45.55299,-73.79645,bus
+46590,46590,Terminus Cléroux,45.5507799,-73.80048,bus
+42749,42749,15e Rue / Molière,45.55811,-73.69672,bus
+46083,46083,Robin / 15e Rue,45.55935,-73.6992899,bus
+46084,46084,Robin / Perrin,45.5585999,-73.70085,bus
+46085,46085,Robin / Ampère,45.55711,-73.7038499,bus
+46669,46669,Ampère / Face au 425,45.55852,-73.70537,bus
+41008,41008,Ampère / Léo-Lacombe,45.5602,-73.70702,bus
+41006,41006,Ampère / de Clairvaux,45.5610599,-73.70785,bus
+41928,41928,Laval / Dubé,45.5614099,-73.7143899,bus
+41930,41930,Laval / des Prés,45.5625299,-73.7154899,bus
+41913,41913,Laval / du Souvenir,45.56457,-73.71746,bus
+41915,41915,Laval / du Trait-Carré,45.56572,-73.71858,bus
+41916,41916,Laval / Jolivet,45.56743,-73.71979,bus
+41919,41919,Laval / face au 1700,45.5699399,-73.71995,bus
+41921,41921,Laval / Saint-Martin,45.5708599,-73.72019,bus
+46752,46752,Salaberry / Industriel,45.5749,-73.72367,bus
+43011,43011,Salaberry / Fortin,45.5764,-73.72227,bus
+43013,43013,Salaberry / Francis-Hughes,45.5775899,-73.72044,bus
+41635,41635,Francis-Hughes / Lippmann,45.5798099,-73.7223599,bus
+41646,41646,Francis-Hughes / Munck,45.5820799,-73.72446,bus
+41648,41648,Francis-Hughes / face au 2250,45.58381,-73.72639,bus
+41650,41650,Francis-Hughes / Cunard,45.5847999,-73.72752,bus
+41652,41652,Francis-Hughes / Face au 2525,45.58662,-73.72963,bus
+41637,41637,Francis-Hughes / face au 2555,45.5876399,-73.72888,bus
+41639,41639,Francis-Hughes / face au 2655,45.5892499,-73.73014,bus
+41641,41641,Francis-Hughes / face au 2750,45.5886199,-73.7326499,bus
+41643,41643,Francis-Hughes / Berlier,45.5902699,-73.7342799,bus
+41124,41124,Berlier / Face au 904,45.5893499,-73.73718,bus
+41126,41126,Berlier / Industriel,45.5877699,-73.7401099,bus
+41128,41128,Berlier / face au 1415,45.5859199,-73.7424199,bus
+41129,41129,Berlier / face au 1705,45.58467,-73.7439399,bus
+41121,41121,Berlier / Bergman,45.58353,-73.7453299,bus
+41945,41945,Le Corbusier / Berlier,45.58234,-73.74845,bus
+41946,41946,Le Corbusier / Saint-Elzéar,45.5842299,-73.75034,bus
+41948,41948,Le Corbusier / Monterey,45.5854,-73.75176,bus
+41951,41951,Le Corbusier / Michelin,45.5871,-73.75361,bus
+41953,41953,Le Corbusier / Le Chatelier,45.58919,-73.75598,bus
+46600,46600,Dagenais / Le Corbusier,45.5922899,-73.75903,bus
+45022,45022,Dagenais / Garand,45.5930299,-73.75779,bus
+45023,45023,Dagenais / face au 1600,45.5944699,-73.75539,bus
+45024,45024,Dagenais / Garand,45.5958899,-73.75383,bus
+46087,46087,Industriel / Dagenais,45.5986499,-73.7512799,bus
+46088,46088,Industriel / face au 4133,45.5999799,-73.7528299,bus
+46420,46420,Industriel / face au 4177,45.6009399,-73.7539,bus
+46421,46421,Industriel / face au 4184,45.6011799,-73.75437,bus
+46069,46069,Industriel / face au 4078,45.5998699,-73.7529899,bus
+46070,46070,Industriel / Dagenais,45.59822,-73.75124,bus
+46071,46071,Dagenais / Garand,45.59623,-73.7539999,bus
+46072,46072,Dagenais / face au 1605,45.59467,-73.7556699,bus
+46073,46073,Dagenais / Garand,45.5934899,-73.75764,bus
+46074,46074,Le Corbusier / face au 3520,45.5916199,-73.75921,bus
+41959,41959,Le Corbusier / Le Chatelier,45.5886099,-73.7558499,bus
+41961,41961,Le Corbusier / Michelin,45.58614,-73.75306,bus
+41954,41954,Le Corbusier / Monterey,45.5848599,-73.7516399,bus
+41955,41955,Le Corbusier / Saint-Elzéar,45.5830799,-73.74962,bus
+46075,46075,Berlier / Le Corbusier,45.5821199,-73.74708,bus
+46076,46076,Berlier / Bergman,45.58311,-73.7455299,bus
+46078,46078,Berlier / face au 1146,45.58599,-73.7420399,bus
+46079,46079,Berlier / face au 1104,45.58687,-73.7409499,bus
+41127,41127,Berlier / Industriel,45.5882999,-73.73893,bus
+41125,41125,Berlier / face au 970,45.58903,-73.7375299,bus
+41123,41123,Berlier / Francis-Hughes,45.59035,-73.7348199,bus
+41642,41642,Francis-Hughes / face au 2750,45.5888499,-73.7331099,bus
+41640,41640,Francis-Hughes / face au 2655,45.5891299,-73.73005,bus
+41638,41638,Francis-Hughes / face au 2555,45.5878999,-73.7284199,bus
+41636,41636,Francis-Hughes / Face au 2700,45.58689,-73.7301599,bus
+41651,41651,Francis-Hughes / Cunard,45.58488,-73.72788,bus
+41649,41649,Francis-Hughes / face au 2250,45.58333,-73.72612,bus
+41647,41647,Francis-Hughes / Munck,45.5821499,-73.72477,bus
+41645,41645,Francis-Hughes / Lippmann,45.57993,-73.7227099,bus
+41634,41634,Francis-Hughes / Salaberry,45.5778299,-73.7203899,bus
+43014,43014,Salaberry / Fortin,45.57674,-73.7222199,bus
+43012,43012,Salaberry / Industriel,45.57511,-73.7236899,bus
+41922,41922,Laval / Saint-Martin,45.5710499,-73.7208399,bus
+41920,41920,Laval / face au 1700,45.56978,-73.7204299,bus
+41918,41918,Laval / face au 800,45.56746,-73.7202899,bus
+41917,41917,Laval / du Trait-Carré,45.56589,-73.71932,bus
+41914,41914,Laval / du Souvenir,45.5642099,-73.7175699,bus
+41912,41912,Laval / des Prés,45.5625599,-73.7159799,bus
+41929,41929,Laval / Dubé,45.5613899,-73.7148299,bus
+41005,41005,Ampère / Léo-Lacombe,45.56026,-73.70737,bus
+46668,46668,Ampère / Face au 440,45.5584699,-73.7056099,bus
+46080,46080,Robin / Ampère,45.5569699,-73.70352,bus
+46081,46081,Robin / Perrin,45.5582699,-73.70086,bus
+46082,46082,Robin / 15e Rue,45.55935,-73.6986399,bus
+42752,42752,15e Rue / Molière,45.5582999,-73.6973799,bus
+44070,44070,Terminus Le Carrefour Quai: 6,45.5684799,-73.74815,bus
+41931,41931,Le Carrefour / Le Corbusier,45.5722,-73.74128,bus
+41964,41964,Le Corbusier / Tessier,45.57021,-73.73876,bus
+41966,41966,Le Corbusier / Face au 1860,45.5685699,-73.7368899,bus
+41941,41941,Le Corbusier / Albert-Duquesne,45.5667199,-73.7341999,bus
+41958,41958,Le Corbusier / Saint-Martin,45.5639,-73.73103,bus
+41937,41937,Le Corbusier / Du Souvenir - Centre Laval,45.5618199,-73.72868,bus
+46509,46509,de l'Avenir / Jacques-Tétreault,45.5595899,-73.7208199,bus
+48039,48039,Terminus Montmorency Quai: 2,45.5585699,-73.72044,bus
+43149,43149,du Souvenir / face au cégep Montmorency,45.56246,-73.7203699,bus
+42844,42844,Saint-Martin / viaduc C.P.,45.57253,-73.71864,bus
+42847,42847,Saint-Martin / Fleetwood,45.5749799,-73.71443,bus
+42850,42850,Saint-Martin / Sun Valley,45.57666,-73.71207,bus
+42852,42852,Saint-Martin / de Bois-de-Boulogne,45.57793,-73.7104599,bus
+41814,41814,des Laurentides / Saint-Martin,45.5827499,-73.70613,bus
+42710,42710,René-Laennec / face au 2536,45.6185699,-73.72265,bus
+41099,41099,Bellerose / René-Laennec,45.6193499,-73.7245699,bus
+41098,41098,Bellerose / du Rucher,45.6180299,-73.7257799,bus
+41092,41092,Bellerose / de Palerme,45.6157999,-73.72781,bus
+41097,41097,Bellerose / de Lorca,45.6145,-73.7303899,bus
+41096,41096,Bellerose / Marc,45.61296,-73.7327799,bus
+41094,41094,Bellerose / des Laurentides,45.6114999,-73.73557,bus
+45016,45016,Bellerose / des Laurentides,45.6114799,-73.73508,bus
+41089,41089,Bellerose / Marc,45.6126699,-73.73279,bus
+41091,41091,Bellerose / de Lorca,45.61424,-73.7303099,bus
+41093,41093,Bellerose / de Palerme,45.6154699,-73.72795,bus
+41095,41095,Bellerose / du Rucher,45.61771,-73.72562,bus
+41084,41084,Bellerose / René-Laennec,45.61923,-73.7242399,bus
+42704,42704,René-Laennec / de Lausanne (Sud),45.6160699,-73.7233799,bus
+42855,42855,Saint-Martin / de Grenoble,45.5813599,-73.70677,bus
+42853,42853,Saint-Martin / Vallières,45.57849,-73.7104699,bus
+42851,42851,Saint-Martin / Sun Valley,45.57709,-73.7121699,bus
+42849,42849,Saint-Martin / de Sillery,45.5752499,-73.71472,bus
+43152,43152,du Souvenir / face au 1583,45.5626599,-73.72072,bus
+46444,46444,de l'Avenir / face au Collège Letendre,45.56123,-73.7224,bus
+41957,41957,Le Corbusier / Du Souvenir - Centre Laval,45.5623099,-73.72908,bus
+41952,41952,Le Corbusier / Saint-Martin,45.56436,-73.73143,bus
+41942,41942,Le Corbusier / Albert-Duquesne,45.5671099,-73.73453,bus
+41965,41965,Le Corbusier / Tessier,45.5701399,-73.7381699,bus
+41932,41932,Le Carrefour / Le Corbusier,45.5721099,-73.74197,bus
+44039,44039,Terminus Le Carrefour,45.5689099,-73.74841,bus
+45001,45001,Montgolfier / Notre-Dame,45.5326099,-73.78099,bus
+41312,41312,Clarendon / du Souvenir,45.53273,-73.77844,bus
+43127,43127,du Souvenir / face à l'école internationale,45.53421,-73.7765599,bus
+43150,43150,du Souvenir / Châtelaine,45.5355,-73.77508,bus
+43157,43157,du Souvenir / Melville,45.53687,-73.7722599,bus
+43159,43159,du Souvenir / d'Effingham,45.53791,-73.7704799,bus
+43108,43108,du Souvenir / Emerson,45.53876,-73.7693499,bus
+43110,43110,du Souvenir / 100e Avenue,45.5400499,-73.76771,bus
+43112,43112,du Souvenir / Webb,45.54134,-73.76616,bus
+43114,43114,du Souvenir / Léo,45.54302,-73.76446,bus
+43116,43116,du Souvenir / Élisabeth,45.54495,-73.7623899,bus
+43118,43118,Place du Souvenir,45.5466799,-73.76084,bus
+43120,43120,du Souvenir / du Couvent,45.5475299,-73.75999,bus
+43122,43122,du Souvenir / Curé-Labelle,45.5489099,-73.75737,bus
+43124,43124,du Souvenir / Hébert,45.54969,-73.7547,bus
+43126,43126,du Souvenir / Jolliet,45.54981,-73.7526,bus
+43129,43129,du Souvenir / Lapalme,45.55025,-73.7507199,bus
+43131,43131,du Souvenir / Pie-X,45.5505799,-73.74965,bus
+43133,43133,du Souvenir / Chomedey,45.55113,-73.7465099,bus
+43135,43135,du Souvenir / Chomedey,45.5518699,-73.74499,bus
+43137,43137,du Souvenir / Face à Laval Senior,45.55315,-73.7431,bus
+43140,43140,du Souvenir / Daniel-Johnson,45.5548599,-73.74079,bus
+43142,43142,du Souvenir / Armand-Frappier,45.5556799,-73.73616,bus
+43143,43143,du Souvenir / Armand-Frappier,45.5560899,-73.73601,bus
+43438,43438,du Souvenir / Daniel-Johnson,45.55466,-73.7417599,bus
+43139,43139,du Souvenir / face à Laval Senior,45.55305,-73.7437999,bus
+43136,43136,du Souvenir / Chomedey,45.5521199,-73.74525,bus
+43134,43134,du Souvenir / face au 3475,45.5512299,-73.74701,bus
+43132,43132,du Souvenir / Pie-X,45.5507699,-73.74953,bus
+43130,43130,du Souvenir / Lapalme,45.5503899,-73.75056,bus
+43128,43128,du Souvenir / Jolliet,45.5499699,-73.75246,bus
+43125,43125,du Souvenir / Hébert,45.5498099,-73.75451,bus
+43123,43123,du Souvenir / Curé-Labelle,45.5491599,-73.75711,bus
+43121,43121,du Souvenir / du Couvent,45.5477299,-73.75994,bus
+43119,43119,du Souvenir / Trépanier,45.54629,-73.7612599,bus
+43117,43117,du Souvenir / Pilon,45.5452199,-73.7623399,bus
+43115,43115,du Souvenir / Léo,45.5432299,-73.76449,bus
+43113,43113,du Souvenir / Webb,45.5416,-73.7660999,bus
+43111,43111,du Souvenir / 100e Avenue,45.5404899,-73.76749,bus
+43109,43109,du Souvenir / Emerson,45.53894,-73.7694199,bus
+43107,43107,du Souvenir / d'Effingham,45.5381199,-73.7704799,bus
+43158,43158,du Souvenir / Bertin,45.5371099,-73.77215,bus
+43156,43156,du Souvenir / Châtelaine,45.53577,-73.7748199,bus
+43138,43138,du Souvenir / face a l'ecole internationale,45.5341899,-73.7769099,bus
+46408,46408,du Souvenir / face au 5275,45.53329,-73.7782099,bus
+41313,41313,Clarendon / Notre-Dame,45.5323699,-73.7785099,bus
+46409,46409,Élodie-Boucher / face à l'académie Étoile du Nord,45.53052,-73.78011,bus
+46441,46441,Élodie-Boucher / derrière Clarins,45.52973,-73.77928,bus
+46410,46410,Élodie-Boucher / derrière ATS,45.52691,-73.77638,bus
+46432,46432,Élodie-Boucher / Samson,45.5255699,-73.7743199,bus
+43392,43392,Moreau / autoroute 13,45.5373299,-73.7891,bus
+43393,43393,Moreau / Montgolfier,45.53835,-73.7874499,bus
+43394,43394,Montgolfier / Bertin,45.53643,-73.7849999,bus
+43395,43395,Montgolfier / Grolier,45.53547,-73.78383,bus
+43396,43396,Montgolfier / Binet,45.53398,-73.78197,bus
+49040,49040,Montgolfier / Notre-Dame,45.5326099,-73.78098,bus
+44042,44042,Terminus Le Carrefour Quai: 8,45.5683099,-73.74828,bus
+43295,43295,Carrefour Laval,45.56762,-73.7510099,bus
+41505,41505,Daniel-Johnson / Le Carrefour,45.56509,-73.75328,bus
+41502,41502,Daniel-Johnson / de Chenonceau,45.5631799,-73.7511199,bus
+45058,45058,Daniel-Johnson / face au Leon,45.5609699,-73.7486099,bus
+42828,42828,Saint-Martin / Daniel-Johnson,45.5588099,-73.74416,bus
+42830,42830,Saint-Martin / face au 2900,45.5598599,-73.74229,bus
+46422,46422,Saint-Martin / face au palais de justice,45.5609099,-73.74043,bus
+42832,42832,Saint-Martin / Le Corbusier,45.5647099,-73.73332,bus
+43507,43507,de l'Avenir / Jacques-Tétreault,45.5596,-73.72082,bus
+43509,43509,de l'Avenir / face au Terminus Montmorency,45.5580099,-73.71933,bus
+41341,41341,de la Concorde / Saint-Hubert,45.5709199,-73.69105,bus
+41344,41344,de la Concorde / Jubinville,45.57205,-73.6891099,bus
+41346,41346,de la Concorde / Goineau,45.57342,-73.6865799,bus
+41348,41348,de la Concorde / de la Normandie,45.5745399,-73.68467,bus
+41350,41350,de la Concorde / de la Lorraine,45.5755299,-73.68324,bus
+41353,41353,de la Concorde / des Alouettes,45.5769,-73.6814499,bus
+41355,41355,de la Concorde / Notre-Dame-de-Fatima,45.57832,-73.67981,bus
+41357,41357,de la Concorde / de Lourdes,45.5801099,-73.67892,bus
+41359,41359,de la Concorde / Le Gardeur,45.58146,-73.6765699,bus
+41361,41361,de la Concorde / autoroute 19,45.5830199,-73.67532,bus
+41363,41363,de la Concorde / de Grand-Pré,45.5860299,-73.67389,bus
+41365,41365,de la Concorde / de L'Assomption,45.58763,-73.6726999,bus
+41367,41367,de la Concorde / Champlain,45.59004,-73.67056,bus
+41369,41369,de la Concorde / De Callières,45.59108,-73.66986,bus
+41372,41372,de la Concorde / De Callières,45.59269,-73.6676799,bus
+41373,41373,Centre d'achat Duvernay,45.5931499,-73.66642,bus
+41377,41377,de la Concorde / Joly,45.59422,-73.6622899,bus
+41379,41379,de la Concorde / Budapest,45.5951699,-73.66102,bus
+41382,41382,de la Concorde / Lesage,45.59677,-73.6594099,bus
+41384,41384,de la Concorde / Jacques-Brodeur,45.59872,-73.65748,bus
+41386,41386,de la Concorde / Mondor,45.60047,-73.6557599,bus
+41388,41388,de la Concorde / face à l'aréna Concorde,45.60178,-73.6541799,bus
+41390,41390,de la Concorde / Vanier,45.6036499,-73.65071,bus
+42451,42451,Montée du Moulin / La Périère,45.67549,-73.5816,bus
+45060,45060,Montée du Moulin / galeries du Moulin,45.6770499,-73.58298,bus
+42452,42452,Montée du Moulin / La Périère,45.67566,-73.58197,bus
+42454,42454,Montée du Moulin / Marius-Barbeau,45.67367,-73.57991,bus
+42449,42449,Montée du Moulin / Marius-Barbeau,45.6735699,-73.5795,bus
+45059,45059,Montée du Moulin / La Périère,45.67549,-73.58161,bus
+42450,42450,Galeries du Moulin,45.6770499,-73.58298,bus
+45061,45061,Montée du Moulin / La Périère,45.6756599,-73.5819799,bus
+45062,45062,Montée du Moulin / Marius-Barbeau,45.67367,-73.57993,bus
+41389,41389,de la Concorde / Rose-de-Lima,45.6020799,-73.65419,bus
+41387,41387,de la Concorde / du Parc,45.60069,-73.6559899,bus
+41385,41385,de la Concorde / Saint-Sylvain,45.5986699,-73.6579899,bus
+41383,41383,de la Concorde / Lesage,45.59686,-73.6597599,bus
+41381,41381,de la Concorde / Beaugrand,45.5955899,-73.66103,bus
+41378,41378,de la Concorde / Joly,45.59426,-73.6627299,bus
+41376,41376,de la Concorde / D'Auteuil,45.5935799,-73.66433,bus
+41374,41374,Centre d'achat Duvernay,45.5930999,-73.66742,bus
+41371,41371,de la Concorde / face au 2900,45.59131,-73.6700899,bus
+41368,41368,de la Concorde / Champlain,45.58952,-73.6713699,bus
+41366,41366,de la Concorde / de L'Assomption,45.5878599,-73.6728999,bus
+41364,41364,de la Concorde / de Grand-Pré,45.5858899,-73.6743399,bus
+41362,41362,de la Concorde / autoroute 19,45.58417,-73.6751699,bus
+41358,41358,de la Concorde / J.-J.-Joubert,45.5806699,-73.67858,bus
+41356,41356,de la Concorde / Notre-Dame-de-Fatima,45.5784099,-73.68039,bus
+41354,41354,de la Concorde / des Alouettes,45.5774199,-73.68166,bus
+41352,41352,de la Concorde / De La Bretagne,45.5765899,-73.6827599,bus
+41349,41349,de la Concorde / de la Normandie,45.5749499,-73.6848499,bus
+41347,41347,de la Concorde / Alexandre,45.5734399,-73.68719,bus
+41345,41345,de la Concorde / Jubinville,45.5722899,-73.6893199,bus
+41343,41343,de la Concorde / Saint-Hubert,45.5712999,-73.69107,bus
+43510,43510,de l'Avenir / face au cégep Montmorency,45.5582499,-73.7190199,bus
+43506,43506,de l'Avenir / Jacques-Tétreault,45.5595299,-73.72025,bus
+42833,42833,Saint-Martin / Le Corbusier,45.56504,-73.7335499,bus
+42831,42831,Saint-Martin / face au 2929,45.56034,-73.7422399,bus
+42829,42829,Saint-Martin / Daniel-Johnson,45.55885,-73.7448799,bus
+41509,41509,Daniel-Johnson / face au Centropolis,45.5600699,-73.7469399,bus
+45063,45063,Daniel-Johnson / face au Leon,45.5616799,-73.74879,bus
+41504,41504,Daniel-Johnson / de Chenonceau,45.5638499,-73.7512699,bus
+41506,41506,Daniel-Johnson / Édouard-Montpetit,45.5647099,-73.7522399,bus
+43296,43296,Le Carrefour / Daniel-Johnson,45.5659399,-73.75286,bus
+46470,46470,Le Carrefour / face au 3030,45.5679099,-73.75016,bus
+44142,44142,Terminus Le Carrefour,45.5685799,-73.74862,bus
+42705,42705,René-Laennec / de Toscane,45.60127,-73.71095,bus
+42719,42719,Cité-de-la-Santé,45.6023099,-73.71207,bus
+42721,42721,René-Laennec / de Namur,45.6038199,-73.7136599,bus
+43995,43995,René-Laennec / Bellerose,45.61964,-73.72348,bus
+42707,42707,René-Laennec / de Lausanne (Nord),45.62055,-73.72443,bus
+46415,46415,René-Laennec / face au 2932,45.62262,-73.7267,bus
+43996,43996,René-Laennec / Prudentiel,45.6249599,-73.7292099,bus
+46391,46391,René-Laennec / de Chaville,45.6268599,-73.73136,bus
+43997,43997,René-Laennec / des Lacasse,45.6278699,-73.7331599,bus
+43998,43998,des Lacasse / de Gap,45.62882,-73.7314299,bus
+43999,43999,des Lacasse / d'Aveiro,45.6310799,-73.72848,bus
+41009,41009,Des Lacasse / d'Aveiro,45.6312699,-73.72841,bus
+41010,41010,Des Lacasse / de Gap,45.62896,-73.7313299,bus
+41011,41011,Des Lacasse / René-Laennec,45.6280199,-73.7332199,bus
+46392,46392,René-Laennec / de Chaville,45.62675,-73.73178,bus
+41012,41012,René-Laennec / Prudentiel,45.6249799,-73.7297099,bus
+46416,46416,René-Laennec / face au 2932,45.6225099,-73.7270599,bus
+41013,41013,René-Laennec / Aladin,45.62131,-73.72576,bus
+41015,41015,René-Laennec / de Lausanne (Nord),45.6205999,-73.7249899,bus
+41014,41014,René-Laennec / Bellerose,45.6197,-73.7240199,bus
+42722,42722,René-Laennec / de Namur,45.60384,-73.71415,bus
+42720,42720,Cité-de-la-Santé,45.6023399,-73.71253,bus
+42716,42716,René-Laennec / de Toscane,45.6009199,-73.7110399,bus
+41076,41076,de Belgrade / Olivier-Chauveau,45.6122099,-73.74824,bus
+42557,42557,Olivier-Chauveau / de Corinthe,45.61395,-73.75004,bus
+42556,42556,Olivier-Chauveau / du Valais,45.6156899,-73.7517599,bus
+45017,45017,Olivier-Chauveau / de Munich,45.6170299,-73.7529999,bus
+42554,42554,Olivier-Chauveau / de Châtillon,45.61872,-73.754,bus
+42552,42552,Olivier-Chauveau / Thibault,45.6204799,-73.7548099,bus
+43180,43180,Thibault / d'Amay,45.6207,-73.7531499,bus
+43183,43183,Thibault / d'Amay,45.6209299,-73.7530299,bus
+43184,43184,Thibault / Olivier-Chauveau,45.6206599,-73.7548499,bus
+42551,42551,Olivier-Chauveau / de Châtillon,45.61887,-73.7543,bus
+45018,45018,Olivier-Chauveau / de Munich,45.61706,-73.75327,bus
+42553,42553,Olivier-Chauveau / du Valais,45.6158,-73.75212,bus
+42555,42555,Olivier-Chauveau / de Corinthe,45.61403,-73.75037,bus
+41077,41077,de Belgrade / Olivier-Chauveau,45.61221,-73.7478499,bus
+41078,41078,de Belgrade / Rio,45.61296,-73.7462599,bus
+48046,48046,Terminus Montmorency Quai: 7,45.5580499,-73.72036,bus
+42811,42811,Saint-Martin / Robinson,45.55145,-73.7606099,bus
+42810,42810,Saint-Martin / du Couvent,45.5503699,-73.7631099,bus
+45035,45035,Saint-Martin / Favreau,45.5497199,-73.7653699,bus
+42809,42809,Saint-Martin / Pilon,45.5493,-73.7666999,bus
+42807,42807,Saint-Martin / Francoeur,45.5489199,-73.76801,bus
+42806,42806,Saint-Martin / face à l'hôpital Saint-Judes,45.5485399,-73.76928,bus
+42821,42821,Saint-Martin / Fafard,45.5479299,-73.7713399,bus
+42802,42802,Saint-Martin / Dutrisac,45.5473999,-73.77476,bus
+42800,42800,Saint-Martin / 100e Avenue,45.5467499,-73.77794,bus
+42882,42882,Saint-Martin / face au 4940,45.54523,-73.7815199,bus
+42881,42881,Saint-Martin / face au 5004,45.5446099,-73.78281,bus
+42863,42863,Saint-Martin / face au 5184,45.54342,-73.7852599,bus
+42837,42837,Saint-Martin / Le Boutillier,45.5428299,-73.78644,bus
+42819,42819,Saint-Martin / Montgolfier,45.5417099,-73.78872,bus
+46721,46721,Saint-Martin / Montgolfier,45.5434899,-73.79182,bus
+41270,41270,Montée Champagne / Face au 980,45.5387599,-73.7986299,bus
+41269,41269,Montée Champagne / Principale,45.53709,-73.7966799,bus
+42639,42639,Principale / Bigras,45.53586,-73.7987599,bus
+46106,46106,Principale / face au 195,45.53516,-73.8003299,bus
+43437,43437,Principale / Stéphane,45.5345799,-73.8016599,bus
+42662,42662,Principale / Pierre,45.5335899,-73.8039899,bus
+46406,46406,Principale / Marjolaine,45.53333,-73.8047999,bus
+42674,42674,Principale / Malraux,45.53292,-73.8065899,bus
+42676,42676,Principale / Lise,45.5319799,-73.81112,bus
+42678,42678,Principale / Duprat,45.5315199,-73.8130499,bus
+42641,42641,Principale / de l'Hôtel-de-Ville,45.5308499,-73.81535,bus
+42643,42643,Principale / Francis,45.53023,-73.8175699,bus
+42645,42645,Principale / Carole,45.5293699,-73.82042,bus
+42648,42648,Principale / Corbeil,45.5283899,-73.8233499,bus
+42651,42651,Principale / Noël,45.52717,-73.8261499,bus
+45033,45033,Principale / des Coquelicots,45.5269099,-73.82891,bus
+42656,42656,Principale / des Saules,45.5269999,-73.8309199,bus
+42654,42654,Principale / Bastien,45.52742,-73.83364,bus
+42658,42658,Principale / face au 1210,45.5299399,-73.8365699,bus
+42659,42659,Principale / face au 1270,45.5317499,-73.8383599,bus
+42661,42661,Principale / face au 1305,45.5337,-73.84032,bus
+42664,42664,Principale / face au 1431,45.53558,-73.8422,bus
+42667,42667,Principale / Dulude,45.53957,-73.84608,bus
+42669,42669,Principale / Brady,45.54239,-73.84889,bus
+42671,42671,Principale / Saint-Antoine,45.54338,-73.84937,bus
+42761,42761,Saint-Antoine / 57e Avenue,45.5428899,-73.85223,bus
+42763,42763,Saint-Antoine / 51e Avenue,45.54179,-73.8545199,bus
+42765,42765,Saint-Antoine / Arthur-Sauvé,45.54072,-73.8569399,bus
+43077,43077,Arthur-Sauvé / 80e Rue,45.5420799,-73.8585399,bus
+43093,43093,Arthur-Sauvé / Troyat,45.5436299,-73.8601399,bus
+43095,43095,Arthur-Sauvé / Antoine-Blondin,45.54529,-73.86192,bus
+43097,43097,Arthur-Sauvé / Duhamel,45.54704,-73.86373,bus
+43079,43079,Arthur-Sauvé / Dagenais,45.5483499,-73.8650099,bus
+43080,43080,Arthur-Sauvé / Dagenais,45.5481999,-73.8652299,bus
+43078,43078,Arthur-Sauvé / Duhamel,45.5470799,-73.8640799,bus
+43096,43096,Arthur-Sauvé / Antoine-Blondin,45.5453499,-73.8622499,bus
+43094,43094,Arthur-Sauvé / Troyat,45.5433499,-73.8601099,bus
+43088,43088,Arthur-Sauvé / 80e Rue,45.5421399,-73.8588099,bus
+43091,43091,Arthur-Sauvé / 47e Avenue,45.54137,-73.85796,bus
+42764,42764,Saint-Antoine / 51e Avenue,45.54145,-73.8548,bus
+42762,42762,Saint-Antoine / 57e Avenue,45.54278,-73.8521399,bus
+42760,42760,Saint-Antoine / Principale,45.5433399,-73.84962,bus
+42672,42672,Principale / Brady,45.54213,-73.8488699,bus
+42670,42670,Principale / Dulude,45.5395399,-73.8462999,bus
+42668,42668,Principale / face au 1431,45.5354999,-73.8423399,bus
+42666,42666,Principale / Face au 1350,45.5337099,-73.8404999,bus
+42665,42665,Principale / face au 1270,45.5315499,-73.8384099,bus
+42663,42663,Principale / face au 1202,45.52966,-73.83652,bus
+42660,42660,Principale / Des Jacinthes,45.5275399,-73.8341699,bus
+42657,42657,Principale / Bastien,45.52687,-73.83068,bus
+42653,42653,Principale / des Coquelicots,45.5268,-73.8288999,bus
+42655,42655,Principale / Noël,45.52695,-73.8264799,bus
+42652,42652,Principale / Corbeil,45.5282899,-73.82334,bus
+42647,42647,Principale / Maurice,45.5293399,-73.82008,bus
+42646,42646,Principale / Francis,45.53007,-73.81766,bus
+42644,42644,Principale / Laurin,45.53092,-73.8146199,bus
+42642,42642,Principale / Duprat,45.53139,-73.8129299,bus
+42640,42640,Principale / Lise,45.53197,-73.8103899,bus
+42677,42677,Principale / Malraux,45.5326799,-73.80711,bus
+46407,46407,Principale / Marjolaine,45.5331999,-73.805,bus
+42675,42675,Principale / Pierre,45.5336299,-73.8036,bus
+43436,43436,Principale / Stéphane,45.5344699,-73.80164,bus
+46439,46439,Principale / face au 180,45.5350999,-73.80021,bus
+42673,42673,Principale / Bigras,45.53567,-73.7988599,bus
+42649,42649,Principale / Montée Champagne,45.53705,-73.7965,bus
+41271,41271,Montée Champagne / Les Jardins Champagne,45.53874,-73.79843,bus
+42823,42823,Saint-Martin / Montée Champagne,45.53965,-73.7991,bus
+46722,46722,Saint-Martin / Montgolfier,45.54327,-73.7914399,bus
+42827,42827,Saint-Martin / Le Boutillier,45.5426999,-73.78642,bus
+42848,42848,Saint-Martin / face au 5184,45.5433,-73.78522,bus
+42874,42874,Saint-Martin / face au 5004,45.54446,-73.7828699,bus
+42878,42878,Saint-Martin / face au 4952,45.54506,-73.7816,bus
+42883,42883,Saint-Martin / 100e Avenue,45.54658,-73.77762,bus
+42801,42801,Saint-Martin / Dutrisac,45.54724,-73.77502,bus
+42803,42803,Saint-Martin / Fafard,45.54773,-73.7715899,bus
+42804,42804,Saint-Martin / face à l'hôpital Saint-Judes,45.5483499,-73.76944,bus
+42805,42805,Saint-Martin / Francoeur,45.5487399,-73.7682,bus
+42808,42808,Saint-Martin / Pilon,45.54915,-73.7668199,bus
+45034,45034,Saint-Martin / Favreau,45.54952,-73.7655599,bus
+42813,42813,Saint-Martin / du Couvent,45.55017,-73.7631999,bus
+42814,42814,Saint-Martin / Robinson,45.55128,-73.7606899,bus
+43238,43238,Vanier / de la Concorde,45.6043999,-73.65107,bus
+43242,43242,Vanier / Dyonnet,45.6051399,-73.65216,bus
+43244,43244,Vanier / face au 1005,45.60715,-73.65541,bus
+43233,43233,Vanier / de la Fabrique,45.60904,-73.65743,bus
+43235,43235,Vanier / Liébert,45.61113,-73.6575,bus
+43236,43236,Vanier / Jean-XXIII,45.61198,-73.65745,bus
+41279,41279,Place Chénier / Vanier,45.6140099,-73.65989,bus
+46667,46667,Stationnement incitatif Saint-Martin,45.6114499,-73.66042,bus
+46112,46112,Pie-IX / de la Duchesse,45.6220299,-73.67307,bus
+46113,46113,Pie-IX / des Ambassadeurs,45.62445,-73.67545,bus
+46313,46313,Pie-IX / du Caporal,45.6255,-73.67658,bus
+46314,46314,Pie-IX / de l'Empereur,45.6269799,-73.6783199,bus
+46364,46364,de l'Empereur / du Sénateur,45.6259,-73.6820399,bus
+46365,46365,de l'Empereur / des Ambassadeurs,45.6249199,-73.68389,bus
+46539,46539,Des Ambassadeurs / Du Monarque,45.6236299,-73.6828899,bus
+46366,46366,des Ambassadeurs / des Généraux,45.62218,-73.6817399,bus
+46367,46367,des Gouverneurs / des Généraux,45.62035,-73.68251,bus
+46368,46368,des Gouverneurs / de l'Adjudant,45.61929,-73.6804799,bus
+46369,46369,des Gouverneurs / du Vicomte,45.6171199,-73.6796199,bus
+46370,46370,des Gouverneurs / des Aristocrates,45.6164099,-73.67939,bus
+46598,46598,Robert-Bourassa / Face au marché Adonis,45.6141499,-73.68327,bus
+46704,46704,Robert-Bourassa / Michel-Ange,45.61364,-73.6846499,bus
+46594,46594,Robert-Bourassa / Face au 4300,45.61274,-73.6868199,bus
+46544,46544,Robert-Bourassa / Dali,45.6119599,-73.6882,bus
+46545,46545,Robert-Bourassa / Face au Bureau en gros,45.61125,-73.6895099,bus
+46546,46546,Robert-Bourassa / Face au Voltizone,45.60933,-73.6982,bus
+46547,46547,Robert-Bourassa / Face au Wal-Mart,45.61085,-73.69987,bus
+46548,46548,Robert-Bourassa / Face au IGA,45.61182,-73.7006,bus
+46705,46705,des Grands-Maîtres / Saint-Elzéar,45.6171599,-73.7080099,bus
+46706,46706,Dagenais / Monette,45.61233,-73.7168899,bus
+46707,46707,Dagenais / René-Laennec,45.6103599,-73.7204,bus
+41487,41487,Dagenais / de Coblence,45.6096199,-73.72583,bus
+41489,41489,Dagenais / face au 94,45.6084499,-73.7290999,bus
+46708,46708,Dagenais / De Tolède,45.6074299,-73.73095,bus
+41086,41086,Bellerose / des Laurentides,45.6105499,-73.73722,bus
+41088,41088,Bellerose / face au 39,45.60934,-73.7390699,bus
+46749,46749,Bellerose / de Rio,45.6083099,-73.7409299,bus
+49048,49048,Gare Vimont,45.6042099,-73.74281,bus
+46712,46712,Gare Vimont,45.6042099,-73.74281,bus
+46748,46748,Bellerose / de Rio,45.60804,-73.74105,bus
+41085,41085,Bellerose / face au 36,45.60918,-73.7389599,bus
+41087,41087,Bellerose / des Laurentides,45.6104399,-73.73698,bus
+41492,41492,Dagenais / Paradis,45.60685,-73.7311999,bus
+41490,41490,Dagenais / de Grenade,45.6079899,-73.72906,bus
+41488,41488,Dagenais / de Coblence,45.60924,-73.72598,bus
+46709,46709,Dagenais / René-Laennec,45.6098999,-73.72062,bus
+46710,46710,Dagenais / Monette,45.6119199,-73.71665,bus
+46711,46711,des Grands-Maîtres / Saint-Elzéar,45.6171299,-73.7083999,bus
+46553,46553,Robert-Bourassa / Face au IGA,45.6119599,-73.7009299,bus
+46554,46554,Robert-Bourassa / Face au Wal-Mart,45.6109099,-73.7002899,bus
+46555,46555,Robert-Bourassa / Face au Voltizone,45.60935,-73.69862,bus
+46556,46556,Robert-Bourassa / Face au Bureau en gros,45.6110999,-73.68932,bus
+46557,46557,Robert-Bourassa / Dali,45.6118399,-73.68794,bus
+46595,46595,Robert-Bourassa / Face au 4300,45.6125699,-73.68662,bus
+46703,46703,Robert-Bourassa / Michel-Ange,45.61337,-73.6847699,bus
+46599,46599,Robert-Bourassa / FACE AU ADONIS,45.61386,-73.68337,bus
+46376,46376,des Gouverneurs / du Vicomte,45.6163599,-73.6791,bus
+46377,46377,des Gouverneurs / de l'Adjudant,45.61919,-73.68014,bus
+46378,46378,des Gouverneurs / des Généraux,45.62061,-73.6825799,bus
+46379,46379,des Ambassadeurs / des Généraux,45.6223699,-73.68167,bus
+46538,46538,Des Ambassadeurs / Du Monarque,45.62356,-73.68252,bus
+46380,46380,des Ambassadeurs / de l'Empereur,45.62474,-73.68379,bus
+46381,46381,de l'Empereur / du Sénateur,45.62565,-73.6821299,bus
+46311,46311,Pie-IX / de l'Empereur,45.62684,-73.67854,bus
+46312,46312,Pie-IX / du Sénateur,45.6255399,-73.6771299,bus
+46110,46110,Pie-IX / des Ambassadeurs,45.6244899,-73.6759999,bus
+46111,46111,Pie-IX / de la Duchesse,45.6220799,-73.67361,bus
+46517,46517,Stationnement incitatif Saint-Martin,45.6110999,-73.6626099,bus
+42879,42879,Saint-Martin / route 125 nord,45.6129899,-73.6624,bus
+43240,43240,Vanier / Breault,45.61354,-73.66088,bus
+46353,46353,Vanier / Place Chénier,45.61374,-73.65967,bus
+43241,43241,Vanier / Liébert,45.61134,-73.6577899,bus
+43243,43243,Vanier / de la Fabrique,45.6095199,-73.6579099,bus
+43245,43245,Vanier / face au 1006,45.60719,-73.65584,bus
+43234,43234,Vanier / Dyonnet,45.60504,-73.65262,bus
+43237,43237,Vanier / de la Concorde,45.6042699,-73.65137,bus
+44050,44050,Terminus Le Carrefour Quai: 7,45.5683199,-73.74796,bus
+42839,42839,Saint-Martin / McNamara,45.57038,-73.7228999,bus
+42842,42842,Saint-Martin / Laval,45.5711099,-73.72165,bus
+42854,42854,Saint-Martin / des Laurentides,45.5811399,-73.70641,bus
+42856,42856,Saint-Martin / des Laurentides,45.58235,-73.7040599,bus
+42858,42858,Saint-Martin / face au 255,45.5840499,-73.70199,bus
+42857,42857,Saint-Martin / face au 305,45.5850299,-73.70121,bus
+42862,42862,Saint-Martin / face au 700,45.58737,-73.69931,bus
+42865,42865,Saint-Martin / Notre-Dame-de-Fatima,45.5910699,-73.69517,bus
+45031,45031,Saint-Martin / autoroute 19,45.59347,-73.6917999,bus
+42867,42867,Saint-Martin / de la Mauricie,45.59716,-73.68655,bus
+42869,42869,Saint-Martin / de Blois,45.5992799,-73.68314,bus
+42871,42871,Saint-Martin / face au 2850,45.6007899,-73.68048,bus
+42873,42873,Saint-Martin / D'Auteuil,45.6048199,-73.67709,bus
+46118,46118,Saint-Martin / Jolicoeur,45.6072599,-73.6752,bus
+46119,46119,Saint-Martin / face au 3351,45.6091,-73.6718799,bus
+46120,46120,Saint-Martin / Lesage,45.6109499,-73.6671,bus
+42876,42876,Saint-Martin / route 125,45.61218,-73.6643499,bus
+41280,41280,Place Chénier / Vanier,45.6139899,-73.65911,bus
+41282,41282,Place Chénier / Mgr-Bourget,45.61483,-73.6570299,bus
+41104,41104,Belleville / Suzor-Côté,45.61334,-73.65401,bus
+46670,46670,Ernest-Cormier / Paul-Kane,45.63104,-73.6494799,bus
+41102,41102,Belleville / Suzor-Côté,45.6133699,-73.65378,bus
+41281,41281,Place Chénier / Belleville,45.6152499,-73.65638,bus
+42880,42880,Vanier / Route 125 nord,45.6133699,-73.66195,bus
+42877,42877,Saint-Martin / route 125,45.61223,-73.6647999,bus
+46114,46114,Saint-Martin / Lesage,45.6110799,-73.66765,bus
+46115,46115,Saint-Martin / face au 3450,45.60939,-73.6719799,bus
+46116,46116,Saint-Martin / Jolicoeur,45.6072,-73.6757899,bus
+46117,46117,Saint-Martin / D'Auteuil,45.60525,-73.6772699,bus
+42872,42872,Saint-Martin / face au 2830,45.6005899,-73.68154,bus
+42870,42870,Saint-Martin / de Blois,45.5997199,-73.68315,bus
+42868,42868,Saint-Martin / de la Mauricie,45.59732,-73.6869899,bus
+42866,42866,Saint-Martin / Notre-Dame-de-Fatima,45.5910499,-73.69592,bus
+42864,42864,Saint-Martin / face au 700,45.5875199,-73.6997,bus
+42860,42860,Saint-Martin / face au 305,45.5852399,-73.7015399,bus
+42859,42859,Saint-Martin / D'Oran,45.5824499,-73.7046799,bus
+42845,42845,Saint-Martin / viaduc C.P.,45.5728499,-73.7188499,bus
+42843,42843,Saint-Martin / Industriel,45.5720299,-73.72076,bus
+42461,42461,Montée du Moulin / Lévesque,45.6666399,-73.5722,bus
+42014,42014,Lévesque / Emma,45.66825,-73.5695999,bus
+42016,42016,Lévesque / Duchesneau,45.6694,-73.5659199,bus
+42019,42019,Lévesque / face au 8920,45.67029,-73.5644699,bus
+42021,42021,Lévesque / face au 9020,45.67202,-73.5621499,bus
+42023,42023,Lévesque / Fournier,45.6735599,-73.56015,bus
+42025,42025,Lévesque / Viviane,45.6747399,-73.5586,bus
+42027,42027,Lévesque / face au 9310,45.6758399,-73.55667,bus
+42030,42030,Lévesque / face au 9410,45.67687,-73.55509,bus
+42032,42032,Lévesque / Orbach,45.67811,-73.5526299,bus
+42034,42034,Lévesque / face au 9690,45.67936,-73.55031,bus
+42036,42036,Lévesque / face au 9820,45.68154,-73.54887,bus
+42038,42038,Lévesque / face au 9900,45.68274,-73.5485099,bus
+42041,42041,Lévesque / face au 10060,45.6849399,-73.54787,bus
+42043,42043,Lévesque / face au 10200,45.68773,-73.54631,bus
+42045,42045,Lévesque / face au 10320,45.68937,-73.5432699,bus
+42047,42047,Lévesque / face au 10580,45.69328,-73.53652,bus
+42049,42049,Lévesque / Gariépy,45.69461,-73.5343699,bus
+42259,42259,des Mille-Îles / Gariépy,45.6963799,-73.53579,bus
+42333,42333,des Mille-Îles / de l'Île-Mathieu,45.6964399,-73.5398099,bus
+42355,42355,des Mille-Îles / face au 10325,45.69689,-73.54426,bus
+42377,42377,des Mille-Îles / Vaillancourt,45.6970499,-73.54618,bus
+42399,42399,des Mille-Îles / Vaillancourt,45.6983,-73.55238,bus
+42271,42271,des Mille-Îles / Tourville,45.6992999,-73.55575,bus
+42293,42293,des Mille-Îles / face au 9770,45.6990899,-73.5574299,bus
+42316,42316,des Mille-Îles / Cholet,45.69853,-73.5599599,bus
+42319,42319,des Mille-Îles / Contant,45.6977899,-73.5622699,bus
+42321,42321,des Mille-Îles / face au 9440,45.6970499,-73.56498,bus
+42324,42324,des Mille-Îles / Godard,45.6965499,-73.56718,bus
+42326,42326,des Mille-Îles / Canuel,45.6961999,-73.5686699,bus
+42328,42328,des Mille-Îles / face à la Marina Bobino,45.6951399,-73.5721999,bus
+42330,42330,des Mille-Îles / face au 8980,45.69433,-73.5745999,bus
+42332,42332,des Mille-Îles / face au 8820,45.6936299,-73.57772,bus
+42335,42335,des Mille-Îles / face au 8710,45.6929099,-73.5804399,bus
+42337,42337,des Mille-Îles / Montée du Moulin,45.6917899,-73.5841,bus
+42339,42339,des Mille-Îles / face au 8440,45.6911299,-73.58735,bus
+42341,42341,des Mille-Îles / face au 8328,45.6902199,-73.59022,bus
+42343,42343,des Mille-Îles / Claude,45.68887,-73.5938499,bus
+42346,42346,des Mille-Îles / face au 8000,45.6878799,-73.59728,bus
+42348,42348,des Mille-Îles / face au 7880,45.6875699,-73.5992599,bus
+42350,42350,des Mille-Îles / face au 7630,45.6880099,-73.6041,bus
+42352,42352,des Mille-Îles / face au 2585,45.68961,-73.6083,bus
+42354,42354,des Mille-Îles / face au 7370,45.6903599,-73.6103499,bus
+42357,42357,des Mille-Îles / face au 7280,45.6910799,-73.61226,bus
+42359,42359,des Mille-Îles / Réaume,45.6918599,-73.6146499,bus
+42361,42361,des Mille-Îles / face au 7100,45.6920199,-73.61724,bus
+42363,42363,des Mille-Îles / Vézina,45.69175,-73.6204999,bus
+42365,42365,des Mille-Îles / Duguay,45.6919099,-73.6224,bus
+42368,42368,des Mille-Îles / face au 6810,45.6918499,-73.62448,bus
+42370,42370,des Mille-Îles / face au 6700,45.6901399,-73.6266299,bus
+42372,42372,des Mille-Îles / Charbonneau,45.6885999,-73.62731,bus
+42374,42374,des Mille-îles / Montée Masson,45.6882399,-73.62855,bus
+42375,42375,des Mille-îles / Montée Masson,45.68817,-73.62897,bus
+42373,42373,des Mille-Îles / Charbonneau,45.68837,-73.6273999,bus
+42371,42371,des Mille-Îles / face au 6700,45.6901,-73.62652,bus
+42369,42369,des Mille-Îles / face au 6820,45.69178,-73.6244299,bus
+42367,42367,des Mille-Îles / Duguay,45.69184,-73.6226199,bus
+42364,42364,des Mille-Îles / Vézina,45.69166,-73.62064,bus
+42362,42362,des Mille-Îles / face au 7100,45.69193,-73.6172699,bus
+42360,42360,des Mille-Îles / Réaume,45.69178,-73.6147,bus
+42358,42358,des Mille-Îles / face au 7280,45.69101,-73.6123299,bus
+42356,42356,des Mille-Îles / face au 7380,45.6902599,-73.6103499,bus
+42353,42353,des Mille-Îles / face au 2585,45.6895099,-73.6082999,bus
+42351,42351,des Mille-Îles / face au 7680,45.68796,-73.6042799,bus
+42349,42349,des Mille-Îles / face au 7870,45.68742,-73.59949,bus
+42347,42347,des Mille-Îles / face au 8000,45.68781,-73.5972799,bus
+42345,42345,des Mille-Îles / Claude,45.68869,-73.5940799,bus
+42342,42342,des Mille-Îles / face au 8328,45.6901799,-73.59003,bus
+42340,42340,des Mille-Îles / face au 8440,45.69104,-73.5873199,bus
+42338,42338,des Mille-Îles / Montée du Moulin,45.6915899,-73.58455,bus
+42336,42336,des Mille-Îles / face au 8710,45.69287,-73.58029,bus
+42334,42334,des Mille-Îles / face au 8820,45.69357,-73.5777099,bus
+42331,42331,des Mille-Îles / face au 8980,45.69431,-73.57446,bus
+42329,42329,des Mille-Îles / face à la Marina Bobino,45.6950599,-73.5722,bus
+42327,42327,des Mille-Îles / Canuel,45.6961299,-73.56869,bus
+42325,42325,des Mille-Îles / Godard,45.69648,-73.5671499,bus
+42323,42323,des Mille-Îles / face au 9420,45.6968999,-73.56513,bus
+42320,42320,des Mille-Îles / Contant,45.69771,-73.56228,bus
+42318,42318,des Mille-Îles / face au 9660,45.69846,-73.5599299,bus
+42306,42306,des Mille-Îles / face au 9770,45.69901,-73.5573799,bus
+42282,42282,des Mille-Îles / Tourville,45.69919,-73.5559399,bus
+42260,42260,des Mille-Îles / Vaillancourt,45.69842,-73.55282,bus
+42388,42388,des Mille-Îles / Leconte,45.69698,-73.54657,bus
+42366,42366,des Mille-Îles / face au 10325,45.69673,-73.54416,bus
+42344,42344,des Mille-Îles / de l'Île-Mathieu,45.69633,-73.54001,bus
+42322,42322,Lévesque / Gariépy,45.6962099,-73.53592,bus
+42051,42051,Lévesque / des Mille-Îles,45.6946899,-73.53448,bus
+42048,42048,Lévesque / face au 10580,45.69353,-73.5363999,bus
+42046,42046,Lévesque / face au 10320,45.6894999,-73.54333,bus
+42044,42044,Lévesque /face au 10200,45.6878475,-73.5463722,bus
+42042,42042,Lévesque / face au 10015,45.6847599,-73.54811,bus
+42040,42040,Lévesque / face au 9920,45.6831599,-73.54857,bus
+42037,42037,Lévesque / face au 9830,45.6814899,-73.5490599,bus
+42035,42035,Lévesque / face au 9700,45.67957,-73.5502299,bus
+42033,42033,Lévesque / Place Berthelot,45.6781999,-73.5526699,bus
+42031,42031,Lévesque / face au 9420,45.6770099,-73.5550199,bus
+42029,42029,Lévesque / face au 9310,45.6759,-73.5567999,bus
+42026,42026,Lévesque / Viviane,45.67479,-73.5587499,bus
+42024,42024,Lévesque / Fournier,45.6736599,-73.56019,bus
+42022,42022,Lévesque / face au 9020,45.6719599,-73.5623799,bus
+42020,42020,Lévesque / face au 8920,45.67022,-73.5647299,bus
+42018,42018,Lévesque / Duchesneau,45.6695899,-73.56569,bus
+42015,42015,Lévesque / Emma,45.6684399,-73.5695799,bus
+41708,41708,Henri-Bourassa / du Bois-de-Boulogne,45.53749,-73.6791399,bus
+46616,46616,Henri-Bourassa / de l'Acadie,45.53513,-73.6806299,bus
+43411,43411,Station du REM Du Ruisseau,45.5282899,-73.69315,bus
+43410,43410,Station du REM Du Ruisseau,45.5280599,-73.69297,bus
+46617,46617,Henri-Bourassa / de l'Acadie,45.5333499,-73.68126,bus
+41709,41709,Henri-Bourassa / du Bois-de-Boulogne,45.53841,-73.6780899,bus
+40155,40155,Terminus Henri-Bourassa,45.5541099,-73.66862,bus
+46652,46652,Saint-Martin / Louis-Bélanger,45.54754,-73.7722899,bus
+46139,46139,Fafard / Fauteux,45.5486999,-73.7723,bus
+46140,46140,Fafard / Louis-Payette,45.5508399,-73.7749099,bus
+46141,46141,Fafard / Gendreau,45.5549399,-73.77588,bus
+46142,46142,Fafard / Favreau,45.55616,-73.7737999,bus
+46143,46143,Favreau / Place Favreau,45.5550499,-73.7723199,bus
+46394,46394,Favreau / Louis-Payette,45.5538899,-73.7708499,bus
+41934,41934,Le Carrefour / Beauregard,45.55787,-73.7646499,bus
+41936,41936,Le Carrefour / Albert-Murphy,45.5590099,-73.76232,bus
+46473,46473,Le Carrefour / Face au Vinfast,45.5619599,-73.75831,bus
+43925,43925,Le Carrefour / Chomedey,45.5626299,-73.75741,bus
+43927,43927,Le Carrefour / face au 3350,45.56405,-73.7554499,bus
+43928,43928,Le Carrefour / Résidence Stella,45.56486,-73.7542999,bus
+44156,44156,Terminus Le Carrefour Quai: 11,45.5685199,-73.74913,bus
+46144,46144,Tessier / Dumouchel,45.57069,-73.7373299,bus
+46145,46145,Tessier / Bach,45.5717,-73.7349199,bus
+41781,41781,Jessop / Louise,45.5741399,-73.7357299,bus
+42152,42152,Louise / de Rouen,45.5752399,-73.73163,bus
+42154,42154,Louise / Goya,45.57548,-73.7294499,bus
+42164,42164,McNamara / Pine,45.57384,-73.7268399,bus
+42166,42166,McNamara / Maple,45.57204,-73.7247499,bus
+42168,42168,McNamara / Saint-Martin,45.5710799,-73.7236399,bus
+42167,42167,McNamara / Maple,45.5720099,-73.7244099,bus
+42165,42165,McNamara / Pine,45.5737999,-73.7264799,bus
+42163,42163,McNamara / Louise,45.5755899,-73.7285499,bus
+42153,42153,Louise / de Rouen,45.5753899,-73.7313899,bus
+42151,42151,Louise / Jessop,45.5742799,-73.73583,bus
+41782,41782,Jessop / Tessier,45.5719699,-73.7340399,bus
+46147,46147,Tessier / Bach,45.5717999,-73.73567,bus
+46148,46148,Tessier / Le Corbusier,45.5703999,-73.73826,bus
+44056,44056,Terminus Le Carrefour Quai: 9,45.5684399,-73.74847,bus
+43929,43929,Le Carrefour / Daniel-Johnson,45.5652599,-73.75422,bus
+43930,43930,Le Carrefour / face au 3405,45.5640099,-73.75596,bus
+43931,43931,Le Carrefour / Face au Land Rover,45.5632799,-73.75693,bus
+46472,46472,Le Carrefour / Chomedey,45.5619199,-73.7588,bus
+46474,46474,Le Carrefour / Albert-Murphy,45.5593899,-73.7622,bus
+41933,41933,Le Carrefour / Beauregard,45.55823,-73.7644599,bus
+41935,41935,Le Carrefour / Curé-Labelle,45.5571599,-73.76653,bus
+46393,46393,Favreau / Place Favreau,45.55497,-73.77194,bus
+46149,46149,Fafard / Goyer,45.5561,-73.7741699,bus
+46150,46150,Fafard / Gendreau,45.5551699,-73.7757699,bus
+46151,46151,Fafard / Légaré,45.5531999,-73.7773599,bus
+46152,46152,Fafard / Fauteux,45.54878,-73.77269,bus
+46153,46153,Fafard / Saint-Martin,45.5479599,-73.7717199,bus
+45066,45066,Principale / Maurice,45.5295199,-73.81994,bus
+42521,42521,Notre-Dame-de-Fatima / de Metz,45.57859,-73.68076,bus
+42519,42519,Notre-Dame-de-Fatima / face au 509,45.58001,-73.68235,bus
+42517,42517,Notre-Dame-de-Fatima / de Brouage,45.5812799,-73.6837599,bus
+42528,42528,Notre-Dame-de-Fatima / Taschereau,45.5824999,-73.6851199,bus
+42526,42526,Notre-Dame-de-Fatima / d'Anjou,45.5832699,-73.6859799,bus
+42524,42524,Notre-Dame-de-Fatima / Fernand-Séguin,45.58515,-73.68806,bus
+46160,46160,Fernand-Séguin / Victor-Morin,45.5854999,-73.68748,bus
+46161,46161,Fernand-Séguin / Fiset,45.5865099,-73.68592,bus
+46162,46162,Fernand-Séguin / de Blois,45.5877799,-73.68579,bus
+42238,42238,Mésy / de Blois,45.58802,-73.6850899,bus
+41146,41146,de Blois / Leblanc,45.58871,-73.68342,bus
+41144,41144,de Blois / Lévis,45.5900899,-73.68093,bus
+46163,46163,de Blois / de la Mauricie,45.5907299,-73.6798,bus
+46164,46164,de Blois / Richer,45.5917599,-73.67823,bus
+46165,46165,de Blois / Champlain,45.593,-73.67717,bus
+43391,43391,Tracy / de Blois,45.5945999,-73.6777,bus
+43203,43203,Tracy / d'Artois,45.59579,-73.6756399,bus
+43211,43211,Tracy / de Callières,45.5970899,-73.67327,bus
+43209,43209,Tracy / D'Auteuil,45.59838,-73.6709099,bus
+43207,43207,Tracy / Plante,45.60002,-73.6679099,bus
+43205,43205,Tracy / Lesage,45.6015099,-73.66517,bus
+41975,41975,Lesage / François-Foucault,45.60315,-73.66714,bus
+41978,41978,Lesage / Jolicoeur,45.6052099,-73.66867,bus
+41980,41980,Lesage / face au 1183,45.6078599,-73.6679,bus
+41982,41982,Lesage / Charron,45.6096099,-73.66734,bus
+42561,42561,du Parc / Bégin,45.6079599,-73.6651299,bus
+42568,42568,du Parc / François-Foucault,45.60583,-73.66276,bus
+42566,42566,du Parc / Morin,45.6032499,-73.6599099,bus
+46636,46636,du Parc / Léonard,45.60075,-73.65715,bus
+46637,46637,du Parc / Léonard,45.6007699,-73.6569499,bus
+42565,42565,du Parc / Morin,45.6031799,-73.6596499,bus
+42567,42567,du Parc / François-Foucault,45.6057399,-73.6624899,bus
+42569,42569,du Parc / Bégin,45.6079499,-73.6649,bus
+42562,42562,du Parc / Lesage,45.6097399,-73.66726,bus
+41983,41983,Lesage / face au 1202,45.60796,-73.6681899,bus
+41981,41981,Lesage / Jolicoeur,45.6049099,-73.6689699,bus
+41979,41979,Lesage / François-Foucault,45.6032199,-73.6675999,bus
+41977,41977,Lesage / Tracy,45.6016999,-73.66529,bus
+43206,43206,Tracy / Plante,45.60024,-73.6678499,bus
+43208,43208,Tracy / D'Auteuil,45.59864,-73.6707499,bus
+43210,43210,Tracy / de Callières,45.59731,-73.6731899,bus
+43212,43212,Tracy / d'Artois,45.5959999,-73.67558,bus
+43204,43204,Tracy / de Blois,45.59482,-73.6777499,bus
+46154,46154,de Blois / Champlain,45.59315,-73.6773399,bus
+46155,46155,de Blois / Richer,45.5919399,-73.6782299,bus
+46156,46156,de Blois / de la Mauricie,45.59093,-73.6798199,bus
+41145,41145,de Blois / Lévis,45.59029,-73.6808799,bus
+41140,41140,de Blois / Leblanc,45.5887599,-73.68369,bus
+42239,42239,de Blois / Mésy,45.5881699,-73.6848999,bus
+42240,42240,Mésy / Fernand-Séguin,45.5879199,-73.68586,bus
+46157,46157,Fernand-Séguin / Fiset,45.5867699,-73.6859399,bus
+46158,46158,Fernand-Séguin / Victor-Morin,45.5857299,-73.68736,bus
+46159,46159,Fernand-Séguin / Notre-Dame-de-Fatima,45.5852899,-73.68819,bus
+42525,42525,Notre-Dame-de-Fatima / d'Anjou,45.58336,-73.68632,bus
+42527,42527,Notre-Dame-de-Fatima / Taschereau,45.58256,-73.68545,bus
+42529,42529,Notre-Dame-de-Fatima / de Brouage,45.58134,-73.6841099,bus
+42518,42518,Notre-Dame-de-Fatima / face au 506,45.58,-73.68259,bus
+42520,42520,Notre-Dame-de-Fatima / de Metz,45.5783699,-73.6807899,bus
+41022,41022,Alton-Goldbloom / face à l'hôpital,45.5484299,-73.73699,bus
+41020,41020,Alton-Goldbloom / Dale,45.54663,-73.7382399,bus
+46356,46356,des Châteaux / Chomedey,45.5537799,-73.74802,bus
+41275,41275,des Châteaux / face au 3280,45.55486,-73.74572,bus
+41277,41277,des Châteaux / Daniel-Johnson,45.5560399,-73.74363,bus
+46243,46243,Daniel-Johnson / Saint-Martin,45.5582799,-73.74497,bus
+47060,47060,Terminus Cartier Quai: 6,45.5595299,-73.68315,bus
+44060,44060,Terminus Le Carrefour Quai: 10,45.5685799,-73.74862,bus
+41508,41508,Daniel-Johnson / face au Centropolis,45.5593699,-73.7467499,bus
+46328,46328,Daniel-Johnson / Saint-Martin,45.55789,-73.74508,bus
+41278,41278,des Châteaux / Daniel-Johnson,45.55615,-73.7437799,bus
+41276,41276,des Châteaux / face au 3275,45.5549399,-73.74596,bus
+41274,41274,des Châteaux / Chomedey,45.55396,-73.7480799,bus
+41620,41620,Alton-Goldbloom / Notre-Dame,45.5450499,-73.7377099,bus
+41619,41619,Alton-Goldbloom / Dale,45.5463199,-73.73819,bus
+49060,49060,Alton-Goldbloom / face à l'hôpital,45.5484399,-73.73698,bus
+43380,43380,Pierre-Péladeau / Saint-Martin,45.5611299,-73.7417999,bus
+43381,43381,Pierre-Péladeau / cinéma Colossus,45.5622999,-73.7431799,bus
+43980,43980,Pierre-Péladeau / Terry-Fox,45.56342,-73.74447,bus
+46530,46530,du Cosmodôme / Pierre-Péladeau,45.56473,-73.7452099,bus
+43382,43382,Terry-Fox / du Cosmodôme,45.56611,-73.7441,bus
+43383,43383,Terry-Fox / Édouard-Montpetit,45.5677399,-73.74584,bus
+44061,44061,Terminus Le Carrefour Quai: 3,45.5689299,-73.74792,bus
+41510,41510,Daniel-Johnson / face au 2540,45.56688,-73.75472,bus
+41770,41770,Jean-Béraud / Daniel-Johnson,45.5682199,-73.75824,bus
+43405,43405,Jean-Béraud / face au 3285,45.5665599,-73.75999,bus
+41772,41772,Jean-Béraud / Chomedey,45.56532,-73.7610699,bus
+41296,41296,Chomedey / face au 2911,45.5703299,-73.7669999,bus
+41605,41605,Saint-Elzéar / Chomedey,45.5716499,-73.76949,bus
+41603,41603,Saint-Elzéar / face au Marché 440,45.57038,-73.7719799,bus
+46535,46535,Saint-Elzéar / Elsa-Triolet,45.5698099,-73.77439,bus
+45027,45027,Saint-Elzéar / Joachim-Du Bellay,45.5696299,-73.7771699,bus
+41608,41608,Saint-Elzéar / Curé-Labelle,45.56902,-73.7815699,bus
+46326,46326,Gabriel / Gilles,45.5823099,-73.79288,bus
+41678,41678,Gilles / Glenn,45.5830299,-73.79374,bus
+41676,41676,Gilles / Christiane,45.58432,-73.79471,bus
+41674,41674,Gilles / Godefroy,45.5866,-73.79548,bus
+41672,41672,Gilles / Camille,45.5885299,-73.7987199,bus
+41670,41670,Gilles / Colomban,45.5893299,-73.8012999,bus
+41685,41685,Gilles / Carmina,45.58896,-73.8047399,bus
+41682,41682,Gilles / Fleury,45.58853,-73.8066999,bus
+41632,41632,Fleury / Chantal,45.5860599,-73.8038499,bus
+41630,41630,Fleury / Christiane,45.58348,-73.8030699,bus
+41306,41306,Christiane / Fabiola,45.5835099,-73.8053799,bus
+41304,41304,Christiane / Fridolin,45.5830099,-73.80894,bus
+41309,41309,Christiane / Bernadette,45.5828899,-73.81069,bus
+41311,41311,Christiane / Gilles,45.5838699,-73.81299,bus
+41683,41683,Gilles / Basile,45.5828799,-73.8145299,bus
+41681,41681,Gilles / Montée Montrougeau,45.5819399,-73.81574,bus
+42431,42431,Montée Montrougeau / Marian,45.57994,-73.8141,bus
+42434,42434,Montée Montrougeau / Anik,45.57826,-73.81245,bus
+42436,42436,Montée Montrougeau / Dagenais,45.57727,-73.8114999,bus
+41472,41472,Dagenais / Luce,45.5760299,-73.81271,bus
+41759,41759,Jacques / Julie,45.57268,-73.8172599,bus
+41761,41761,Jacques / Jovette,45.57152,-73.81596,bus
+41763,41763,Jacques / Isabelle,45.56979,-73.81422,bus
+41765,41765,Jacques / Julio,45.5686899,-73.8131599,bus
+41767,41767,Jacques / Jeannette,45.5674499,-73.81359,bus
+41777,41777,Jeannette / Jeannette,45.5649799,-73.8115599,bus
+41779,41779,Jeannette / Josué,45.56389,-73.8076199,bus
+43268,43268,Édith / face à Hydro Québec,45.5636499,-73.80636,bus
+43267,43267,Justin / face à Hydro Québec,45.5637899,-73.80646,bus
+41780,41780,Josué / Jeannette,45.5639499,-73.8073999,bus
+41778,41778,Jeannette / Jeannette,45.5648899,-73.8112299,bus
+41776,41776,Jeannette / Jacques,45.5672099,-73.8135799,bus
+41766,41766,Jacques / Julio,45.5685799,-73.81291,bus
+41764,41764,Jacques / Isabelle,45.5696899,-73.8138599,bus
+41762,41762,Jacques / Jovette,45.57143,-73.81563,bus
+41760,41760,Jacques / Dagenais,45.5730499,-73.8172699,bus
+41470,41470,Dagenais / Ingrid,45.5750199,-73.81373,bus
+42439,42439,Montée Montrougeau / Dagenais,45.5769199,-73.8108799,bus
+42437,42437,Montée Montrougeau / Anik,45.5781,-73.81199,bus
+42435,42435,Montée Montrougeau / Marian,45.5798099,-73.8136899,bus
+42432,42432,Montée Montrougeau / Gilles,45.58173,-73.81557,bus
+41680,41680,Gilles / Basile,45.58266,-73.8145099,bus
+41679,41679,Gilles / Christiane,45.58375,-73.8131799,bus
+41308,41308,Christiane / Bernadette,45.5828,-73.8110599,bus
+41310,41310,Christiane / Fridolin,45.58282,-73.8091699,bus
+41305,41305,Christiane / Fabiola,45.58339,-73.80566,bus
+41307,41307,Christiane / Fleury,45.58331,-73.80317,bus
+41631,41631,Fleury / Chantal,45.58592,-73.80353,bus
+41633,41633,Fleury / Gilles,45.58833,-73.80662,bus
+41684,41684,Gilles / Carmina,45.5887799,-73.80489,bus
+41686,41686,Gilles / Colomban,45.58918,-73.80153,bus
+41671,41671,Gilles / Camille,45.5885,-73.79907,bus
+41673,41673,Gilles / Godefroy,45.58675,-73.79577,bus
+41675,41675,Gilles / Christiane,45.58445,-73.79497,bus
+41677,41677,Gilles / Glenn,45.58304,-73.7941,bus
+46649,46649,Gabriel / Curé-Labelle,45.58255,-73.7899399,bus
+41607,41607,Saint-Elzéar / Curé-Labelle,45.56899,-73.7808499,bus
+45026,45026,Saint-Elzéar / Joachim-Du Bellay,45.56951,-73.7760799,bus
+46534,46534,Saint-Elzéar / Elsa-Triolet,45.5697699,-73.77324,bus
+41604,41604,Saint-Elzéar / face au Marché 440,45.5706299,-73.77089,bus
+43984,43984,Chomedey / Saint-Elzéar,45.5714499,-73.76855,bus
+41295,41295,Chomedey / face au 2911,45.5704,-73.76759,bus
+41771,41771,Jean-Béraud / Chomedey,45.56529,-73.76058,bus
+43404,43404,Jean-Béraud / face au 3400,45.5668,-73.7594799,bus
+41769,41769,Jean-Béraud / Daniel-Johnson,45.5683699,-73.75745,bus
+41511,41511,Daniel-Johnson / face au 2540,45.5674299,-73.7559399,bus
+44161,44161,Terminus Le Carrefour Quai: 5,45.5685999,-73.7483,bus
+43385,43385,Terry-Fox / Édouard-Montpetit,45.5678399,-73.7461299,bus
+43386,43386,Terry-Fox / du Cosmodôme,45.5663899,-73.7447199,bus
+46531,46531,du Cosmodôme / Pierre-Péladeau,45.5652299,-73.7447299,bus
+43979,43979,Pierre-Péladeau / Terry-Fox,45.56356,-73.74493,bus
+43387,43387,Pierre-Péladeau / cinéma Colossus,45.5620399,-73.7431999,bus
+41688,41688,Giroux / 4e Rue,45.54984,-73.71541,bus
+41690,41690,Giroux / 5e Rue,45.5511999,-73.7167399,bus
+41692,41692,Giroux / D'Argenteuil,45.5523499,-73.7178699,bus
+41515,41515,D'Argenteuil / Montmorency,45.5531499,-73.71666,bus
+41517,41517,D'Argenteuil / Brien,45.55443,-73.71475,bus
+41519,41519,D'Argenteuil / du Bon-Pasteur,45.5553199,-73.71289,bus
+41513,41513,D'Argenteuil / Laval,45.55653,-73.71042,bus
+41924,41924,Laval / Raymond-Casgrain,45.5579299,-73.71106,bus
+41018,41018,Le Carrefour / Le Corbusier,45.57211,-73.7419899,bus
+41962,41962,Le Corbusier / Gutenberg,45.57392,-73.74213,bus
+41950,41950,Le Corbusier / Cunard,45.57598,-73.74259,bus
+41943,41943,Le Corbusier / face au 2577,45.5777,-73.74351,bus
+46187,46187,Michelin / Le Corbusier,45.58624,-73.7543399,bus
+46189,46189,Michelin / Montée Saint-Aubin,45.5847999,-73.7581399,bus
+46190,46190,Michelin / Le Chatelier,45.5850199,-73.7621399,bus
+46191,46191,Michelin / face au 2460,45.5843699,-73.7651699,bus
+46192,46192,Michelin / des Rossignols,45.5826999,-73.7678099,bus
+46193,46193,des Rossignols / Dagenais,45.5855699,-73.76863,bus
+46402,46402,des Rossignols / face au 5755,45.5871199,-73.7696299,bus
+42741,42741,des Rossignols / de la Petite-Côte,45.5886399,-73.7709199,bus
+45041,45041,des Rossignols / du Viréo,45.5900799,-73.7715,bus
+46194,46194,des Rossignols / des Oiseaux,45.59192,-73.772,bus
+46195,46195,des Rossignols / de la Perdriole,45.59396,-73.7725,bus
+46196,46196,des Rossignols / de la Perdriole,45.59574,-73.77262,bus
+46197,46197,des Rossignols / du Faisan,45.59714,-73.7727,bus
+46198,46198,des Rossignols / de la Volière,45.5988299,-73.7730699,bus
+46199,46199,des Rossignols / Des Bernaches,45.60093,-73.7736,bus
+46200,46200,des Rossignols / du Passerin,45.6025699,-73.7741299,bus
+46201,46201,Des Rossignols / de la Renaissance,45.6035199,-73.77531,bus
+46202,46202,de la Renaissance / des Patriotes,45.6021199,-73.77803,bus
+46203,46203,Honoré-Mercier / de la Renaissance,45.6017799,-73.7812099,bus
+46204,46204,Honoré-Mercier / Arthur-Buies,45.6039199,-73.78162,bus
+46205,46205,Honoré-Mercier / Claude-Henri-Grignon,45.60596,-73.78235,bus
+41658,41658,Marc-Aurèle-Fortin / des Patriotes,45.60693,-73.7802499,bus
+42574,42574,des Patriotes / du Roi-du-Nord,45.60954,-73.78076,bus
+42576,42576,des Patriotes / Je-Me-Souviens,45.6118,-73.78135,bus
+42578,42578,des Patriotes / Nadon,45.6150299,-73.7822599,bus
+42580,42580,des Patriotes / Sainte-Rose,45.6165099,-73.78267,bus
+42890,42890,Sainte-Rose / face au 57,45.62173,-73.77849,bus
+42893,42893,Sainte-Rose / Archambault,45.62297,-73.77707,bus
+42897,42897,Sainte-Rose / Olier-Payette,45.62381,-73.7744999,bus
+42898,42898,Sainte-Rose / Jean-Charles,45.6245,-73.7715699,bus
+49063,49063,Gare Sainte-Rose,45.6257999,-73.76583,bus
+46330,46330,Gare Sainte-Rose,45.6258099,-73.76583,bus
+42895,42895,Sainte-Rose / Jean-Charles,45.6246599,-73.77143,bus
+42894,42894,Sainte-Rose / Olier-Payette,45.6239899,-73.77415,bus
+42891,42891,Sainte-Rose / Archambault,45.62323,-73.7768799,bus
+42889,42889,Sainte-Rose / face au 65,45.62159,-73.7787199,bus
+42887,42887,Sainte-Rose / Dufferin,45.6197199,-73.77985,bus
+42579,42579,des Patriotes / Nadon,45.61514,-73.78241,bus
+42577,42577,des Patriotes / Je-Me-Souviens,45.6120199,-73.7815699,bus
+42575,42575,des Patriotes / du Roi-du-Nord,45.60972,-73.78098,bus
+42573,42573,des Patriotes / De Manthet,45.60742,-73.78036,bus
+46166,46166,Honoré-Mercier / Claude-Henri-Grignon,45.60608,-73.78263,bus
+46167,46167,Honoré-Mercier / Arthur-Buies,45.60447,-73.7821699,bus
+46168,46168,Honoré-Mercier / de la Renaissance,45.60198,-73.78152,bus
+46169,46169,de la Renaissance / des Patriotes,45.6019,-73.7782899,bus
+46170,46170,de la Renaissance / des Rossignols,45.60335,-73.7755799,bus
+46171,46171,des Rossignols / du Passerin,45.6027,-73.77437,bus
+46172,46172,des Rossignols / Des Bernaches,45.60107,-73.7739,bus
+46173,46173,des Rossignols / De La Volière,45.5990199,-73.7733699,bus
+46174,46174,des Rossignols / du Faisan,45.5973299,-73.7729599,bus
+46175,46175,des Rossignols / de la Perdriole,45.5959,-73.7728599,bus
+46176,46176,des Rossignols / de la Perdriole,45.59413,-73.7727499,bus
+46177,46177,des Rossignols / des Oiseaux,45.59215,-73.7722899,bus
+46302,46302,des Rossignols / du Viréo,45.59033,-73.77181,bus
+42740,42740,des Rossignols / de la Petite-Côte,45.5887299,-73.7712399,bus
+46178,46178,des Rossignols / Dagenais,45.5866199,-73.76946,bus
+46179,46179,des Rossignols / face au 5600,45.58529,-73.7687899,bus
+46180,46180,Michelin / des Rossignols,45.58261,-73.7671699,bus
+46181,46181,Michelin / face au 2460,45.58428,-73.76498,bus
+46182,46182,Michelin / Le Chatelier,45.58484,-73.7624499,bus
+46183,46183,Michelin / Montée Saint-Aubin,45.58469,-73.7586499,bus
+41949,41949,Le Corbusier / Berlier,45.5813499,-73.7478999,bus
+41947,41947,Le Corbusier / face au 2584,45.57726,-73.74358,bus
+41944,41944,Le Corbusier / Cunard,45.57644,-73.7431099,bus
+41960,41960,Le Corbusier / Gutenberg,45.57405,-73.7426099,bus
+46355,46355,Le Corbusier / Le Carrefour,45.57281,-73.7416699,bus
+46186,46186,de la Concorde / Laval,45.55934,-73.7129699,bus
+41925,41925,Laval / Raymond-Casgrain,45.5580799,-73.7115699,bus
+41923,41923,Laval / D'Argenteuil,45.55666,-73.71067,bus
+41512,41512,D'Argenteuil / du Bon-Pasteur,45.55549,-73.7128299,bus
+41518,41518,D'Argenteuil / Brien,45.5546099,-73.71466,bus
+41516,41516,D'Argenteuil / Montmorency,45.5533099,-73.7167099,bus
+41514,41514,D'Argenteuil / Giroux,45.55249,-73.7179299,bus
+41691,41691,Giroux / 5e Rue,45.5512299,-73.7169899,bus
+41689,41689,Giroux / 4e Rue,45.5499299,-73.7157299,bus
+41687,41687,Giroux / Cartier,45.5487499,-73.71461,bus
+41963,41963,Le Corbusier / Le Carrefour,45.5729799,-73.7413599,bus
+41956,41956,Le Corbusier / Dagenais,45.5926,-73.75987,bus
+46222,46222,Le Corbusier / Petite-Côte,45.59403,-73.7609,bus
+46223,46223,Le Corbusier / des Orioles,45.5952899,-73.7612299,bus
+46224,46224,des Oiseaux / de l'Équerre,45.5984899,-73.76308,bus
+46225,46225,des Oiseaux / des Cardinaux,45.5980499,-73.765,bus
+46226,46226,des Oiseaux / de la Volière (est),45.59727,-73.7683099,bus
+46227,46227,des Oiseaux / des Piverts,45.59483,-73.7697999,bus
+46228,46228,des Oiseaux / des Choucas,45.5935799,-73.7695799,bus
+46229,46229,des Oiseaux / des Rossignols,45.5921399,-73.7719799,bus
+42550,42550,des Oiseaux / des Pintades,45.5917299,-73.77361,bus
+42531,42531,des Oiseaux / de l'Aiglon,45.59076,-73.7748899,bus
+42533,42533,des Oiseaux / des Bergeronnettes,45.5889499,-73.7757799,bus
+42535,42535,des Oiseaux / de l'Engoulevent,45.58729,-73.7765899,bus
+42537,42537,des Oiseaux / du Rouge-Gorge,45.5864699,-73.77836,bus
+42539,42539,des Oiseaux / des Cygnes,45.5868799,-73.78153,bus
+42542,42542,des Oiseaux / Du Rouge-Gorge,45.5884,-73.78104,bus
+42548,42548,des Oiseaux / des Tourterelles,45.5903199,-73.7804,bus
+42546,42546,des Oiseaux / de la Volière (ouest),45.5920599,-73.78206,bus
+42541,42541,des Oiseaux / Curé-Labelle,45.5918999,-73.78587,bus
+46445,46445,Corbin / Galarneau,45.5910199,-73.7883799,bus
+46446,46446,Marc-Aurèle-Fortin / Charles-Daudelin,45.5902199,-73.79229,bus
+46447,46447,Marc-Aurèle-Fortin / Jean-Paul-Lemieux,45.5905999,-73.7938799,bus
+46448,46448,Marc-Aurèle-Fortin / Alphonse-Deguire,45.5916899,-73.7964499,bus
+46449,46449,Marc-Aurèle-Fortin / Jean-Dallaire,45.5935499,-73.7997599,bus
+46450,46450,Marc-Aurèle-Fortin / Henri-Julien,45.5951199,-73.7998,bus
+46451,46451,Marc-Aurèle-Fortin / Arthur-Villeneuve,45.59721,-73.79938,bus
+46452,46452,Marc-Aurèle-Fortin / face au 650,45.59926,-73.80001,bus
+46453,46453,Marc-Aurèle-Fortin / de la Renaissance,45.60054,-73.80094,bus
+43403,43403,de la Renaissance / P.-É.-Borduas,45.601,-73.7977799,bus
+41530,41530,de la Renaissance / Antoine-Plamondon,45.60113,-73.79368,bus
+41532,41532,de la Renaissance / Galarneau,45.6013899,-73.79175,bus
+41663,41663,Marc-Aurèle-Fortin / Curé-Labelle,45.6056599,-73.78942,bus
+41665,41665,Marc-Aurèle-Fortin / du Plateau-Ouimet,45.6059299,-73.78749,bus
+41655,41655,M.-A.-Fortin / face à l'école C.-A.-Labelle,45.6063999,-73.78408,bus
+41656,41656,Marc-Aurèle-Fortin / Honoré-Mercier,45.60659,-73.7827399,bus
+49065,49065,Gare Sainte-Rose,45.6256299,-73.76571,bus
+46331,46331,Gare Sainte-Rose,45.6256499,-73.76572,bus
+41660,41660,Marc-Aurèle-Fortin / Honoré-Mercier,45.6067899,-73.7825699,bus
+45007,45007,Marc-Aurèle-Fortin / Roseval,45.6063999,-73.78536,bus
+41662,41662,Marc-Aurèle-Fortin / du Plateau-Ouimet,45.6061299,-73.7872799,bus
+41664,41664,Marc-Aurèle-Fortin / Curé-Labelle,45.6058299,-73.78962,bus
+46596,46596,de la Renaissance / Curé-Labelle,45.6018399,-73.79016,bus
+41529,41529,de la Renaissance / Henri-Angers,45.6016399,-73.79135,bus
+41531,41531,de la Renaissance / Antoine-Plamondon,45.6013399,-73.79346,bus
+41533,41533,de la Renaissance / P.-É.-Borduas,45.6012199,-73.79755,bus
+46455,46455,Marc-Aurèle-Fortin / de la Renaissance,45.60025,-73.80108,bus
+46456,46456,Marc-Aurèle-Fortin / Arthur-Villeneuve,45.5994,-73.8004999,bus
+46457,46457,Marc-Aurèle-Fortin / face au 707,45.59736,-73.79962,bus
+46458,46458,Marc-Aurèle-Fortin / Louis-Paul-Perron,45.5953599,-73.79988,bus
+46459,46459,Marc-Aurèle-Fortin / Jean-Dallaire,45.59363,-73.8000199,bus
+46460,46460,Marc-Aurèle-Fortin / Alphonse-Deguire,45.59167,-73.79682,bus
+46461,46461,Marc-Aurèle-Fortin / Léo-Ayotte,45.59096,-73.7951399,bus
+46462,46462,Marc-Aurèle-Fortin / Charles-Daudelin,45.59005,-73.79259,bus
+46463,46463,Corbin / Galarneau,45.59078,-73.7884199,bus
+42530,42530,des Oiseaux / Curé-Labelle,45.5917399,-73.78562,bus
+42545,42545,des Oiseaux / de la Volière (ouest),45.59203,-73.7824699,bus
+42547,42547,des Oiseaux / des Tourterelles,45.59037,-73.78071,bus
+42549,42549,des Oiseaux / du Rouge-Gorge,45.5886799,-73.7811299,bus
+42532,42532,des Oiseaux / des Cygnes,45.587,-73.7818899,bus
+42534,42534,des Oiseaux / du Gerfaut,45.5862099,-73.77858,bus
+42536,42536,des Oiseaux / de l'Engoulevent,45.5869599,-73.77662,bus
+42538,42538,des Oiseaux / des Bergeronnettes,45.5886599,-73.77566,bus
+42540,42540,des Oiseaux / de l'Aiglon,45.59052,-73.77479,bus
+42543,42543,des Oiseaux / des Pintades,45.59146,-73.7737299,bus
+42544,42544,des Oiseaux / des Rossignols,45.59192,-73.77234,bus
+46214,46214,des Oiseaux / des Choucas,45.59333,-73.76926,bus
+46215,46215,des Oiseaux / des Piverts,45.59469,-73.76944,bus
+46216,46216,des Oiseaux / de la Volière (est),45.59696,-73.7685999,bus
+46217,46217,des Oiseaux / des Cardinaux,45.5977299,-73.76528,bus
+46218,46218,des Oiseaux / de l'Équerre,45.59837,-73.7624999,bus
+46219,46219,Le Corbusier / des Orioles,45.59497,-73.76152,bus
+46220,46220,Le Corbusier / Petite-Côte,45.5941699,-73.7612899,bus
+46221,46221,Le Corbusier / Dagenais,45.59253,-73.76032,bus
+46239,46239,Saint-Martin / Violette,45.5339199,-73.82141,bus
+46240,46240,Saint-Martin / de l'Hôtel-de-Ville,45.5347,-73.81956,bus
+46241,46241,de l'Hôtel-de-Ville / Muguet,45.5330299,-73.8178399,bus
+46242,46242,de l'Hôtel-de-Ville / Principale,45.5308,-73.81569,bus
+41715,41715,de l'Hôtel-de-Ville / Sainte-Dorothée,45.5281499,-73.8132199,bus
+41713,41713,de l'Hôtel-de-Ville / Samson,45.52641,-73.8127599,bus
+41292,41292,Chomedey / Saint-Martin,45.55519,-73.75017,bus
+42822,42822,Saint-Martin / face au 3350,45.5561899,-73.7494,bus
+42825,42825,Saint-Martin / face au 3232,45.55686,-73.7479299,bus
+42826,42826,Saint-Martin / Daniel-Johnson,45.5577799,-73.74684,bus
+41714,41714,de l'Hôtel-de-Ville / Sainte-Dorothée,45.52802,-73.81282,bus
+46322,46322,de l'Hôtel-de-Ville / Principale,45.53072,-73.81526,bus
+46244,46244,de l'Hôtel-de-Ville / Muguet,45.5330299,-73.8174599,bus
+46245,46245,de l'Hôtel-de-Ville / Saint-Martin,45.53441,-73.81883,bus
+46246,46246,Saint-Martin / Violette,45.5342799,-73.82133,bus
+46247,46247,Saint-Martin / Carole,45.5331999,-73.82423,bus
+43932,43932,Chomedey / Jean-Béraud,45.5646399,-73.76064,bus
+46332,46332,Chomedey / Saint-Elzéar,45.5717399,-73.76832,bus
+46411,46411,Saint-Elzéar / Alfred-De Musset,45.5728999,-73.76716,bus
+43933,43933,Saint-Elzéar / Alphonse-De Lamartine,45.57371,-73.76589,bus
+43934,43934,Saint-Elzéar / Daniel-Johnson,45.5745,-73.7638899,bus
+46501,46501,Jacques-Bureau / Daniel-Johnson,45.57262,-73.7609499,bus
+46502,46502,Jacques-Bureau / face au 3020,45.57498,-73.7572599,bus
+43935,43935,Jacques-Bureau / Saint-Elzéar,45.5779699,-73.7576699,bus
+43936,43936,Saint-Elzéar / Montée Saint-Aubin,45.5811399,-73.75352,bus
+43938,43938,Saint-Elzéar / face au 2055,45.5821799,-73.75205,bus
+46601,46601,Michelin / Le Corbusier,45.58687,-73.7528299,bus
+42246,42246,Michelin / Guillet,45.5880499,-73.75077,bus
+42252,42252,Michelin / Peugeot,45.58923,-73.7486699,bus
+42250,42250,Michelin / Bergar,45.5904599,-73.74658,bus
+42253,42253,Michelin / Industriel,45.59171,-73.7443799,bus
+42255,42255,Michelin / face au 950,45.59341,-73.7414199,bus
+42257,42257,Michelin / Francis-Hughes,45.59451,-73.7394799,bus
+41644,41644,Francis-Hughes / Saint-Elzéar,45.59319,-73.73772,bus
+42783,42783,Saint-Elzéar / Martenot,45.5939199,-73.73522,bus
+42781,42781,Saint-Elzéar / face au 136,45.5975199,-73.73431,bus
+42780,42780,Saint-Elzéar / Joseph-Prévost,45.59869,-73.73336,bus
+42778,42778,Saint-Elzéar / Delorme,45.6000999,-73.73194,bus
+42774,42774,Saint-Elzéar / des Laurentides,45.6029699,-73.72858,bus
+42772,42772,Saint-Elzéar / Aimé-Séguin,45.60457,-73.72664,bus
+42770,42770,Saint-Elzéar / Beaucourt,45.6063999,-73.72397,bus
+42768,42768,Saint-Elzéar / face au 188,45.6076499,-73.72134,bus
+42766,42766,Saint-Elzéar / René-Laennec,45.6085499,-73.71926,bus
+42788,42788,Saint-Elzéar / Montée Monette,45.6109199,-73.71478,bus
+42786,42786,Saint-Elzéar / de Francfort,45.61281,-73.7128299,bus
+42776,42776,Saint-Elzéar / Norman-Bethune,45.6138599,-73.71192,bus
+42470,42470,Norman-Bethune / Philippe-Pinel,45.61259,-73.70971,bus
+42468,42468,Norman-Bethune / Robert-Koch,45.6116,-73.7083,bus
+42466,42466,Norman-Bethune / Ivan-Pavlov,45.61046,-73.70692,bus
+42478,42478,Norman-Bethune / Daniel-Arnoldi,45.60926,-73.70563,bus
+42476,42476,Norman-Bethune / Thomas D'Orsonnens,45.6072899,-73.7047699,bus
+42474,42474,Norman-Bethune / Louis-Durocher,45.60513,-73.7054299,bus
+42472,42472,Norman-Bethune / Montée Monette,45.6033799,-73.70635,bus
+42425,42425,Montée Monette / face au 1635,45.60495,-73.70799,bus
+42423,42423,Montée Monette / Antoine-Barbeau,45.60626,-73.70938,bus
+42421,42421,Montée Monette / Ivan-Pavlov,45.60731,-73.71051,bus
+41757,41757,Ivan-Pavlov / François-Broussais,45.60673,-73.7137999,bus
+41755,41755,Ivan-Pavlov / René-Laennec,45.6059499,-73.71529,bus
+46260,46260,Notre-Dame-de-Fatima / Saint-Martin,45.5908399,-73.6947,bus
+46261,46261,Notre-Dame-de-Fatima / Kirouac,45.5879,-73.6914299,bus
+42523,42523,Notre-Dame-de-Fatima / Fernand-Séguin,45.5851999,-73.6883699,bus
+42522,42522,Notre-Dame-de-Fatima / Kirouac,45.58787,-73.69112,bus
+46262,46262,Notre-Dame-de-Fatima / Saint-Martin,45.5912299,-73.69488,bus
+41754,41754,Ivan-Pavlov / René-Laennec,45.60577,-73.7152399,bus
+41756,41756,Ivan-Pavlov / François-Broussais,45.60664,-73.71359,bus
+41758,41758,Ivan-Pavlov / Montée Monette,45.6078399,-73.71135,bus
+42422,42422,Montée Monette / Antoine-Barbeau,45.6063099,-73.7096599,bus
+42424,42424,Montée Monette / face au 1635,45.60497,-73.70823,bus
+42426,42426,Montée Monette / Norman-Bethune,45.60362,-73.7068,bus
+42473,42473,Norman-Bethune / Louis-Durocher,45.6048799,-73.7053,bus
+42475,42475,Norman-Bethune / Thomas D'Orsonnens,45.6071,-73.70459,bus
+42477,42477,Norman-Bethune / Daniel-Arnoldi,45.6091999,-73.70527,bus
+42479,42479,Norman-Bethune / Ivan-Pavlov,45.6103899,-73.70656,bus
+42467,42467,Norman-Bethune / Robert-Koch,45.6116499,-73.70805,bus
+42469,42469,Norman-Bethune / Philippe-Pinel,45.6125899,-73.70941,bus
+42471,42471,Norman-Bethune / Saint-Elzéar,45.6139999,-73.71177,bus
+42785,42785,Saint-Elzéar / de Francfort,45.61305,-73.7127999,bus
+42787,42787,Saint-Elzéar / Montée Monette,45.6111799,-73.71477,bus
+42789,42789,Saint-Elzéar / René-Laennec,45.6088499,-73.71895,bus
+42767,42767,Saint-Elzéar / face au 155,45.6075299,-73.7219499,bus
+42769,42769,Saint-Elzéar / Beaucourt,45.6066199,-73.72389,bus
+42771,42771,Saint-Elzéar / Aimé-Séguin,45.60483,-73.7265599,bus
+42773,42773,Saint-Elzéar / des Laurentides,45.6033299,-73.72833,bus
+42775,42775,Saint-Elzéar / Le Royer,45.6022799,-73.72996,bus
+42777,42777,Saint-Elzéar / de Naples,45.6005099,-73.73179,bus
+42779,42779,Saint-Elzéar / Joseph-Prévost,45.5989399,-73.73337,bus
+43162,43162,Saint-Elzéar / face au 135,45.59721,-73.7345799,bus
+42782,42782,Saint-Elzéar / Martenot,45.5940499,-73.7352999,bus
+42784,42784,Saint-Elzéar / Francis-Hughes,45.5927599,-73.73682,bus
+42251,42251,Michelin / Francis-Hughes,45.59442,-73.7399299,bus
+42254,42254,Michelin / face au 955,45.59332,-73.7418599,bus
+42256,42256,Michelin / Industriel,45.5922699,-73.7437199,bus
+42258,42258,Michelin / Bergar,45.5906799,-73.74655,bus
+42247,42247,Michelin / Peugeot,45.5895,-73.7485799,bus
+42248,42248,Michelin / Guillet,45.58852,-73.7503099,bus
+42249,42249,Michelin / Le Corbusier,45.5872899,-73.75247,bus
+46602,46602,Saint-Elzéar / Le Corbusier,45.5833799,-73.75077,bus
+43939,43939,Saint-Elzéar / face au 2055,45.58257,-73.7517999,bus
+43921,43921,Saint-Elzéar / Montée Saint-Aubin,45.5808699,-73.75427,bus
+43922,43922,Jacques-Bureau / Saint-Elzéar,45.57757,-73.75723,bus
+46504,46504,Jacques-Bureau / face au 3020,45.5748299,-73.75784,bus
+46503,46503,Jacques-Bureau / Daniel-Johnson,45.57269,-73.7612099,bus
+43923,43923,Saint-Elzéar / Daniel-Johnson,45.5745699,-73.76421,bus
+43924,43924,Saint-Elzéar / Alphonse-De Lamartine,45.57406,-73.7655099,bus
+46412,46412,Saint-Elzéar / Alfred-De Musset,45.5728999,-73.7675,bus
+43920,43920,Chomedey / Jean-Béraud,45.5650799,-73.76166,bus
+46419,46419,Chomedey / Quartier-Saint-Martin,45.55797,-73.75314,bus
+46520,46520,Chomedey / Chenonceau,45.56049,-73.7559,bus
+46429,46429,Chomedey / Le Carrefour,45.5621899,-73.7578099,bus
+46662,46662,Station du REM Sainte-Dorothée Quai: 1,45.5232799,-73.8617,bus
+46428,46428,Chomedey / Le Carrefour,45.56186,-73.75797,bus
+46518,46518,Chomedey / Chenonceau,45.56047,-73.75646,bus
+46519,46519,Chomedey / Quartier Saint-Martin,45.55772,-73.75338,bus
+41294,41294,Chomedey / Saint-Martin,45.5562399,-73.7518099,bus
+46746,46746,Station du REM Bois-Franc Ouest Quai: 1,45.5217499,-73.71097,bus
+46753,46753,Station du REM de Deux-Montagnes,45.5458299,-73.91319,bus
+47073,47073,Terminus Cartier Quai: 3,45.5598299,-73.6827,bus
+42912,42912,Sainte-Rose / des Laurentides,45.63029,-73.7531599,bus
+42910,42910,Sainte-Rose / Trahan,45.6292999,-73.75647,bus
+42907,42907,Sainte-Rose / Savary,45.62851,-73.7584699,bus
+42905,42905,Sainte-Rose / face à Horizon-Jeunesse,45.6278899,-73.7603099,bus
+42903,42903,Sainte-Rose / Sicard,45.6274499,-73.7624699,bus
+42901,42901,Gare Sainte-Rose,45.6262999,-73.76614,bus
+42994,42994,Sainte-Rose / Thérèse-Casgrain,45.61015,-73.7936999,bus
+42992,42992,Sainte-Rose / Longpré,45.6084699,-73.79539,bus
+42990,42990,Sainte-Rose / Lortie,45.60651,-73.7973199,bus
+42988,42988,Sainte-Rose / Latour,45.6046399,-73.80006,bus
+42986,42986,Sainte-Rose / P.-É.-Borduas,45.6036699,-73.80122,bus
+46433,46433,P.-É.-Borduas / Marc-Aurèle-Fortin,45.60307,-73.80056,bus
+46435,46435,P.-É.-Borduas / de la Renaissance,45.6012199,-73.7978199,bus
+41206,41206,de la Renaissance / Marc-Aurèle-Fortin,45.60076,-73.8009699,bus
+42981,42981,Sainte-Rose / face au 3261,45.5989799,-73.80728,bus
+42979,42979,Sainte-Rose / Kiosque des Ancêtres,45.5963499,-73.81097,bus
+42977,42977,Sainte-Rose / Vauquelin,45.5950699,-73.81253,bus
+42974,42974,Sainte-Rose / de Saint-Sébastien,45.5934499,-73.8145099,bus
+42972,42972,Sainte-Rose / Mattawa,45.5896899,-73.8158999,bus
+42970,42970,Sainte-Rose / face à l'école Poly-Jeunesse,45.5866299,-73.8164799,bus
+42968,42968,Sainte-Rose / Montée Montrougeau,45.5830499,-73.81689,bus
+42966,42966,Sainte-Rose / Lisette,45.5816299,-73.81921,bus
+42963,42963,Sainte-Rose / de Caracas,45.57959,-73.8234899,bus
+42961,42961,Sainte-Rose / d'Odessa,45.5784199,-73.82557,bus
+43981,43981,Sainte-Rose / Bretigny,45.5768399,-73.8271099,bus
+42959,42959,Sainte-Rose / de Bordeaux,45.5749199,-73.8288399,bus
+42957,42957,Sainte-Rose / Odile,45.5713999,-73.8317599,bus
+42955,42955,Sainte-Rose / Montée Sauriol,45.5696399,-73.83435,bus
+41048,41048,43e Avenue / face au 987,45.57151,-73.83665,bus
+41047,41047,43e Avenue / Séguin,45.5732,-73.83832,bus
+46523,46523,Séguin / 45e Avenue,45.5737099,-73.83727,bus
+46524,46524,Séguin / Face à l'usine d'épuration,45.5755699,-73.83545,bus
+46525,46525,Séguin / Face à l'usine d'épuration,45.5754799,-73.83563,bus
+46526,46526,Séguin / 45e Avenue,45.5738999,-73.8372,bus
+46527,46527,Séguin / 43e Avenue,45.5733199,-73.83839,bus
+41049,41049,43e Avenue / face 990,45.5713999,-73.8367199,bus
+41050,41050,Sainte-Rose / Sauriol,45.5695,-73.8342399,bus
+42958,42958,Sainte-Rose / Odile,45.57211,-73.8308199,bus
+42960,42960,Sainte-Rose / de Bordeaux,45.5750699,-73.82835,bus
+43982,43982,Sainte-Rose / Bretigny,45.57666,-73.82706,bus
+42962,42962,Sainte-Rose / Marian,45.57848,-73.82514,bus
+42965,42965,Sainte-Rose / de Caracas,45.5793999,-73.82344,bus
+42967,42967,Sainte-Rose / Lisette,45.58134,-73.81942,bus
+42969,42969,Sainte-Rose / Montée Montrougeau,45.5824099,-73.81724,bus
+42971,42971,Sainte-Rose / face à l'école Poly-Jeunesse,45.58654,-73.81634,bus
+42973,42973,Sainte-Rose / de Gênes,45.58939,-73.81574,bus
+42976,42976,Sainte-Rose / de Saint-Sébastien,45.59328,-73.8144799,bus
+42978,42978,Sainte-Rose / Vauquelin,45.5948699,-73.81255,bus
+42980,42980,Sainte-Rose / Kiosque des Ancêtres,45.59607,-73.8110499,bus
+42982,42982,Sainte-Rose / autoroute 15,45.599,-73.8069499,bus
+46430,46430,de la Renaissance / Marc-Aurèle-Fortin,45.60055,-73.8012699,bus
+46436,46436,de la Renaissance / face au 4370,45.60091,-73.7984699,bus
+46434,46434,P.-É.-Borduas / Marc-Aurèle-Fortin,45.6030299,-73.8001899,bus
+46403,46403,P.-É.-Borduas / Sainte-Rose,45.6034599,-73.80091,bus
+42989,42989,Sainte-Rose / Latour,45.60443,-73.8001599,bus
+42991,42991,Sainte-Rose / Lortie,45.60632,-73.7974099,bus
+42993,42993,Sainte-Rose / Longpré,45.6081599,-73.79551,bus
+42995,42995,Sainte-Rose / Thérèse-Casgrain,45.60996,-73.79374,bus
+42998,42998,Sainte-Rose / Curé-Labelle,45.61135,-73.79152,bus
+42902,42902,Gare Sainte-Rose,45.6260599,-73.76639,bus
+42904,42904,Sainte-Rose / Sicard,45.62726,-73.7626499,bus
+42906,42906,Sainte-Rose / face à Horizon-Jeunesse,45.62774,-73.7602699,bus
+42909,42909,Sainte-Rose / Savary,45.6283699,-73.75844,bus
+42911,42911,Sainte-Rose / Trahan,45.62908,-73.75667,bus
+46471,46471,Sainte-Rose / des Laurentides,45.63016,-73.7529599,bus
+42679,42679,Provence / des Laurentides,45.6218599,-73.74629,bus
+42686,42686,Provence / Préfontaine,45.6227099,-73.74468,bus
+42688,42688,Provence / Péladeau,45.6247599,-73.74288,bus
+42690,42690,Provence / Papillon,45.6267199,-73.7443499,bus
+42692,42692,Provence / Pascal,45.62781,-73.74559,bus
+42681,42681,Provence / Pellan,45.62958,-73.74725,bus
+42683,42683,Provence / des Perron,45.6315,-73.74901,bus
+42581,42581,des Perron / face au 640,45.63192,-73.7472699,bus
+42625,42625,Prince-Rupert / des Perron,45.6327199,-73.7461599,bus
+42634,42634,Prince-Rupert / face au 5835,45.6341899,-73.7477799,bus
+42636,42636,Prince-Rupert / Pageau,45.6356799,-73.74924,bus
+42638,42638,Prince-Rupert / Saint-Saens,45.6376699,-73.74989,bus
+42627,42627,Prince-Rupert / Rancourt,45.6401799,-73.75064,bus
+42629,42629,Prince-Rupert / Réaumur,45.6419399,-73.7511599,bus
+42631,42631,Prince-Rupert / Robillard,45.6450699,-73.7521,bus
+46343,46343,des Laurentides / Bergeron,45.6532599,-73.74798,bus
+43397,43397,des Mille-Îles / route 335,45.65616,-73.74585,bus
+42313,42313,des Mille-Îles / face au 513,45.6586799,-73.74414,bus
+42311,42311,des Mille-Îles / Coutu,45.66288,-73.7415299,bus
+42309,42309,des Mille-Îles / Duval,45.66495,-73.7403999,bus
+42307,42307,des Mille-Îles / face au 625,45.6667699,-73.73817,bus
+42304,42304,des Mille-Îles / Delaroche,45.66822,-73.7361499,bus
+42302,42302,des Mille-Îles / D'Auteuil,45.67153,-73.73156,bus
+42299,42299,des Mille-Îles / Debussy,45.67213,-73.7294899,bus
+42300,42300,des Mille-Îles / face au 776,45.6750899,-73.72565,bus
+42297,42297,des Mille-Îles / Debien,45.6781899,-73.72567,bus
+42294,42294,des Mille-Îles / face au 787,45.67847,-73.72373,bus
+42291,42291,des Mille-Îles / face au 809,45.67823,-73.71972,bus
+42289,42289,des Mille-Îles / face au 2555,45.6782,-73.7165799,bus
+42287,42287,des Mille-Îles / face au 2625,45.67837,-73.71499,bus
+42285,42285,des Mille-Îles / face au 2755,45.67861,-73.71195,bus
+42283,42283,des Mille-Îles / face au golf Saint-François,45.67893,-73.7088,bus
+42280,42280,des Mille-Îles / face au 3095,45.67895,-73.7052999,bus
+42278,42278,des Mille-Îles / face au 3195,45.67935,-73.70287,bus
+42276,42276,des Mille-Îles / Plage-des-Îles,45.6795,-73.70101,bus
+42274,42274,des Mille-Îles / face au 3400,45.67972,-73.6985599,bus
+42272,42272,des Mille-Îles / face au 3475,45.68011,-73.6957499,bus
+42269,42269,des Mille-Îles / face au 3605,45.68099,-73.69301,bus
+42267,42267,des Mille-Îles / Ste-Marie,45.6816799,-73.69169,bus
+42265,42265,des Mille-Îles / Dumontier,45.6826599,-73.68951,bus
+42263,42263,des Mille-Îles / Souart,45.68351,-73.6867299,bus
+42261,42261,des Mille-Îles / des Ormes,45.68368,-73.68492,bus
+42407,42407,des Mille-Îles / Lanctôt,45.6838,-73.68259,bus
+42405,42405,des Mille-Îles / Levasseur,45.68348,-73.6780299,bus
+42403,42403,des Mille-Îles / face au 4485,45.68355,-73.6760299,bus
+42401,42401,des Mille-Îles / face au 4655,45.6837299,-73.67199,bus
+42398,42398,des Mille-Îles / Rondeau,45.68372,-73.6693399,bus
+42397,42397,des Mille-Îles / Maurice,45.68347,-73.66186,bus
+42395,42395,des Mille-Îles / Bisson,45.68251,-73.6585799,bus
+42393,42393,des Mille-Îles / face au 5375,45.68267,-73.65658,bus
+42391,42391,des Mille-Îles / Panorama,45.68445,-73.6527799,bus
+42389,42389,des Mille-Îles / Charpentier,45.6859899,-73.6461,bus
+42386,42386,des Mille-Îles / Béliveau,45.68744,-73.64381,bus
+42384,42384,des Mille-Îles / Guglia,45.68753,-73.6411199,bus
+42382,42382,des Mille-Îles / face au 6190,45.687,-73.6392999,bus
+42380,42380,des Mille-Îles / face au 6300,45.68726,-73.63604,bus
+42381,42381,des Mille-Îles / face au 6196,45.6870499,-73.63879,bus
+42383,42383,des Mille-Îles / Guglia,45.68753,-73.64087,bus
+42385,42385,des Mille-Îles / Béliveau,45.6875799,-73.6438199,bus
+42387,42387,des Mille-Îles / Charpentier,45.6861499,-73.64629,bus
+42390,42390,des Mille-Îles / Panorama,45.6846199,-73.6529,bus
+42392,42392,des Mille-Îles / face au 5440,45.6830999,-73.6558999,bus
+42394,42394,des Mille-Îles / Bisson,45.6825399,-73.6581999,bus
+42396,42396,des Mille-Îles / Maurice,45.6835299,-73.66167,bus
+45006,45006,des Mille-Îles / Étienne,45.6838499,-73.6689599,bus
+42400,42400,des Mille-Îles / face au 4655,45.6837999,-73.6719399,bus
+42402,42402,des Mille-Îles / face au 4485,45.6836399,-73.6759699,bus
+42404,42404,des Mille-Îles / Levasseur,45.6835599,-73.6780999,bus
+42406,42406,des Mille-Îles / Lanctôt,45.6838699,-73.6825799,bus
+42408,42408,des Mille-Îles / des Ormes,45.6837599,-73.68502,bus
+42262,42262,des Mille-Îles / Souart,45.6835999,-73.6867799,bus
+42264,42264,des Mille-Îles / Dumontier,45.6827289,-73.6895027,bus
+42266,42266,des Mille-Îles / Ste-Marie,45.6820399,-73.6912,bus
+42268,42268,des Mille-Îles / de Laferte,45.6811499,-73.6928999,bus
+42270,42270,des Mille-Îles / face au 3475,45.6802899,-73.6955999,bus
+42273,42273,des Mille-Îles / face au 3375,45.67981,-73.6986599,bus
+42275,42275,des Mille-Îles / Plage-des-Îles,45.6795999,-73.70083,bus
+42277,42277,des Mille-Îles / face au 3165,45.6793899,-73.7032299,bus
+42279,42279,des Mille-Îles / face au 3090,45.6791199,-73.70487,bus
+42281,42281,des Mille-Îles / face au golf Saint-François,45.6790199,-73.7084599,bus
+42284,42284,des Mille-Îles / face au 2745,45.6786899,-73.71197,bus
+42286,42286,des Mille-Îles / face au 2615,45.6784599,-73.71509,bus
+42288,42288,des Mille-Îles / face au 2555,45.6782699,-73.7165699,bus
+42290,42290,des Mille-Îles / face au 809A,45.6783099,-73.71972,bus
+42292,42292,des Mille-Îles / face au 787,45.6785399,-73.72374,bus
+42295,42295,des Mille-Îles / Debien,45.6784099,-73.72554,bus
+42296,42296,des Mille-Îles / face au 776,45.6748,-73.7257499,bus
+42298,42298,des Mille-Îles / Debussy,45.6723,-73.7293099,bus
+42301,42301,des Mille-Îles / D'Auteuil,45.6716899,-73.7315099,bus
+42303,42303,des Mille-Îles / Delaroche,45.66851,-73.7357999,bus
+42305,42305,des Mille-Îles / face au 625,45.6668399,-73.73824,bus
+42308,42308,des Mille-Îles / Duval,45.6651999,-73.7403999,bus
+42310,42310,des Mille-Îles / Coutu,45.6627599,-73.74177,bus
+42312,42312,des Mille-Îles / face au 513,45.65877,-73.7442299,bus
+43398,43398,des Mille-Îles / route 335,45.6562699,-73.7460699,bus
+46342,46342,des Laurentides / Bergeron,45.6531399,-73.7483099,bus
+42632,42632,Prince-Rupert / Robillard,45.6451899,-73.75236,bus
+42630,42630,Prince-Rupert / Réaumur,45.64212,-73.75141,bus
+42628,42628,Prince-Rupert / Rancourt,45.63986,-73.7507299,bus
+42626,42626,Prince-Rupert / Saint-Saens,45.63808,-73.7502,bus
+42637,42637,Prince-Rupert / Pageau,45.63583,-73.7495099,bus
+42635,42635,Prince-Rupert / face au 5840,45.63418,-73.74797,bus
+42633,42633,Prince-Rupert / des Perron,45.63247,-73.74612,bus
+42582,42582,des Perron / face à l'église Ste-Béatrice,45.63202,-73.7474999,bus
+42684,42684,Provence / de Parme,45.6310799,-73.7488499,bus
+42682,42682,Provence / Pellan,45.62969,-73.74754,bus
+42680,42680,Provence / Pascal,45.6279499,-73.7458899,bus
+42691,42691,Provence / Papillon,45.6268,-73.74463,bus
+42689,42689,Provence / Péladeau,45.62487,-73.7430899,bus
+42687,42687,Provence / Préfontaine,45.6229,-73.7445899,bus
+42685,42685,Provence / des Laurentides,45.6219699,-73.74637,bus
+41198,41198,Station du REM Sainte-Dorothée Quai: 3,45.5232799,-73.86223,bus
+41590,41590,les Érables / les Plaines,45.52211,-73.8651699,bus
+41595,41595,les Érables / face au 80,45.5217499,-73.8677799,bus
+41597,41597,Les Érables / les Peupliers,45.5217299,-73.87107,bus
+41599,41599,les Érables / les Chênes,45.5218499,-73.8735,bus
+41580,41580,les Érables / Les Tilleuls,45.5221299,-73.8765799,bus
+41582,41582,les Érables / face au 274,45.52276,-73.87875,bus
+41586,41586,les Érables / les Pins,45.5251299,-73.8809399,bus
+41588,41588,les Érables / les Bouleaux,45.5257399,-73.8830299,bus
+41591,41591,les Érables / les Sorbiers,45.52752,-73.88299,bus
+45004,45004,les Érables / les Ormes,45.5287599,-73.88295,bus
+45005,45005,Les Érables / les Peupliers,45.5313,-73.88144,bus
+46638,46638,Les Érables / Face au 1200,45.5341,-73.8786599,bus
+46323,46323,Cousteau / Sainte-Rose,45.56814,-73.84231,bus
+41046,41046,Cousteau / Séguin,45.5701899,-73.8445,bus
+43101,43101,Séguin / 37e Avenue,45.57126,-73.8423,bus
+43103,43103,Séguin / 40e Avenue,45.5721999,-73.8404,bus
+43105,43105,Séguin / 42e Avenue,45.5729799,-73.83879,bus
+42433,42433,Montée Montrougeau / Gilles,45.5818099,-73.8159399,bus
+41466,41466,Dagenais / Hugues,45.57702,-73.8096099,bus
+41469,41469,Dagenais / Fridolin,45.57849,-73.8064,bus
+41465,41465,Dagenais / Félix,45.57898,-73.80441,bus
+41500,41500,Dagenais / Frontenac,45.57907,-73.80136,bus
+41498,41498,Dagenais / Élyse,45.57878,-73.7950899,bus
+41493,41493,Dagenais / Gilbert,45.5788,-73.79265,bus
+41477,41477,Dagenais / Curé-Labelle,45.5793899,-73.78889,bus
+46264,46264,Dagenais / Éricka,45.57977,-73.7865499,bus
+46414,46414,Dagenais / Lindbergh,45.58046,-73.78403,bus
+46265,46265,Dagenais / face au 2896,45.5808199,-73.78241,bus
+46266,46266,Dagenais / William-Price,45.5835399,-73.775,bus
+41494,41494,Dagenais  / des Rossignols,45.58619,-73.7692299,bus
+45037,45037,Dagenais / face au 2040,45.58864,-73.7651599,bus
+45038,45038,Dagenais / face au 2010,45.5905699,-73.76192,bus
+41268,41268,Dagenais / Le Corbusier,45.5918499,-73.76039,bus
+45039,45039,Dagenais / face à Purolator,45.59078,-73.7621799,bus
+45040,45040,Dagenais / Face au 2025,45.5889699,-73.76523,bus
+41495,41495,Dagenais  / des Rossignols,45.5866599,-73.76915,bus
+46269,46269,Dagenais / William-Price,45.58391,-73.7747399,bus
+46270,46270,Dagenais / face au 2907,45.58097,-73.7823299,bus
+46413,46413,Dagenais / Lindbergh,45.5805599,-73.7841,bus
+46271,46271,Dagenais / Forand,45.5799699,-73.78663,bus
+41555,41555,Dagenais / Curé-Labelle,45.5794899,-73.78931,bus
+41497,41497,Dagenais / Gilbert,45.5789899,-73.7923499,bus
+41499,41499,Dagenais / Élyse,45.5789599,-73.7947999,bus
+43417,43417,Dagenais / Gabriel,45.5792,-73.79969,bus
+41501,41501,Dagenais / Fleury,45.5796799,-73.80305,bus
+41467,41467,Dagenais / Fridolin,45.5788,-73.8069399,bus
+41468,41468,Dagenais / Montée Montrougeau,45.5771499,-73.81096,bus
+46263,46263,Montée Montrougeau / Sainte-Rose,45.5826899,-73.81651,bus
+43106,43106,Séguin / 40e Avenue,45.57236,-73.8403599,bus
+43104,43104,Séguin / 37e Avenue,45.57146,-73.8422399,bus
+43102,43102,Séguin / Cousteau,45.57028,-73.8445599,bus
+41045,41045,Cousteau / Sainte-Rose,45.5676599,-73.8420499,bus
+46639,46639,Les Érables / Face au 1200,45.5338299,-73.87897,bus
+42583,42583,Les Érables / les Peupliers,45.5317799,-73.88107,bus
+41592,41592,les Érables / les Ormes,45.5289999,-73.8831299,bus
+41589,41589,les Érables / les Sorbiers,45.5275599,-73.8831299,bus
+41587,41587,les Érables / les Bouleaux,45.5259199,-73.8834499,bus
+41585,41585,les Érables / les Pins,45.5251,-73.8814,bus
+41581,41581,les Érables / face au 273,45.5227299,-73.8789499,bus
+41600,41600,les Érables / Les Tilleuls,45.52208,-73.87697,bus
+41598,41598,les Érables / les Chênes,45.52178,-73.87391,bus
+41596,41596,Les Érables / les Peupliers,45.52163,-73.87139,bus
+41594,41594,Les Érables / face au traversier,45.52163,-73.86918,bus
+41579,41579,les Érables / les Plaines,45.52197,-73.8653199,bus
+45002,45002,du Bord-de-l'Eau / Dumais,45.52268,-73.8631999,bus
+46515,46515,Bretelle Autoroute 440 / Masson,45.64686,-73.6435999,bus
+41705,41705,de l'Harmonie / Marcel-Villeneuve,45.6730399,-73.59431,bus
+41711,41711,de l'Harmonie / de la Clairière,45.6711299,-73.5921599,bus
+41213,41213,Chimène / Léa,45.6697899,-73.58939,bus
+42176,42176,Chimène / Mirelle,45.67075,-73.5876199,bus
+45012,45012,Chartrand / Monty,45.6663099,-73.57824,bus
+45013,45013,Chartrand / Déry,45.66719,-73.57657,bus
+46301,46301,Chartrand / Montée du Moulin,45.6682099,-73.57441,bus
+49901,49901,Galeries du Moulin,45.6770699,-73.58301,bus
+46300,46300,Mirelle / Chartrand,45.6651199,-73.58124,bus
+41212,41212,Chimène / Léa,45.67001,-73.5892499,bus
+41710,41710,de l'Harmonie / de la Clairière,45.6710899,-73.5918299,bus
+41712,41712,de l'Harmonie / Marcel-Villeneuve,45.6732499,-73.59433,bus
+44903,44903,Terminus Le Carrefour Quai: 2,45.5687899,-73.74777,bus
+43070,43070,Montée Sauriol / Sylvestre,45.5649599,-73.8302799,bus
+43072,43072,Montée Sauriol / Stéphanie,45.56665,-73.83195,bus
+40925,40925,Terminus Radisson Quai: 6,45.5898299,-73.54004,bus
+46475,46475,Beaubien / des Roseraies,45.59626,-73.5556899,bus
+46476,46476,Galeries d'Anjou / Jean-Talon,45.59883,-73.56776,bus
+46477,46477,Galeries d'Anjou / Jarry,45.6021899,-73.5756899,bus
+46478,46478,Galeries d'Anjou / Bombardier,45.6064399,-73.5854899,bus
+46537,46537,Bombardier / Justine-Lacoste,45.60844,-73.58342,bus
+46514,46514,Autoroute 25 / Larrey,45.6135699,-73.58769,bus
+46500,46500,Autoroute 25 / Maurice-Duplessis,45.62334,-73.60426,bus
+46529,46529,Autoroute 25 / Perras,45.6289099,-73.6101399,bus
+46656,46656,Lévesque / Roger-Lortie,45.6418899,-73.62039,bus
+46528,46528,Autoroute 25 / Perras,45.6297199,-73.6123999,bus
+46499,46499,Autoroute 25 / Maurice-Duplessis,45.62253,-73.6049,bus
+46513,46513,Autoroute 25 / Larrey,45.6129399,-73.5886,bus
+46536,46536,Renaude-Lapointe / Bombardier,45.60906,-73.58331,bus
+46479,46479,Galeries d'Anjou / Bombardier,45.60643,-73.58623,bus
+46480,46480,Galeries d'Anjou / Jarry,45.60192,-73.5756699,bus
+46481,46481,Galeries d'Anjou / Jean-Talon,45.59878,-73.5683499,bus
+46482,46482,Beaubien / des Roseraies,45.5965,-73.5550299,bus
+40935,40935,Terminus Radisson,45.5895299,-73.53936,bus
