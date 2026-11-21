@@ -53,6 +53,7 @@ public class CardActivity extends AppCompatActivity {
     String m_TimeHash;
     File m_PreviousAddTrip;
     List<ImageButton> m_AddButtons;
+    private long entryId = -1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,15 +64,20 @@ public class CardActivity extends AppCompatActivity {
         Intent intent = getIntent();
         m_Card = (Card)intent.getSerializableExtra("Card");
 
-        // Set title from card info
-        String cardName = "Unknown";
-        if (m_Card != null && m_Card.getContract() != null && m_Card.getContract().size() > 0) {
-            cardName = m_Card.getContract().get(0).getProductName();
+        // Set title from entry name (passed from CardHistoryActivity) or fall back to card data
+        String entryName = intent.getStringExtra("entryName");
+        if (entryName != null && !entryName.isEmpty()) {
+            setTitle(entryName);
+        } else if (m_Card != null && m_Card.getContract() != null && m_Card.getContract().size() > 0) {
+            String cn = m_Card.getContract().get(0).getProductName();
+            if (cn.equals("Unknown (code 0000)") && m_Card.getProductCode() != 0) {
+                cn = String.format("Unknown (code %04X)", m_Card.getProductCode());
+            }
+            setTitle(cn);
+        } else {
+            setTitle("Card");
         }
-        if (m_Card != null && cardName.equals("Unknown (code 0000)") && m_Card.getProductCode() != 0) {
-            cardName = String.format("Unknown (code %04X)", m_Card.getProductCode());
-        }
-        setTitle(cardName);
+        entryId = intent.getLongExtra("entryId", -1);
 
         LinearLayout LayoutTransit = (LinearLayout) findViewById(R.id.layoutTransit);
         LinearLayout LayoutSubscription = (LinearLayout) findViewById(R.id.layoutSubcription);
@@ -592,50 +598,111 @@ public class CardActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        menu.add(0, 1, 0, "Copy JSON");
-        menu.add(0, 2, 0, "Save JSON");
-        menu.add(0, 3, 0, "Data Dump");
+        menu.add(0, 1, 0, "Rename");
+        menu.add(0, 2, 0, "Export JSON");
+        menu.add(0, 3, 0, "Copy JSON");
+        menu.add(0, 4, 0, "Duplicate");
+        menu.add(0, 5, 0, "Delete");
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case 1: // Copy JSON
-                try {
-                    String json = m_Card.rawJson();
-                    ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
-                    ClipData clip = ClipData.newPlainText("card_json", json);
-                    clipboard.setPrimaryClip(clip);
-                    Toast.makeText(this, "JSON copied", Toast.LENGTH_SHORT).show();
-                } catch (Exception e) {
-                    Toast.makeText(this, "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
-                }
+            case 1: // Rename
+                renameCardDialog();
                 return true;
-            case 2: // Save JSON
-                try {
-                    String json = m_Card.rawJson();
-                    String type = m_Card.getType() == Card.CardType.OPUS ? "OPUS" : "MIFARE";
-                    String code = String.format("%04X", m_Card.getProductCode());
-                    java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyyMMdd_HHmmss", java.util.Locale.US);
-                    String filename = type + "_" + code + "_" + sdf.format(new java.util.Date()) + ".json";
-                    File path = getFilesDir();
-                    File jsonFile = new File(path, filename);
-                    FileOutputStream fos = new FileOutputStream(jsonFile);
-                    fos.write(json.getBytes());
-                    fos.close();
-                    Toast.makeText(this, "Saved: " + filename, Toast.LENGTH_LONG).show();
-                } catch (Exception e) {
-                    Toast.makeText(this, "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
-                }
+            case 2: // Export JSON (save to file)
+                exportCardJson();
                 return true;
-            case 3: // Data Dump
-                Intent dumpIntent = new Intent(this, DataDumpActivity.class);
-                dumpIntent.putExtra("Card", m_Card);
-                startActivity(dumpIntent);
+            case 3: // Copy JSON
+                copyCardJson();
+                return true;
+            case 4: // Duplicate
+                duplicateCard();
+                return true;
+            case 5: // Delete
+                deleteCardDialog();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    private void renameCardDialog() {
+        android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(this);
+        builder.setTitle("Rename Card");
+        final EditText input = new EditText(this);
+        input.setText(getTitle());
+        input.setSelectAllOnFocus(true);
+        builder.setView(input);
+        builder.setPositiveButton("Rename", (dialog, which) -> {
+            String newName = input.getText().toString().trim();
+            if (!newName.isEmpty()) {
+                setTitle(newName);
+                if (entryId >= 0) {
+                    CardDatabase.getInstance(this).renameCard(entryId, newName);
+                }
+            }
+        });
+        builder.setNegativeButton("Cancel", null);
+        builder.show();
+    }
+
+    private void exportCardJson() {
+        try {
+            String json = m_Card.rawJson();
+            String type = m_Card.getType() == Card.CardType.OPUS ? "OPUS" : "MIFARE";
+            String code = String.format("%04X", m_Card.getProductCode());
+            java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyyMMdd_HHmmss", java.util.Locale.US);
+            String filename = type + "_" + code + "_" + sdf.format(new java.util.Date()) + ".json";
+            File path = getFilesDir();
+            File jsonFile = new File(path, filename);
+            FileOutputStream fos = new FileOutputStream(jsonFile);
+            fos.write(json.getBytes());
+            fos.close();
+            Toast.makeText(this, "Saved: " + filename, Toast.LENGTH_LONG).show();
+        } catch (Exception e) {
+            Toast.makeText(this, "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void copyCardJson() {
+        try {
+            String json = m_Card.rawJson();
+            ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+            ClipData clip = ClipData.newPlainText("card_json", json);
+            clipboard.setPrimaryClip(clip);
+            Toast.makeText(this, "JSON copied", Toast.LENGTH_SHORT).show();
+        } catch (Exception e) {
+            Toast.makeText(this, "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void duplicateCard() {
+        if (entryId >= 0) {
+            long newId = CardDatabase.getInstance(this).duplicateCard(entryId);
+            if (newId >= 0) {
+                Toast.makeText(this, "Card duplicated", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(this, "Failed to duplicate", Toast.LENGTH_SHORT).show();
+            }
+        } else {
+            Toast.makeText(this, "Cannot duplicate: card not in history", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void deleteCardDialog() {
+        android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(this);
+        builder.setTitle("Delete Card");
+        builder.setMessage("Delete \"" + getTitle() + "\"?");
+        builder.setPositiveButton("Delete", (dialog, which) -> {
+            if (entryId >= 0) {
+                CardDatabase.getInstance(this).deleteCard(entryId);
+            }
+            finish();
+        });
+        builder.setNegativeButton("Cancel", null);
+        builder.show();
     }
 }

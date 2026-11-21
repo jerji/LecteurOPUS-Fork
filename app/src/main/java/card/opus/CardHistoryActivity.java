@@ -123,6 +123,8 @@ public class CardHistoryActivity extends AppCompatActivity {
 
             Intent intent = new Intent(this, CardActivity.class);
             intent.putExtra("Card", card);
+            intent.putExtra("entryId", entry.id);
+            intent.putExtra("entryName", entry.getDisplayName());
             startActivity(intent);
         } catch (Exception e) {
             FileLog.e(TAG, "openCard error: " + e.getMessage(), e);
@@ -133,6 +135,7 @@ public class CardHistoryActivity extends AppCompatActivity {
     private void openCardFromCard(Card card) {
         Intent intent = new Intent(this, CardActivity.class);
         intent.putExtra("Card", card);
+        // No entry info for freshly scanned cards — title falls back to card data
         startActivity(intent);
     }
 
