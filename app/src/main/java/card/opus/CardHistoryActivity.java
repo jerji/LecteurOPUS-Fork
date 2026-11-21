@@ -572,6 +572,9 @@ public class CardHistoryActivity extends AppCompatActivity {
                     Card cardA = Card.fromRawSerialize(rawA);
                     Card cardB = Card.fromRawSerialize(rawB);
                     if (cardA != null && cardB != null) {
+                        // Populate bus/operator names from XML lookups
+                        for (Trip t : cardA.getTrip()) t.setBusFromXml(this);
+                        for (Trip t : cardB.getTrip()) t.setBusFromXml(this);
                         boolean hasDiff = false;
                         sb.append("\n--- Decoded Fields ---\n");
 
