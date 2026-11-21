@@ -213,6 +213,12 @@ public class Card implements Serializable {
             json.append("}");
         }
         json.append("]");
+        // Include raw XML for full round-trip import
+        if (m_serializeRawCard != null) {
+            json.append(",\"rawXml\":\"")
+                .append(m_serializeRawCard.replace("\\", "\\\\").replace("\"", "\\\"").replace("\n", "\\n"))
+                .append("\"");
+        }
         json.append("}");
         return json.toString();
     }

@@ -119,36 +119,46 @@ public class CardDatabase extends SQLiteOpenHelper {
     }
 
     public long importFromJson(String json) {
-        // Parse JSON and create a minimal rawXml for storage
         try {
             org.json.JSONObject obj = new org.json.JSONObject(json);
-            int productCode = obj.optInt("productCode", 0);
-            String type = obj.optString("type", "OPUS");
+            int productCode = 0;
+            String type = "OPUS";
+            String rawXml = null;
 
-            // Build a minimal raw XML from JSON data
-            StringBuilder xml = new StringBuilder();
-            String rootTag = type.equals("OCCASIONNELLE") ? "Mifare" : "Opus";
-            xml.append("<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>");
-            xml.append("<").append(rootTag).append(">");
-
-            if (type.equals("OCCASIONNELLE")) {
-                // Try to parse pages from JSON
-                org.json.JSONArray pages = obj.optJSONArray("pages");
-                if (pages != null) {
-                    xml.append("<Pages>");
-                    for (int i = 0; i < pages.length() && i < 16; i++) {
-                        xml.append("<List index=\"").append(i).append("\">")
-                           .append(pages.optString(i, "00000000")).append("</List>");
-                    }
-                    xml.append("</Pages>");
-                }
-            } else {
-                // OPUS - store what we have
-                xml.append("<ID>").append(obj.optString("id", "0000000000000000000000000000000000000000000000000000000000000000")).append("</ID>");
-                xml.append("<Expiration>0000000000000000000000000000000000000000000000000000000000000000</Expiration>");
+            // Use rawXml if available (full round-trip)
+            if (obj.has("rawXml")) {
+                rawXml = obj.getString("rawXml");
+                // Unescape JSON string escaping
+                rawXml = rawXml.replace("\\n", "\n").replace("\\\"", "\"").replace("\\\\", "\\");
             }
 
-            xml.append("</").append(rootTag).append(">");
+            if (rawXml == null || rawXml.isEmpty()) {
+                // Build minimal XML from decoded fields
+                productCode = Integer.parseInt(obj.optString("productCode", "0000"), 16);
+                type = obj.optString("type", "OPUS");
+
+                StringBuilder xml = new StringBuilder();
+                String rootTag = type.equals("OCCASIONNELLE") ? "Mifare" : "Opus";
+                xml.append("<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>");
+                xml.append("<").append(rootTag).append(">");
+
+                if (type.equals("OCCASIONNELLE")) {
+                    org.json.JSONArray pages = obj.optJSONArray("pages");
+                    if (pages != null) {
+                        xml.append("<Pages>");
+                        for (int i = 0; i < pages.length() && i < 16; i++) {
+                            xml.append("<List index=\"").append(i).append("\">")
+                               .append(pages.optString(i, "00000000")).append("</List>");
+                        }
+                        xml.append("</Pages>");
+                    }
+                } else {
+                    xml.append("<ID>0000000000000000000000000000000000000000000000000000000000000000</ID>");
+                    xml.append("<Expiration>0000000000000000000000000000000000000000000000000000000000000000</Expiration>");
+                }
+                xml.append("</").append(rootTag).append(">");
+                rawXml = xml.toString();
+            }
 
             SQLiteDatabase db = getWritableDatabase();
             SQLiteStatement stmt = db.compileStatement(
