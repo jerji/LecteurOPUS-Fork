@@ -241,6 +241,31 @@ public class DataDumpActivity extends AppCompatActivity {
             }
         }
 
+        // Extra data from deep scan (additional contract files, event logs)
+        if (card.getExtraData() != null && !card.getExtraData().isEmpty()) {
+            sb.append("\n=== Extra Data (Deep Scan) ===\n");
+            java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd", java.util.Locale.US);
+            for (java.util.Map.Entry<String, byte[]> entry : card.getExtraData().entrySet()) {
+                String key = entry.getKey();
+                byte[] val = entry.getValue();
+                StringBuilder hex = new StringBuilder();
+                for (byte b : val) hex.append(String.format("%02X", b));
+                sb.append("  ").append(key).append(": ").append(hex).append("\n");
+                // Try to decode as a Calypso contract if it's a contract file
+                if (key.startsWith("contract_") && val.length >= 20) {
+                    try {
+                        int days = Utils.bytesToInt(val, 24, 14);
+                        if (days > 0) {
+                            Calendar cal = Calendar.getInstance();
+                            cal.set(1997, Calendar.JANUARY, 1);
+                            cal.add(Calendar.DAY_OF_YEAR, days);
+                            sb.append("    Validity: ").append(sdf.format(cal.getTime())).append("\n");
+                        }
+                    } catch (Exception ignored) {}
+                }
+            }
+        }
+
         // Raw serialize
         sb.append("\n=== Raw Card Data ===\n");
         sb.append(card.getRawSerialize());

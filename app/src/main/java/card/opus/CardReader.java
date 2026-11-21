@@ -192,8 +192,35 @@ public class CardReader implements NfcAdapter.ReaderCallback {
                     dataTicket[3] = OpusCard.transceive(getReadApdu(1));
 
                     Opus mainCard = new Opus(dataID, dataExp, dataTransit, dataSubscription, dataTicket);
+                    Card card = mainCard.getCard();
 
-                    mAccountCallback.get().onAccountReceived(mainCard.getCard());
+                    // ---- Deep scan: additional contract files ----
+                    // Try reading all known Montreal contract files
+                    for (int fi = 0; fi < MTL_CONTRACT_FILES.length; fi++) {
+                        try {
+                            String fileId = String.format("%02X1D", MTL_CONTRACT_FILES[fi]);
+                            OpusCard.transceive(getSelectApdu(fileId));
+                            byte[] record = OpusCard.transceive(getReadApdu(1));
+                            if (record != null && record.length >= 2) {
+                                String key = "contract_" + String.format("%04X", MTL_CONTRACT_FILES[fi] * 256 + 0x1D);
+                                card.addExtraData(key, record);
+                            }
+                        } catch (Exception ignored) {}
+                    }
+
+                    // Try reading potential event log files
+                    String[] eventFiles = {"2012", "2013", "2014", "2015", "2018", "2019"};
+                    for (String ef : eventFiles) {
+                        try {
+                            OpusCard.transceive(getSelectApdu(ef));
+                            byte[] record = OpusCard.transceive(getReadApdu(1));
+                            if (record != null && record.length >= 2) {
+                                card.addExtraData("event_" + ef, record);
+                            }
+                        } catch (Exception ignored) {}
+                    }
+
+                    mAccountCallback.get().onAccountReceived(card);
 
 
                 }

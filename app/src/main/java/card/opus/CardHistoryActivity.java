@@ -283,6 +283,7 @@ public class CardHistoryActivity extends AppCompatActivity {
         popup.getMenu().add(0, 3, 0, "Copy JSON");
         popup.getMenu().add(0, 4, 0, "Duplicate");
         popup.getMenu().add(0, 5, 0, "Delete");
+        popup.getMenu().add(0, 6, 0, "Compare");
 
         popup.setOnMenuItemClickListener(item -> {
             switch (item.getItemId()) {
@@ -302,6 +303,9 @@ public class CardHistoryActivity extends AppCompatActivity {
                     return true;
                 case 5: // Delete
                     deleteCardDialog(entry);
+                    return true;
+                case 6: // Compare
+                    showCompareDialog(entry);
                     return true;
             }
             return false;
@@ -381,5 +385,107 @@ public class CardHistoryActivity extends AppCompatActivity {
         } catch (Exception e) {
             Toast.makeText(this, "Copy error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
         }
+    }
+
+    private CardDatabase.CardEntry compareTarget = null;
+
+    private void showCompareDialog(CardDatabase.CardEntry entry) {
+        if (compareTarget == null) {
+            compareTarget = entry;
+            Toast.makeText(this, "First card selected. Tap Compare on another card.", Toast.LENGTH_LONG).show();
+        } else {
+            // Compare the two cards
+            showDiff(compareTarget, entry);
+            compareTarget = null;
+        }
+    }
+
+    private void showDiff(CardDatabase.CardEntry a, CardDatabase.CardEntry b) {
+        try {
+            StringBuilder sb = new StringBuilder();
+            sb.append("=== CARD COMPARE ===\n\n");
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.US);
+            sb.append("A: ").append(a.getDisplayName()).append(" (").append(sdf.format(new Date(a.scanTime))).append(")\n");
+            sb.append("B: ").append(b.getDisplayName()).append(" (").append(sdf.format(new Date(b.scanTime))).append(")\n\n");
+
+            // Compare raw XML pages
+            String rawA = a.rawXml != null ? a.rawXml : "";
+            String rawB = b.rawXml != null ? b.rawXml : "";
+
+            if (rawA.contains("<Mifare>") && rawB.contains("<Mifare>")) {
+                sb.append("--- MIFARE Page Diff ---\n");
+                java.util.Map<Integer, String> pagesA = parseMifarePages(rawA);
+                java.util.Map<Integer, String> pagesB = parseMifarePages(rawB);
+                for (int i = 0; i < 16; i++) {
+                    String hexA = pagesA.getOrDefault(i, "00000000");
+                    String hexB = pagesB.getOrDefault(i, "00000000");
+                    if (!hexA.equals(hexB)) {
+                        sb.append(String.format("  Page %2d: %s → %s\n", i, hexA, hexB));
+                    }
+                }
+            }
+
+            if (rawA.contains("<Opus>") && rawB.contains("<Opus>")) {
+                sb.append("\n--- OPUS Section Diff ---\n");
+                String[] sections = {"ID", "Expiration", "Transit", "Subscription", "Ticket"};
+                for (String sec : sections) {
+                    String dataA = extractXmlSection(rawA, sec);
+                    String dataB = extractXmlSection(rawB, sec);
+                    if (!dataA.equals(dataB)) {
+                        sb.append("  ").append(sec).append(": CHANGED\n");
+                        if (dataA.length() > 60) dataA = dataA.substring(0, 60) + "...";
+                        if (dataB.length() > 60) dataB = dataB.substring(0, 60) + "...";
+                        sb.append("    A: ").append(dataA).append("\n");
+                        sb.append("    B: ").append(dataB).append("\n");
+                    }
+                }
+            }
+
+            // Product code diff
+            if (a.productCode != b.productCode) {
+                sb.append("\nProduct code: 0x").append(String.format("%04X", a.productCode))
+                  .append(" → 0x").append(String.format("%04X", b.productCode)).append("\n");
+            }
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle("Card Diff");
+            builder.setMessage(sb.toString());
+            builder.setPositiveButton("OK", null);
+            builder.show();
+
+        } catch (Exception e) {
+            Toast.makeText(this, "Compare error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private java.util.Map<Integer, String> parseMifarePages(String xml) {
+        java.util.Map<Integer, String> map = new java.util.HashMap<>();
+        try {
+            java.io.ByteArrayInputStream bais = new java.io.ByteArrayInputStream(xml.getBytes("UTF-8"));
+            javax.xml.parsers.DocumentBuilderFactory factory = javax.xml.parsers.DocumentBuilderFactory.newInstance();
+            javax.xml.parsers.DocumentBuilder builder = factory.newDocumentBuilder();
+            org.w3c.dom.Document doc = builder.parse(bais);
+            org.w3c.dom.NodeList pages = doc.getElementsByTagName("List");
+            for (int i = 0; i < pages.getLength(); i++) {
+                String idxStr = pages.item(i).getAttributes().getNamedItem("index").getNodeValue();
+                int idx = Integer.parseInt(idxStr);
+                map.put(idx, pages.item(i).getTextContent().trim());
+            }
+        } catch (Exception ignored) {}
+        return map;
+    }
+
+    private String extractXmlSection(String xml, String tag) {
+        try {
+            java.io.ByteArrayInputStream bais = new java.io.ByteArrayInputStream(xml.getBytes("UTF-8"));
+            javax.xml.parsers.DocumentBuilderFactory factory = javax.xml.parsers.DocumentBuilderFactory.newInstance();
+            javax.xml.parsers.DocumentBuilder builder = factory.newDocumentBuilder();
+            org.w3c.dom.Document doc = builder.parse(bais);
+            org.w3c.dom.NodeList nodes = doc.getElementsByTagName(tag);
+            if (nodes.getLength() > 0) {
+                return nodes.item(0).getTextContent().trim();
+            }
+        } catch (Exception ignored) {}
+        return "";
     }
 }

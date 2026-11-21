@@ -12,6 +12,8 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashMap;
+import java.util.Map;
 
 import static card.opus.Utils.DateToStringNumber;
 import static card.opus.Utils.TimeToString;
@@ -43,6 +45,10 @@ public class Card implements Serializable {
     private long m_ID;
     private String m_serializeRawCard;
     private int productCode;
+    private HashMap<String, byte[]> m_ExtraData = new HashMap<>();
+
+    public Map<String, byte[]> getExtraData() { return m_ExtraData; }
+    public void addExtraData(String key, byte[] value) { m_ExtraData.put(key, value); }
 
     public Card(){
         // do nothing
