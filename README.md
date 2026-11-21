@@ -20,7 +20,7 @@ Download the latest APK from **[Releases](https://github.com/jerji/LecteurOPUS-F
 
 For automatic updates, add the repo to [Obtainium](https://obtainium.imranr.dev/):
 
-[<img src="https://img.shields.io/badge/Obtainium-Get%20app%20updates-blue?style=for-the-badge&logo=obtainium" height="40">](https://obtainium.imranr.dev/#/?url=https://github.com/jerji/LecteurOPUS-Fork)
+[<img src="https://img.shields.io/badge/Obtainium-Get%20app%20updates-blue?style=for-the-badge&logo=obtainium" height="40">](obtainium://add/https://github.com/jerji/LecteurOPUS-Fork)
 
 ## Usage
 
