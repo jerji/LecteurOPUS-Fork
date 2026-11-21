@@ -630,7 +630,11 @@ public class CardHistoryActivity extends AppCompatActivity {
                                 && cA.getUsedCounter() == cB.getUsedCounter()
                                 && cA.getUseLimit() == cB.getUseLimit()
                                 && cA.getScore() == cB.getScore()
-                                && (cA.getSaleDate() == null ? cB.getSaleDate() == null : cA.getSaleDate().equals(cB.getSaleDate()));
+                                && cA.getProductCode() == cB.getProductCode()
+                                && cA.getOperatorId() == cB.getOperatorId()
+                                && cA.isSubscription() == cB.isSubscription()
+                                && cA.isValid() == cB.isValid()
+                                && cA.getNbTicket() == cB.getNbTicket();
                             if (!same) {
                                 sb.append("  Contract ").append(i + 1).append(":\n");
                                 sb.append("    A: ").append(conA).append("\n");
