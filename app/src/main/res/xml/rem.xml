@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rem>
+    <bus id="1" logo="stm_vert" name="REM" />
+    <bus id="2" logo="stm_orange" name="REM" />
+</rem>
