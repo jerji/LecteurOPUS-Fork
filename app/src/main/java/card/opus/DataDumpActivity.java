@@ -163,14 +163,14 @@ public class DataDumpActivity extends AppCompatActivity {
             sb.append("Valid: ").append(c.isValid()).append("\n");
         }
 
-        // Expiration
+        // Expiration (file 0x2001)
         if (card.getExpirationDate() != null) {
-            sb.append("\nExpiration: ").append(Utils.DateToStringNumber(card.getExpirationDate())).append("\n");
+            sb.append("\nExpiration (file 0x2001): ").append(Utils.DateToStringNumber(card.getExpirationDate())).append("\n");
         }
 
-        // Trips
+        // Trips (file 0x2010)
         if (card.getTrip() != null && card.getTrip().size() > 0) {
-            sb.append("\n=== Trips ===\n");
+            sb.append("\n=== Trips (file 0x2010) ===\n");
             for (int i = 0; i < card.getTrip().size(); i++) {
                 card.opus.Trip t = card.getTrip().get(i);
                 if (t.getDateTime() != null) {
@@ -224,12 +224,22 @@ public class DataDumpActivity extends AppCompatActivity {
             sb.append(authSigs);
         }
 
-        // All contracts
+        // All contracts with full decode
         if (card.getContract() != null && card.getContract().size() > 0) {
+            // File IDs for OPUS records
+            String[] subFileIds = {"0x2020", "0x2020", "0x2020", "0x2020"};
+            String[] ticketFileIds = {"0x202A", "0x202B", "0x202C", "0x202D"};
+            String[] envFileIds = {"0x2001"};
+            String[] transitFileIds = {"0x2010", "0x2010", "0x2010"};
+
             sb.append("\n=== Contracts ===\n");
             for (int i = 0; i < card.getContract().size(); i++) {
                 Contract c = card.getContract().get(i);
-                sb.append("Contract ").append(i).append(":\n");
+                String fileId = (i < subFileIds.length) ? subFileIds[i] : "";
+                String ticketFileId = (i < ticketFileIds.length) ? ticketFileIds[i] : "";
+
+                sb.append("Contract ").append(i).append(" (Sub file ").append(fileId)
+                  .append(", Ticket file ").append(ticketFileId).append("):\n");
                 sb.append("  Product Code: 0x").append(String.format("%04X", c.getProductCode())).append("\n");
                 sb.append("  Product: ").append(c.getProductName()).append("\n");
                 sb.append("  Operator: ").append(c.getOperatorId()).append("\n");
@@ -238,6 +248,25 @@ public class DataDumpActivity extends AppCompatActivity {
                 sb.append("  Valid: ").append(c.isValid()).append("\n");
                 if (c.getValidityDate() != null)
                     sb.append("  Valid Until: ").append(Utils.DateToStringNumber(c.getValidityDate())).append("\n");
+
+                // Full Spirtech contract decode
+                if (c.getContractProvider() != 0 || c.getContractTariff() != 0 || c.getSaleAgent() != 0 || c.getScore() != 0) {
+                    sb.append("  --- Spirtech Contract Fields ---\n");
+                    sb.append("  GeneralBitmap: 0x").append(Integer.toHexString(c.getProductCode() & 0x7F)).append("\n");
+                    sb.append("  Provider: ").append(c.getContractProvider()).append("\n");
+                    sb.append("  Tariff: 0x").append(String.format("%04X", c.getContractTariff())).append("\n");
+                    sb.append("  SaleAgent: ").append(c.getSaleAgent()).append("\n");
+                    sb.append("  UsedCounter: ").append(c.getUsedCounter()).append("\n");
+                    sb.append("  UseLimit: ").append(c.getUseLimit()).append("\n");
+                    sb.append("  Score: ").append(c.getScore()).append("\n");
+                    if (c.getSaleDate() != null)
+                        sb.append("  SaleDate: ").append(Utils.DateToStringNumber(c.getSaleDate())).append("\n");
+                    sb.append("  Context: 0x").append(String.format("%02X", c.getContractContext())).append("\n");
+                    if (c.getRawHex() != null) {
+                        String raw = c.getRawHex();
+                        sb.append("  Raw: ").append(raw.length() > 48 ? raw.substring(0, 48) + "..." : raw).append("\n");
+                    }
+                }
             }
         }
 

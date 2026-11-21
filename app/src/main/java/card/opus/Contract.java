@@ -22,51 +22,98 @@ public class Contract implements Serializable {
     private int m_logoId;
     private Calendar m_ValidityDate;
     private int productCode;
+    private int contractProvider;
+    private int contractTariff;
+    private int saleAgent;
+    private int usedCounter;
+    private int useLimit;
+    private int score;
+    private Calendar saleDate;
+    private int contractContext;
+    private String rawHex; // full raw hex of the contract record
+
+    public int getContractProvider() { return contractProvider; }
+    public int getContractTariff() { return contractTariff; }
+    public int getSaleAgent() { return saleAgent; }
+    public int getUsedCounter() { return usedCounter; }
+    public int getUseLimit() { return useLimit; }
+    public int getScore() { return score; }
+    public Calendar getSaleDate() { return saleDate; }
+    public int getContractContext() { return contractContext; }
+    public String getRawHex() { return rawHex; }
 
     public Contract(byte[] subscriptionData, byte[] ticketData){ // OPUS
+        // Store raw hex
+        StringBuilder hex = new StringBuilder();
+        for (byte b : subscriptionData) hex.append(String.format("%02X", b));
+        rawHex = hex.toString();
+
         m_operatorId = Utils.bytesToInt(subscriptionData, 9, 8);
         
-        // Spirtech alias_Contract format (rp/f$c.b())
-        // Contiguous bit-packing from bit 0:
+        // Spirtech alias_Contract format — full bit-by-bit decode:
         int offset = 0;
+        
+        // 1. ContractGeneralBitmap (7 bits)
         int genBitmap = Utils.bytesToInt(subscriptionData, offset, 7); offset += 7;
         
-        // If bitmap bit 0 set: have provider info
+        // 2. ContractProvider (8 bits, conditional on bitmap bit 0)
         if ((genBitmap & 0x01) != 0) {
-            int provider = Utils.bytesToInt(subscriptionData, offset, 8);
-            if (provider != 0) m_operatorId = provider;
+            contractProvider = Utils.bytesToInt(subscriptionData, offset, 8);
+            if (contractProvider != 0) m_operatorId = contractProvider;
             offset += 8;
         } else {
             offset += 8;
         }
         
-        // If bitmap bit 1 set: have tariff/product code
+        // 3. ContractTariff (16 bits, conditional on bitmap bit 1)
         if ((genBitmap & 0x02) != 0) {
-            this.productCode = Utils.bytesToInt(subscriptionData, offset, 16);
+            contractTariff = Utils.bytesToInt(subscriptionData, offset, 16);
+            this.productCode = contractTariff;
             offset += 16;
         } else {
             offset += 16;
         }
         
-        // Validity info
+        // 4. ContractValidityInfoBitmap (2 bits)
         int validBitmap = Utils.bytesToInt(subscriptionData, offset, 2); offset += 2;
+        
+        // 5. ContractValidityStartDate (14 bits, conditional on valid bitmap bit 0)
         if ((validBitmap & 0x01) != 0 && subscriptionData.length * 8 >= offset + 14) {
             int startDays = Utils.bytesToInt(subscriptionData, offset, 14);
             m_ValidityDate = Utils.intToDateTime(startDays, 0);
             offset += 14;
         } else { offset += 14; }
         
+        // 6. ContractValidityEndDate (14 bits, conditional on valid bitmap bit 1)
         if ((validBitmap & 0x02) != 0 && subscriptionData.length * 8 >= offset + 14) {
-            // End date - currently skipped, valid date already stored
+            int endDays = Utils.bytesToInt(subscriptionData, offset, 14);
+            // Store as validity date if we don't have one yet
+            if (m_ValidityDate == null) {
+                m_ValidityDate = Utils.intToDateTime(endDays, 0);
+            }
             offset += 14;
         } else { offset += 14; }
         
-        // Contract data section
+        // 7. ContractDataBitmap (9 bits)
         int dataBitmap = Utils.bytesToInt(subscriptionData, offset, 9); offset += 9;
-        // Skip remaining data fields for now
-        if (subscriptionData.length * 8 >= offset + 107) {
-            offset += 107; // remaining ContractData fields
-        }
+        
+        // 8-13. Remaining Spirtech data fields (always present):
+        // SaleAgent: 6 bits
+        saleAgent = Utils.bytesToInt(subscriptionData, offset, 6); offset += 6;
+        // ContractUsedCounter: 6 bits
+        usedCounter = Utils.bytesToInt(subscriptionData, offset, 6); offset += 6;
+        // ContractUseLimit: 6 bits
+        useLimit = Utils.bytesToInt(subscriptionData, offset, 6); offset += 6;
+        // Score: 6 bits
+        score = Utils.bytesToInt(subscriptionData, offset, 6); offset += 6;
+        // ContractSaleDate: 14 bits
+        int saleDays = Utils.bytesToInt(subscriptionData, offset, 14);
+        if (saleDays > 0) saleDate = Utils.intToDateTime(saleDays, 0);
+        offset += 14;
+        // ContractContext: 8 bits
+        contractContext = Utils.bytesToInt(subscriptionData, offset, 8); offset += 8;
+        
+        // Determine ticket/subscription type from remaining data
         if(Utils.bytesToInt(subscriptionData, 40, 16) == 0){
             // Ticket
             m_Subscription = false;
