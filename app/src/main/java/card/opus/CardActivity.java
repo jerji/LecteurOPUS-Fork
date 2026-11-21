@@ -273,101 +273,32 @@ public class CardActivity extends AppCompatActivity {
         });
 
         if(busName.equals("")){
-            final LayoutInflater layoutInflater = LayoutInflater.from(this);
+            LayoutInflater layoutInflater = LayoutInflater.from(this);
             View promptView = layoutInflater.inflate(R.layout.input_dialog, null);
             alertDialogBuilder.setView(promptView);
 
-            final Spinner operatorSpinner = (Spinner) promptView.findViewById(R.id.operatorInput);
-            ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item,
-                    Utils.getOperatorNames(this));
-            operatorSpinner.setAdapter(adapter);
+            // Hide spinners, show freeform text fields
+            promptView.findViewById(R.id.operatorInput).setVisibility(View.GONE);
+            promptView.findViewById(R.id.operatorText).setVisibility(View.VISIBLE);
+            promptView.findViewById(R.id.busLabel).setVisibility(View.VISIBLE);
+            promptView.findViewById(R.id.busLayout).setVisibility(View.VISIBLE);
+            promptView.findViewById(R.id.busInput).setVisibility(View.GONE);
+            promptView.findViewById(R.id.busText).setVisibility(View.VISIBLE);
 
-            operatorSpinner.setSelection(adapter.getPosition(operatorName));
-
-            final Spinner busSpinner = (Spinner) promptView.findViewById(R.id.busInput);
-            final String[] items = new String[]{""};
-            adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items);
-            busSpinner.setAdapter(adapter);
-
-            final EditText busInputText = (EditText) promptView.findViewById(R.id.busText);
-            final EditText operatorInputText = (EditText) promptView.findViewById(R.id.operatorText);
-            final TextView busLabel = (TextView) promptView.findViewById(R.id.busLabel);
-            final LinearLayout busLayout = (LinearLayout) promptView.findViewById(R.id.busLayout);
-
-            operatorSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-
-                @Override
-                public void onItemSelected(AdapterView<?> spinner, View container,
-                                           int position, long id) {
-                    String operator = (String) spinner.getSelectedItem();
-                    String items[];
-                    if (operator.equals("")){
-                        busLabel.setVisibility(View.GONE);
-                        busLayout.setVisibility(View.GONE);
-                        operatorInputText.setVisibility(View.GONE);
-                        items = new String[]{""};
-                    }
-                    else if(operator.equals(getString(R.string.other))){
-                        operatorInputText.setVisibility(View.VISIBLE);
-                        busLabel.setVisibility(View.VISIBLE);
-                        busLayout.setVisibility(View.VISIBLE);
-                        items = new String[]{getString(R.string.other)};
-                    }
-                    else{
-                        operatorInputText.setVisibility(View.GONE);
-                        busLabel.setVisibility(View.VISIBLE);
-                        busLayout.setVisibility(View.VISIBLE);
-                        items = Utils.getBusNames(spinner.getContext(), operator);
-                    }
-                    ArrayAdapter<String> adapter = new ArrayAdapter<>(spinner.getContext(),
-                            android.R.layout.simple_spinner_dropdown_item, items);
-                    busSpinner.setAdapter(adapter);
-                }
-
-                @Override
-                public void onNothingSelected(AdapterView<?> arg0) {
-                    // TODO Auto-generated method stub
-                }
-            });
-
-            busSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-
-                @Override
-                public void onItemSelected(AdapterView<?> spinner, View container,
-                                           int position, long id) {
-                    String bus = (String) spinner.getSelectedItem();
-                    if(bus.equals(getString(R.string.other))) {
-                        busInputText.setVisibility(View.VISIBLE);
-                    }
-                    else{
-                        busInputText.setVisibility(View.GONE);
-                    }
-                }
-
-                @Override
-                public void onNothingSelected(AdapterView<?> arg0) {
-                    // TODO Auto-generated method stub
-                }
-            });
+            final EditText operatorText = (EditText) promptView.findViewById(R.id.operatorText);
+            final EditText busText = (EditText) promptView.findViewById(R.id.busText);
+            operatorText.setHint("Operator (e.g. STM)");
+            busText.setHint("Bus/route name or number");
 
             alertDialogBuilder.setPositiveButton(R.string.send, new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
-                    boolean missing = false;
-                    String operator = (String) operatorSpinner.getSelectedItem();
-                    if (operator.equals(getString(R.string.other))) {
-                        operator = operatorInputText.getText().toString();
-                        missing = true;
+                    String op = operatorText.getText().toString().trim();
+                    String bu = busText.getText().toString().trim();
+                    if(!bu.isEmpty() || !op.isEmpty()){
+                        if(sendData(bu, op, true, true))
+                            m_AddButtons.get(index).setVisibility(View.GONE);
                     }
-
-                    String bus = (String) busSpinner.getSelectedItem();
-                    if (bus.equals(getString(R.string.other))) {
-                        bus = busInputText.getText().toString();
-                        missing = true;
-                    }
-
-                    if(sendData(bus, operator, true, missing))
-                        m_AddButtons.get(index).setVisibility(View.GONE);
                 }
             });
             alertDialogBuilder.show();
