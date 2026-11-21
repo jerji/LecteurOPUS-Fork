@@ -477,11 +477,6 @@ public class CardActivity extends AppCompatActivity {
     }
             t.printStackTrace();
         }
-
-        return buffer.toString();
-    }
-
-    private void populateFareSummary() {
         LinearLayout layoutFares = findViewById(R.id.layoutFares);
         if (layoutFares == null) return;
         layoutFares.removeAllViews();
