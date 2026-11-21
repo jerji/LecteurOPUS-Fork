@@ -272,8 +272,7 @@ public class CardHistoryActivity extends AppCompatActivity {
         }
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Export All Cards");
-        builder.setMessage(cards.size() + " card" + (cards.size() != 1 ? "s" : "") + " will be exported.");
+        builder.setTitle("Export All Cards (" + cards.size() + ")");
 
         String[] options = {"Copy to clipboard", "Save to file"};
         builder.setItems(options, (dialog, which) -> {
