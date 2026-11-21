@@ -21,6 +21,9 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
 import java.io.IOException;
 import java.lang.ref.WeakReference;
 import java.text.SimpleDateFormat;
@@ -51,7 +54,12 @@ public class CardHistoryActivity extends AppCompatActivity implements NfcAdapter
         cardCount = findViewById(R.id.cardCount);
         Button scanButton = findViewById(R.id.scanButton);
 
+        // Long-press scan button to import JSON instead
         scanButton.setOnClickListener(v -> startScan());
+        scanButton.setOnLongClickListener(v -> {
+            importJsonFromFile();
+            return true;
+        });
 
         cardList.setOnItemClickListener((parent, view, position, id) -> {
             CardDatabase.CardEntry entry = (CardDatabase.CardEntry) adapter.getItem(position);
@@ -235,6 +243,43 @@ public class CardHistoryActivity extends AppCompatActivity implements NfcAdapter
         Intent intent = new Intent(this, CardActivity.class);
         intent.putExtra("Card", card);
         startActivity(intent);
+    }
+
+    private void importJsonFromFile() {
+        try {
+            // Use ContentResolver to pick a .json file
+            Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+            intent.addCategory(Intent.CATEGORY_OPENABLE);
+            intent.setType("application/json");
+            startActivityForResult(intent, 1001);
+        } catch (Exception e) {
+            Toast.makeText(this, "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 1001 && resultCode == RESULT_OK && data != null) {
+            try {
+                BufferedReader reader = new BufferedReader(
+                        new InputStreamReader(getContentResolver().openInputStream(data.getData())));
+                StringBuilder sb = new StringBuilder();
+                String line;
+                while ((line = reader.readLine()) != null) sb.append(line);
+                reader.close();
+
+                long id = db.importFromJson(sb.toString());
+                if (id >= 0) {
+                    Toast.makeText(this, "Card imported!", Toast.LENGTH_SHORT).show();
+                    refreshList();
+                } else {
+                    Toast.makeText(this, "Invalid JSON format", Toast.LENGTH_SHORT).show();
+                }
+            } catch (Exception e) {
+                Toast.makeText(this, "Import error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 
     // ---- Adapter ----

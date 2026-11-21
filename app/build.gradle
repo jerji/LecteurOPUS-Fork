@@ -17,9 +17,21 @@ android {
     buildFeatures {
         buildConfig true
     }
+    signingConfigs {
+        ci {
+            storeFile file('ci_keystore.jks')
+            storePassword 'android'
+            keyAlias 'lecteuropus'
+            keyPassword 'android'
+        }
+    }
     buildTypes {
+        debug {
+            signingConfig signingConfigs.ci
+        }
         release {
             minifyEnabled false
+            signingConfig signingConfigs.ci
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }

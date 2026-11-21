@@ -118,6 +118,59 @@ public class CardDatabase extends SQLiteOpenHelper {
         return cards;
     }
 
+    public long importFromJson(String json) {
+        // Parse JSON and create a minimal rawXml for storage
+        try {
+            org.json.JSONObject obj = new org.json.JSONObject(json);
+            int productCode = obj.optInt("productCode", 0);
+            String type = obj.optString("type", "OPUS");
+
+            // Build a minimal raw XML from JSON data
+            StringBuilder xml = new StringBuilder();
+            String rootTag = type.equals("OCCASIONNELLE") ? "Mifare" : "Opus";
+            xml.append("<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>");
+            xml.append("<").append(rootTag).append(">");
+
+            if (type.equals("OCCASIONNELLE")) {
+                // Try to parse pages from JSON
+                org.json.JSONArray pages = obj.optJSONArray("pages");
+                if (pages != null) {
+                    xml.append("<Pages>");
+                    for (int i = 0; i < pages.length() && i < 16; i++) {
+                        xml.append("<List index=\"").append(i).append("\">")
+                           .append(pages.optString(i, "00000000")).append("</List>");
+                    }
+                    xml.append("</Pages>");
+                }
+            } else {
+                // OPUS - store what we have
+                xml.append("<ID>").append(obj.optString("id", "0000000000000000000000000000000000000000000000000000000000000000")).append("</ID>");
+                xml.append("<Expiration>0000000000000000000000000000000000000000000000000000000000000000</Expiration>");
+            }
+
+            xml.append("</").append(rootTag).append(">");
+
+            SQLiteDatabase db = getWritableDatabase();
+            SQLiteStatement stmt = db.compileStatement(
+                    "INSERT INTO " + TABLE + " (" +
+                    COL_SCAN_TIME + "," + COL_CARD_TYPE + "," + COL_PRODUCT_CODE + "," +
+                    COL_PRODUCT_NAME + "," + COL_RAW_XML + "," + COL_UID + "," + COL_OPERATOR +
+                    ") VALUES (?,?,?,?,?,?,?)");
+            stmt.bindLong(1, System.currentTimeMillis());
+            stmt.bindString(2, type);
+            stmt.bindLong(3, productCode);
+            stmt.bindString(4, "Imported (" + String.format("%04X", productCode) + ")");
+            stmt.bindString(5, xml.toString());
+            stmt.bindString(6, obj.optString("uid", ""));
+            stmt.bindLong(7, obj.optInt("operator", 0));
+            long id = stmt.executeInsert();
+            stmt.close();
+            return id;
+        } catch (Exception e) {
+            return -1;
+        }
+    }
+
     public static class CardEntry {
         public long id;
         public long scanTime;
